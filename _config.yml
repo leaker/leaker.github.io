@@ -13,7 +13,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://www.leelib.com
+url: https://www.leelib.com
 root: /
 permalink: :year/:month/:day/:title.html
 permalink_defaults:
@@ -79,7 +79,7 @@ theme: jacman
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: git@github.com:leelib/leelib.github.io
+  repository: git@github.com:leaker/leaker.github.io
   branch: master
 
 plugins:
@@ -99,4 +99,4 @@ robotstxt:
   allow:
     - /
     - /archives/
-  sitemap: http://www.leelib.com/sitemap.xml
+  sitemap: https://www.leelib.com/sitemap.xml
