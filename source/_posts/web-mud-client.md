@@ -76,7 +76,7 @@ OnItemInfo 等触发事件
 
 ## 使用说明：
 
-配置客户端目录下的 Config.ini 文件，修改Host为你需要登录的网站地址。这个地址从你登录游戏以后的页面提取。例如登录以后地址是：http://gksx.free.ezvpn.cn:9001/cgi-bin/mud/login1 那么这里就填：http://gksx.free.ezvpn.cn:9001
+配置客户端目录下的 Config.ini 文件，修改Host为你需要登录的网站地址。这个地址从你登录游戏以后的页面提取。例如登录以后地址是：http://xxx.example.com/cgi-bin/mud/login1 那么这里就填：http://xxx.example.com
 
 ## 附加说明：
 
