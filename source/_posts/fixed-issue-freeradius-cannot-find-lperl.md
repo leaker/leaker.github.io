@@ -10,7 +10,7 @@ categories:
 date: 2012-03-27 04:30:09
 ---
 
-<center>![](/wp-content/uploads/2012/03/lperl.jpg)</center>
+<center>{% img /wp-content/uploads/2012/03/lperl.jpg %}</center>
 
 今天因为项目需要，需要编译freeradius来使用。
 

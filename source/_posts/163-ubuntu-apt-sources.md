@@ -8,7 +8,7 @@ categories:
 date: 2012-03-19 13:13:20
 ---
 
-<center>![](/wp-content/uploads/2012/03/ubuntu_splash.jpg)</center>
+<center>{% img /wp-content/uploads/2012/03/ubuntu_splash.jpg %}</center>
 
 # 步骤
 

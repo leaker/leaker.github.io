@@ -4,6 +4,6 @@ categories:
   - interesting
 tags:
 ---
-![](/images/20150805/battle-net-error.jpg)
+{% img /images/20150805/battle-net-error.jpg %}
 
 可能是网络或者其他原因引起的。但没想到暴雪竟然会萌萌的掀桌子 0.0///

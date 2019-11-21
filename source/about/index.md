@@ -1,7 +1,8 @@
 title: 关于本人
 date: 2015-08-04 16:56:47
 ---
-<center> ![](about.jpg) </center>
+<center> {% img /about/about.jpg %} </center>
+
 ## 特征
 
 > 猥琐大叔

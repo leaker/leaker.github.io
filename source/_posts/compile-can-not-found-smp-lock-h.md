@@ -10,7 +10,7 @@ categories:
 date: 2013-06-01 13:07:20
 ---
 
-<center>![](/wp-content/uploads/2013/06/linux_kernel.jpg)</center>
+<center>{% img /wp-content/uploads/2013/06/linux_kernel.jpg %}</center>
 项目中有个驱动代码之前在老版本linux系统中编写的
 在移植到**linux-kernel-3.2.0** 后，编译时出现一处错误 **fatal error: linux/smp_lock.h: No such file or directory**
 

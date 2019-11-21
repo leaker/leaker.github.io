@@ -84,7 +84,6 @@ deploy:
 
 plugins:
   hexo-generator-sitemap
-  hexo-generator-robotstxt
   hexo-generator-feed
 
 robotstxt:
