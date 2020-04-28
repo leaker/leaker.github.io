@@ -18,7 +18,7 @@ categories:
 # 解决方案
 ## Windows7 添加方法
 将以下内容修改到自己对应VS目录后以文本形式保存到 VS2013-Command-Prompt-Here-win7.reg 文件，然后双击导入即可
-```reg
+```ini
 Windows Registry Editor Version 5.00
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Folder\shell\VS2013 Command Prompt Here]
@@ -29,7 +29,7 @@ Windows Registry Editor Version 5.00
 
 ## Windows10 添加方法
 将以下内容修改到自己对应VS目录后以文本形式保存到 VS2013-Command-Prompt-Here-win10.reg 文件，然后双击导入即可
-```reg
+```ini
 Windows Registry Editor Version 5.00
 
 [HKEY_CLASSES_ROOT\Directory\Background\shell\VS2013 Command Prompt Here]

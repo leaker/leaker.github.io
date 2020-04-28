@@ -15,7 +15,7 @@ date: 2012-04-25 10:04:10
 
 # 错误原因
 在使用未注册的 RedHat Linux 企业版时。使用yum命令会出现如下提示：
-```bash
+```shell
 [root@localhost ~]# yum install httpd
 Loaded plugins: rhnplugin, security  
 This system is not registered with RHN.  

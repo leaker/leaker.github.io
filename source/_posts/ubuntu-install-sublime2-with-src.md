@@ -40,7 +40,7 @@ sudo apt-get install sublime-text
   ```
 
 5.  将下面的代码保存进去
-  ```text
+  ```ini
   [Desktop Entry]
   Version=1.0
   Name=Sublime Text 2
@@ -53,6 +53,7 @@ sudo apt-get install sublime-text
   Type=Application
   Categories=TextEditor;IDE;Development
   X-Ayatana-Desktop-Shortcuts=NewWindow
+  
   [NewWindow Shortcut Group]
   Name=New Window
   Exec=sublime -n

@@ -21,6 +21,7 @@ date: 2015-01-16 01:35:37
 > Windows 里面 提供了一条可以用来释放自身模块的函数 **FreeLibraryAndExitThread** 可以释放自身。
 
 函数
-
-    VOID WINAPI FreeLibraryAndExitThread(_In_ HMODULE hLibModule, _In_ DWORD dwExitCode)
+```cpp
+VOID WINAPI FreeLibraryAndExitThread(_In_ HMODULE hLibModule, _In_ DWORD dwExitCode)
+```
     

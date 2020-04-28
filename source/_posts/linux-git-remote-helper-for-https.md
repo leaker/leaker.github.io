@@ -15,6 +15,6 @@ date: 2014-12-30 23:42:43
 解决办法就是在编译之前安装相关的开发包就可以了。
 
 # 在CentOS系统中使用下面命令来安装
-```bash
+```shell
 yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel
 ```

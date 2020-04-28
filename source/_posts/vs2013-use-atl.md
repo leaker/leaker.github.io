@@ -18,5 +18,5 @@ date: 2014-11-21 12:15:21
 ### 要使用 AtlAxAttachControl 等函数的话，则必须初始化ATL模块
 ```cpp
 CComModule _Module;
-_pAtlModule = &amp;_Module;
+_pAtlModule = &_Module;
 ```

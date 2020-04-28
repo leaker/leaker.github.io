@@ -11,7 +11,7 @@ date: 2012-05-24 06:36:37
 ---
 
 首先查看日志文件
-```bash
+```shell
 [root@ubuntu]# cat /var/log/danted.log
 ```
 

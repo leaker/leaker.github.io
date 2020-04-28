@@ -16,7 +16,7 @@ date: 2013-06-08 03:00:30
 说明系统可能有多块网卡共存。
 
 # 需要指定工作网卡才能开始截包，使用参数举例
-```bash
+```shell
 [root@centos]# tcpdump -i eth0 udp port 53
 ```
 

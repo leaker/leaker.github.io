@@ -7,7 +7,7 @@ tags:
 categories: programing
 ---
 # 不能再构造函数内使用 shared_from_this() 函数
-```c++
+```cpp
 class class_a : public std::enable_shared_from_this<class_a>
 {
 public:
@@ -19,7 +19,7 @@ public:
 ```
 
 # 子类无法重复继承
-```c++
+```cpp
 class class_a : public std::enable_shared_from_this<class_a>
 {
 };
@@ -30,7 +30,7 @@ class class_b : public class_a, public std::enable_shared_from_this<class_a>
 ```
 这段代码将无法通过编译。
 如果想返回子类的 shared_from_this 指针，则可以进行如下操作
-```c++
+```cpp
 class class_a : public std::enable_shared_from_this<class_a>
 {
 public:

@@ -12,7 +12,7 @@ date: 2014-11-01 08:42:17
 
 我们这里使用源码编译安装，直接按顺序执行下列命令就可以成功(我都是假设已经有root权限的情况下，所以执行之前请确认自己已有root权限)：
 
-```bash
+```shell
 yum install -y mercurial gcc-c++ gcc
 mkdir /usr/local
 cd /usr/local
@@ -29,7 +29,7 @@ export PATH=.:$PATH:/usr/local/go/bin
 ```
 
 现在应该已经可以执行go命令测试了：
-```bash
+```shell
 [root@root]# go version
 go version go1.3.3 linux/amd64
 ```

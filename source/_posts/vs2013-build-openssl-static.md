@@ -11,7 +11,7 @@ categories:
 ---
 # 打开 Visual Studio 2013 Command Prompt
 
-```bat
+```shell
 wget http://www.nasm.us/pub/nasm/releasebuilds/2.11.08/win32/nasm-2.11.08-win32.zip
 unzip nasm-2.11.08-win32.zip -d C:/nasm
 set PATH=%PATH%;C:/nasm/

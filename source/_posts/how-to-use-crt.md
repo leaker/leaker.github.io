@@ -16,7 +16,7 @@ tags:
 >   注意每个库都有一个调试版本和发布版本。
 
     Reusable Library            Switch    Library    Macro(s) Defined
-    ----------------------------------------------------------------
+    --------------------------- --------- ---------- ----------------------
     Single Threaded             /ML       LIBC       (none)
     Static MultiThread          /MT       LIBCMT     _MT
     Dynamic Link (DLL)          /MD       MSVCRT     _MT and _DLL
@@ -25,36 +25,36 @@ tags:
     Debug Dynamic Link (DLL)    /MDd      MSVCRTD    _DEBUG, _MT, and _DLL
     
 
-    ## 下面的代码可以使用可重用库的头文件中以确保一致使用正确的编译器开关：
+## 下面的代码可以使用可重用库的头文件中以确保一致使用正确的编译器开关：
+```cpp
+// MyReusableStaticSingleThreadReleaseLibrary.h
+#if defined(_MT) || defined(_DEBUG)
+    #error The /ML compiler switch is required.
+#endif
 
-    // MyReusableStaticSingleThreadReleaseLibrary.h
-    #if defined(_MT) || defined(_DEBUG)
-        #error The /ML compiler switch is required.
-    #endif
+// MyReusableStaticMultithreadReleaseLibrary.h
+#if !defined(_MT) || defined(_DLL) || defined(_DEBUG)
+    #error The /MT compiler switch is required.
+#endif
 
-    // MyReusableStaticMultithreadReleaseLibrary.h
-    #if !defined(_MT) || defined(_DLL) || defined(_DEBUG)
-        #error The /MT compiler switch is required.
-    #endif
+// MyReusableDynamicLinkReleaseLibrary.h
+#if !defined(_MT) || !defined(_DLL) || defined(_DEBUG)
+    #error The /MD compiler switch is required.
+#endif
 
-    // MyReusableDynamicLinkReleaseLibrary.h
-    #if !defined(_MT) || !defined(_DLL) || defined(_DEBUG)
-        #error The /MD compiler switch is required.
-    #endif
+// MyReusableStaticSingleThreadDebugLibrary.h
+#if defined(_MT) || !defined(_DEBUG)
+    #error The /MLd compiler switch is required.
+#endif
 
-    // MyReusableStaticSingleThreadDebugLibrary.h
-    #if defined(_MT) || !defined(_DEBUG)
-        #error The /MLd compiler switch is required.
-    #endif
+// MyReusableStaticMultithreadDebugLibrary.h
+#if !defined(_MT) || defined(_DLL) || !defined(_DEBUG)
+    #error The /MTd compiler switch is required.
+#endif
 
-    // MyReusableStaticMultithreadDebugLibrary.h
-    #if !defined(_MT) || defined(_DLL) || !defined(_DEBUG)
-        #error The /MTd compiler switch is required.
-    #endif
-
-    // MyReusableDynamicLinkDebugLibrary.h
-    #if !defined(_MT) || !defined(_DLL) || !defined(_DEBUG)
-        #error The /MDd compiler switch is required.
-    #endif
-
+// MyReusableDynamicLinkDebugLibrary.h
+#if !defined(_MT) || !defined(_DLL) || !defined(_DEBUG)
+    #error The /MDd compiler switch is required.
+#endif
+```
 原文：[http://support.microsoft.com/kb/140584/zh-cn](http://support.microsoft.com/kb/140584/zh-cn)

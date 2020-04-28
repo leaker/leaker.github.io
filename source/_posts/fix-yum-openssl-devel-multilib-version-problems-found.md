@@ -11,7 +11,7 @@ date: 2014-06-29 06:56:31
 ---
 
 今天给一台CentOS系统安装openssl-devel时，出现了如下信息：
-```bash
+```shell
 [root@centos]# yum install -y openssl-devel
 Loaded plugins: fastestmirror, security
 Repository updates is listed more than once in the configuration
@@ -88,7 +88,7 @@ Error:  Multilib version problems found. This often means that the root
 ```
 
 **最后在一个日文的网站上找到了解决办法：**
-```bash
+```shell
 yum install --enablerepo=centosplus openssl-devel
 ```
 

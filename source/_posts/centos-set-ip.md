@@ -18,7 +18,7 @@ date: 2013-05-12 05:54:24
 
 # 设置IP为自动获取：
 
-```bash
+```shell
 [root@centos ~]# dhclient eth0
 ```
 
@@ -26,12 +26,12 @@ date: 2013-05-12 05:54:24
 
 1. 设置网关
 
-```bash
+```shell
 [root@centos ~]# echo 'GATEWAY="192.168.1.1"' >> /etc/sysconfig/network
 ```
 
 2. 设置网卡信息
-```bash
+```shell
 [root@centos ~]# echo 'DEVICE="eth0"
 HWADDR="00:0C:29:28:F9:88"
 NM_CONTROLLED="yes"
@@ -47,14 +47,14 @@ TYPE="Ethernet"' > /etc/sysconfig/network-scripts/ifcfg-eth0
 ```
 
 3. 设置DNS
-```bash
+```shell
 [root@centos ~]# echo 'nameserver 8.8.8.8
 nameserver 8.8.4.4'> /etc/resolv.conf
 ```
 
 
 4. 重启网络
-```bash
+```shell
 [root@centos ~]# service network restart
 Shutting down loopback interface: [ OK ]
 Bringing up loopback interface: [ OK ]

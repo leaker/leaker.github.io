@@ -12,10 +12,14 @@ date: 2013-06-02 12:25:27
 ---
 
 ## CentOS系统
+```bash
 yum install -y kernel-devel
+```
 
 ## Ubuntu系统
+```bash
 apt-get install linux-source
+```
 
 以上～！
 

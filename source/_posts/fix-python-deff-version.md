@@ -32,7 +32,7 @@ ln -s /usr/local/bin/python2.7 /usr/bin/python -f
 ```
 
 再调用 **python --version** 显示结果
-```bash
+```shell
 [root@centos]# python --version
 Python 2.7.3
 ```
