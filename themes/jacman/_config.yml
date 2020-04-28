@@ -56,8 +56,8 @@ creative_commons: none
 
 #### Author information
 author:
-  intro_line1:  "Hello, I'm Leaker's Blog in github."    ## your introduction on the bottom of the page
-  intro_line2:  "Living without an aim is like sailing without a compass."  ## the 2nd line
+  intro_line1:  "Hello, this is leaker's blog in github."    ## your introduction on the bottom of the page
+  intro_line2:  "Leaker: \"Living without an aim is like sailing without a compass.\""  ## the 2nd line
   weibo:      ## e.g. wuchong1014 or 2176287895 for http://weibo.com/2176287895
   weibo_verifier:  ## e.g. b3593ceb Your weibo-show widget verifier ,if you use weibo-show it is needed.
   tsina:      ## e.g. 2176287895  Your weibo ID,It will be used in share button.
@@ -115,7 +115,7 @@ cnzz_tongji:
   siteid:    ## e.g. 1253575964 your cnzz tongji site id
 
 #### Miscellaneous
-ShowCustomFont: true  ## you can change custom font in `variable.styl` and `font.styl` which in the theme folder `/jacman/source/css`.
+show_custom_font: true  ## you can change custom font in `variable.styl` and `font.styl` which in the theme folder `/jacman/source/css`.
 fancybox: true        ## if you use gallery post or want use fancybox please set the value to true.
 totop: true           ## if you want to scroll to top in every post set the value to true
 
