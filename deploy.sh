@@ -1,11 +1,29 @@
+#!/bin/bash
+
 if [ -d "public" ]; then
   hexo clean
 fi
 hexo d
 
+###################################################################################################
 echo 正在生成urls.txt...
-grep -o "https://www.leelib.com/[^<]*" public/sitemap.xml > urls.txt
-echo 修正域名用于阿里云CDN预热...
-sed -i s/"www.leelib.com"/"www.kaij.cn"/ urls.txt
-#echo 百度链接提交...
-#curl -H 'Content-Type:text/plain' --data-binary @urls.txt "http://data.zz.baidu.com/urls?site=https://www.kaij.cn&token=qyTc2OCtwlf52Y64"
+# 清空原文件
+rm -f urls.txt
+read_dir(){
+    for file in `ls $1`
+    do
+        if [ -d $1"/"$file ]
+        then
+            read_dir $1"/"$file
+        elif [ $file != "CNAME" ]
+        then
+            if [ $1 == "public" ] # 根目录
+            then
+                echo "https://www.kaij.cn/"${1:6}$file >> urls.txt
+            else
+                echo "https://www.kaij.cn"${1:6}"/"$file >> urls.txt
+            fi
+        fi
+    done
+}
+read_dir "public"
