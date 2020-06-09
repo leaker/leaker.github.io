@@ -39,11 +39,11 @@ D:\ on /mnt/d type drvfs (rw,noatime,uid=0,gid=0,case=off)
 ### 解决办法很简单，通过DrvFs让WSL可以支持NTFS分区增加文件metadata信息：
 1. 挂载配置
 ```bash
-echo `[automount]
+echo '[automount]
 enabled = true
 root = /mnt/
 options = "metadata,umask=22,fmask=11"
-mountFsTab = false` > /etc/wsl.conf
+mountFsTab = false' > /etc/wsl.conf
 ```
 
 2. 在**PowerShell**中重启WSL服务
