@@ -19,7 +19,7 @@ os:
   - linux
 
 script:
-  - npm run deploy
+  - npm run build
 
 deploy:
   provider: pages
