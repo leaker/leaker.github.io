@@ -1,0 +1,33 @@
+language: node_js
+
+node_js:
+  - lts/*
+
+branches:
+  only:
+    - hexo
+
+cache:
+  directories:
+    - node_modules
+
+before_script:
+  - npm install -g hexo-cli
+  - npm install
+
+os:
+  - linux
+
+script:
+  - npm run deploy
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  keep_history: true
+  on:
+    branch: hexo
+  fqdn: www.leelib.com
+  local_dir: public
+  target_branch: master
