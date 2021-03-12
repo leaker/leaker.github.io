@@ -8,12 +8,15 @@ branches:
     - hexo
 
 cache:
+  - ossutil64
   directories:
     - node_modules
 
-before_script:
+install:
   - npm install -g hexo-cli
   - npm install
+  - wget http://gosspublic.alicdn.com/ossutil/1.7.1/ossutil64
+  - chmod 755 ossutil64
 
 os:
   - linux
@@ -31,3 +34,7 @@ deploy:
   fqdn: www.leelib.com
   local_dir: public
   target_branch: master
+
+after_deploy:
+  - ./ossutil64 rm oss://kaij/ -r -f -e $OSS_ENDPOINT -i $OSS_ACCESSKEYID -k $OSS_ACCESSKEYSECRET
+
