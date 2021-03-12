@@ -8,7 +8,6 @@ branches:
     - hexo
 
 cache:
-  - ossutil64
   directories:
     - node_modules
 
