@@ -14,7 +14,7 @@ scoop install pwsh
 ```
 
 发现在 **VSCode** 的 **Terminal Shells** 列表里面依然看不到新安装的 **PowerShell Core**
-![VSCode Terminal Shells](uploads/2021/03/vscode-terminal-shells.png)
+![VSCode Terminal Shells](/uploads/2021/03/vscode-terminal-shells.png)
 
 但我又不想使用当然默认的 PowerShell 或者 cmd 当我的 Shell
 这时就可以这样配置：
@@ -36,7 +36,7 @@ scoop install pwsh
 3. 重新运行 **VSCode**
 
 可以看到我们 **VSCode** 已经使用了 **PowerShell Core** 作为默认 **Terminal Shells** 了
-![VSCode Default Terminal Shell](uploads/2021/03/vscode-default-pwsh.png)
+![VSCode Default Terminal Shell](/uploads/2021/03/vscode-default-pwsh.png)
 
 参考文献：
 > [Quick Start · lukesampson/scoop Wiki](https://github.com/lukesampson/scoop/wiki/Quick-Start)
