@@ -9,7 +9,7 @@ description:
 keywords: 
 author: leaker
 language: zh-CN
-timezone: Asia/Shanghai
+timezone: UTC
 beianrecordcode: 陕ICP备20006522号 #备案号备案好了填入
 
 # URL
