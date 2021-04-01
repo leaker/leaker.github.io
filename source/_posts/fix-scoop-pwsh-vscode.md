@@ -18,7 +18,7 @@ scoop install pwsh
 发现在 **VSCode** 的 **Terminal Shells** 列表里面依然看不到新安装的 **PowerShell Core**
 ![VSCode Terminal Shells](/images/2021/03/vscode-terminal-shells.png)
 
-但我又不想使用当然默认的 PowerShell 或者 cmd 当我的 Shell
+但我又不想使用默认的 PowerShell 或者 cmd 当我的 Shell
 这时就可以这样配置：
 1. 在 **VSCode** 里打开 **Command Palette**`(Ctrl+Shift+P)` 选择 **Preferences: Open Settings (JSON)** 打开用户配置文件 **settings.json**
 2. 添加如下配置
