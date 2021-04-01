@@ -1,0 +1,40 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@latest
+
+      - name: Build and Deploy
+        uses: solybum/hexo-deploy@master
+        env:
+          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLISH_REPOSITORY: leaker/leaker.github.io # The repository the action should deploy to.
+          BRANCH: gh-pages  # The branch the action should deploy to.
+          PUBLISH_DIR: ./public # The folder the action should deploy.
+
+      - name: Clean OSS
+        run: |
+          wget http://gosspublic.alicdn.com/ossutil/1.7.1/ossutil64
+          chmod 755 ossutil64
+          ./ossutil64 rm oss://kaij/ -r -f -e ${{ secrets.OSS_ENDPOINT }} -i ${{ secrets.OSS_ACCESSKEYID }} -k ${{ secrets.OSS_ACCESSKEYSECRET }}
