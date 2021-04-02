@@ -8,7 +8,7 @@ categories:
 date: 2012-03-22 23:48:35
 ---
 
-<center>{% img /images/webmud_1_0.png %}</center>
+<center>{% img /images/webmud_1_0.webp %}</center>
 
 **为一个元老级的MUD游戏开发的一个PC客户端。利用业余时间完成（主要是这阵子要钻研一个很有技术难度的工作，整天要对着封包一个字节一个字节比对，头疼的厉害。）。**
 

@@ -11,7 +11,7 @@ categories:
 date: 2012-04-25 10:04:10
 ---
 
-<center>{% img /wp-content/uploads/2012/04/redhat-300x225.jpg %}</center>
+<center>{% img /wp-content/uploads/2012/04/redhat.webp %}</center>
 
 # 错误原因
 在使用未注册的 RedHat Linux 企业版时。使用yum命令会出现如下提示：

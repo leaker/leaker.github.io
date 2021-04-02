@@ -9,7 +9,7 @@ categories:
 date: 2012-03-18 20:34:12
 ---
 
-<center>{% img /wp-content/uploads/2012/03/favicon.jpg "FavIcon from Pics" %}</center>
+<center>{% img /wp-content/uploads/2012/03/favicon.webp "FavIcon from Pics" %}</center>
 一个可以在线生成网站favicon图标的网站
 
 网站地址：[http://www.chami.com/html-kit/services/favicon/](http://www.chami.com/html-kit/services/favicon/)

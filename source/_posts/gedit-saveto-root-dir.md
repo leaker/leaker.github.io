@@ -11,7 +11,7 @@ categories:
 date: 2012-03-20 19:08:43
 ---
 
-<center>{% img /wp-content/uploads/2012/03/gedit.jpg %}</center>
+<center>{% img /wp-content/uploads/2012/03/gedit.webp %}</center>
 
 # 解决方案
 为了能让gedit能够直接编辑不属于当前用户的文件，我们需要做如下操作：

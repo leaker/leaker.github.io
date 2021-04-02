@@ -1,7 +1,7 @@
 title: 关于本人
 date: 2015-08-04 16:56:47
 ---
-<center> {% img /about/about.jpg %} </center>
+<center> {% img /about/about.webp %} </center>
 
 ## 特征
 

@@ -1,7 +1,7 @@
 title: 慢慢的，就没有了，就像从未存在过
 date: 2015-08-04 17:34:00
 ---
-<center> {% img /disappear/disappear.jpg %} </center>
+<center> {% img /disappear/disappear.webp %} </center>
 　　几年以前，我曾经嘲笑过某科技界大佬。当时他说：也许90后、95后会慢慢不知道谷歌是什么网站。
 
 　　那一年，这对于我来说简直就是世界上最好笑的笑话。谷歌，全世界最卓越的互联网公司，活在互联网的一代中国人，会不知道他们的网站？

@@ -22,9 +22,9 @@ sudo apt-get install gnome-session-fallback
 # 设置
 下面就是设置了，登出当前用户后进行以下步骤：
 1. 在登录用户界面选用户名右边的配置按钮
-![gnome设置第一步](/wp-content/uploads/2013/03/login1.png)
+![gnome设置第一步](/wp-content/uploads/2013/03/login1.webp)
 2. 选择“GNOME Classic”
-![gnome设置第二步](/wp-content/uploads/2013/03/login2.png)
+![gnome设置第二步](/wp-content/uploads/2013/03/login2.webp)
 
 现在，输入密码登录看看，是不是已经是熟悉的gnome界面了呢。至此，打完收工。
 (o≖◡≖)

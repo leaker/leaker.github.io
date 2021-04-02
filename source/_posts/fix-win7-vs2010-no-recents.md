@@ -8,7 +8,7 @@ categories:
 date: 2012-04-07 06:39:59
 ---
 
-<center>{% img /wp-content/uploads/2012/04/VS2010StartPage.png %}</center>
+<center>{% img /wp-content/uploads/2012/04/VS2010StartPage.webp %}</center>
 
 最近因为一些原因开始使用Win7 x64系统。
 而使用VS2010的时候发现文件菜单里面竟然没有 **最近使用的项目和解决方案** 这一项。
