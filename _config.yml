@@ -6,7 +6,7 @@
 title: 逃避虽然可耻但有用
 subtitle: 少壮不努力，一生在内地
 description:
-keywords: 
+keywords:
 author: leaker
 language: zh-CN
 timezone: UTC
@@ -43,22 +43,22 @@ highlight:
   enable: false
   line_number: true
   auto_detect: false
-  tab_replace: '    '
+  tab_replace: "    "
 prismjs:
   enable: true
   preprocess: true
   line_number: true
-  tab_replace: '    '
-  
+  tab_replace: "    "
+
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
 # per_page: Posts displayed per page. (0 = disable pagination)
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
-  path: ''
+  path: ""
   per_page: 10
   order_by: -date
-  
+
 # Category & Tag
 default_category: uncategorized
 category_map:
@@ -99,11 +99,11 @@ robotstxt:
     - /archives/
   sitemap: https://www.leelib.com/sitemap.xml
 
-  stylus:
-    compress: false
-    sourcemaps:
-      comment: true
-      inline: true
-      sourceRoot: ''
-      basePath: .
-    plugins: 'nib'
+stylus:
+  compress: true
+  sourcemaps:
+    comment: false
+    inline: true
+    sourceRoot: ""
+    basePath: .
+  plugins: "nib"
