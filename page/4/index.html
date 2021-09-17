@@ -1,0 +1,1119 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>逃避虽然可耻但有用</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="leaker">
+    
+
+    
+    <meta property="og:type" content="website">
+<meta property="og:title" content="逃避虽然可耻但有用">
+<meta property="og:url" content="https://www.leelib.com/page/4/index.html">
+<meta property="og:site_name" content="逃避虽然可耻但有用">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="leaker">
+<meta name="twitter:card" content="summary">
+
+    
+    <link rel="alternative" href="/atom.xml" title="逃避虽然可耻但有用" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/favicon.ico">
+    
+    
+    <link rel="stylesheet" href="/css/style.css">
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.webp" alt="逃避虽然可耻但有用" title="逃避虽然可耻但有用"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="逃避虽然可耻但有用">逃避虽然可耻但有用</a></h1>
+				<h2 class="blog-motto">少壮不努力，一生在内地</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives/index.html">归档</a></li>
+					
+						<li><a href="/about/index.html">关于</a></li>
+					
+						<li><a href="/disappear/index.html">消失</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:www.leelib.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main">
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2013/11/23/boost-c4996-std-copy-impl.html" title="在使用boost库时发生 error C4996: &#39;std::_Copy_impl&#39; 的解决方案" itemprop="url">在使用boost库时发生 error C4996: &#39;std::_Copy_impl&#39; 的解决方案</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about/index.html" title="leaker" target="_blank" itemprop="author">leaker</a>
+		
+  <p class="article-time">
+    <time datetime="2013-11-23T13:21:44.000Z" itemprop="datePublished"> 发表于 2013-11-23</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>原本的程序是控制台的。<br>但最近需要移植到windows下使用。<br>所以以MFC来做UI，代码照搬。<br>一面的一处代码使用了如下语句：</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">boost<span class="token double-colon punctuation">::</span><span class="token function">split</span><span class="token punctuation">(</span>v<span class="token punctuation">,</span> data<span class="token punctuation">,</span> boost<span class="token double-colon punctuation">::</span><span class="token function">is_any_of</span><span class="token punctuation">(</span><span class="token function">_T</span><span class="token punctuation">(</span><span class="token string">"n"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>结果编译时出现了如下错误：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">error C4996: 'std::_Copy_impl'<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>而且是无论怎么修改都不认，差点打算重写了。</p>
+<p>在网络中搜索了半天未果，只能自己分析。好在被我乱猜给猜对了。</p>
+<p>我猜是因为boost的string和std的string产生了冲突而导致的。<br>所以添加上boost的string引用后，问题得以解决。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;boost/algorithm/string.hpp></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>在此留字，希望能帮到遇到同样问题的人。</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/programing/index.html">programing</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/boost/index.html">boost</a><a href="/tags/C4996/index.html">C4996</a><a href="/tags/is-any-of/index.html">is_any_of</a><a href="/tags/mfc/index.html">mfc</a><a href="/tags/split/index.html">split</a><a href="/tags/string/index.html">string</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2013/11/01/httpd-permission-denied-make-sock-could-not-bind-to-address.html" title="Starting httpd: (13)Permission denied: make_sock: could not bind to address 解决方案" itemprop="url">Starting httpd: (13)Permission denied: make_sock: could not bind to address 解决方案</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about/index.html" title="leaker" target="_blank" itemprop="author">leaker</a>
+		
+  <p class="article-time">
+    <time datetime="2013-11-01T08:36:55.000Z" itemprop="datePublished"> 发表于 2013-11-01</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>修改了conf里面的Listen端口</p>
+<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><ol>
+<li>修改成SELinux安全机制里面默认允许的端口（80, 443, 488, 8008, 8009, 8443）等等。</li>
+<li>修改SELinux安全设置<br>如：<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">semanage port -a -t http_port_t -p tcp <span class="token operator">&lt;</span>listen port<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ol>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/linux/index.html">linux</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/apache/index.html">apache</a><a href="/tags/bind/index.html">bind</a><a href="/tags/conf/index.html">conf</a><a href="/tags/denied/index.html">denied</a><a href="/tags/httpd/index.html">httpd</a><a href="/tags/http-port/index.html">http_port</a><a href="/tags/listen/index.html">listen</a><a href="/tags/permission/index.html">permission</a><a href="/tags/SELinux/index.html">SELinux</a><a href="/tags/semanage/index.html">semanage</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2013/10/30/fix-winrar-order.html" title="解决WinRAR压缩包分卷乱序导致无法解压的问题" itemprop="url">解决WinRAR压缩包分卷乱序导致无法解压的问题</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about/index.html" title="leaker" target="_blank" itemprop="author">leaker</a>
+		
+  <p class="article-time">
+    <time datetime="2013-10-30T00:24:38.000Z" itemprop="datePublished"> 发表于 2013-10-30</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>下载游戏：<strong>《古墓丽影9》中文免安装绿色豪华硬盘版[1.1.732.1升级档][解压即玩]</strong><br>光压缩包所有分卷加起来就有快10个G<br>结果用QQ旋风下载下来后成乱序的了<br>然后到网站上一看发现QQ旋风本身就把链接那些顺序没搞对。<br>参考下载地址：<a target="_blank" rel="noopener" href="http://fenxiang.qq.com/x/3SSKsVNycfRNc3CJcuCA0~NHIcT5rX133GN0qnvKZltI" title="http://fenxiang.qq.com/x/3SSKsVNycfRNc3CJcuCA0~NHIcT5rX133GN0qnvKZltI">Tomb.Raider.9.v1.1.732.1.CHS.Green.Edition</a></p>
+<p>自己根据使用7-zip打开压缩包的“之前分割”和“之后分割”信息拼凑了半天，结果还是有一个文件“bigfile.001.tiger”不能成功解压。最终放弃。</p>
+<p>结果在网上搜索了半天，竟然发现“360压缩”竟然宣称自己可以修复。</p>
+<p>原文在：<a target="_blank" rel="noopener" href="http://yasuo.360.cn/update.html" title="http://yasuo.360.cn/update.html">http://yasuo.360.cn/update.html</a></p>
+  <pre class="line-numbers language-text" data-language="text"><code class="language-text">1.6正式版（2011-5-26）
+  1.智能压缩方式，360压缩支持智能极速、强力压缩、标准压缩等压缩方式。智能压缩根据文件智能选择压缩算法，大幅提升压缩速度。
+  2.多种格式支持，支持解压rar、zip、7z、iso等39种格式的压缩文件。
+  3.解压速度更快，采用多线程解压处理，优化了解压逻辑，速度更快。
+  4.损坏格式兼容，对格式头有损坏的压缩包一样修复解压。
+* 5.分卷压缩智能解压，智能判断解压rar分卷包时的文件夹名乱序问题。
+  6.更安全的压缩软件，内含360云安全引擎，对压缩包内木马进行检测，更安全。
+  7.不断完善的细节体验，支持跳转到桌面、自动消重文件夹等20多处相对传统压缩软件的细节功能改进。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>抱着尝试的心态，下载了一个最新版的安装上尝试后。发现真的正常解压了所有压缩包。<br>总算是解决了目前的尴尬问题，所以在此留文提醒有遇到跟我同样问题的朋友。</p>
+<p>成功解压版本：<a target="_blank" rel="noopener" href="http://dl.360safe.com/360zip_beta_3.1.0.1071.exe" title="360zip_beta_3.1.0.1071">360zip_beta_3.1.0.1071</a></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/summarys/index.html">summarys</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/360zip/index.html">360zip</a><a href="/tags/disorder/index.html">disorder</a><a href="/tags/Tomb-Raider/index.html">Tomb Raider</a><a href="/tags/winrar/index.html">winrar</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2013/10/29/make-socket-proxy.html" title="让Socket通过HTTP代理通讯" itemprop="url">让Socket通过HTTP代理通讯</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about/index.html" title="leaker" target="_blank" itemprop="author">leaker</a>
+		
+  <p class="article-time">
+    <time datetime="2013-10-29T16:06:54.000Z" itemprop="datePublished"> 发表于 2013-10-29</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="如果socket想使用HTTP代理，需要进行下面步骤："><a href="#如果socket想使用HTTP代理，需要进行下面步骤：" class="headerlink" title="如果socket想使用HTTP代理，需要进行下面步骤："></a>如果socket想使用HTTP代理，需要进行下面步骤：</h2><ol>
+<li> connect到代理服务器</li>
+<li> send(Format(“CONNECT %s:%s HTTP/1.1rnUser-Agent: MyApp/0.1rnrn”, &lt;真正目标IP&gt;, &lt;真正目标端口&gt;)</li>
+<li> recv 数据，并且根据数据内容判断CONNECT协议是否成功（是否有返回”HTTP/1.1 200”）</li>
+<li> 如果第3步成功了，那么这个socket就已经是通过HTTP代理来连接的了，剩下的该怎么发包收包都照旧了</li>
+</ol>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/programing/index.html">programing</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/connect/index.html">connect</a><a href="/tags/http/index.html">http</a><a href="/tags/proxy/index.html">proxy</a><a href="/tags/recv/index.html">recv</a><a href="/tags/socket/index.html">socket</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2013/10/04/use-zlib.html" title="自己使用过程中使用zlib链接时出的错误总结" itemprop="url">自己使用过程中使用zlib链接时出的错误总结</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about/index.html" title="leaker" target="_blank" itemprop="author">leaker</a>
+		
+  <p class="article-time">
+    <time datetime="2013-10-04T06:37:29.000Z" itemprop="datePublished"> 发表于 2013-10-04</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="错误1"><a href="#错误1" class="headerlink" title="错误1"></a>错误1</h1><p><strong>error LNK2019: unresolved external symbol _deflateEnd@4</strong></p>
+<h2 id="原因1-未使用zlib的链接库"><a href="#原因1-未使用zlib的链接库" class="headerlink" title="原因1: 未使用zlib的链接库"></a>原因1: 未使用zlib的链接库</h2><ul>
+<li>解决：<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">pragma</span> <span class="token expression"><span class="token function">comment</span><span class="token punctuation">(</span>lib<span class="token punctuation">,</span> </span><span class="token string">"zlibstat.lib"</span><span class="token expression"><span class="token punctuation">)</span> </span><span class="token comment">// for static lib</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">pragma</span> <span class="token expression"><span class="token function">comment</span><span class="token punctuation">(</span>lib<span class="token punctuation">,</span> </span><span class="token string">"zdll.lib"</span><span class="token expression"><span class="token punctuation">)</span> </span><span class="token comment">// for dll lib</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+</ul>
+<h2 id="原因2：在使用静态库时即使包含了zlibstat-lib没有定义宏“ZLIB-WINAPI”"><a href="#原因2：在使用静态库时即使包含了zlibstat-lib没有定义宏“ZLIB-WINAPI”" class="headerlink" title="原因2：在使用静态库时即使包含了zlibstat.lib没有定义宏“ZLIB_WINAPI”"></a>原因2：在使用静态库时即使包含了zlibstat.lib没有定义宏“ZLIB_WINAPI”</h2><ul>
+<li>解决：<br>在项目属性中 C/C++ -&gt; Preprocessor -&gt; Preprocessor Definitions 添加“ZLIB_WINAPI”<br>注意：这个必须在项目中添加，使用#define来添加是无效的。</li>
+</ul>
+<h1 id="错误2"><a href="#错误2" class="headerlink" title="错误2"></a>错误2</h1><p><strong>error LNK2026: module unsafe for SAFESEH image</strong></p>
+<h2 id="原因：两个项目SAFESEH设置不同"><a href="#原因：两个项目SAFESEH设置不同" class="headerlink" title="原因：两个项目SAFESEH设置不同"></a>原因：两个项目SAFESEH设置不同</h2><ul>
+<li>解决：<br>设置项目属性: Linker -&gt; Advanced -&gt; [Image Has Safe Exception Handlers] = “No”</li>
+<li>注意：这个必须在项目中添加，使用#pragma来添加是无效的。*</li>
+</ul>
+<h1 id="错误3"><a href="#错误3" class="headerlink" title="错误3"></a>错误3</h1><p><strong>error LNK2005: __call_reportfault already defined in LIBCMTD.lib(invarg.obj)或类似其他的error LNK2005:</strong></p>
+<h2 id="原因：与libcmt库冲突了"><a href="#原因：与libcmt库冲突了" class="headerlink" title="原因：与libcmt库冲突了"></a>原因：与libcmt库冲突了</h2><ul>
+<li>解决：<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">pragma</span> <span class="token expression"><span class="token function">comment</span><span class="token punctuation">(</span>linker<span class="token punctuation">,</span> </span><span class="token string">"/NODEFAULTLIB:libcmt.lib"</span><span class="token expression"><span class="token punctuation">)</span></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ul>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/programing/index.html">programing</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/SAFESEH/index.html">SAFESEH</a><a href="/tags/zlib/index.html">zlib</a><a href="/tags/comment/index.html">comment</a><a href="/tags/lib/index.html">lib</a><a href="/tags/link/index.html">link</a><a href="/tags/LNK2005/index.html">LNK2005</a><a href="/tags/pragma/index.html">pragma</a><a href="/tags/static/index.html">static</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2013/10/03/error-lnk2026-module-unsafe-for-safeseh-image.html" title="error LNK2026: module unsafe for SAFESEH image 解决方案" itemprop="url">error LNK2026: module unsafe for SAFESEH image 解决方案</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about/index.html" title="leaker" target="_blank" itemprop="author">leaker</a>
+		
+  <p class="article-time">
+    <time datetime="2013-10-03T15:21:16.000Z" itemprop="datePublished"> 发表于 2013-10-03</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>下面两种随便选一种</p>
+<h2 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h2><p>去掉项目设置中: <strong>Linker -&gt; Advanced -&gt; [Image Has Safe Exception Handlers] = “No”</strong></p>
+<h2 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h2><p>直接在代码中:</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">pragma</span> <span class="token expression"><span class="token function">comment</span><span class="token punctuation">(</span>linker<span class="token punctuation">,</span> </span><span class="token string">"/SAFESEH:NO"</span><span class="token expression"><span class="token punctuation">)</span></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/programing/index.html">programing</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/c/index.html">c</a><a href="/tags/Advanced/index.html">Advanced</a><a href="/tags/error/index.html">error</a><a href="/tags/image/index.html">image</a><a href="/tags/Linker/index.html">Linker</a><a href="/tags/LNK2026/index.html">LNK2026</a><a href="/tags/module/index.html">module</a><a href="/tags/SAFESEH/index.html">SAFESEH</a><a href="/tags/unsafe/index.html">unsafe</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2013/10/03/how-to-use-crt.html" title="如何用正确的 C 运行时 (CRT) 库链接" itemprop="url">如何用正确的 C 运行时 (CRT) 库链接</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about/index.html" title="leaker" target="_blank" itemprop="author">leaker</a>
+		
+  <p class="article-time">
+    <time datetime="2013-10-03T04:13:52.000Z" itemprop="datePublished"> 发表于 2013-10-03</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h1><p>有六种类型的可重用的库：</p>
+<blockquote>
+<p>静态单线程库 （调试/发行版）<br>  静态多线程的库 （调试/发行版）<br>  动态链接库 (DLL)(Debug/Release)<br>  注意每个库都有一个调试版本和发布版本。</p>
+</blockquote>
+<pre><code>Reusable Library            Switch    Library    Macro(s) Defined
+--------------------------- --------- ---------- ----------------------
+Single Threaded             /ML       LIBC       (none)
+Static MultiThread          /MT       LIBCMT     _MT
+Dynamic Link (DLL)          /MD       MSVCRT     _MT and _DLL
+Debug Single Threaded       /MLd      LIBCD      _DEBUG
+Debug Static MultiThread    /MTd      LIBCMTD    _DEBUG and _MT
+Debug Dynamic Link (DLL)    /MDd      MSVCRTD    _DEBUG, _MT, and _DLL
+</code></pre>
+<h2 id="下面的代码可以使用可重用库的头文件中以确保一致使用正确的编译器开关："><a href="#下面的代码可以使用可重用库的头文件中以确保一致使用正确的编译器开关：" class="headerlink" title="下面的代码可以使用可重用库的头文件中以确保一致使用正确的编译器开关："></a>下面的代码可以使用可重用库的头文件中以确保一致使用正确的编译器开关：</h2><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// MyReusableStaticSingleThreadReleaseLibrary.h</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">if</span> <span class="token expression"><span class="token function">defined</span><span class="token punctuation">(</span>_MT<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token function">defined</span><span class="token punctuation">(</span>_DEBUG<span class="token punctuation">)</span></span></span>
+    <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">error</span> <span class="token expression">The <span class="token operator">/</span>ML compiler <span class="token keyword">switch</span> is required<span class="token punctuation">.</span></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
+
+<span class="token comment">// MyReusableStaticMultithreadReleaseLibrary.h</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">if</span> <span class="token expression"><span class="token operator">!</span><span class="token function">defined</span><span class="token punctuation">(</span>_MT<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token function">defined</span><span class="token punctuation">(</span>_DLL<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token function">defined</span><span class="token punctuation">(</span>_DEBUG<span class="token punctuation">)</span></span></span>
+    <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">error</span> <span class="token expression">The <span class="token operator">/</span>MT compiler <span class="token keyword">switch</span> is required<span class="token punctuation">.</span></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
+
+<span class="token comment">// MyReusableDynamicLinkReleaseLibrary.h</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">if</span> <span class="token expression"><span class="token operator">!</span><span class="token function">defined</span><span class="token punctuation">(</span>_MT<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token operator">!</span><span class="token function">defined</span><span class="token punctuation">(</span>_DLL<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token function">defined</span><span class="token punctuation">(</span>_DEBUG<span class="token punctuation">)</span></span></span>
+    <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">error</span> <span class="token expression">The <span class="token operator">/</span>MD compiler <span class="token keyword">switch</span> is required<span class="token punctuation">.</span></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
+
+<span class="token comment">// MyReusableStaticSingleThreadDebugLibrary.h</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">if</span> <span class="token expression"><span class="token function">defined</span><span class="token punctuation">(</span>_MT<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token operator">!</span><span class="token function">defined</span><span class="token punctuation">(</span>_DEBUG<span class="token punctuation">)</span></span></span>
+    <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">error</span> <span class="token expression">The <span class="token operator">/</span>MLd compiler <span class="token keyword">switch</span> is required<span class="token punctuation">.</span></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
+
+<span class="token comment">// MyReusableStaticMultithreadDebugLibrary.h</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">if</span> <span class="token expression"><span class="token operator">!</span><span class="token function">defined</span><span class="token punctuation">(</span>_MT<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token function">defined</span><span class="token punctuation">(</span>_DLL<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token operator">!</span><span class="token function">defined</span><span class="token punctuation">(</span>_DEBUG<span class="token punctuation">)</span></span></span>
+    <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">error</span> <span class="token expression">The <span class="token operator">/</span>MTd compiler <span class="token keyword">switch</span> is required<span class="token punctuation">.</span></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
+
+<span class="token comment">// MyReusableDynamicLinkDebugLibrary.h</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">if</span> <span class="token expression"><span class="token operator">!</span><span class="token function">defined</span><span class="token punctuation">(</span>_MT<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token operator">!</span><span class="token function">defined</span><span class="token punctuation">(</span>_DLL<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token operator">!</span><span class="token function">defined</span><span class="token punctuation">(</span>_DEBUG<span class="token punctuation">)</span></span></span>
+    <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">error</span> <span class="token expression">The <span class="token operator">/</span>MDd compiler <span class="token keyword">switch</span> is required<span class="token punctuation">.</span></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>原文：<a target="_blank" rel="noopener" href="http://support.microsoft.com/kb/140584/zh-cn">http://support.microsoft.com/kb/140584/zh-cn</a></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/programing/index.html">programing</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2013/09/28/modify-ssh-lang.html" title="修改连接SSH时的系统语言" itemprop="url">修改连接SSH时的系统语言</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about/index.html" title="leaker" target="_blank" itemprop="author">leaker</a>
+		
+  <p class="article-time">
+    <time datetime="2013-09-28T05:13:34.000Z" itemprop="datePublished"> 发表于 2013-09-28</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <blockquote>
+<p>在SSH连接后执行下面命令：</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">LANG</span></span><span class="token operator">=</span>en_US
+<span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">LC_ALL</span></span><span class="token operator">=</span>en_US<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>不过上面的修改只是临时的，仅这一次连接有效。等到下次再连接的时候，又得重新调用。所以可以采用下面永久解决这个问题：</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">echo</span> <span class="token string">'LANG="en_US.UTF-8"  
+LANGUAGE="en_US:en"'</span> <span class="token operator">></span> /etc/default/locale<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/summarys/index.html">summarys</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2013/09/22/ubuntu-install-sublime2-with-src.html" title="[摘抄笔记]sublime2在Ubuntu下命令安装以及官网压缩包安装" itemprop="url">[摘抄笔记]sublime2在Ubuntu下命令安装以及官网压缩包安装</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about/index.html" title="leaker" target="_blank" itemprop="author">leaker</a>
+		
+  <p class="article-time">
+    <time datetime="2013-09-22T07:57:24.000Z" itemprop="datePublished"> 发表于 2013-09-22</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="通过终端（terminal）命令安装"><a href="#通过终端（terminal）命令安装" class="headerlink" title="通过终端（terminal）命令安装"></a>通过终端（terminal）命令安装</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> add-apt-repository ppa:webupd8team/sublime-text-2
+<span class="token function">sudo</span> <span class="token function">apt-get</span> update
+<span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> sublime-text<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="通过解压官网安装包安装"><a href="#通过解压官网安装包安装" class="headerlink" title="通过解压官网安装包安装"></a>通过解压官网安装包安装</h1><ol>
+<li><p>将下载的tar.bz2文件解压</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">tar</span> xf Sublime Text <span class="token number">2.0</span>.1 x64.tar.bz2<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p>将解压后的文件夹移动到应用程序文件夹</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">mv</span> Sublime Text <span class="token number">2</span> /opt/<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p>设置terminal快速启动命令</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">ln</span> -s /opt/Sublime Text <span class="token number">2</span>/sublime_text /usr/bin/sublime<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p>在桌面创建快捷方式</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> sublime /usr/share/applications/sublime.desktop<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p>将下面的代码保存进去</p>
+<pre class="line-numbers language-ini" data-language="ini"><code class="language-ini"><span class="token header"><span class="token punctuation">[</span><span class="token section-name selector">Desktop Entry</span><span class="token punctuation">]</span></span>
+<span class="token key attr-name">Version</span><span class="token punctuation">=</span><span class="token value attr-value">1.0</span>
+<span class="token key attr-name">Name</span><span class="token punctuation">=</span><span class="token value attr-value">Sublime Text 2</span>
+<span class="token comment"># Only KDE 4 seems to use GenericName, so we reuse the KDE strings.</span>
+<span class="token comment"># From Ubuntu's language-pack-kde-XX-base packages, version 9.04-20090413.</span>
+<span class="token key attr-name">GenericName</span><span class="token punctuation">=</span><span class="token value attr-value">Text Editor</span>
+<span class="token key attr-name">Exec</span><span class="token punctuation">=</span><span class="token value attr-value">sublime</span>
+<span class="token key attr-name">Terminal</span><span class="token punctuation">=</span><span class="token value attr-value">false</span>
+<span class="token key attr-name">Icon</span><span class="token punctuation">=</span><span class="token value attr-value">/opt/Sublime Text 2/Icon/48x48/sublime_text.webp</span>
+<span class="token key attr-name">Type</span><span class="token punctuation">=</span><span class="token value attr-value">Application</span>
+<span class="token key attr-name">Categories</span><span class="token punctuation">=</span><span class="token value attr-value">TextEditor;IDE;Development</span>
+<span class="token key attr-name">X-Ayatana-Desktop-Shortcuts</span><span class="token punctuation">=</span><span class="token value attr-value">NewWindow</span>
+
+<span class="token header"><span class="token punctuation">[</span><span class="token section-name selector">NewWindow Shortcut Group</span><span class="token punctuation">]</span></span>
+<span class="token key attr-name">Name</span><span class="token punctuation">=</span><span class="token value attr-value">New Window</span>
+<span class="token key attr-name">Exec</span><span class="token punctuation">=</span><span class="token value attr-value">sublime -n</span>
+<span class="token key attr-name">TargetEnvironment</span><span class="token punctuation">=</span><span class="token value attr-value">Unity</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<p>貌似安装sublime3的时候会自动创建快速启动命令，所以如果安装的是3就不用再手动设置了</p>
+<p>摘抄自原文：<a target="_blank" rel="noopener" href="http://my.oschina.net/rc6688/blog/162043#OSC_h2_4">http://my.oschina.net/rc6688/blog/162043#OSC_h2_4</a></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/linux/index.html">linux</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/ubuntu/index.html">ubuntu</a><a href="/tags/linux/index.html">linux</a><a href="/tags/kde/index.html">kde</a><a href="/tags/sublime/index.html">sublime</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2013/09/07/fix-kernel-devel.html" title="解决在安装了kernel-devel后/lib/modules/$(uname -r)/build 链接失效的问题" itemprop="url">解决在安装了kernel-devel后/lib/modules/$(uname -r)/build 链接失效的问题</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about/index.html" title="leaker" target="_blank" itemprop="author">leaker</a>
+		
+  <p class="article-time">
+    <time datetime="2013-09-07T12:28:20.000Z" itemprop="datePublished"> 发表于 2013-09-07</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>如何安装kernel-devel，可以参考我之前的文章：<a href="/2013/06/02/install-kernel-devel.html">《Linux下编译驱动发现没有内核源码的解决办法》</a></p>
+<p>下面是我写的一个自动脚本：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> /usr/src/kernels
+<span class="token builtin class-name">cd</span> <span class="token variable"><span class="token variable">$(</span><span class="token function">ls</span> -d */ <span class="token operator">|</span> <span class="token function">head</span> -n <span class="token number">1</span><span class="token variable">)</span></span>
+<span class="token function">ln</span> -s -f <span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">pwd</span><span class="token variable">)</span></span> /lib/modules/<span class="token variable"><span class="token variable">$(</span><span class="token function">uname</span> -r<span class="token variable">)</span></span>/build<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>至于为什么要费劲去 *<em>cd $(ls -d <em>/ | head -n 1)</em></em> 的原因是：很多系统装出来的 <strong>kernel-devel</strong> 目录名称跟 <strong>$(uname -r)</strong> 并不一致</p>
+<p>至此这个问题修复完成。</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/linux/index.html">linux</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/build/index.html">build</a><a href="/tags/kernel-devel/index.html">kernel-devel</a><a href="/tags/kernels/index.html">kernels</a><a href="/tags/ln/index.html">ln</a><a href="/tags/modules/index.html">modules</a><a href="/tags/uname/index.html">uname</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+
+  <nav id="page-nav" class="clearfix">
+    <a class="extend prev" rel="prev" href="/page/3/index.html"><span></span>Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/index.html">2</a><a class="page-number" href="/page/3/index.html">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/index.html">5</a><a class="page-number" href="/page/6/index.html">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/index.html">8</a><a class="extend next" rel="next" href="/page/5/index.html">Next<span></span></a>
+  </nav>
+
+</div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/deploy/index.html" title="deploy">deploy<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/interesting/index.html" title="interesting">interesting<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/linux/index.html" title="linux">linux<sup>29</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/notices/index.html" title="notices">notices<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/programing/index.html" title="programing">programing<sup>23</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/sites/index.html" title="sites">sites<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/summarys/index.html" title="summarys">summarys<sup>10</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/works/index.html" title="works">works<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/linux/index.html" title="linux">linux<sup>12</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ubuntu/index.html" title="ubuntu">ubuntu<sup>8</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/centos/index.html" title="centos">centos<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/yum/index.html" title="yum">yum<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/zlib/index.html" title="zlib">zlib<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/install/index.html" title="install">install<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/git/index.html" title="git">git<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/make/index.html" title="make">make<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python/index.html" title="python">python<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/c/index.html" title="c">c<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/windows/index.html" title="windows">windows<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/kernel/index.html" title="kernel">kernel<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/libc/index.html" title="libc">libc<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/SAFESEH/index.html" title="SAFESEH">SAFESEH<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/https/index.html" title="https">https<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ln/index.html" title="ln">ln<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/conf/index.html" title="conf">conf<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/gcc/index.html" title="gcc">gcc<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/compress/index.html" title="compress">compress<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/sudo/index.html" title="sudo">sudo<sup>2</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello, this is leaker&#39;s blog in github. <br/>
+			Leaker: &#34;Living without an aim is like sailing without a compass.&#34;</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:admin@leelib.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2021 
+		
+		<a href="/about/index.html" target="_blank" title="leaker">leaker</a>
+		
+		<a target="_blank" rel="noopener noreferrer" href="http://www.beian.miit.gov.cn/" class="report-link"><img class="report-img" src="/images/report-img.webp" data-spm-anchor-id="a3c00.7621337.7y9jhqsfz.i0.73bb3J6l3J6lkb"><span class="report-link-text">陕ICP备20006522号</span></a>
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script async src="/js/jquery.imagesloaded.min.js"></script>
+<script async src="/js/gallery.js"></script>
+<script async src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script async src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.webp"/></a>
+	</div>
+	<script async src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+ </html>

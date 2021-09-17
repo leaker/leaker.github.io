@@ -1,0 +1,1176 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>逃避虽然可耻但有用</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="leaker">
+    
+
+    
+    <meta property="og:type" content="website">
+<meta property="og:title" content="逃避虽然可耻但有用">
+<meta property="og:url" content="https://www.leelib.com/index.html">
+<meta property="og:site_name" content="逃避虽然可耻但有用">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="leaker">
+<meta name="twitter:card" content="summary">
+
+    
+    <link rel="alternative" href="/atom.xml" title="逃避虽然可耻但有用" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/favicon.ico">
+    
+    
+    <link rel="stylesheet" href="/css/style.css">
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.webp" alt="逃避虽然可耻但有用" title="逃避虽然可耻但有用"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="逃避虽然可耻但有用">逃避虽然可耻但有用</a></h1>
+				<h2 class="blog-motto">少壮不努力，一生在内地</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives/index.html">归档</a></li>
+					
+						<li><a href="/about/index.html">关于</a></li>
+					
+						<li><a href="/disappear/index.html">消失</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:www.leelib.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main">
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2021/09/17/css-layout.html" title="记一些常用的CSS布局方式" itemprop="url">记一些常用的CSS布局方式</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about/index.html" title="leaker" target="_blank" itemprop="author">leaker</a>
+		
+  <p class="article-time">
+    <time datetime="2021-09-17T23:22:14.000Z" itemprop="datePublished"> 发表于 2021-09-17</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="内容部分占满页面的剩余高度"><a href="#内容部分占满页面的剩余高度" class="headerlink" title="内容部分占满页面的剩余高度"></a>内容部分占满页面的剩余高度</h1><pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token constant">DOCTYPE</span> html<span class="token operator">></span>
+<span class="token operator">&lt;</span>html lang<span class="token operator">=</span><span class="token string double-quoted-string">"en"</span><span class="token operator">></span>
+
+<span class="token operator">&lt;</span>head<span class="token operator">></span>
+  <span class="token operator">&lt;</span>meta charset<span class="token operator">=</span><span class="token string double-quoted-string">"UTF-8"</span><span class="token operator">></span>
+  <span class="token operator">&lt;</span>meta http<span class="token operator">-</span>equiv<span class="token operator">=</span><span class="token string double-quoted-string">"X-UA-Compatible"</span> content<span class="token operator">=</span><span class="token string double-quoted-string">"IE=edge"</span><span class="token operator">></span>
+  <span class="token operator">&lt;</span>meta name<span class="token operator">=</span><span class="token string double-quoted-string">"viewport"</span> content<span class="token operator">=</span><span class="token string double-quoted-string">"width=device-width, initial-scale=1.0"</span><span class="token operator">></span>
+  <span class="token operator">&lt;</span>title<span class="token operator">></span>Dock<span class="token operator">.</span>Full<span class="token operator">&lt;</span><span class="token operator">/</span>title<span class="token operator">></span>
+  <span class="token operator">&lt;</span>style type<span class="token operator">=</span><span class="token string double-quoted-string">"text/css"</span><span class="token operator">></span>
+    html<span class="token punctuation">,</span>
+    body<span class="token punctuation">,</span>
+    <span class="token comment">#full &#123;</span>
+      color<span class="token punctuation">:</span> <span class="token comment">#EFEFEF;</span>
+      background<span class="token operator">-</span>color<span class="token punctuation">:</span> <span class="token comment">#423F3E;</span>
+      margin<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+      padding<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+      height<span class="token punctuation">:</span> <span class="token number">100</span><span class="token operator">%</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">#full &#123;</span>
+      background<span class="token operator">-</span>color<span class="token punctuation">:</span> <span class="token comment">#171010;</span>
+      display<span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+      flex<span class="token operator">-</span>direction<span class="token punctuation">:</span> column<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">#someid &#123;</span>
+      background<span class="token operator">-</span>color<span class="token punctuation">:</span> <span class="token comment">#362222;</span>
+      flex<span class="token operator">-</span>grow<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>head<span class="token operator">></span>
+
+<span class="token operator">&lt;</span>body<span class="token operator">></span>
+  <span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string double-quoted-string">"full"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string double-quoted-string">"header"</span><span class="token operator">></span>Dock<span class="token operator">.</span>Top<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+    <span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string double-quoted-string">"someid"</span><span class="token operator">></span>Dock<span class="token operator">.</span>Full<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>body<span class="token operator">></span>
+
+<span class="token operator">&lt;</span><span class="token operator">/</span>html<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><a target="_blank" rel="noopener" href="https://codepen.io/leaker/pen/VwWQPwV">线上预览</a></p>
+<h1 id="登录框居中显示"><a href="#登录框居中显示" class="headerlink" title="登录框居中显示"></a>登录框居中显示</h1><pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token constant">DOCTYPE</span> html<span class="token operator">></span>
+<span class="token operator">&lt;</span>html lang<span class="token operator">=</span><span class="token string double-quoted-string">"en"</span><span class="token operator">></span>
+
+<span class="token operator">&lt;</span>head<span class="token operator">></span>
+  <span class="token operator">&lt;</span>meta charset<span class="token operator">=</span><span class="token string double-quoted-string">"UTF-8"</span><span class="token operator">></span>
+  <span class="token operator">&lt;</span>meta http<span class="token operator">-</span>equiv<span class="token operator">=</span><span class="token string double-quoted-string">"X-UA-Compatible"</span> content<span class="token operator">=</span><span class="token string double-quoted-string">"IE=edge"</span><span class="token operator">></span>
+  <span class="token operator">&lt;</span>meta name<span class="token operator">=</span><span class="token string double-quoted-string">"viewport"</span> content<span class="token operator">=</span><span class="token string double-quoted-string">"width=device-width, initial-scale=1.0"</span><span class="token operator">></span>
+  <span class="token operator">&lt;</span>title<span class="token operator">></span>Document<span class="token operator">&lt;</span><span class="token operator">/</span>title<span class="token operator">></span>
+  <span class="token operator">&lt;</span>style type<span class="token operator">=</span><span class="token string double-quoted-string">"text/css"</span><span class="token operator">></span>
+    html<span class="token punctuation">,</span>
+    body<span class="token punctuation">,</span>
+    <span class="token comment">#parent &#123;</span>
+      color<span class="token punctuation">:</span> <span class="token comment">#EFEFEF;</span>
+      background<span class="token operator">-</span>color<span class="token punctuation">:</span> <span class="token comment">#423F3E;</span>
+      margin<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+      padding<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+      height<span class="token punctuation">:</span> <span class="token number">100</span><span class="token operator">%</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">#parent &#123;</span>
+      background<span class="token operator">-</span>color<span class="token punctuation">:</span> <span class="token comment">#171010;</span>
+      <span class="token comment">/* 使用Flex布局 */</span>
+      display<span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+      <span class="token comment">/* 主轴位于中间 */</span>
+      justify<span class="token operator">-</span>content<span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+      <span class="token comment">/* 交叉轴位于中间 */</span>
+      align<span class="token operator">-</span>items<span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">#someid &#123;</span>
+      background<span class="token operator">-</span>color<span class="token punctuation">:</span> <span class="token comment">#362222;</span>
+      width<span class="token punctuation">:</span> <span class="token number">200</span>px<span class="token punctuation">;</span>
+      height<span class="token punctuation">:</span> <span class="token number">200</span>px<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>head<span class="token operator">></span>
+
+<span class="token operator">&lt;</span>body<span class="token operator">></span>
+  <span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string double-quoted-string">"parent"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string double-quoted-string">"someid"</span><span class="token operator">></span>Dialog Content<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>body<span class="token operator">></span>
+
+<span class="token operator">&lt;</span><span class="token operator">/</span>html<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><a target="_blank" rel="noopener" href="https://codepen.io/leaker/pen/gORvGWd">线上预览</a></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/programing/index.html">programing</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/html/index.html">html</a><a href="/tags/css/index.html">css</a><a href="/tags/style/index.html">style</a><a href="/tags/layout/index.html">layout</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2021/03/17/fix-scoop-pwsh-vscode.html" title="解决用 Scoop 安装的 PowerShellCore 无法在 VSCode Shell 使用" itemprop="url">解决用 Scoop 安装的 PowerShellCore 无法在 VSCode Shell 使用</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about/index.html" title="leaker" target="_blank" itemprop="author">leaker</a>
+		
+  <p class="article-time">
+    <time datetime="2021-03-17T20:21:55.000Z" itemprop="datePublished"> 发表于 2021-03-17</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>目前在 Windows 安装软件特别喜欢使用 <a target="_blank" rel="noopener" href="https://scoop.sh/">Scoop</a> 进行管理</p>
+<p>使用 <strong>Scoop</strong> 安装 <strong>PowerShell Core</strong> 最新版</p>
+<pre class="line-numbers language-pwsh" data-language="pwsh"><code class="language-pwsh">scoop install pwsh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>发现在 <strong>VSCode</strong> 的 <strong>Terminal Shells</strong> 列表里面依然看不到新安装的 <strong>PowerShell Core</strong><br><img src="/images/2021/03/vscode-terminal-shells.webp" alt="VSCode Terminal Shells"></p>
+<p>但我又不想使用默认的 PowerShell 或者 cmd 当我的 Shell<br>这时就可以这样配置：</p>
+<ol>
+<li>在 <strong>VSCode</strong> 里打开 <strong>Command Palette</strong><code>(Ctrl+Shift+P)</code> 选择 <strong>Preferences: Open Settings (JSON)</strong> 打开用户配置文件 <strong>settings.json</strong></li>
+<li>添加如下配置<pre class="line-numbers language-json" data-language="json"><div class="caption"><span>settings.json</span></div><code class="language-json"><span class="token punctuation">&#123;</span>
+    <span class="token property">"terminal.integrated.shell.windows"</span><span class="token operator">:</span> <span class="token string">"C:/Users/$&#123;env:USERNAME&#125;/scoop/apps/pwsh/current/pwsh.exe"</span><span class="token punctuation">,</span>
+    <span class="token property">"terminal.integrated.automationShell.windows"</span><span class="token operator">:</span> <span class="token string">"C:/Users/$&#123;env:USERNAME&#125;/scoop/apps/pwsh/current/pwsh.exe"</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+注：如果用户自定义了 <strong>Scoop</strong> 的路径<code>($env:SCOOP)</code> 则配置为<pre class="line-numbers language-json" data-language="json"><div class="caption"><span>settings.json</span></div><code class="language-json"><span class="token punctuation">&#123;</span>
+    <span class="token property">"terminal.integrated.shell.windows"</span><span class="token operator">:</span> <span class="token string">"$&#123;env:SCOOP&#125;/apps/pwsh/current/pwsh.exe"</span><span class="token punctuation">,</span>
+    <span class="token property">"terminal.integrated.automationShell.windows"</span><span class="token operator">:</span> <span class="token string">"$&#123;env:SCOOP&#125;/apps/pwsh/current/pwsh.exe"</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>重新运行 <strong>VSCode</strong></li>
+</ol>
+<p>可以看到我们 <strong>VSCode</strong> 已经使用了 <strong>PowerShell Core</strong> 作为默认 <strong>Terminal Shells</strong> 了<br><img src="/images/2021/03/vscode-default-pwsh.webp" alt="VSCode Default Terminal Shell"></p>
+<p>参考文献：</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/lukesampson/scoop/wiki/Quick-Start">Quick Start · lukesampson/scoop Wiki</a></p>
+</blockquote>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/summarys/index.html">summarys</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/pwsh/index.html">pwsh</a><a href="/tags/scoop/index.html">scoop</a><a href="/tags/vscode/index.html">vscode</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2021/03/12/uninstall-hexo-prism-plugin.html" title="卸载 hexo-prism-plugin 代码高亮插件" itemprop="url">卸载 hexo-prism-plugin 代码高亮插件</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about/index.html" title="leaker" target="_blank" itemprop="author">leaker</a>
+		
+  <p class="article-time">
+    <time datetime="2021-03-12T03:21:50.000Z" itemprop="datePublished"> 发表于 2021-03-12</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>最近用 <strong>Github</strong> 比较频繁，无意间点开 <strong>GitHub Pages</strong> 的代码库时发现一个大大的 <strong>Dependabot alerts</strong> 顶在上面<br><img src="/images/2021/03/github-dependabot-alerts.webp"></p>
+<p>点开后发现最大的一个警告就是这个：<br><img src="/images/2021/03/highlightjs-alerts.webp"></p>
+<p>顺着这个 <strong>dependencies</strong> 一路追查发现是 <strong>hexo-prism-plugin</strong> 这个插件使用的<br>由于该插件太久没更新，而且发现 <a target="_blank" rel="noopener" href="https://hexo.io/">hexo.io</a> 最新版本已经集成了 <strong>prism</strong> 的代码高亮功能<br>所以更新 <strong>Hexo</strong> 版本并启用自带的代码高亮功能应该就可以解决了</p>
+<h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><ol>
+<li>卸载 <strong>hexo-prism-plugin</strong> 插件</li>
+<li>更新所有相关 <strong>dependencies</strong> 到最新版本</li>
+<li>配置 <strong>_config.yml</strong></li>
+</ol>
+<pre class="line-numbers language-yml" data-language="yml"><div class="caption"><span>_config.yml</span></div><code class="language-yml">prismjs:
+  enable: true
+  preprocess: true
+  line_number: true
+  tab_replace: &#39;    &#39;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ol start="4">
+<li>重新生成</li>
+</ol>
+<p>引用文章： <a target="_blank" rel="noopener" href="https://hexo.io/docs/syntax-highlight">Syntax Highlighting | Hexo</a></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/notices/index.html">notices</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2020/05/07/change-title-for-icp.html" title="改名“逃避虽然可耻但有用”" itemprop="url">改名“逃避虽然可耻但有用”</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about/index.html" title="leaker" target="_blank" itemprop="author">leaker</a>
+		
+  <p class="article-time">
+    <time datetime="2020-05-07T22:18:26.000Z" itemprop="datePublished"> 发表于 2020-05-07</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>突然心血来潮想把自己的笔记用阿里云CDN加速一下，但域名就需要备案。<br>而我本身的域名不想因为备案就迁回到国内的域名服务商（这里有一段在国内购买域名的黑历史）<br>所以干脆重新购买了一个新的域名 <a target="_blank" rel="noopener" href="https://www.kaij.cn/">www.kaij.cn</a> 用来备案</p>
+<p>直接在阿里云上面买域名可以不用等迁移的时间<br>顺便一说，使用阿里云的<strong>快速备案</strong>服务来备案真的太方便了</p>
+<p>但备案的时候遇到了一点小问题，之前起的博客名称无法用于备案，收到了提示：</p>
+<blockquote>
+<p>网站名称“ 李略帅 ”不合格，个人网站名称不能涉及到行业、企业等信息，且个人网站名称请勿涉及个人姓名、地名，请不要用纯数字或字母组成，不能包含特殊符号，不能使用成语；网站名称请使用3个以上汉字命名，请不能使用XXX个人空间、资讯、网站、网络、网址、爱好者、作品展示、工作室、平台、主页、热线、社团、导航这种的格式命名；网站名称中不能带有博客、论坛、在线、社区、交流等字样，若要带有此类信息，需提交前置审批文；具体命名要求请参考专区文章：<a target="_blank" rel="noopener" href="https://help.aliyun.com/knowledge_detail/36948.html#title-lhm-b1g-ehx">https://help.aliyun.com/knowledge_detail/36948.html#title-lhm-b1g-ehx</a></p>
+</blockquote>
+<p>按照这些要求来说 <em>XXX的个人博客</em>、<em>XXX的个人主页</em> 这类肯定是不行了。由于也禁止使用<strong>成语</strong>，所以想翻翻字典来找个合适的名字也不行。<br>想来想去似乎只有一句话类型的语言不容易触犯到这些规则。而经常有一些日系的电视电影起的名字我觉得就非常有创意。<br>刚好之前看过日本由百分之九十九的码农都会沉浸在她笑容里的公民老婆 <strong>Gakki（日文原名：<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%96%B0%E5%9E%A3%E7%B5%90%E8%A1%A3">新垣 結衣</a>）</strong> 出演的两部剧：</p>
+<ul>
+<li><strong>《逃避虽然可耻但有用》（日文：逃げるは恥だが役に立つ）</strong> </li>
+<li><strong>《胜利即是正义》（日文：リーガルハイ）</strong></li>
+</ul>
+<p>剧集给我的印象非常深刻。所以抱着试一试的心态填了一个，结果认证了我的猜想。像这样的一句话通常不会触犯到起名规则，可以顺利通过审核。</p>
+<p>所以现在我的笔记多出了一个用于<strong>国内</strong>用户快速访问的通道 <strong><a target="_blank" rel="noopener" href="https://www.kaij.cn/">https://www.kaij.cn</a></strong><br>国外用户依然可以使用之前的域名继续访问 <strong><a href="https://www.leelib.com/">https://www.leelib.com</a></strong></p>
+<p>毕竟出身一名程序员就不能少了使用 <strong><a target="_blank" rel="noopener" href="https://pages.github.com/">GitHub Pages</a></strong> 这样优秀的服务创建一个属于自己的小港湾，去记录一些生活中的点点滴滴。 (๑•̀ㅂ•́)و✧</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/notices/index.html">notices</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/icp/index.html">icp</a><a href="/tags/gakki/index.html">gakki</a><a href="/tags/kaij/index.html">kaij</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2020/04/30/wsl-ntfs.html" title="解决WSL中使用NTFS分区的权限问题" itemprop="url">解决WSL中使用NTFS分区的权限问题</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about/index.html" title="leaker" target="_blank" itemprop="author">leaker</a>
+		
+  <p class="article-time">
+    <time datetime="2020-04-30T20:32:27.000Z" itemprop="datePublished"> 发表于 2020-04-30</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>当使用WSL的过程中访问WSL系统以外目录时候出现一些奇奇怪怪问题<br>通常就是WSL对于NTFS分区的目录权限问题。</p>
+<p>使用 <strong>mount -l</strong> 查看，可能长这样</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@wsl<span class="token punctuation">]</span> <span class="token function">mount</span> -l
+rootfs on / <span class="token builtin class-name">type</span> lxfs <span class="token punctuation">(</span>rw,noatime<span class="token punctuation">)</span>
+none on /dev <span class="token builtin class-name">type</span> tmpfs <span class="token punctuation">(</span>rw,noatime,mode<span class="token operator">=</span><span class="token number">755</span><span class="token punctuation">)</span>
+sysfs on /sys <span class="token builtin class-name">type</span> sysfs <span class="token punctuation">(</span>rw,nosuid,nodev,noexec,noatime<span class="token punctuation">)</span>
+proc on /proc <span class="token builtin class-name">type</span> proc <span class="token punctuation">(</span>rw,nosuid,nodev,noexec,noatime<span class="token punctuation">)</span>
+devpts on /dev/pts <span class="token builtin class-name">type</span> devpts <span class="token punctuation">(</span>rw,nosuid,noexec,noatime,gid<span class="token operator">=</span><span class="token number">5</span>,mode<span class="token operator">=</span><span class="token number">620</span><span class="token punctuation">)</span>
+none on /run <span class="token builtin class-name">type</span> tmpfs <span class="token punctuation">(</span>rw,nosuid,noexec,noatime,mode<span class="token operator">=</span><span class="token number">755</span><span class="token punctuation">)</span>
+none on /run/lock <span class="token builtin class-name">type</span> tmpfs <span class="token punctuation">(</span>rw,nosuid,nodev,noexec,noatime<span class="token punctuation">)</span>
+none on /run/shm <span class="token builtin class-name">type</span> tmpfs <span class="token punctuation">(</span>rw,nosuid,nodev,noatime<span class="token punctuation">)</span>
+none on /run/user <span class="token builtin class-name">type</span> tmpfs <span class="token punctuation">(</span>rw,nosuid,nodev,noexec,noatime,mode<span class="token operator">=</span><span class="token number">755</span><span class="token punctuation">)</span>
+binfmt_misc on /proc/sys/fs/binfmt_misc <span class="token builtin class-name">type</span> binfmt_misc <span class="token punctuation">(</span>rw,relatime<span class="token punctuation">)</span>
+cgroup on /sys/fs/cgroup <span class="token builtin class-name">type</span> tmpfs <span class="token punctuation">(</span>rw,relatime,mode<span class="token operator">=</span><span class="token number">755</span><span class="token punctuation">)</span>
+cgroup on /sys/fs/cgroup/devices <span class="token builtin class-name">type</span> cgroup <span class="token punctuation">(</span>rw,relatime,devices<span class="token punctuation">)</span>
+C:<span class="token punctuation">\</span> on /mnt/c <span class="token builtin class-name">type</span> drvfs <span class="token punctuation">(</span>rw,noatime,uid<span class="token operator">=</span><span class="token number">0</span>,gid<span class="token operator">=</span><span class="token number">0</span>,case<span class="token operator">=</span>off<span class="token punctuation">)</span>
+D:<span class="token punctuation">\</span> on /mnt/d <span class="token builtin class-name">type</span> drvfs <span class="token punctuation">(</span>rw,noatime,uid<span class="token operator">=</span><span class="token number">0</span>,gid<span class="token operator">=</span><span class="token number">0</span>,case<span class="token operator">=</span>off<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>可以看到 <strong>C:\** 和 *<em>D:\*</em> 加载状况是这样的。这种情况下代表所有目录均以</strong>root<strong>权限进行访问。在使用</strong>ssh<strong>或</strong>git**等工具的时候有可能会因为一些权限问题导致意外情况发生。</p>
+<h3 id="解决办法很简单，通过DrvFs让WSL可以支持NTFS分区增加文件metadata信息："><a href="#解决办法很简单，通过DrvFs让WSL可以支持NTFS分区增加文件metadata信息：" class="headerlink" title="解决办法很简单，通过DrvFs让WSL可以支持NTFS分区增加文件metadata信息："></a>解决办法很简单，通过DrvFs让WSL可以支持NTFS分区增加文件metadata信息：</h3><ol>
+<li><p>挂载配置</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">echo</span> <span class="token string">'[automount]
+enabled = true
+root = /mnt/
+options = "metadata,umask=22,fmask=11"
+mountFsTab = false'</span> <span class="token operator">></span> /etc/wsl.conf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>在<strong>PowerShell</strong>中重启WSL服务</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token function">Restart-Service</span> LxssManager<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ol>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/linux/index.html">linux</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/linux/index.html">linux</a><a href="/tags/conf/index.html">conf</a><a href="/tags/mount/index.html">mount</a><a href="/tags/wsl/index.html">wsl</a><a href="/tags/powershell/index.html">powershell</a><a href="/tags/lxss/index.html">lxss</a><a href="/tags/drvfs/index.html">drvfs</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2020/04/28/enable-hexo-prism-plugin.html" title="博客启用 hexo-prism-plugin 代码高亮插件" itemprop="url">博客启用 hexo-prism-plugin 代码高亮插件</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about/index.html" title="leaker" target="_blank" itemprop="author">leaker</a>
+		
+  <p class="article-time">
+    <time datetime="2020-04-28T19:23:08.000Z" itemprop="datePublished"> 发表于 2020-04-28</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>之前的高亮插件支持的语言比较少，而且效果不是特别理想。特进行了一次修整，内容如下：</p>
+<ul>
+<li>由于hexo的更新导致之前的主题出现了一部分显示错误。目前已经修复</li>
+<li>启用 <strong>hexo-prism-plugin</strong> 插件</li>
+<li>重新过了一遍文章并重新优化 <strong>code-block</strong> 部分文章</li>
+</ul>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/notices/index.html">notices</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2018/07/07/rabbitmq-server-windows-auth.html" title="解决 Windows 下部署 RabbitMQ 服务本地授权问题" itemprop="url">解决 Windows 下部署 RabbitMQ 服务本地授权问题</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about/index.html" title="leaker" target="_blank" itemprop="author">leaker</a>
+		
+  <p class="article-time">
+    <time datetime="2018-07-07T00:13:10.000Z" itemprop="datePublished"> 发表于 2018-07-07</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="Authentication-failed-rejected-by-the-remote-node-please-check-the-Erlang-cookie"><a href="#Authentication-failed-rejected-by-the-remote-node-please-check-the-Erlang-cookie" class="headerlink" title="Authentication failed (rejected by the remote node), please check the Erlang cookie"></a>Authentication failed (rejected by the remote node), please check the Erlang cookie</h1><p>遇到这种情况原因就是本地的授权cookie文件不匹配导致的，结局方法如下：</p>
+<ol>
+<li>删除 <strong>%UserProfile%</strong> 目录下的 <strong>.erlang.cookie</strong> 文件</li>
+<li>使用 <strong>C:\Windows\System32\config\systemprofile</strong> 目录下的 <strong>.erlang.cookie</strong> 覆盖掉之前 <strong>%UserProfile%</strong> 目录的同名文件</li>
+</ol>
+<p>在试试，现在应该已经可以正常访问了</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/deploy/index.html">deploy</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/rabbitmq/index.html">rabbitmq</a><a href="/tags/erlang/index.html">erlang</a><a href="/tags/cookie/index.html">cookie</a><a href="/tags/auth/index.html">auth</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2018/03/30/firewall-port-forward.html" title="使用 firewall 配置端口转发" itemprop="url">使用 firewall 配置端口转发</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about/index.html" title="leaker" target="_blank" itemprop="author">leaker</a>
+		
+  <p class="article-time">
+    <time datetime="2018-03-30T16:36:49.000Z" itemprop="datePublished"> 发表于 2018-03-30</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="开启NAT转发"><a href="#开启NAT转发" class="headerlink" title="开启NAT转发"></a>开启NAT转发</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd --permanent --zone<span class="token operator">=</span>public --add-masquerade<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h1 id="本机到本机"><a href="#本机到本机" class="headerlink" title="本机到本机"></a>本机到本机</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd --permanent --zone<span class="token operator">=</span>public --add-forward-port<span class="token operator">=</span>port<span class="token operator">=</span><span class="token number">80</span>:proto<span class="token operator">=</span>tcp:toport<span class="token operator">=</span><span class="token number">8080</span>
+firewall-cmd --permanent --zone<span class="token operator">=</span>public --add-service<span class="token operator">=</span>http<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h1 id="本机到其他机器"><a href="#本机到其他机器" class="headerlink" title="本机到其他机器"></a>本机到其他机器</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd --permanent --zone<span class="token operator">=</span>public --add-forward-port<span class="token operator">=</span>port<span class="token operator">=</span><span class="token number">80</span>:proto<span class="token operator">=</span>tcp:toport<span class="token operator">=</span><span class="token number">8080</span>:toaddr<span class="token operator">=</span><span class="token number">192.168</span>.0.2
+firewall-cmd --permanent --zone<span class="token operator">=</span>public --add-port<span class="token operator">=</span><span class="token number">80</span>/tcp<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h1 id="重新加载应用"><a href="#重新加载应用" class="headerlink" title="重新加载应用"></a>重新加载应用</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h1 id="只允许指定IP连入指定端口"><a href="#只允许指定IP连入指定端口" class="headerlink" title="只允许指定IP连入指定端口"></a>只允许指定IP连入指定端口</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd --permanent --add-rich-rule<span class="token operator">=</span><span class="token string">'rule family="ipv4" source address="192.168.0.2" port protocol="tcp" port="80" accept'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h1 id="只允许指定IP段连入指定端口范围"><a href="#只允许指定IP段连入指定端口范围" class="headerlink" title="只允许指定IP段连入指定端口范围"></a>只允许指定IP段连入指定端口范围</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd --permanent --add-rich-rule<span class="token operator">=</span><span class="token string">'rule family="ipv4" source address="192.168.0.0/24" port protocol="tcp" port="80-8080" accept'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h1 id="Linux-常用网络优化"><a href="#Linux-常用网络优化" class="headerlink" title="Linux 常用网络优化"></a>Linux 常用网络优化</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 发送 KeepAlive 消息的间隔 1200=2分钟</span>
+sysctl -w net.ipv4.tcp_keepalive_time<span class="token operator">=</span><span class="token number">1200</span>
+<span class="token comment"># IP端口重用</span>
+sysctl -w net.ipv4.tcp_tw_reuse<span class="token operator">=</span><span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/linux/index.html">linux</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/linux/index.html">linux</a><a href="/tags/firewall/index.html">firewall</a><a href="/tags/firewall-cmd/index.html">firewall-cmd</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2018/03/29/iptables-port-forward.html" title="使用 iptables 配置端口转发" itemprop="url">使用 iptables 配置端口转发</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about/index.html" title="leaker" target="_blank" itemprop="author">leaker</a>
+		
+  <p class="article-time">
+    <time datetime="2018-03-29T16:50:14.000Z" itemprop="datePublished"> 发表于 2018-03-29</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2>  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">sysctl -w net.ipv4.ip_forward<span class="token operator">=</span><span class="token number">1</span> <span class="token comment"># 启用IP转发功能</span>
+sysctl -p <span class="token comment"># 立即生效</span>
+<span class="token builtin class-name">echo</span> <span class="token string">"net.ipv4.ip_forward=1"</span> <span class="token operator">>></span> /usr/lib/sysctl.d/50-default.conf
+iptables -t nat -A POSTROUTING -j MASQUERADE<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="添加端口转发脚本-portforward-sh"><a href="#添加端口转发脚本-portforward-sh" class="headerlink" title="添加端口转发脚本 portforward.sh"></a>添加端口转发脚本 portforward.sh</h2>  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token comment"># $1=listen port</span>
+<span class="token comment"># $2=connect address and port example:111.111.111.111:2222</span>
+iptables -t nat -A PREROUTING -p tcp -i eno1 --dport <span class="token variable">$1</span> -j DNAT --to <span class="token variable">$2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>  想要添加端口的时候只要这么用就好<br>  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">./portforward.sh <span class="token number">22</span> <span class="token number">111.111</span>.111.111:22<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/linux/index.html">linux</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/linux/index.html">linux</a><a href="/tags/iptables/index.html">iptables</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2018/03/29/ubuntu-install-lastest-nodejs.html" title="Ubuntu安装最新版本nodejs" itemprop="url">Ubuntu安装最新版本nodejs</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about/index.html" title="leaker" target="_blank" itemprop="author">leaker</a>
+		
+  <p class="article-time">
+    <time datetime="2018-03-29T00:49:33.000Z" itemprop="datePublished"> 发表于 2018-03-29</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="最新发行版"><a href="#最新发行版" class="headerlink" title="最新发行版"></a>最新发行版</h2>  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">curl</span> -sL https://deb.nodesource.com/setup <span class="token operator">|</span> <span class="token function">sudo</span> -E <span class="token function">bash</span> -<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="指定版本，通常用于安装LTS版本。比如当前最新LTS版本是8"><a href="#指定版本，通常用于安装LTS版本。比如当前最新LTS版本是8" class="headerlink" title="指定版本，通常用于安装LTS版本。比如当前最新LTS版本是8"></a>指定版本，通常用于安装LTS版本。比如当前最新LTS版本是8</h2>  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">curl</span> -sL https://deb.nodesource.com/setup_8.x <span class="token operator">|</span> <span class="token function">sudo</span> -E <span class="token function">bash</span> -<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/linux/index.html">linux</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/ubuntu/index.html">ubuntu</a><a href="/tags/apt/index.html">apt</a><a href="/tags/apt-get/index.html">apt-get</a><a href="/tags/nodejs/index.html">nodejs</a><a href="/tags/npm/index.html">npm</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+
+  <nav id="page-nav" class="clearfix">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/index.html">2</a><a class="page-number" href="/page/3/index.html">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/index.html">8</a><a class="extend next" rel="next" href="/page/2/index.html">Next<span></span></a>
+  </nav>
+
+</div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/deploy/index.html" title="deploy">deploy<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/interesting/index.html" title="interesting">interesting<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/linux/index.html" title="linux">linux<sup>29</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/notices/index.html" title="notices">notices<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/programing/index.html" title="programing">programing<sup>23</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/sites/index.html" title="sites">sites<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/summarys/index.html" title="summarys">summarys<sup>10</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/works/index.html" title="works">works<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/linux/index.html" title="linux">linux<sup>12</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ubuntu/index.html" title="ubuntu">ubuntu<sup>8</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/centos/index.html" title="centos">centos<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/yum/index.html" title="yum">yum<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/zlib/index.html" title="zlib">zlib<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/install/index.html" title="install">install<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/git/index.html" title="git">git<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/make/index.html" title="make">make<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python/index.html" title="python">python<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/c/index.html" title="c">c<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/windows/index.html" title="windows">windows<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/kernel/index.html" title="kernel">kernel<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/libc/index.html" title="libc">libc<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/SAFESEH/index.html" title="SAFESEH">SAFESEH<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/https/index.html" title="https">https<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ln/index.html" title="ln">ln<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/conf/index.html" title="conf">conf<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/gcc/index.html" title="gcc">gcc<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/compress/index.html" title="compress">compress<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/sudo/index.html" title="sudo">sudo<sup>2</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello, this is leaker&#39;s blog in github. <br/>
+			Leaker: &#34;Living without an aim is like sailing without a compass.&#34;</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:admin@leelib.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2021 
+		
+		<a href="/about/index.html" target="_blank" title="leaker">leaker</a>
+		
+		<a target="_blank" rel="noopener noreferrer" href="http://www.beian.miit.gov.cn/" class="report-link"><img class="report-img" src="/images/report-img.webp" data-spm-anchor-id="a3c00.7621337.7y9jhqsfz.i0.73bb3J6l3J6lkb"><span class="report-link-text">陕ICP备20006522号</span></a>
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script async src="/js/jquery.imagesloaded.min.js"></script>
+<script async src="/js/gallery.js"></script>
+<script async src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script async src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.webp"/></a>
+	</div>
+	<script async src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+ </html>

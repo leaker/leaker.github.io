@@ -1,0 +1,1296 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>逃避虽然可耻但有用</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="leaker">
+    
+
+    
+    <meta property="og:type" content="website">
+<meta property="og:title" content="逃避虽然可耻但有用">
+<meta property="og:url" content="https://www.leelib.com/page/5/index.html">
+<meta property="og:site_name" content="逃避虽然可耻但有用">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="leaker">
+<meta name="twitter:card" content="summary">
+
+    
+    <link rel="alternative" href="/atom.xml" title="逃避虽然可耻但有用" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/favicon.ico">
+    
+    
+    <link rel="stylesheet" href="/css/style.css">
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.webp" alt="逃避虽然可耻但有用" title="逃避虽然可耻但有用"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="逃避虽然可耻但有用">逃避虽然可耻但有用</a></h1>
+				<h2 class="blog-motto">少壮不努力，一生在内地</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives/index.html">归档</a></li>
+					
+						<li><a href="/about/index.html">关于</a></li>
+					
+						<li><a href="/disappear/index.html">消失</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:www.leelib.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main">
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2013/09/06/sk-buff-2-6-18-diff-2-6-33.html" title="结构体sk_buff在Linux内核2.6.18与2.6.33中的区别" itemprop="url">结构体sk_buff在Linux内核2.6.18与2.6.33中的区别</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about/index.html" title="leaker" target="_blank" itemprop="author">leaker</a>
+		
+  <p class="article-time">
+    <time datetime="2013-09-06T17:28:58.000Z" itemprop="datePublished"> 发表于 2013-09-06</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>在Linux 2.6.33.6中，源文件在：/usr/src/kernels/2.6.33.6/include/linux/skbuff.h</p>
+<h1 id="struct-sk-buff在2-6-18中的定义："><a href="#struct-sk-buff在2-6-18中的定义：" class="headerlink" title="struct sk_buff在2.6.18中的定义："></a>struct sk_buff在2.6.18中的定义：</h1><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">struct</span> <span class="token class-name">sk_buff</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">/* These two members must be first. */</span>
+        <span class="token keyword">struct</span> <span class="token class-name">sk_buff</span>          <span class="token operator">*</span>next<span class="token punctuation">;</span>
+        <span class="token keyword">struct</span> <span class="token class-name">sk_buff</span>          <span class="token operator">*</span>prev<span class="token punctuation">;</span>
+
+        <span class="token keyword">struct</span> <span class="token class-name">sock</span>             <span class="token operator">*</span>sk<span class="token punctuation">;</span>
+        <span class="token keyword">struct</span> <span class="token class-name">skb_timeval</span>      tstamp<span class="token punctuation">;</span>
+        <span class="token keyword">struct</span> <span class="token class-name">net_device</span>       <span class="token operator">*</span>dev<span class="token punctuation">;</span>
+        <span class="token keyword">struct</span> <span class="token class-name">net_device</span>       <span class="token operator">*</span>input_dev<span class="token punctuation">;</span>
+
+        <span class="token keyword">union</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">struct</span> <span class="token class-name">tcphdr</span>   <span class="token operator">*</span>th<span class="token punctuation">;</span>
+                <span class="token keyword">struct</span> <span class="token class-name">udphdr</span>   <span class="token operator">*</span>uh<span class="token punctuation">;</span>
+                <span class="token keyword">struct</span> <span class="token class-name">icmphdr</span>  <span class="token operator">*</span>icmph<span class="token punctuation">;</span>
+                <span class="token keyword">struct</span> <span class="token class-name">igmphdr</span>  <span class="token operator">*</span>igmph<span class="token punctuation">;</span>
+                <span class="token keyword">struct</span> <span class="token class-name">iphdr</span>    <span class="token operator">*</span>ipiph<span class="token punctuation">;</span>
+                <span class="token keyword">struct</span> <span class="token class-name">ipv6hdr</span>  <span class="token operator">*</span>ipv6h<span class="token punctuation">;</span>
+                <span class="token keyword">unsigned</span> <span class="token keyword">char</span>   <span class="token operator">*</span>raw<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> h<span class="token punctuation">;</span>
+
+        <span class="token keyword">union</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">struct</span> <span class="token class-name">iphdr</span>    <span class="token operator">*</span>iph<span class="token punctuation">;</span>
+                <span class="token keyword">struct</span> <span class="token class-name">ipv6hdr</span>  <span class="token operator">*</span>ipv6h<span class="token punctuation">;</span>
+                <span class="token keyword">struct</span> <span class="token class-name">arphdr</span>   <span class="token operator">*</span>arph<span class="token punctuation">;</span>
+                <span class="token keyword">unsigned</span> <span class="token keyword">char</span>   <span class="token operator">*</span>raw<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> nh<span class="token punctuation">;</span>
+
+        <span class="token keyword">union</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">unsigned</span> <span class="token keyword">char</span>   <span class="token operator">*</span>raw<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> mac<span class="token punctuation">;</span>
+
+        <span class="token keyword">struct</span>  <span class="token class-name">dst_entry</span>       <span class="token operator">*</span>dst<span class="token punctuation">;</span>
+        <span class="token keyword">struct</span>  <span class="token class-name">sec_path</span>        <span class="token operator">*</span>sp<span class="token punctuation">;</span>
+        <span class="token comment">/*
+         * This is the control buffer. It is free to use for every
+         * layer. Please put your private variables there. If you
+         * want to keep them across layers you have to do a skb_clone()
+         * first. This is owned by whoever has the skb queued ATM.
+         */</span>
+        <span class="token keyword">char</span>                    cb<span class="token punctuation">[</span><span class="token number">48</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">unsigned</span> <span class="token keyword">int</span>            len<span class="token punctuation">,</span>
+                                data_len<span class="token punctuation">,</span>
+                                mac_len<span class="token punctuation">,</span>
+                                csum<span class="token punctuation">;</span>
+        __u32                   priority<span class="token punctuation">;</span>
+        __u8                    local_df<span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span>
+                                cloned<span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span>
+                                ip_summed<span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">,</span>
+                                nohdr<span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span>
+                                nfctinfo<span class="token operator">:</span><span class="token number">3</span><span class="token punctuation">;</span>
+        __u8                    pkt_type<span class="token operator">:</span><span class="token number">3</span><span class="token punctuation">,</span>
+                                fclone<span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">,</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifndef</span> <span class="token expression">CONFIG_XEN</span></span>
+                                ipvs_property<span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">else</span></span>
+                                ipvs_property<span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span>
+                                proto_data_valid<span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span>
+                                proto_csum_blank<span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
+        __be16                  protocol<span class="token punctuation">;</span>
+
+        <span class="token keyword">void</span>                    <span class="token punctuation">(</span><span class="token operator">*</span>destructor<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword">struct</span> <span class="token class-name">sk_buff</span> <span class="token operator">*</span>skb<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifdef</span> <span class="token expression">CONFIG_NETFILTER</span></span>
+        <span class="token keyword">struct</span> <span class="token class-name">nf_conntrack</span>     <span class="token operator">*</span>nfct<span class="token punctuation">;</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">if</span> <span class="token expression"><span class="token function">defined</span><span class="token punctuation">(</span>CONFIG_NF_CONNTRACK<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token function">defined</span><span class="token punctuation">(</span>CONFIG_NF_CONNTRACK_MODULE<span class="token punctuation">)</span></span></span>
+       <span class="token keyword">struct</span> <span class="token class-name">sk_buff</span>          <span class="token operator">*</span>nfct_reasm<span class="token punctuation">;</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifdef</span> <span class="token expression">CONFIG_BRIDGE_NETFILTER</span></span>
+        <span class="token keyword">struct</span> <span class="token class-name">nf_bridge_info</span>   <span class="token operator">*</span>nf_bridge<span class="token punctuation">;</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
+        __u32                   nfmark<span class="token punctuation">;</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span> <span class="token comment">/* CONFIG_NETFILTER */</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifdef</span> <span class="token expression">CONFIG_NET_SCHED</span></span>
+        __u16                   tc_index<span class="token punctuation">;</span>       <span class="token comment">/* traffic control index */</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifdef</span> <span class="token expression">CONFIG_NET_CLS_ACT</span></span>
+        __u16                   tc_verd<span class="token punctuation">;</span>        <span class="token comment">/* traffic control verdict */</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifdef</span> <span class="token expression">CONFIG_NET_DMA</span></span>
+        <span class="token class-name">dma_cookie_t</span>            dma_cookie<span class="token punctuation">;</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifdef</span> <span class="token expression">CONFIG_NETWORK_SECMARK</span></span>
+        __u32                   secmark<span class="token punctuation">;</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
+
+        <span class="token comment">/* These elements must be at the end, see alloc_skb() for details.  */</span>
+        <span class="token keyword">unsigned</span> <span class="token keyword">int</span>            truesize<span class="token punctuation">;</span>
+        <span class="token class-name">atomic_t</span>                users<span class="token punctuation">;</span>
+        <span class="token keyword">unsigned</span> <span class="token keyword">char</span>           <span class="token operator">*</span>head<span class="token punctuation">,</span>
+                                <span class="token operator">*</span>data<span class="token punctuation">,</span>
+                                <span class="token operator">*</span>tail<span class="token punctuation">,</span>
+                                <span class="token operator">*</span>end<span class="token punctuation">;</span>
+        <span class="token comment">/* Extra stuff at the end to avoid breaking abi */</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifndef</span> <span class="token expression">__GENKSYMS__</span></span>
+        <span class="token keyword">int</span>                      peeked<span class="token punctuation">;</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="struct-sk-buff在2-6-33中的定义："><a href="#struct-sk-buff在2-6-33中的定义：" class="headerlink" title="struct sk_buff在2.6.33中的定义："></a>struct sk_buff在2.6.33中的定义：</h1><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">struct</span> <span class="token class-name">sk_buff</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">/* These two members must be first. */</span>
+        <span class="token keyword">struct</span> <span class="token class-name">sk_buff</span>          <span class="token operator">*</span>next<span class="token punctuation">;</span>
+        <span class="token keyword">struct</span> <span class="token class-name">sk_buff</span>          <span class="token operator">*</span>prev<span class="token punctuation">;</span>
+
+        <span class="token class-name">ktime_t</span>                 tstamp<span class="token punctuation">;</span>
+
+        <span class="token keyword">struct</span> <span class="token class-name">sock</span>             <span class="token operator">*</span>sk<span class="token punctuation">;</span>
+        <span class="token keyword">struct</span> <span class="token class-name">net_device</span>       <span class="token operator">*</span>dev<span class="token punctuation">;</span>
+
+        <span class="token comment">/*
+         * This is the control buffer. It is free to use for every
+         * layer. Please put your private variables there. If you
+         * want to keep them across layers you have to do a skb_clone()
+         * first. This is owned by whoever has the skb queued ATM.
+         */</span>
+        <span class="token keyword">char</span>                    cb<span class="token punctuation">[</span><span class="token number">48</span><span class="token punctuation">]</span> <span class="token function">__aligned</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">unsigned</span> <span class="token keyword">long</span>           _skb_dst<span class="token punctuation">;</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifdef</span> <span class="token expression">CONFIG_XFRM</span></span>
+        <span class="token keyword">struct</span>  <span class="token class-name">sec_path</span>        <span class="token operator">*</span>sp<span class="token punctuation">;</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
+        <span class="token keyword">unsigned</span> <span class="token keyword">int</span>            len<span class="token punctuation">,</span>
+                                data_len<span class="token punctuation">;</span>
+        __u16                   mac_len<span class="token punctuation">,</span>
+                                hdr_len<span class="token punctuation">;</span>
+        <span class="token keyword">union</span> <span class="token punctuation">&#123;</span>
+                __wsum          csum<span class="token punctuation">;</span>
+                <span class="token keyword">struct</span> <span class="token punctuation">&#123;</span>
+                        __u16   csum_start<span class="token punctuation">;</span>
+                        __u16   csum_offset<span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+        __u32                   priority<span class="token punctuation">;</span>
+        <span class="token function">kmemcheck_bitfield_begin</span><span class="token punctuation">(</span>flags1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        __u8                    local_df<span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span>
+                                cloned<span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span>
+                                ip_summed<span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">,</span>
+                                nohdr<span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span>
+                                nfctinfo<span class="token operator">:</span><span class="token number">3</span><span class="token punctuation">;</span>
+        __u8                    pkt_type<span class="token operator">:</span><span class="token number">3</span><span class="token punctuation">,</span>
+                                fclone<span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">,</span>
+                                ipvs_property<span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span>
+                                peeked<span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span>
+                                nf_trace<span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">;</span>
+        __be16                  protocol<span class="token operator">:</span><span class="token number">16</span><span class="token punctuation">;</span>
+        <span class="token function">kmemcheck_bitfield_end</span><span class="token punctuation">(</span>flags1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">void</span>                    <span class="token punctuation">(</span><span class="token operator">*</span>destructor<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword">struct</span> <span class="token class-name">sk_buff</span> <span class="token operator">*</span>skb<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">if</span> <span class="token expression"><span class="token function">defined</span><span class="token punctuation">(</span>CONFIG_NF_CONNTRACK<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token function">defined</span><span class="token punctuation">(</span>CONFIG_NF_CONNTRACK_MODULE<span class="token punctuation">)</span></span></span>
+        <span class="token keyword">struct</span> <span class="token class-name">nf_conntrack</span>     <span class="token operator">*</span>nfct<span class="token punctuation">;</span>
+        <span class="token keyword">struct</span> <span class="token class-name">sk_buff</span>          <span class="token operator">*</span>nfct_reasm<span class="token punctuation">;</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifdef</span> <span class="token expression">CONFIG_BRIDGE_NETFILTER</span></span>
+        <span class="token keyword">struct</span> <span class="token class-name">nf_bridge_info</span>   <span class="token operator">*</span>nf_bridge<span class="token punctuation">;</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
+
+        <span class="token keyword">int</span>                     skb_iif<span class="token punctuation">;</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifdef</span> <span class="token expression">CONFIG_NET_SCHED</span></span>
+        __u16                   tc_index<span class="token punctuation">;</span>       <span class="token comment">/* traffic control index */</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifdef</span> <span class="token expression">CONFIG_NET_CLS_ACT</span></span>
+        __u16                   tc_verd<span class="token punctuation">;</span>        <span class="token comment">/* traffic control verdict */</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
+
+        <span class="token function">kmemcheck_bitfield_begin</span><span class="token punctuation">(</span>flags2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        __u16                   queue_mapping<span class="token operator">:</span><span class="token number">16</span><span class="token punctuation">;</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifdef</span> <span class="token expression">CONFIG_IPV6_NDISC_NODETYPE</span></span>
+        __u8                    ndisc_nodetype<span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
+        <span class="token function">kmemcheck_bitfield_end</span><span class="token punctuation">(</span>flags2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">/* 0/14 bit hole */</span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifdef</span> <span class="token expression">CONFIG_NET_DMA</span></span>
+        <span class="token class-name">dma_cookie_t</span>            dma_cookie<span class="token punctuation">;</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifdef</span> <span class="token expression">CONFIG_NETWORK_SECMARK</span></span>
+        __u32                   secmark<span class="token punctuation">;</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
+        <span class="token keyword">union</span> <span class="token punctuation">&#123;</span>
+                __u32           mark<span class="token punctuation">;</span>
+                __u32           dropcount<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+        __u16                   vlan_tci<span class="token punctuation">;</span>
+
+        <span class="token class-name">sk_buff_data_t</span>          transport_header<span class="token punctuation">;</span>
+        <span class="token class-name">sk_buff_data_t</span>          network_header<span class="token punctuation">;</span>
+        <span class="token class-name">sk_buff_data_t</span>          mac_header<span class="token punctuation">;</span>
+        <span class="token comment">/* These elements must be at the end, see alloc_skb() for details.  */</span>
+        <span class="token class-name">sk_buff_data_t</span>          tail<span class="token punctuation">;</span>
+        <span class="token class-name">sk_buff_data_t</span>          end<span class="token punctuation">;</span>
+        <span class="token keyword">unsigned</span> <span class="token keyword">char</span>           <span class="token operator">*</span>head<span class="token punctuation">,</span>
+                                <span class="token operator">*</span>data<span class="token punctuation">;</span>
+        <span class="token keyword">unsigned</span> <span class="token keyword">int</span>            truesize<span class="token punctuation">;</span>
+        <span class="token class-name">atomic_t</span>                users<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>有了以上定义的话，我们就可以做类似如下定义来使我们的驱动支持多内核了：</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">struct</span> <span class="token class-name">sk_buff</span> <span class="token operator">*</span>new_skb<span class="token punctuation">;</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">if</span> <span class="token expression">LINUX_VERSION_CODE <span class="token operator">&lt;=</span> <span class="token function">KERNEL_VERSION</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">18</span><span class="token punctuation">)</span></span></span>
+new_skb<span class="token operator">-></span>mac<span class="token punctuation">.</span>raw <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span>new_eth_p<span class="token punctuation">;</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">else</span></span>
+new_skb<span class="token operator">-></span>mac_header <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span>new_eth_p<span class="token punctuation">;</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>参考：<a target="_blank" rel="noopener" href="http://www.linuxquestions.org/questions/linux-kernel-70/struct-sk_buff-differs-in-2-6-18-and-2-6-33-kernel-882507/">http://www.linuxquestions.org/questions/linux-kernel-70/struct-sk_buff-differs-in-2-6-18-and-2-6-33-kernel-882507/</a></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/linux/index.html">linux</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/linux/index.html">linux</a><a href="/tags/kernel/index.html">kernel</a><a href="/tags/2-6-18/index.html">2.6.18</a><a href="/tags/2-6-33/index.html">2.6.33</a><a href="/tags/Driver/index.html">Driver</a><a href="/tags/INUX-VERSION-CODE/index.html">INUX_VERSION_CODE</a><a href="/tags/KERNEL-VERSION/index.html">KERNEL_VERSION</a><a href="/tags/sk-buff/index.html">sk_buff</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2013/07/26/fix-centos-yum.html" title="解决CentOS安装新版本python后，yum不能使用的问题" itemprop="url">解决CentOS安装新版本python后，yum不能使用的问题</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about/index.html" title="leaker" target="_blank" itemprop="author">leaker</a>
+		
+  <p class="article-time">
+    <time datetime="2013-07-26T02:42:41.000Z" itemprop="datePublished"> 发表于 2013-07-26</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="CentOS-上安装新版本-python"><a href="#CentOS-上安装新版本-python" class="headerlink" title="CentOS 上安装新版本 python"></a>CentOS 上安装新版本 python</h1><p>请看： <a href="/2013/07/10/fix-python-deff-version.html">安装python以及解决版本问题</a></p>
+<p>但在安装新版本后，yum不能正常使用了。原因是yum是基于默认的python版本运行的，例如CentOS6.2基于python2.6。但我们安装版本后建立了链接，覆盖掉了默认python调用，导致yum脚本无法正常调用到自己想要的版本。</p>
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vim</span> /usr/bin/yum<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>将第一行 <strong>#!/usr/bin/python</strong> 修改成 <strong>#!/usr/bin/python2.6</strong></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/linux/index.html">linux</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2013/07/10/gnu-stubs-64-h-no-such-file-or-directory.html" title="解决编译时出现“gnu/stubs-64.h: No such file or directory”的问题" itemprop="url">解决编译时出现“gnu/stubs-64.h: No such file or directory”的问题</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about/index.html" title="leaker" target="_blank" itemprop="author">leaker</a>
+		
+  <p class="article-time">
+    <time datetime="2013-07-10T10:12:49.000Z" itemprop="datePublished"> 发表于 2013-07-10</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="这个问题实际上是系统没有安装glibc开发包的问题"><a href="#这个问题实际上是系统没有安装glibc开发包的问题" class="headerlink" title="这个问题实际上是系统没有安装glibc开发包的问题"></a>这个问题实际上是系统没有安装glibc开发包的问题</h1><h2 id="Ubuntu-x64"><a href="#Ubuntu-x64" class="headerlink" title="Ubuntu x64"></a>Ubuntu x64</h2>  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">apt-get</span> <span class="token function">install</span> libc6-dev-amd64<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="CentOS-x64"><a href="#CentOS-x64" class="headerlink" title="CentOS x64"></a>CentOS x64</h2>  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token function">install</span> glibc-devel.x86_64<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/linux/index.html">linux</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/ubuntu/index.html">ubuntu</a><a href="/tags/centos/index.html">centos</a><a href="/tags/make/index.html">make</a><a href="/tags/libc/index.html">libc</a><a href="/tags/glibc/index.html">glibc</a><a href="/tags/gnu/index.html">gnu</a><a href="/tags/stubs/index.html">stubs</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2013/07/10/fix-python-deff-version.html" title="如何安装新版本python，以及解决安装了新版python后，默认python依然调用旧版本的问题" itemprop="url">如何安装新版本python，以及解决安装了新版python后，默认python依然调用旧版本的问题</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about/index.html" title="leaker" target="_blank" itemprop="author">leaker</a>
+		
+  <p class="article-time">
+    <time datetime="2013-07-10T06:27:35.000Z" itemprop="datePublished"> 发表于 2013-07-10</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="安装新版本python"><a href="#安装新版本python" class="headerlink" title="安装新版本python"></a>安装新版本python</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> http://python.org/ftp/python/2.7.3/Python-2.7.3.tar.bz2
+<span class="token function">tar</span> xjf Python-2.7.3.tar.bz2
+<span class="token builtin class-name">cd</span> Python-2.7.3
+./configure
+<span class="token function">make</span>
+<span class="token function">make</span> atlinstall<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这时 python2.7.3 版本已经安装成功了。<br>但调用 <strong>python –version</strong> 依然会显示并使用旧版本</p>
+<h1 id="解决办法就是重新建立一个链接并覆盖掉旧的"><a href="#解决办法就是重新建立一个链接并覆盖掉旧的" class="headerlink" title="解决办法就是重新建立一个链接并覆盖掉旧的"></a>解决办法就是重新建立一个链接并覆盖掉旧的</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ln</span> -s /usr/local/bin/python2.7 /usr/bin/python -f<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>再调用 <strong>python –version</strong> 显示结果</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@centos<span class="token punctuation">]</span><span class="token comment"># python --version</span>
+Python <span class="token number">2.7</span>.3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>至此，问题解决 :)</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/linux/index.html">linux</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/python/index.html">python</a><a href="/tags/ln/index.html">ln</a><a href="/tags/atlinstall/index.html">atlinstall</a><a href="/tags/configure/index.html">configure</a><a href="/tags/install/index.html">install</a><a href="/tags/make/index.html">make</a><a href="/tags/wget/index.html">wget</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2013/07/02/python-zlib-trans-c.html" title="python的zlib压缩解压缩对应的C语言方式" itemprop="url">python的zlib压缩解压缩对应的C语言方式</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about/index.html" title="leaker" target="_blank" itemprop="author">leaker</a>
+		
+  <p class="article-time">
+    <time datetime="2013-07-02T15:47:00.000Z" itemprop="datePublished"> 发表于 2013-07-02</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="压缩"><a href="#压缩" class="headerlink" title="压缩"></a>压缩</h1><pre class="line-numbers language-python" data-language="python"><code class="language-python">enData <span class="token operator">=</span> zlib<span class="token punctuation">.</span>compress<span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">4</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>对应：</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token function">compress2</span><span class="token punctuation">(</span>dstbuf<span class="token punctuation">,</span> <span class="token operator">&amp;</span>dstLen<span class="token punctuation">,</span> strSrc<span class="token punctuation">,</span> srcLen<span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h1 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h1><pre class="line-numbers language-python" data-language="python"><code class="language-python">deData <span class="token operator">=</span> zlib<span class="token punctuation">.</span>decompress<span class="token punctuation">(</span>enData<span class="token punctuation">,</span> <span class="token operator">-</span>zlib<span class="token punctuation">.</span>MAX_WBITS<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>对应：</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">bool <span class="token function">gzipInflate</span><span class="token punctuation">(</span> <span class="token keyword">const</span> std<span class="token operator">::</span>string<span class="token operator">&amp;</span> compressedBytes<span class="token punctuation">,</span> std<span class="token operator">::</span>string<span class="token operator">&amp;</span> uncompressedBytes <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span> compressedBytes<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        uncompressedBytes <span class="token operator">=</span> compressedBytes <span class="token punctuation">;</span>
+        <span class="token keyword">return</span> true <span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    uncompressedBytes<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">;</span>
+
+    <span class="token keyword">unsigned</span> full_length <span class="token operator">=</span> compressedBytes<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">;</span>
+    <span class="token keyword">unsigned</span> half_length <span class="token operator">=</span> compressedBytes<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">unsigned</span> uncompLength <span class="token operator">=</span> full_length <span class="token punctuation">;</span>
+    <span class="token keyword">char</span><span class="token operator">*</span> uncomp <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token function">calloc</span><span class="token punctuation">(</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">)</span><span class="token punctuation">,</span> uncompLength <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    z_stream strm<span class="token punctuation">;</span>
+    strm<span class="token punctuation">.</span>next_in <span class="token operator">=</span> <span class="token punctuation">(</span>Bytef <span class="token operator">*</span><span class="token punctuation">)</span> compressedBytes<span class="token punctuation">.</span><span class="token function">c_str</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    strm<span class="token punctuation">.</span>avail_in <span class="token operator">=</span> compressedBytes<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">;</span>
+    strm<span class="token punctuation">.</span>total_out <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    strm<span class="token punctuation">.</span>zalloc <span class="token operator">=</span> Z_NULL<span class="token punctuation">;</span>
+    strm<span class="token punctuation">.</span>zfree <span class="token operator">=</span> Z_NULL<span class="token punctuation">;</span>
+
+    bool done <span class="token operator">=</span> false <span class="token punctuation">;</span>
+
+    <span class="token comment">//if (inflateInit2(&amp;strm, (16+MAX_WBITS)) != Z_OK)</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">inflateInit2</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>strm<span class="token punctuation">,</span> <span class="token operator">-</span>MAX_WBITS<span class="token punctuation">)</span> <span class="token operator">!=</span> Z_OK<span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token function">free</span><span class="token punctuation">(</span> uncomp <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> false<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span>done<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// If our output buffer is too small</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>strm<span class="token punctuation">.</span>total_out <span class="token operator">>=</span> uncompLength <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token comment">// Increase size of output buffer</span>
+            <span class="token keyword">char</span><span class="token operator">*</span> uncomp2 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token function">calloc</span><span class="token punctuation">(</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">)</span><span class="token punctuation">,</span> uncompLength <span class="token operator">+</span> half_length <span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">memcpy</span><span class="token punctuation">(</span> uncomp2<span class="token punctuation">,</span> uncomp<span class="token punctuation">,</span> uncompLength <span class="token punctuation">)</span><span class="token punctuation">;</span>
+            uncompLength <span class="token operator">+=</span> half_length <span class="token punctuation">;</span>
+            <span class="token function">free</span><span class="token punctuation">(</span> uncomp <span class="token punctuation">)</span><span class="token punctuation">;</span>
+            uncomp <span class="token operator">=</span> uncomp2 <span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+
+        strm<span class="token punctuation">.</span>next_out <span class="token operator">=</span> <span class="token punctuation">(</span>Bytef <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>uncomp <span class="token operator">+</span> strm<span class="token punctuation">.</span>total_out<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        strm<span class="token punctuation">.</span>avail_out <span class="token operator">=</span> uncompLength <span class="token operator">-</span> strm<span class="token punctuation">.</span>total_out<span class="token punctuation">;</span>
+
+        <span class="token comment">// Inflate another chunk.</span>
+        <span class="token keyword">int</span> err <span class="token operator">=</span> <span class="token function">inflate</span> <span class="token punctuation">(</span><span class="token operator">&amp;</span>strm<span class="token punctuation">,</span> Z_SYNC_FLUSH<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>err <span class="token operator">==</span> Z_STREAM_END<span class="token punctuation">)</span> done <span class="token operator">=</span> true<span class="token punctuation">;</span>
+        <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>err <span class="token operator">!=</span> Z_OK<span class="token punctuation">)</span>  <span class="token punctuation">&#123;</span>
+            <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">inflateEnd</span> <span class="token punctuation">(</span><span class="token operator">&amp;</span>strm<span class="token punctuation">)</span> <span class="token operator">!=</span> Z_OK<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token function">free</span><span class="token punctuation">(</span> uncomp <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> false<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span> <span class="token class-name">size_t</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>strm<span class="token punctuation">.</span>total_out<span class="token punctuation">;</span> <span class="token operator">++</span>i <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        uncompressedBytes <span class="token operator">+=</span> uncomp<span class="token punctuation">[</span> i <span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token function">free</span><span class="token punctuation">(</span> uncomp <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> true <span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/programing/index.html">programing</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/c/index.html">c</a><a href="/tags/python/index.html">python</a><a href="/tags/compress/index.html">compress</a><a href="/tags/decompress/index.html">decompress</a><a href="/tags/zlib/index.html">zlib</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2013/07/01/windows-use-zlib-link-error.html" title="Windows下编译使用zlib库的程序时出现“无法解析的外部符号 _compress”解决方案" itemprop="url">Windows下编译使用zlib库的程序时出现“无法解析的外部符号 _compress”解决方案</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about/index.html" title="leaker" target="_blank" itemprop="author">leaker</a>
+		
+  <p class="article-time">
+    <time datetime="2013-07-01T05:29:47.000Z" itemprop="datePublished"> 发表于 2013-07-01</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="错误描述"><a href="#错误描述" class="headerlink" title="错误描述"></a>错误描述</h1><p><strong>error LNK2019: unresolved external symbol _compress referenced</strong></p>
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>在 <strong>#include &lt;zlib.h&gt;</strong> 之前加上 <strong>#define ZLIB_WINAPI</strong></p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">ZLIB_WINAPI</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;zlib.h></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/programing/index.html">programing</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/windows/index.html">windows</a><a href="/tags/compress/index.html">compress</a><a href="/tags/zlib/index.html">zlib</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2013/06/29/use-zlib-exp.html" title="一句话经验zlib" itemprop="url">一句话经验zlib</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about/index.html" title="leaker" target="_blank" itemprop="author">leaker</a>
+		
+  <p class="article-time">
+    <time datetime="2013-06-29T04:27:00.000Z" itemprop="datePublished"> 发表于 2013-06-29</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>Linux使用gcc编译使用zlib库的代码时，使用 <strong>-lz</strong> 来链接(link) <strong>zlib</strong> 库。</p>
+<p>否则就会出现类似 <strong>undefined reference to `deflateInit_’</strong> 的错误</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/programing/index.html">programing</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/linux/index.html">linux</a><a href="/tags/gcc/index.html">gcc</a><a href="/tags/zlib/index.html">zlib</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2013/06/08/tcpdump-error.html" title="Linux调用tcpdump时“tcpdump: USB link-layer type filtering not implemented”解决方案" itemprop="url">Linux调用tcpdump时“tcpdump: USB link-layer type filtering not implemented”解决方案</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about/index.html" title="leaker" target="_blank" itemprop="author">leaker</a>
+		
+  <p class="article-time">
+    <time datetime="2013-06-08T03:00:30.000Z" itemprop="datePublished"> 发表于 2013-06-08</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>当调用tcpdump时，出现错误：<strong>tcpdump: USB link-layer type filtering not implemented</strong></p>
+<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>说明系统可能有多块网卡共存。</p>
+<h1 id="需要指定工作网卡才能开始截包，使用参数举例"><a href="#需要指定工作网卡才能开始截包，使用参数举例" class="headerlink" title="需要指定工作网卡才能开始截包，使用参数举例"></a>需要指定工作网卡才能开始截包，使用参数举例</h1><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@centos<span class="token punctuation">]</span><span class="token comment"># tcpdump -i eth0 udp port 53</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><em>在实际使用中例子中“eth0”“udp”“53”等参数，要根据实际需要来进行修改。</em><br><em>虽然一般单网卡默认名称应该是eth0，但也有其他情况。实际中要使用ifconfig查看自己需要使用的网卡。</em></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/linux/index.html">linux</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/linux/index.html">linux</a><a href="/tags/ifconfig/index.html">ifconfig</a><a href="/tags/netcap/index.html">netcap</a><a href="/tags/tcpdump/index.html">tcpdump</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2013/06/07/gcc-to-gpp-inet-addr-was-not-declared-in-this-scope.html" title="gcc迁移到g++出现 inet_addr was not declared in this scope 解决方案" itemprop="url">gcc迁移到g++出现 inet_addr was not declared in this scope 解决方案</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about/index.html" title="leaker" target="_blank" itemprop="author">leaker</a>
+		
+  <p class="article-time">
+    <time datetime="2013-06-07T14:06:31.000Z" itemprop="datePublished"> 发表于 2013-06-07</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="错误原因"><a href="#错误原因" class="headerlink" title="错误原因"></a>错误原因</h1><p>我手上一个项目本身采用gcc编译。后来因为代码功能需要移植到g++中时，出现了 <strong>“inet_addr” was not declared in this scope</strong> 这个错误。</p>
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// 添加该头文件</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;arpa/inet.h></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h1 id="如果出现下面错误："><a href="#如果出现下面错误：" class="headerlink" title="如果出现下面错误："></a>如果出现下面错误：</h1><pre class="line-numbers language-text" data-language="text"><code class="language-text">error: string: No such file or directory
+error: vector: No such file or directory<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<ul>
+<li>说明在将g++项目用gcc编译</li>
+</ul>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/programing/index.html">programing</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/declared/index.html">declared</a><a href="/tags/g/index.html">g++</a><a href="/tags/gcc/index.html">gcc</a><a href="/tags/inet-addr/index.html">inet_addr</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2013/06/02/install-kernel-devel.html" title="Linux下编译驱动发现没有内核源码的解决办法" itemprop="url">Linux下编译驱动发现没有内核源码的解决办法</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about/index.html" title="leaker" target="_blank" itemprop="author">leaker</a>
+		
+  <p class="article-time">
+    <time datetime="2013-06-02T12:25:27.000Z" itemprop="datePublished"> 发表于 2013-06-02</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="CentOS系统"><a href="#CentOS系统" class="headerlink" title="CentOS系统"></a>CentOS系统</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token function">install</span> -y kernel-devel<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="Ubuntu系统"><a href="#Ubuntu系统" class="headerlink" title="Ubuntu系统"></a>Ubuntu系统</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">apt-get</span> <span class="token function">install</span> linux-source<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>以上～！</p>
+<blockquote>
+<p>参考：《或许你不需要整个内核的源代码》 - <a target="_blank" rel="noopener" href="http://wiki.centos.org/zh/HowTos/I_need_the_Kernel_Source">http://wiki.centos.org/zh/HowTos/I_need_the_Kernel_Source</a></p>
+</blockquote>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/linux/index.html">linux</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/linux/index.html">linux</a><a href="/tags/install/index.html">install</a><a href="/tags/yum/index.html">yum</a><a href="/tags/kernel/index.html">kernel</a><a href="/tags/ko/index.html">ko</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+
+  <nav id="page-nav" class="clearfix">
+    <a class="extend prev" rel="prev" href="/page/4/index.html"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/index.html">3</a><a class="page-number" href="/page/4/index.html">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/index.html">6</a><a class="page-number" href="/page/7/index.html">7</a><a class="page-number" href="/page/8/index.html">8</a><a class="extend next" rel="next" href="/page/6/index.html">Next<span></span></a>
+  </nav>
+
+</div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/deploy/index.html" title="deploy">deploy<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/interesting/index.html" title="interesting">interesting<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/linux/index.html" title="linux">linux<sup>29</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/notices/index.html" title="notices">notices<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/programing/index.html" title="programing">programing<sup>23</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/sites/index.html" title="sites">sites<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/summarys/index.html" title="summarys">summarys<sup>10</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/works/index.html" title="works">works<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/linux/index.html" title="linux">linux<sup>12</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ubuntu/index.html" title="ubuntu">ubuntu<sup>8</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/centos/index.html" title="centos">centos<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/yum/index.html" title="yum">yum<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/zlib/index.html" title="zlib">zlib<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/install/index.html" title="install">install<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/git/index.html" title="git">git<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/make/index.html" title="make">make<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python/index.html" title="python">python<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/c/index.html" title="c">c<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/windows/index.html" title="windows">windows<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/kernel/index.html" title="kernel">kernel<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/libc/index.html" title="libc">libc<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/SAFESEH/index.html" title="SAFESEH">SAFESEH<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/https/index.html" title="https">https<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ln/index.html" title="ln">ln<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/conf/index.html" title="conf">conf<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/gcc/index.html" title="gcc">gcc<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/compress/index.html" title="compress">compress<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/sudo/index.html" title="sudo">sudo<sup>2</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello, this is leaker&#39;s blog in github. <br/>
+			Leaker: &#34;Living without an aim is like sailing without a compass.&#34;</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:admin@leelib.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2021 
+		
+		<a href="/about/index.html" target="_blank" title="leaker">leaker</a>
+		
+		<a target="_blank" rel="noopener noreferrer" href="http://www.beian.miit.gov.cn/" class="report-link"><img class="report-img" src="/images/report-img.webp" data-spm-anchor-id="a3c00.7621337.7y9jhqsfz.i0.73bb3J6l3J6lkb"><span class="report-link-text">陕ICP备20006522号</span></a>
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script async src="/js/jquery.imagesloaded.min.js"></script>
+<script async src="/js/gallery.js"></script>
+<script async src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script async src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.webp"/></a>
+	</div>
+	<script async src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+ </html>

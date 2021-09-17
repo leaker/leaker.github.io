@@ -1,0 +1,1181 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>逃避虽然可耻但有用</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="leaker">
+    
+
+    
+    <meta property="og:type" content="website">
+<meta property="og:title" content="逃避虽然可耻但有用">
+<meta property="og:url" content="https://www.leelib.com/page/7/index.html">
+<meta property="og:site_name" content="逃避虽然可耻但有用">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="leaker">
+<meta name="twitter:card" content="summary">
+
+    
+    <link rel="alternative" href="/atom.xml" title="逃避虽然可耻但有用" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/favicon.ico">
+    
+    
+    <link rel="stylesheet" href="/css/style.css">
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.webp" alt="逃避虽然可耻但有用" title="逃避虽然可耻但有用"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="逃避虽然可耻但有用">逃避虽然可耻但有用</a></h1>
+				<h2 class="blog-motto">少壮不努力，一生在内地</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives/index.html">归档</a></li>
+					
+						<li><a href="/about/index.html">关于</a></li>
+					
+						<li><a href="/disappear/index.html">消失</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:www.leelib.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main">
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2012/05/24/fix-ubuntu-start-dante-error.html" title="解决ubuntu下dante不能正常启动的问题" itemprop="url">解决ubuntu下dante不能正常启动的问题</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about/index.html" title="leaker" target="_blank" itemprop="author">leaker</a>
+		
+  <p class="article-time">
+    <time datetime="2012-05-24T06:36:37.000Z" itemprop="datePublished"> 发表于 2012-05-24</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>首先查看日志文件</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@ubuntu<span class="token punctuation">]</span><span class="token comment"># cat /var/log/danted.log</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>发现里面有这样的记录</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">May 24 13:57:52 (1337839072) danted[13596]: socks_seteuid(): old: 0, new: 65534
+May 24 13:57:52 (1337839072) danted[13596]: socks_reseteuid(): current: 65534, new: 0
+May 24 13:57:52 (1337839072) danted[13596]: fixsettings(): setting the libwrap uid to 0 is not recommended
+May 24 13:57:52 (1337839072) danted[13596]: symbolfunction(): compiletime configuration error? Failed to open "libc.so": /usr/lib/i386-linux-gnu/libc.so: invalid ELF header<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>说明程序在找/usr/lib/i386-linux-gnu/libc.so位置的libc.so没找到，所以解决办法就是创建一个链接命令如下：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ln</span> -sf /lib/i386-linux-gnu/libc.so.6 /usr/lib/i386-linux-gnu/libc.so<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>再启动下服务</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">service</span> danted start<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>看看是不是启动成功啦！<br>(o≖◡≖)</p>
+<p>因为到现在位置在国内没有搜索到这个问题的解决办法，所以记录在这里。或许能帮到有需要的人。</p>
+<p>另外，这里有dante socks server的安装说明：<br><a target="_blank" rel="noopener" href="http://wiki.kartbuilding.net/index.php/Dante_Socks_Server">http://wiki.kartbuilding.net/index.php/Dante_Socks_Server</a></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/linux/index.html">linux</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/ubuntu/index.html">ubuntu</a><a href="/tags/dante/index.html">dante</a><a href="/tags/danted/index.html">danted</a><a href="/tags/libc/index.html">libc</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2012/05/16/cmake-use-relative-path.html" title="使CMake生成工程采用相对路径" itemprop="url">使CMake生成工程采用相对路径</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about/index.html" title="leaker" target="_blank" itemprop="author">leaker</a>
+		
+  <p class="article-time">
+    <time datetime="2012-05-16T03:18:15.000Z" itemprop="datePublished"> 发表于 2012-05-16</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <center><img src="/wp-content/uploads/2012/05/cmake_ogre.webp" class=""></center>
+
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>在生成项目之前勾选上 <strong>CMAKE_USE_RELATIVE_PATHS</strong> 这个选项，效果如上图所示。</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/programing/index.html">programing</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/cmake/index.html">cmake</a><a href="/tags/ogre/index.html">ogre</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2012/04/25/redhat-use-centos-yum.html" title="让RedHat系统使用CentOS的yum" itemprop="url">让RedHat系统使用CentOS的yum</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about/index.html" title="leaker" target="_blank" itemprop="author">leaker</a>
+		
+  <p class="article-time">
+    <time datetime="2012-04-25T10:04:10.000Z" itemprop="datePublished"> 发表于 2012-04-25</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <center><img src="/wp-content/uploads/2012/04/redhat.webp" class=""></center>
+
+<h1 id="错误原因"><a href="#错误原因" class="headerlink" title="错误原因"></a>错误原因</h1><p>在使用未注册的 RedHat Linux 企业版时。使用yum命令会出现如下提示：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># yum install httpd</span>
+Loaded plugins: rhnplugin, security  
+This system is not registered with RHN.  
+RHN support will be disabled.  
+Setting up Install Process  
+No package httpd available.  
+Nothing to <span class="token keyword">do</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>而这种情况可以使用CentOS的yum来代替掉系统本身的yum<br>脚本如下：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/sh  </span>
+<span class="token function">rpm</span> -qa <span class="token operator">|</span> <span class="token function">grep</span> yum <span class="token operator">|</span> <span class="token function">xargs</span> <span class="token function">rpm</span> -e --nodeps  
+<span class="token function">wget</span>  http://centos.ustc.edu.cn/centos/5/os/i386/CentOS/yum-metadata-parser-1.1.2-3.el5.centos.i386.rpm  
+<span class="token function">wget</span>  http://mirrors.ustc.edu.cn/centos/5/os/i386/CentOS/yum-fastestmirror-1.1.16-21.el5.centos.noarch.rpm  
+<span class="token function">wget</span>  http://mirrors.ustc.edu.cn/centos/5/os/i386/CentOS/yum-3.2.22-39.el5.centos.noarch.rpm  
+<span class="token function">rpm</span> -ivh yum-metadata-parser-1.1.2-3.el5.centos.i386.rpm  
+<span class="token function">rpm</span> -ivh yum-fastestmirror-1.1.16-21.el5.centos.noarch.rpm  
+<span class="token function">rpm</span> -ivh yum-3.2.22-39.el5.centos.noarch.rpm  
+<span class="token function">wget</span> http://docs.linuxtone.org/soft/lemp/CentOS-Base.repo  
+<span class="token function">mv</span> CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo  
+<span class="token function">rm</span> -f yum-metadata-parser-1.1.2-3.el5.centos.i386.rpm  
+<span class="token function">rm</span> -f yum-fastestmirror-1.1.16-21.el5.centos.noarch.rpm  
+<span class="token function">rm</span> -f yum-3.2.22-39.el5.centos.noarch.rpm  
+<span class="token function">rm</span> -f CentOS-Base.repo<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>将上面的脚本保存为：<strong>redhat_use_centos_yum.sh</strong></p>
+<p>点击这里直接下载 <a href="/wp-content/uploads/2012/04/redhat_use_centos_yum.sh">redhat_use_centos_yum.sh</a><br>然后直接运行这个脚本即可。</p>
+<h1 id="一键脚本"><a href="#一键脚本" class="headerlink" title="一键脚本"></a>一键脚本</h1><p>如果闲麻烦也可以依次输入下面几条指令来下载并执行我已经写好的脚本，同样可以达到目的：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> http://www.leelib.com/wp-content/uploads/2012/04/redhat_use_centos_yum.sh
+<span class="token function">chmod</span> <span class="token number">777</span> redhat_use_centos_yum.sh
+<span class="token function">sudo</span> ./redhat_use_centos_yum.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>现在再试试yum命令是否已经没有了 This system is not registered with RHN. 提示，并且可以正常使用了呢！ :)</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/linux/index.html">linux</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/centos/index.html">centos</a><a href="/tags/yum/index.html">yum</a><a href="/tags/redhat/index.html">redhat</a><a href="/tags/sh/index.html">sh</a><a href="/tags/shell/index.html">shell</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2012/04/24/asm-rol-to-c.html" title="汇编中ROL(循环左移)对应的C语言实现" itemprop="url">汇编中ROL(循环左移)对应的C语言实现</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about/index.html" title="leaker" target="_blank" itemprop="author">leaker</a>
+		
+  <p class="article-time">
+    <time datetime="2012-04-24T10:48:29.000Z" itemprop="datePublished"> 发表于 2012-04-24</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>在汇编语言中，我们可以直接使用ROL ROR等指令进行循环左移和循环右移的操作。<br>但C语言中却没有对应的操作，没办法只能自己实现了。</p>
+<h2 id="下面是我最近项目中用到的一个针对WORD类型的循环左移-ROL-实现代码："><a href="#下面是我最近项目中用到的一个针对WORD类型的循环左移-ROL-实现代码：" class="headerlink" title="下面是我最近项目中用到的一个针对WORD类型的循环左移(ROL)实现代码："></a>下面是我最近项目中用到的一个针对WORD类型的循环左移(ROL)实现代码：</h2><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">uint16_t</span> <span class="token function">ROL</span><span class="token punctuation">(</span><span class="token keyword">int</span> val<span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token generic-function"><span class="token function">val</span> <span class="token generic class-name"><span class="token operator">&lt;&lt;</span> n<span class="token punctuation">)</span> <span class="token operator">|</span> <span class="token punctuation">(</span>val <span class="token operator">>></span></span></span> <span class="token punctuation">(</span><span class="token number">16</span> <span class="token operator">-</span> n<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>针对BYTE类型的循环左移：</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">uint8_t</span> <span class="token function">ROL</span><span class="token punctuation">(</span><span class="token keyword">int</span> val<span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token generic-function"><span class="token function">val</span> <span class="token generic class-name"><span class="token operator">&lt;&lt;</span> n<span class="token punctuation">)</span> <span class="token operator">|</span> <span class="token punctuation">(</span>val <span class="token operator">>></span></span></span> <span class="token punctuation">(</span><span class="token number">8</span> <span class="token operator">-</span> n<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>针对DWORD类型的循环左移：</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">uint32_t</span> <span class="token function">ROL</span><span class="token punctuation">(</span><span class="token keyword">int</span> val<span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token generic-function"><span class="token function">val</span> <span class="token generic class-name"><span class="token operator">&lt;&lt;</span> n<span class="token punctuation">)</span> <span class="token operator">|</span> <span class="token punctuation">(</span>val <span class="token operator">>></span></span></span> <span class="token punctuation">(</span><span class="token number">32</span> <span class="token operator">-</span> n<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/programing/index.html">programing</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/ROL/index.html">ROL</a><a href="/tags/ROR/index.html">ROR</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2012/04/12/convert-m8-contacts-xml-to-andriod-vcf.html" title="将M8导出的联系人XML转化成Andriod可以导入的vcf文件" itemprop="url">将M8导出的联系人XML转化成Andriod可以导入的vcf文件</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about/index.html" title="leaker" target="_blank" itemprop="author">leaker</a>
+		
+  <p class="article-time">
+    <time datetime="2012-04-12T09:27:17.000Z" itemprop="datePublished"> 发表于 2012-04-12</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <center><img src="/wp-content/uploads/2012/04/android.webp" class=""></center>
+通过我写的一段Python代码可以让M8用户将联系人导入到Andriod系统中。
+
+<h2 id="操作需要以下步骤："><a href="#操作需要以下步骤：" class="headerlink" title="操作需要以下步骤："></a>操作需要以下步骤：</h2><ol>
+<li>先用M8PC工具将M8的联系人导出成XML格式。</li>
+<li>将导出的文件重命名为mycontact.xml，并与m8toAndriod.py放到同一目录下</li>
+<li>运行 python m8toAndriod.py 程序会生成一个名为 mycontact.vcf 的文件</li>
+<li>将 mycontact.vcf 传到Andriod手机中导入</li>
+</ol>
+<h2 id="以下为-m8toAndriod-py-的代码："><a href="#以下为-m8toAndriod-py-的代码：" class="headerlink" title="以下为 m8toAndriod.py 的代码："></a>以下为 m8toAndriod.py 的代码：</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#!/usr/bin/env python</span>
+<span class="token comment"># coding: utf-8</span>
+<span class="token comment"># 功能：将M8导出的联系人XML转化成Andriod可以导入的vcf文件</span>
+<span class="token comment"># 版本：python 2.6 以上</span>
+<span class="token comment"># 作者：leaker</span>
+<span class="token comment"># 网站：http://www.leelib.com</span>
+<span class="token keyword">from</span> xml<span class="token punctuation">.</span>etree <span class="token keyword">import</span> ElementTree <span class="token keyword">as</span> ET
+
+<span class="token comment"># 输出到的mycontact.vcf</span>
+out <span class="token operator">=</span> <span class="token builtin">file</span><span class="token punctuation">(</span><span class="token string">"mycontact.vcf"</span><span class="token punctuation">,</span> <span class="token string">"wb"</span><span class="token punctuation">)</span>
+root <span class="token operator">=</span> ET<span class="token punctuation">.</span>parse<span class="token punctuation">(</span><span class="token builtin">file</span><span class="token punctuation">(</span><span class="token string">"mycontact.xml"</span><span class="token punctuation">,</span> <span class="token string">"r"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>getroot<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> root
+<span class="token keyword">for</span> e <span class="token keyword">in</span> root<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">'Person'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    out<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">'BEGIN:VCARDrnVERSION:3.0rn'</span><span class="token punctuation">)</span>
+    out<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">'N:%s;%s;;;rn'</span> <span class="token operator">%</span> <span class="token punctuation">(</span>e<span class="token punctuation">.</span>findtext<span class="token punctuation">(</span><span class="token string">'LastName'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf8'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> e<span class="token punctuation">.</span>findtext<span class="token punctuation">(</span><span class="token string">'FirstName'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    out<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">'FN:%srn'</span> <span class="token operator">%</span> <span class="token punctuation">(</span>e<span class="token punctuation">.</span>findtext<span class="token punctuation">(</span><span class="token string">'FileAs'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token comment"># print 'FN:%srn'% (e.findtext('FileAs', '').encode('gb2312'))</span>
+    <span class="token keyword">for</span> ee <span class="token keyword">in</span> root<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">'Phone'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> ee<span class="token punctuation">.</span>findtext<span class="token punctuation">(</span><span class="token string">'PersonID'</span><span class="token punctuation">,</span><span class="token string">''</span><span class="token punctuation">)</span> <span class="token operator">==</span> e<span class="token punctuation">.</span>findtext<span class="token punctuation">(</span><span class="token string">'ID'</span><span class="token punctuation">,</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            primary <span class="token operator">=</span> ee<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'IsPrimary'</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">'true'</span>
+            out<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">'TEL;TYPE=CELL%s:%srn'</span> <span class="token operator">%</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">';TYPE=PREF'</span> <span class="token keyword">if</span> primary <span class="token keyword">else</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">,</span> ee<span class="token punctuation">.</span>findtext<span class="token punctuation">(</span><span class="token string">'Info'</span><span class="token punctuation">,</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    out<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">'END:VCARDrn'</span><span class="token punctuation">)</span>
+out<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>点击这里下载：<a href="/wp-content/uploads/2012/04/m8toAndriod.7z">m8toAndriod.7z</a></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/programing/index.html">programing</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Andriod/index.html">Andriod</a><a href="/tags/m8/index.html">m8</a><a href="/tags/m8toAndriod/index.html">m8toAndriod</a><a href="/tags/python/index.html">python</a><a href="/tags/XML/index.html">XML</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2012/04/07/fix-win7-vs2010-no-recents.html" title="解决Win7下VS2010不保存“最近使用的项目和解决方案”问题" itemprop="url">解决Win7下VS2010不保存“最近使用的项目和解决方案”问题</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about/index.html" title="leaker" target="_blank" itemprop="author">leaker</a>
+		
+  <p class="article-time">
+    <time datetime="2012-04-07T06:39:59.000Z" itemprop="datePublished"> 发表于 2012-04-07</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <center><img src="/wp-content/uploads/2012/04/VS2010StartPage.webp" class=""></center>
+
+<p>最近因为一些原因开始使用Win7 x64系统。<br>而使用VS2010的时候发现文件菜单里面竟然没有 <strong>最近使用的项目和解决方案</strong> 这一项。</p>
+<p>于是网上搜索了半天发现是因为Win7系统中 <strong>组策略-用户配置-管理模板-开始菜单和任务栏</strong> 里面的：</p>
+<blockquote>
+<p>退出系统时清理最近打开文档的历史<br>  不保留最近打开文档的历史</p>
+</blockquote>
+<p>这两项未配置的时候默认是 <strong>启用</strong><br>所以我们只要将这两项设置为 <strong>已禁用</strong> 就可以了。</p>
+<p>希望能帮助到跟我有同样问题的人 :)</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/summarys/index.html">summarys</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/VS2010/index.html">VS2010</a><a href="/tags/Win7/index.html">Win7</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2012/03/27/fixed-issue-freeradius-cannot-find-lperl.html" title="解决编译freeradius出现 cannot find -lperl 的问题" itemprop="url">解决编译freeradius出现 cannot find -lperl 的问题</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about/index.html" title="leaker" target="_blank" itemprop="author">leaker</a>
+		
+  <p class="article-time">
+    <time datetime="2012-03-27T04:30:09.000Z" itemprop="datePublished"> 发表于 2012-03-27</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <center><img src="/wp-content/uploads/2012/03/lperl.webp" class=""></center>
+
+<p>今天因为项目需要，需要编译freeradius来使用。</p>
+<h1 id="错误原因"><a href="#错误原因" class="headerlink" title="错误原因"></a>错误原因</h1><p>结果在编译过程中出现如上错误 <code>cannot find -lperl</code>。</p>
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><h2 id="CentOS"><a href="#CentOS" class="headerlink" title="CentOS"></a>CentOS</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> yum -y <span class="token function">install</span> libtool-perl*<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> libperl-dev<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>做个笔记，希望能够帮到遇到这个问题的人。<br>(o≖◡≖)</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/linux/index.html">linux</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/ubuntu/index.html">ubuntu</a><a href="/tags/freeradius/index.html">freeradius</a><a href="/tags/libperl-dev/index.html">libperl-dev</a><a href="/tags/radius/index.html">radius</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2012/03/22/web-mud-client.html" title="仗剑江湖MUD客户端，最新更新ver 1.0 beta" itemprop="url">仗剑江湖MUD客户端，最新更新ver 1.0 beta</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about/index.html" title="leaker" target="_blank" itemprop="author">leaker</a>
+		
+  <p class="article-time">
+    <time datetime="2012-03-22T23:48:35.000Z" itemprop="datePublished"> 发表于 2012-03-22</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <center><img src="/images/webmud_1_0.webp" class=""></center>
+
+<p><strong>为一个元老级的MUD游戏开发的一个PC客户端。利用业余时间完成（主要是这阵子要钻研一个很有技术难度的工作，整天要对着封包一个字节一个字节比对，头疼的厉害。）。</strong></p>
+<p><strong>下载地址：<a href="/wp-content/uploads/2012/03/webmud_client_ver1.0beta.7z" title="仗剑江湖MUD客户端ver1.0beta">仗剑江湖MUD客户端ver1.0beta</a></strong></p>
+<h1 id="更新历史"><a href="#更新历史" class="headerlink" title="更新历史"></a>更新历史</h1><h2 id="ver-1-0-beta-2012-06-13"><a href="#ver-1-0-beta-2012-06-13" class="headerlink" title="ver 1.0 beta 2012.06.13"></a>ver 1.0 beta 2012.06.13</h2><ul>
+<li>  增加游戏界面功能</li>
+<li>  增加高级脚本功能及界面</li>
+<li>  高级脚本内部变量:Self</li>
+<li>  高级脚本内部函数:GetActor,Log,Cmd,Sleep,<br>IsFaintStatus</li>
+<li>  高级脚本内实现<hit> <kill> <get> <check><br>等基本命令</li>
+<li>  高级脚本内实现RunLine,RunScript等功能</li>
+<li>  高级脚本内实现OnAddActor,OnDelActor,<br>OnChangePic,OnChangeAll,OnGetTask,<br>OnTaskOver,OnThing,OnHitOver,OnFaint,<br>OnWake,OnDead,OnDazuoOver,OnBuyItem,<br>OnBehead,OnPickUp,OnPickUpFrom,<br>OnItemInfo 等触发事件</li>
+</ul>
+<h2 id="ver-0-4-beta-2012-04-03"><a href="#ver-0-4-beta-2012-04-03" class="headerlink" title="ver 0.4 beta 2012.04.03"></a>ver 0.4 beta 2012.04.03</h2><ul>
+<li>  增加按钮脚本个数为20个，具体按钮脚本的内<br>容到 script按纽list.txt 里面配置</li>
+<li>  增加脚本指令<br>具体使用方法请看 脚本指令说明.txt</li>
+<li>  增加自动任务功能。<br>具体使用方法请看 自动任务说明.txt</li>
+</ul>
+<h2 id="ver-0-3-beta-2012-03-25"><a href="#ver-0-3-beta-2012-03-25" class="headerlink" title="ver 0.3 beta 2012.03.25"></a>ver 0.3 beta 2012.03.25</h2><ul>
+<li>  增加门派脚本功能，配置：scriptlist.txt</li>
+<li>  命令框自动保存最后发送的10条命令。可在命<br>令框使用键盘上下键翻找</li>
+<li>  增加显示当前任务信息功能，用于准备做自动<br>任务。如有发现什么任务没识别出来的，请联<br>系作者并回馈。</li>
+</ul>
+<h2 id="ver-0-2sp1-beta-2012-03-24"><a href="#ver-0-2sp1-beta-2012-03-24" class="headerlink" title="ver 0.2sp1 beta 2012.03.24"></a>ver 0.2sp1 beta 2012.03.24</h2><ul>
+<li>  修正有些人登录出错的问题</li>
+<li>  优化了网络代码网络效率提高，减少内存使用</li>
+</ul>
+<h2 id="var-0-2-beta-2012-03-24"><a href="#var-0-2-beta-2012-03-24" class="headerlink" title="var 0.2 beta 2012.03.24"></a>var 0.2 beta 2012.03.24</h2><ul>
+<li>  增加挂机功能，文件目录：script挂机</li>
+<li>  增加按钮功能，文件目录：script按纽</li>
+<li>  信息页面每当显示内容超过500行自动清空</li>
+<li>  当前玩家名称显示在血条上面</li>
+<li>  关闭主窗口会返回登录窗口</li>
+</ul>
+<h2 id="ver-0-1-beta-2012-03-23"><a href="#ver-0-1-beta-2012-03-23" class="headerlink" title="ver 0.1 beta 2012.03.23"></a>ver 0.1 beta 2012.03.23</h2><ul>
+<li>  支持游戏基本功能。命令、聊天信息、房间信<br>息、当前房间人物列表等。</li>
+</ul>
+<h2 id="运行环境"><a href="#运行环境" class="headerlink" title="运行环境"></a>运行环境</h2><p>操作系统：WinXP以上版本<br>内存需求： 512M</p>
+<h2 id="使用说明："><a href="#使用说明：" class="headerlink" title="使用说明："></a>使用说明：</h2><p>配置客户端目录下的 Config.ini 文件，修改Host为你需要登录的网站地址。这个地址从你登录游戏以后的页面提取。例如登录以后地址是：<a target="_blank" rel="noopener" href="http://xxx.example.com/cgi-bin/mud/login1">http://xxx.example.com/cgi-bin/mud/login1</a> 那么这里就填：<a target="_blank" rel="noopener" href="http://xxx.example.com/">http://xxx.example.com</a></p>
+<h2 id="附加说明："><a href="#附加说明：" class="headerlink" title="附加说明："></a>附加说明：</h2><p>双击房间人物列表中的人物可以将人物名字插到命令行的最后</p>
+<p><strong>如发现BUG或有好的建议，请在下面留言。</strong></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/works/index.html">works</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/mud/index.html">mud</a><a href="/tags/webmud/index.html">webmud</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2012/03/20/gedit-saveto-root-dir.html" title="如何使gedit能够编辑和保存到所属root用户的目录中" itemprop="url">如何使gedit能够编辑和保存到所属root用户的目录中</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about/index.html" title="leaker" target="_blank" itemprop="author">leaker</a>
+		
+  <p class="article-time">
+    <time datetime="2012-03-20T19:08:43.000Z" itemprop="datePublished"> 发表于 2012-03-20</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <center><img src="/wp-content/uploads/2012/03/gedit.webp" class=""></center>
+
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>为了能让gedit能够直接编辑不属于当前用户的文件，我们需要做如下操作：</p>
+<ol>
+<li>为gedit创建一个启动器。这个有很多方法，如果不清楚的同学可以跟我一起操作。<br>具体方法为：找到 <strong>应用程序-附件-文本编辑器</strong> 点右键选择 <strong>将此启动器添加到面板</strong></li>
+<li>右键点击刚才我们创建的启动器。选择 <strong>属性</strong> 将原命令 <strong>gedit %U</strong> 修改为 <strong>gksudo gedit %U</strong></li>
+</ol>
+<blockquote>
+<p><strong>gksudo</strong> 其实就是对应桌面环境下的 <strong>sudo</strong> 命令.</p>
+</blockquote>
+<p>我才学到的留以记录，希望能帮到需要的人。</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/linux/index.html">linux</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/sudo/index.html">sudo</a><a href="/tags/ubuntu/index.html">ubuntu</a><a href="/tags/gedit/index.html">gedit</a><a href="/tags/gksudo/index.html">gksudo</a><a href="/tags/root/index.html">root</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2012/03/19/163-ubuntu-apt-sources.html" title="网易的Ubuntu更新源" itemprop="url">网易的Ubuntu更新源</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about/index.html" title="leaker" target="_blank" itemprop="author">leaker</a>
+		
+  <p class="article-time">
+    <time datetime="2012-03-19T13:13:20.000Z" itemprop="datePublished"> 发表于 2012-03-19</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <center><img src="/wp-content/uploads/2012/03/ubuntu_splash.webp" class=""></center>
+
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol>
+<li>sudo gedit /etc/apt/sources.list<br>编辑你的源列表，将原来的内容全部删除并复制下面列表到文件中，然后保存列表。</li>
+<li>sudo apt-get update</li>
+</ol>
+<p>等第2步完成之后你就可以打开更新管理器更新了<br>顺便一提 网易的更新速度真的很快，我这里下载600K/s</p>
+<p>以下是更新列表内容：</p>
+<pre><code>deb http://mirrors.163.com/ubuntu/ precise main restricted
+deb-src http://mirrors.163.com/ubuntu/ precise main restricted
+deb http://mirrors.163.com/ubuntu/ precise-updates main restricted
+deb-src http://mirrors.163.com/ubuntu/ precise-updates main restricted
+deb http://mirrors.163.com/ubuntu/ precise universe
+deb-src http://mirrors.163.com/ubuntu/ precise universe
+deb http://mirrors.163.com/ubuntu/ precise-updates universe
+deb-src http://mirrors.163.com/ubuntu/ precise-updates universe
+deb http://mirrors.163.com/ubuntu/ precise multiverse
+deb-src http://mirrors.163.com/ubuntu/ precise multiverse
+deb http://mirrors.163.com/ubuntu/ precise-updates multiverse
+deb-src http://mirrors.163.com/ubuntu/ precise-updates multiverse
+deb http://mirrors.163.com/ubuntu/ precise-backports main restricted universe multiverse
+deb-src http://mirrors.163.com/ubuntu/ precise-backports main restricted universe multiverse
+deb http://mirrors.163.com/ubuntu/ precise-security main restricted
+deb-src http://mirrors.163.com/ubuntu/ precise-security main restricted
+deb http://mirrors.163.com/ubuntu/ precise-security universe
+deb-src http://mirrors.163.com/ubuntu/ precise-security universe
+deb http://mirrors.163.com/ubuntu/ precise-security multiverse
+deb-src http://mirrors.163.com/ubuntu/ precise-security multiverse
+deb http://extras.ubuntu.com/ubuntu precise main
+deb-src http://extras.ubuntu.com/ubuntu precise main
+</code></pre>
+<p>你也可以在我这里下载自动修改脚本：<a href="/wp-content/uploads/2012/03/163source.7z">点我下载</a></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/linux/index.html">linux</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/sudo/index.html">sudo</a><a href="/tags/ubuntu/index.html">ubuntu</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+
+  <nav id="page-nav" class="clearfix">
+    <a class="extend prev" rel="prev" href="/page/6/index.html"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/index.html">5</a><a class="page-number" href="/page/6/index.html">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/index.html">8</a><a class="extend next" rel="next" href="/page/8/index.html">Next<span></span></a>
+  </nav>
+
+</div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/deploy/index.html" title="deploy">deploy<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/interesting/index.html" title="interesting">interesting<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/linux/index.html" title="linux">linux<sup>29</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/notices/index.html" title="notices">notices<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/programing/index.html" title="programing">programing<sup>23</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/sites/index.html" title="sites">sites<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/summarys/index.html" title="summarys">summarys<sup>10</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/works/index.html" title="works">works<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/linux/index.html" title="linux">linux<sup>12</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ubuntu/index.html" title="ubuntu">ubuntu<sup>8</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/centos/index.html" title="centos">centos<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/yum/index.html" title="yum">yum<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/zlib/index.html" title="zlib">zlib<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/install/index.html" title="install">install<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/git/index.html" title="git">git<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/make/index.html" title="make">make<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python/index.html" title="python">python<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/c/index.html" title="c">c<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/windows/index.html" title="windows">windows<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/kernel/index.html" title="kernel">kernel<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/libc/index.html" title="libc">libc<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/SAFESEH/index.html" title="SAFESEH">SAFESEH<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/https/index.html" title="https">https<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ln/index.html" title="ln">ln<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/conf/index.html" title="conf">conf<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/gcc/index.html" title="gcc">gcc<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/compress/index.html" title="compress">compress<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/sudo/index.html" title="sudo">sudo<sup>2</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello, this is leaker&#39;s blog in github. <br/>
+			Leaker: &#34;Living without an aim is like sailing without a compass.&#34;</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:admin@leelib.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2021 
+		
+		<a href="/about/index.html" target="_blank" title="leaker">leaker</a>
+		
+		<a target="_blank" rel="noopener noreferrer" href="http://www.beian.miit.gov.cn/" class="report-link"><img class="report-img" src="/images/report-img.webp" data-spm-anchor-id="a3c00.7621337.7y9jhqsfz.i0.73bb3J6l3J6lkb"><span class="report-link-text">陕ICP备20006522号</span></a>
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script async src="/js/jquery.imagesloaded.min.js"></script>
+<script async src="/js/gallery.js"></script>
+<script async src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script async src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.webp"/></a>
+	</div>
+	<script async src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+ </html>
