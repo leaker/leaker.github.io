@@ -1,0 +1,3 @@
+[submodule "themes/fika"]
+	path = themes/fika
+	url = https://github.com/leaker/hugo-theme-fika.git
