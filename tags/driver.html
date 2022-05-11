@@ -1,0 +1,220 @@
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><meta name=description content><meta name=HandheldFriendly content="True"><meta name=MobileOptimized content="320"><meta name=keywords content><meta property="og:type" content="article"><meta property="og:description" content><meta property="og:title" content="Driver"><meta property="og:site_name" content="逃避虽然可耻但有用"><meta property="og:url" content="https://www.leelib.com/tags/driver.html"><meta property="og:locale" content="zh-CN"><meta property="article:published_time" content="0001-01-01T00:00:00+0000"><meta property="article:modified_time" content="2013-09-06T17:28:58+0800"><base href=https://www.leelib.com/tags/driver.html><title>Driver | 逃避虽然可耻但有用</title><link rel=canonical href=https://www.leelib.com/tags/driver.html><link rel=alternate type=application/rss+xml href=https://www.leelib.com/tags/driver/atom.xml title=逃避虽然可耻但有用><link rel=stylesheet href=https://www.leelib.com/css/fika.min.e981b6773011e9ebef0acb91938bbaee62327378a3c72ad2503f78a42e50d4ea.css><link rel="shortcut icon" href=/favicon.ico type=image/x-icon></head><body><header><div><div id=imglogo><a href=https://www.leelib.com/><img src=/img/logo.webp alt=逃避虽然可耻但有用 title=逃避虽然可耻但有用></a></div><div id=textlogo><h1 class=site-name><a href=https://www.leelib.com/ title=逃避虽然可耻但有用>逃避虽然可耻但有用</a></h1><h2 class=blog-motto>少壮不努力，一生在内地</h2></div><nav class=animated><ul><li><a href=/>主页</a></li><li><a href=/archives/index.html>归档</a></li><li><a href=/about/index.html>关于</a></li><li><a href=/disappear/index.html>消失</a></li></ul></nav></div></header><div id=container><div id=main><article class="post-expand post" itemprop=articleBody><header class="article-info clearfix"><h1 itemprop=name><a href=https://www.leelib.com/2013/09/06/sk-buff-2-6-18-diff-2-6-33.html title=结构体sk_buff在Linux内核2.6.18与2.6.33中的区别 itemprop=url>结构体sk_buff在Linux内核2.6.18与2.6.33中的区别</a></h1><p class=article-time><time datetime="2013-09-06 17:28:58 +0800 +0800" itemprop=datePublished>2013-09-06</time></p></header><div class=article-content><p>在Linux 2.6.33.6中，源文件在：/usr/src/kernels/2.6.33.6/include/linux/skbuff.h</p><h1 id=struct-sk_buff在2618中的定义>struct sk_buff在2.6.18中的定义：</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#66d9ef>struct</span> sk_buff {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/* These two members must be first. */</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>struct</span> sk_buff          <span style=color:#f92672>*</span>next;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>struct</span> sk_buff          <span style=color:#f92672>*</span>prev;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>struct</span> sock             <span style=color:#f92672>*</span>sk;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>struct</span> skb_timeval      tstamp;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>struct</span> net_device       <span style=color:#f92672>*</span>dev;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>struct</span> net_device       <span style=color:#f92672>*</span>input_dev;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>union</span> {
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>struct</span> tcphdr   <span style=color:#f92672>*</span>th;
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>struct</span> udphdr   <span style=color:#f92672>*</span>uh;
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>struct</span> icmphdr  <span style=color:#f92672>*</span>icmph;
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>struct</span> igmphdr  <span style=color:#f92672>*</span>igmph;
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>struct</span> iphdr    <span style=color:#f92672>*</span>ipiph;
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>struct</span> ipv6hdr  <span style=color:#f92672>*</span>ipv6h;
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>char</span>   <span style=color:#f92672>*</span>raw;
+</span></span><span style=display:flex><span>        } h;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>union</span> {
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>struct</span> iphdr    <span style=color:#f92672>*</span>iph;
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>struct</span> ipv6hdr  <span style=color:#f92672>*</span>ipv6h;
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>struct</span> arphdr   <span style=color:#f92672>*</span>arph;
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>char</span>   <span style=color:#f92672>*</span>raw;
+</span></span><span style=display:flex><span>        } nh;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>union</span> {
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>char</span>   <span style=color:#f92672>*</span>raw;
+</span></span><span style=display:flex><span>        } mac;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>struct</span>  dst_entry       <span style=color:#f92672>*</span>dst;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>struct</span>  sec_path        <span style=color:#f92672>*</span>sp;
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/*
+</span></span></span><span style=display:flex><span><span style=color:#75715e>         * This is the control buffer. It is free to use for every
+</span></span></span><span style=display:flex><span><span style=color:#75715e>         * layer. Please put your private variables there. If you
+</span></span></span><span style=display:flex><span><span style=color:#75715e>         * want to keep them across layers you have to do a skb_clone()
+</span></span></span><span style=display:flex><span><span style=color:#75715e>         * first. This is owned by whoever has the skb queued ATM.
+</span></span></span><span style=display:flex><span><span style=color:#75715e>         */</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>char</span>                    cb[<span style=color:#ae81ff>48</span>];
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>int</span>            len,
+</span></span><span style=display:flex><span>                                data_len,
+</span></span><span style=display:flex><span>                                mac_len,
+</span></span><span style=display:flex><span>                                csum;
+</span></span><span style=display:flex><span>        __u32                   priority;
+</span></span><span style=display:flex><span>        __u8                    local_df:<span style=color:#ae81ff>1</span>,
+</span></span><span style=display:flex><span>                                cloned:<span style=color:#ae81ff>1</span>,
+</span></span><span style=display:flex><span>                                ip_summed:<span style=color:#ae81ff>2</span>,
+</span></span><span style=display:flex><span>                                nohdr:<span style=color:#ae81ff>1</span>,
+</span></span><span style=display:flex><span>                                nfctinfo:<span style=color:#ae81ff>3</span>;
+</span></span><span style=display:flex><span>        __u8                    pkt_type:<span style=color:#ae81ff>3</span>,
+</span></span><span style=display:flex><span>                                fclone:<span style=color:#ae81ff>2</span>,
+</span></span><span style=display:flex><span><span style=color:#75715e>#ifndef CONFIG_XEN
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>                                ipvs_property:<span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span><span style=color:#75715e>#else
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>                                ipvs_property:<span style=color:#ae81ff>1</span>,
+</span></span><span style=display:flex><span>                                proto_data_valid:<span style=color:#ae81ff>1</span>,
+</span></span><span style=display:flex><span>                                proto_csum_blank:<span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span><span style=color:#75715e>#endif
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        __be16                  protocol;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>void</span>                    (<span style=color:#f92672>*</span>destructor)(<span style=color:#66d9ef>struct</span> sk_buff <span style=color:#f92672>*</span>skb);
+</span></span><span style=display:flex><span><span style=color:#75715e>#ifdef CONFIG_NETFILTER
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>struct</span> nf_conntrack     <span style=color:#f92672>*</span>nfct;
+</span></span><span style=display:flex><span><span style=color:#75715e>#if defined(CONFIG_NF_CONNTRACK) || defined(CONFIG_NF_CONNTRACK_MODULE)
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>       <span style=color:#66d9ef>struct</span> sk_buff          <span style=color:#f92672>*</span>nfct_reasm;
+</span></span><span style=display:flex><span><span style=color:#75715e>#endif
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#ifdef CONFIG_BRIDGE_NETFILTER
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>struct</span> nf_bridge_info   <span style=color:#f92672>*</span>nf_bridge;
+</span></span><span style=display:flex><span><span style=color:#75715e>#endif
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        __u32                   nfmark;
+</span></span><span style=display:flex><span><span style=color:#75715e>#endif </span><span style=color:#75715e>/* CONFIG_NETFILTER */</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#ifdef CONFIG_NET_SCHED
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        __u16                   tc_index;       <span style=color:#75715e>/* traffic control index */</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#ifdef CONFIG_NET_CLS_ACT
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        __u16                   tc_verd;        <span style=color:#75715e>/* traffic control verdict */</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#endif
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#endif
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#ifdef CONFIG_NET_DMA
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        dma_cookie_t            dma_cookie;
+</span></span><span style=display:flex><span><span style=color:#75715e>#endif
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#ifdef CONFIG_NETWORK_SECMARK
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        __u32                   secmark;
+</span></span><span style=display:flex><span><span style=color:#75715e>#endif
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/* These elements must be at the end, see alloc_skb() for details.  */</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>int</span>            truesize;
+</span></span><span style=display:flex><span>        atomic_t                users;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>char</span>           <span style=color:#f92672>*</span>head,
+</span></span><span style=display:flex><span>                                <span style=color:#f92672>*</span>data,
+</span></span><span style=display:flex><span>                                <span style=color:#f92672>*</span>tail,
+</span></span><span style=display:flex><span>                                <span style=color:#f92672>*</span>end;
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/* Extra stuff at the end to avoid breaking abi */</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#ifndef __GENKSYMS__
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>int</span>                      peeked;
+</span></span><span style=display:flex><span><span style=color:#75715e>#endif
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>};
+</span></span></code></pre></div><h1 id=struct-sk_buff在2633中的定义>struct sk_buff在2.6.33中的定义：</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#66d9ef>struct</span> sk_buff {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/* These two members must be first. */</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>struct</span> sk_buff          <span style=color:#f92672>*</span>next;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>struct</span> sk_buff          <span style=color:#f92672>*</span>prev;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        ktime_t                 tstamp;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>struct</span> sock             <span style=color:#f92672>*</span>sk;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>struct</span> net_device       <span style=color:#f92672>*</span>dev;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/*
+</span></span></span><span style=display:flex><span><span style=color:#75715e>         * This is the control buffer. It is free to use for every
+</span></span></span><span style=display:flex><span><span style=color:#75715e>         * layer. Please put your private variables there. If you
+</span></span></span><span style=display:flex><span><span style=color:#75715e>         * want to keep them across layers you have to do a skb_clone()
+</span></span></span><span style=display:flex><span><span style=color:#75715e>         * first. This is owned by whoever has the skb queued ATM.
+</span></span></span><span style=display:flex><span><span style=color:#75715e>         */</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>char</span>                    cb[<span style=color:#ae81ff>48</span>] __aligned(<span style=color:#ae81ff>8</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>long</span>           _skb_dst;
+</span></span><span style=display:flex><span><span style=color:#75715e>#ifdef CONFIG_XFRM
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>struct</span>  sec_path        <span style=color:#f92672>*</span>sp;
+</span></span><span style=display:flex><span><span style=color:#75715e>#endif
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>int</span>            len,
+</span></span><span style=display:flex><span>                                data_len;
+</span></span><span style=display:flex><span>        __u16                   mac_len,
+</span></span><span style=display:flex><span>                                hdr_len;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>union</span> {
+</span></span><span style=display:flex><span>                __wsum          csum;
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>struct</span> {
+</span></span><span style=display:flex><span>                        __u16   csum_start;
+</span></span><span style=display:flex><span>                        __u16   csum_offset;
+</span></span><span style=display:flex><span>                };
+</span></span><span style=display:flex><span>        };
+</span></span><span style=display:flex><span>        __u32                   priority;
+</span></span><span style=display:flex><span>        kmemcheck_bitfield_begin(flags1);
+</span></span><span style=display:flex><span>        __u8                    local_df:<span style=color:#ae81ff>1</span>,
+</span></span><span style=display:flex><span>                                cloned:<span style=color:#ae81ff>1</span>,
+</span></span><span style=display:flex><span>                                ip_summed:<span style=color:#ae81ff>2</span>,
+</span></span><span style=display:flex><span>                                nohdr:<span style=color:#ae81ff>1</span>,
+</span></span><span style=display:flex><span>                                nfctinfo:<span style=color:#ae81ff>3</span>;
+</span></span><span style=display:flex><span>        __u8                    pkt_type:<span style=color:#ae81ff>3</span>,
+</span></span><span style=display:flex><span>                                fclone:<span style=color:#ae81ff>2</span>,
+</span></span><span style=display:flex><span>                                ipvs_property:<span style=color:#ae81ff>1</span>,
+</span></span><span style=display:flex><span>                                peeked:<span style=color:#ae81ff>1</span>,
+</span></span><span style=display:flex><span>                                nf_trace:<span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>        __be16                  protocol:<span style=color:#ae81ff>16</span>;
+</span></span><span style=display:flex><span>        kmemcheck_bitfield_end(flags1);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>void</span>                    (<span style=color:#f92672>*</span>destructor)(<span style=color:#66d9ef>struct</span> sk_buff <span style=color:#f92672>*</span>skb);
+</span></span><span style=display:flex><span><span style=color:#75715e>#if defined(CONFIG_NF_CONNTRACK) || defined(CONFIG_NF_CONNTRACK_MODULE)
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>struct</span> nf_conntrack     <span style=color:#f92672>*</span>nfct;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>struct</span> sk_buff          <span style=color:#f92672>*</span>nfct_reasm;
+</span></span><span style=display:flex><span><span style=color:#75715e>#endif
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#ifdef CONFIG_BRIDGE_NETFILTER
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>struct</span> nf_bridge_info   <span style=color:#f92672>*</span>nf_bridge;
+</span></span><span style=display:flex><span><span style=color:#75715e>#endif
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span>                     skb_iif;
+</span></span><span style=display:flex><span><span style=color:#75715e>#ifdef CONFIG_NET_SCHED
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        __u16                   tc_index;       <span style=color:#75715e>/* traffic control index */</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#ifdef CONFIG_NET_CLS_ACT
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        __u16                   tc_verd;        <span style=color:#75715e>/* traffic control verdict */</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#endif
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#endif
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span>        kmemcheck_bitfield_begin(flags2);
+</span></span><span style=display:flex><span>        __u16                   queue_mapping:<span style=color:#ae81ff>16</span>;
+</span></span><span style=display:flex><span><span style=color:#75715e>#ifdef CONFIG_IPV6_NDISC_NODETYPE
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        __u8                    ndisc_nodetype:<span style=color:#ae81ff>2</span>;
+</span></span><span style=display:flex><span><span style=color:#75715e>#endif
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        kmemcheck_bitfield_end(flags2);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/* 0/14 bit hole */</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#ifdef CONFIG_NET_DMA
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        dma_cookie_t            dma_cookie;
+</span></span><span style=display:flex><span><span style=color:#75715e>#endif
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#ifdef CONFIG_NETWORK_SECMARK
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        __u32                   secmark;
+</span></span><span style=display:flex><span><span style=color:#75715e>#endif
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>union</span> {
+</span></span><span style=display:flex><span>                __u32           mark;
+</span></span><span style=display:flex><span>                __u32           dropcount;
+</span></span><span style=display:flex><span>        };
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        __u16                   vlan_tci;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        sk_buff_data_t          transport_header;
+</span></span><span style=display:flex><span>        sk_buff_data_t          network_header;
+</span></span><span style=display:flex><span>        sk_buff_data_t          mac_header;
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/* These elements must be at the end, see alloc_skb() for details.  */</span>
+</span></span><span style=display:flex><span>        sk_buff_data_t          tail;
+</span></span><span style=display:flex><span>        sk_buff_data_t          end;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>char</span>           <span style=color:#f92672>*</span>head,
+</span></span><span style=display:flex><span>                                <span style=color:#f92672>*</span>data;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>int</span>            truesize;
+</span></span><span style=display:flex><span>        atomic_t                users;
+</span></span><span style=display:flex><span>};
+</span></span></code></pre></div><p>有了以上定义的话，我们就可以做类似如下定义来使我们的驱动支持多内核了：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#66d9ef>struct</span> sk_buff <span style=color:#f92672>*</span>new_skb;
+</span></span><span style=display:flex><span><span style=color:#75715e>#if LINUX_VERSION_CODE &lt;= KERNEL_VERSION(2,6,18)
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>new_skb<span style=color:#f92672>-&gt;</span>mac.raw <span style=color:#f92672>=</span> (<span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>char</span> <span style=color:#f92672>*</span>)new_eth_p;
+</span></span><span style=display:flex><span><span style=color:#75715e>#else
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>new_skb<span style=color:#f92672>-&gt;</span>mac_header <span style=color:#f92672>=</span> (<span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>char</span> <span style=color:#f92672>*</span>)new_eth_p;
+</span></span><span style=display:flex><span><span style=color:#75715e>#endif
+</span></span></span></code></pre></div><p>参考：<a href=http://www.linuxquestions.org/questions/linux-kernel-70/struct-sk_buff-differs-in-2-6-18-and-2-6-33-kernel-882507/>http://www.linuxquestions.org/questions/linux-kernel-70/struct-sk_buff-differs-in-2-6-18-and-2-6-33-kernel-882507/</a></p></div><footer class="article-footer clearfix"><div class=article-catetags><div class=article-categories><span></span>
+<a class=article-category-link href=https://www.leelib.com/categories/linux.html>linux</a></div><div class=article-tags><span></span>
+<a href=https://www.leelib.com/tags/driver.html>Driver</a>
+<a href=https://www.leelib.com/tags/inux_version_code.html>INUX_VERSION_CODE</a>
+<a href=https://www.leelib.com/tags/kernel.html>kernel</a>
+<a href=https://www.leelib.com/tags/kernel_version.html>KERNEL_VERSION</a>
+<a href=https://www.leelib.com/tags/linux.html>linux</a>
+<a href=https://www.leelib.com/tags/sk_buff.html>sk_buff</a></div></div></footer></article><nav id=page-nav class=clearfix><a class="page-number current" aria-label="Page 1" role=button>1</a></nav></div><div id=asidepart><aside class=clearfix><div class=categorieslist><p class=asidetitle>文章分类</p><ul><li><span class=count>1</span>
+<a href=/categories/deploy.html title=deploy>deploy</a></li><li><span class=count>1</span>
+<a href=/categories/interesting.html title=interesting>interesting</a></li><li><span class=count>29</span>
+<a href=/categories/linux.html title=linux>linux</a></li><li><span class=count>5</span>
+<a href=/categories/notices.html title=notices>notices</a></li><li><span class=count>23</span>
+<a href=/categories/programing.html title=programing>programing</a></li><li><span class=count>1</span>
+<a href=/categories/sites.html title=sites>sites</a></li><li><span class=count>10</span>
+<a href=/categories/summarys.html title=summarys>summarys</a></li><li><span class=count>1</span>
+<a href=/categories/works.html title=works>works</a></li></ul></div><div class=tagslist><p class=asidetitle>文章标签</p><ul class=clearfix><li><a href=/tags/c.html title=c>c<sup>3</sup></a></li><li><a href=/tags/centos.html title=centos>centos<sup>5</sup></a></li><li><a href=/tags/compress.html title=compress>compress<sup>2</sup></a></li><li><a href=/tags/conf.html title=conf>conf<sup>2</sup></a></li><li><a href=/tags/gcc.html title=gcc>gcc<sup>2</sup></a></li><li><a href=/tags/git.html title=git>git<sup>3</sup></a></li><li><a href=/tags/https.html title=https>https<sup>2</sup></a></li><li><a href=/tags/install.html title=install>install<sup>4</sup></a></li><li><a href=/tags/kernel.html title=kernel>kernel<sup>3</sup></a></li><li><a href=/tags/libc.html title=libc>libc<sup>2</sup></a></li><li><a href=/tags/linux.html title=linux>linux<sup>12</sup></a></li><li><a href=/tags/ln.html title=ln>ln<sup>2</sup></a></li><li><a href=/tags/make.html title=make>make<sup>3</sup></a></li><li><a href=/tags/python.html title=python>python<sup>3</sup></a></li><li><a href=/tags/safeseh.html title=safeseh>safeseh<sup>2</sup></a></li><li><a href=/tags/sudo.html title=sudo>sudo<sup>2</sup></a></li><li><a href=/tags/ubuntu.html title=ubuntu>ubuntu<sup>8</sup></a></li><li><a href=/tags/windows.html title=windows>windows<sup>3</sup></a></li><li><a href=/tags/yum.html title=yum>yum<sup>4</sup></a></li><li><a href=/tags/zlib.html title=zlib>zlib<sup>4</sup></a></li></ul></div><div class=rsspart><a href=/atom.xml target=_blank title=rss>RSS 订阅</a></div></aside></div></div><footer><div id=footer><div class=line><span></span><div class=author></div></div><section class=info><p>Hello, this is leaker's blog in github.<br>Leaker: "Living without an aim is like sailing without a compass."</p></section><div class=social-font class=clearfix><a href=mailto:admin@leelib.com target=_blank class=icon-email title="Email Me"></a></div><p class=copyright>Powered by <a rel=noopener title=Hugo href=https://gohugo.io target=_blank>Hugo</a> and Theme by <a rel=noopener title=Fika href=https://github.com/leaker/hugo-theme-fika target=_blank>Fika</a> © 2022
+<a href=/about/index.html target=_blank title=leaker>leaker</a>
+<a target=_blank rel="noopener noreferrer" href=http://www.beian.miit.gov.cn/ class=report-link><img rel=nofollow title="备案号： 陕ICP备20006522号" class=report-img src=/images/report-img.webp><span class=report-link-text>陕ICP备20006522号</span></a></p></div></footer></body></html>

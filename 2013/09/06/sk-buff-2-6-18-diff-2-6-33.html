@@ -1,766 +1,220 @@
-
- <!DOCTYPE HTML>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-  
-    <title>结构体sk_buff在Linux内核2.6.18与2.6.33中的区别 | 逃避虽然可耻但有用</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
-    
-    <meta name="author" content="leaker">
-    
-
-    
-    <meta name="description" content="在Linux 2.6.33.6中，源文件在：&#x2F;usr&#x2F;src&#x2F;kernels&#x2F;2.6.33.6&#x2F;include&#x2F;linux&#x2F;skbuff.h struct sk_buff在2.6.18中的定义：struct sk_buff &amp;#123;         &#x2F;* These two members must be first. *&#x2F;         struct sk_buff          *n">
-<meta property="og:type" content="article">
-<meta property="og:title" content="结构体sk_buff在Linux内核2.6.18与2.6.33中的区别">
-<meta property="og:url" content="https://www.leelib.com/2013/09/06/sk-buff-2-6-18-diff-2-6-33.html">
-<meta property="og:site_name" content="逃避虽然可耻但有用">
-<meta property="og:description" content="在Linux 2.6.33.6中，源文件在：&#x2F;usr&#x2F;src&#x2F;kernels&#x2F;2.6.33.6&#x2F;include&#x2F;linux&#x2F;skbuff.h struct sk_buff在2.6.18中的定义：struct sk_buff &amp;#123;         &#x2F;* These two members must be first. *&#x2F;         struct sk_buff          *n">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2013-09-06T17:28:58.000Z">
-<meta property="article:modified_time" content="2021-09-17T17:29:55.193Z">
-<meta property="article:author" content="leaker">
-<meta property="article:tag" content="linux">
-<meta property="article:tag" content="kernel">
-<meta property="article:tag" content="2.6.18">
-<meta property="article:tag" content="2.6.33">
-<meta property="article:tag" content="Driver">
-<meta property="article:tag" content="INUX_VERSION_CODE">
-<meta property="article:tag" content="KERNEL_VERSION">
-<meta property="article:tag" content="sk_buff">
-<meta name="twitter:card" content="summary">
-
-    
-    <link rel="alternative" href="/atom.xml" title="逃避虽然可耻但有用" type="application/atom+xml">
-    
-    
-    <link rel="icon" href="/favicon.ico">
-    
-    
-    <link rel="stylesheet" href="/css/style.css">
-<meta name="generator" content="Hexo 5.4.0"></head>
-
-  <body>
-    <header>
-      
-<div>
-		
-			<div id="imglogo">
-				<a href="/"><img src="/img/logo.webp" alt="逃避虽然可耻但有用" title="逃避虽然可耻但有用"/></a>
-			</div>
-			
-			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="逃避虽然可耻但有用">逃避虽然可耻但有用</a></h1>
-				<h2 class="blog-motto">少壮不努力，一生在内地</h2>
-			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
-			</a></div>
-			<nav class="animated">
-				<ul>
-					<ul>
-					 
-						<li><a href="/">主页</a></li>
-					
-						<li><a href="/archives/index.html">归档</a></li>
-					
-						<li><a href="/about/index.html">关于</a></li>
-					
-						<li><a href="/disappear/index.html">消失</a></li>
-					
-					<li>
- 					
-					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
-						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
-						<input type="hidden" name="q" value="site:www.leelib.com">
-					</form>
-					
-					</li>
-				</ul>
-			</nav>			
-</div>
-    </header>
-    <div id="container">
-      <div id="main" class="post" itemscope itemprop="blogPost">
-  
-	<article itemprop="articleBody"> 
-		<header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2013/09/06/sk-buff-2-6-18-diff-2-6-33.html" title="结构体sk_buff在Linux内核2.6.18与2.6.33中的区别" itemprop="url">结构体sk_buff在Linux内核2.6.18与2.6.33中的区别</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about/index.html" title="leaker" target="_blank" itemprop="author">leaker</a>
-		
-  <p class="article-time">
-    <time datetime="2013-09-06T17:28:58.000Z" itemprop="datePublished"> 发表于 2013-09-06</time>
-    
-  </p>
-</header>
-	<div class="article-content">
-		
-		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目录</strong>
-		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#struct-sk-buff%E5%9C%A82-6-18%E4%B8%AD%E7%9A%84%E5%AE%9A%E4%B9%89%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">struct sk_buff在2.6.18中的定义：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#struct-sk-buff%E5%9C%A82-6-33%E4%B8%AD%E7%9A%84%E5%AE%9A%E4%B9%89%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">struct sk_buff在2.6.33中的定义：</span></a></li></ol>
-		
-		</div>
-		
-		<p>在Linux 2.6.33.6中，源文件在：/usr/src/kernels/2.6.33.6/include/linux/skbuff.h</p>
-<h1 id="struct-sk-buff在2-6-18中的定义："><a href="#struct-sk-buff在2-6-18中的定义：" class="headerlink" title="struct sk_buff在2.6.18中的定义："></a>struct sk_buff在2.6.18中的定义：</h1><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">struct</span> <span class="token class-name">sk_buff</span> <span class="token punctuation">&#123;</span>
-        <span class="token comment">/* These two members must be first. */</span>
-        <span class="token keyword">struct</span> <span class="token class-name">sk_buff</span>          <span class="token operator">*</span>next<span class="token punctuation">;</span>
-        <span class="token keyword">struct</span> <span class="token class-name">sk_buff</span>          <span class="token operator">*</span>prev<span class="token punctuation">;</span>
-
-        <span class="token keyword">struct</span> <span class="token class-name">sock</span>             <span class="token operator">*</span>sk<span class="token punctuation">;</span>
-        <span class="token keyword">struct</span> <span class="token class-name">skb_timeval</span>      tstamp<span class="token punctuation">;</span>
-        <span class="token keyword">struct</span> <span class="token class-name">net_device</span>       <span class="token operator">*</span>dev<span class="token punctuation">;</span>
-        <span class="token keyword">struct</span> <span class="token class-name">net_device</span>       <span class="token operator">*</span>input_dev<span class="token punctuation">;</span>
-
-        <span class="token keyword">union</span> <span class="token punctuation">&#123;</span>
-                <span class="token keyword">struct</span> <span class="token class-name">tcphdr</span>   <span class="token operator">*</span>th<span class="token punctuation">;</span>
-                <span class="token keyword">struct</span> <span class="token class-name">udphdr</span>   <span class="token operator">*</span>uh<span class="token punctuation">;</span>
-                <span class="token keyword">struct</span> <span class="token class-name">icmphdr</span>  <span class="token operator">*</span>icmph<span class="token punctuation">;</span>
-                <span class="token keyword">struct</span> <span class="token class-name">igmphdr</span>  <span class="token operator">*</span>igmph<span class="token punctuation">;</span>
-                <span class="token keyword">struct</span> <span class="token class-name">iphdr</span>    <span class="token operator">*</span>ipiph<span class="token punctuation">;</span>
-                <span class="token keyword">struct</span> <span class="token class-name">ipv6hdr</span>  <span class="token operator">*</span>ipv6h<span class="token punctuation">;</span>
-                <span class="token keyword">unsigned</span> <span class="token keyword">char</span>   <span class="token operator">*</span>raw<span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span> h<span class="token punctuation">;</span>
-
-        <span class="token keyword">union</span> <span class="token punctuation">&#123;</span>
-                <span class="token keyword">struct</span> <span class="token class-name">iphdr</span>    <span class="token operator">*</span>iph<span class="token punctuation">;</span>
-                <span class="token keyword">struct</span> <span class="token class-name">ipv6hdr</span>  <span class="token operator">*</span>ipv6h<span class="token punctuation">;</span>
-                <span class="token keyword">struct</span> <span class="token class-name">arphdr</span>   <span class="token operator">*</span>arph<span class="token punctuation">;</span>
-                <span class="token keyword">unsigned</span> <span class="token keyword">char</span>   <span class="token operator">*</span>raw<span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span> nh<span class="token punctuation">;</span>
-
-        <span class="token keyword">union</span> <span class="token punctuation">&#123;</span>
-                <span class="token keyword">unsigned</span> <span class="token keyword">char</span>   <span class="token operator">*</span>raw<span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span> mac<span class="token punctuation">;</span>
-
-        <span class="token keyword">struct</span>  <span class="token class-name">dst_entry</span>       <span class="token operator">*</span>dst<span class="token punctuation">;</span>
-        <span class="token keyword">struct</span>  <span class="token class-name">sec_path</span>        <span class="token operator">*</span>sp<span class="token punctuation">;</span>
-        <span class="token comment">/*
-         * This is the control buffer. It is free to use for every
-         * layer. Please put your private variables there. If you
-         * want to keep them across layers you have to do a skb_clone()
-         * first. This is owned by whoever has the skb queued ATM.
-         */</span>
-        <span class="token keyword">char</span>                    cb<span class="token punctuation">[</span><span class="token number">48</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-
-        <span class="token keyword">unsigned</span> <span class="token keyword">int</span>            len<span class="token punctuation">,</span>
-                                data_len<span class="token punctuation">,</span>
-                                mac_len<span class="token punctuation">,</span>
-                                csum<span class="token punctuation">;</span>
-        __u32                   priority<span class="token punctuation">;</span>
-        __u8                    local_df<span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span>
-                                cloned<span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span>
-                                ip_summed<span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">,</span>
-                                nohdr<span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span>
-                                nfctinfo<span class="token operator">:</span><span class="token number">3</span><span class="token punctuation">;</span>
-        __u8                    pkt_type<span class="token operator">:</span><span class="token number">3</span><span class="token punctuation">,</span>
-                                fclone<span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">,</span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifndef</span> <span class="token expression">CONFIG_XEN</span></span>
-                                ipvs_property<span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">;</span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">else</span></span>
-                                ipvs_property<span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span>
-                                proto_data_valid<span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span>
-                                proto_csum_blank<span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">;</span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
-        __be16                  protocol<span class="token punctuation">;</span>
-
-        <span class="token keyword">void</span>                    <span class="token punctuation">(</span><span class="token operator">*</span>destructor<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword">struct</span> <span class="token class-name">sk_buff</span> <span class="token operator">*</span>skb<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifdef</span> <span class="token expression">CONFIG_NETFILTER</span></span>
-        <span class="token keyword">struct</span> <span class="token class-name">nf_conntrack</span>     <span class="token operator">*</span>nfct<span class="token punctuation">;</span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">if</span> <span class="token expression"><span class="token function">defined</span><span class="token punctuation">(</span>CONFIG_NF_CONNTRACK<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token function">defined</span><span class="token punctuation">(</span>CONFIG_NF_CONNTRACK_MODULE<span class="token punctuation">)</span></span></span>
-       <span class="token keyword">struct</span> <span class="token class-name">sk_buff</span>          <span class="token operator">*</span>nfct_reasm<span class="token punctuation">;</span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifdef</span> <span class="token expression">CONFIG_BRIDGE_NETFILTER</span></span>
-        <span class="token keyword">struct</span> <span class="token class-name">nf_bridge_info</span>   <span class="token operator">*</span>nf_bridge<span class="token punctuation">;</span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
-        __u32                   nfmark<span class="token punctuation">;</span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span> <span class="token comment">/* CONFIG_NETFILTER */</span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifdef</span> <span class="token expression">CONFIG_NET_SCHED</span></span>
-        __u16                   tc_index<span class="token punctuation">;</span>       <span class="token comment">/* traffic control index */</span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifdef</span> <span class="token expression">CONFIG_NET_CLS_ACT</span></span>
-        __u16                   tc_verd<span class="token punctuation">;</span>        <span class="token comment">/* traffic control verdict */</span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifdef</span> <span class="token expression">CONFIG_NET_DMA</span></span>
-        <span class="token class-name">dma_cookie_t</span>            dma_cookie<span class="token punctuation">;</span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifdef</span> <span class="token expression">CONFIG_NETWORK_SECMARK</span></span>
-        __u32                   secmark<span class="token punctuation">;</span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
-
-        <span class="token comment">/* These elements must be at the end, see alloc_skb() for details.  */</span>
-        <span class="token keyword">unsigned</span> <span class="token keyword">int</span>            truesize<span class="token punctuation">;</span>
-        <span class="token class-name">atomic_t</span>                users<span class="token punctuation">;</span>
-        <span class="token keyword">unsigned</span> <span class="token keyword">char</span>           <span class="token operator">*</span>head<span class="token punctuation">,</span>
-                                <span class="token operator">*</span>data<span class="token punctuation">,</span>
-                                <span class="token operator">*</span>tail<span class="token punctuation">,</span>
-                                <span class="token operator">*</span>end<span class="token punctuation">;</span>
-        <span class="token comment">/* Extra stuff at the end to avoid breaking abi */</span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifndef</span> <span class="token expression">__GENKSYMS__</span></span>
-        <span class="token keyword">int</span>                      peeked<span class="token punctuation">;</span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h1 id="struct-sk-buff在2-6-33中的定义："><a href="#struct-sk-buff在2-6-33中的定义：" class="headerlink" title="struct sk_buff在2.6.33中的定义："></a>struct sk_buff在2.6.33中的定义：</h1><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">struct</span> <span class="token class-name">sk_buff</span> <span class="token punctuation">&#123;</span>
-        <span class="token comment">/* These two members must be first. */</span>
-        <span class="token keyword">struct</span> <span class="token class-name">sk_buff</span>          <span class="token operator">*</span>next<span class="token punctuation">;</span>
-        <span class="token keyword">struct</span> <span class="token class-name">sk_buff</span>          <span class="token operator">*</span>prev<span class="token punctuation">;</span>
-
-        <span class="token class-name">ktime_t</span>                 tstamp<span class="token punctuation">;</span>
-
-        <span class="token keyword">struct</span> <span class="token class-name">sock</span>             <span class="token operator">*</span>sk<span class="token punctuation">;</span>
-        <span class="token keyword">struct</span> <span class="token class-name">net_device</span>       <span class="token operator">*</span>dev<span class="token punctuation">;</span>
-
-        <span class="token comment">/*
-         * This is the control buffer. It is free to use for every
-         * layer. Please put your private variables there. If you
-         * want to keep them across layers you have to do a skb_clone()
-         * first. This is owned by whoever has the skb queued ATM.
-         */</span>
-        <span class="token keyword">char</span>                    cb<span class="token punctuation">[</span><span class="token number">48</span><span class="token punctuation">]</span> <span class="token function">__aligned</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token keyword">unsigned</span> <span class="token keyword">long</span>           _skb_dst<span class="token punctuation">;</span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifdef</span> <span class="token expression">CONFIG_XFRM</span></span>
-        <span class="token keyword">struct</span>  <span class="token class-name">sec_path</span>        <span class="token operator">*</span>sp<span class="token punctuation">;</span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
-        <span class="token keyword">unsigned</span> <span class="token keyword">int</span>            len<span class="token punctuation">,</span>
-                                data_len<span class="token punctuation">;</span>
-        __u16                   mac_len<span class="token punctuation">,</span>
-                                hdr_len<span class="token punctuation">;</span>
-        <span class="token keyword">union</span> <span class="token punctuation">&#123;</span>
-                __wsum          csum<span class="token punctuation">;</span>
-                <span class="token keyword">struct</span> <span class="token punctuation">&#123;</span>
-                        __u16   csum_start<span class="token punctuation">;</span>
-                        __u16   csum_offset<span class="token punctuation">;</span>
-                <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-        __u32                   priority<span class="token punctuation">;</span>
-        <span class="token function">kmemcheck_bitfield_begin</span><span class="token punctuation">(</span>flags1<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        __u8                    local_df<span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span>
-                                cloned<span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span>
-                                ip_summed<span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">,</span>
-                                nohdr<span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span>
-                                nfctinfo<span class="token operator">:</span><span class="token number">3</span><span class="token punctuation">;</span>
-        __u8                    pkt_type<span class="token operator">:</span><span class="token number">3</span><span class="token punctuation">,</span>
-                                fclone<span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">,</span>
-                                ipvs_property<span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span>
-                                peeked<span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span>
-                                nf_trace<span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">;</span>
-        __be16                  protocol<span class="token operator">:</span><span class="token number">16</span><span class="token punctuation">;</span>
-        <span class="token function">kmemcheck_bitfield_end</span><span class="token punctuation">(</span>flags1<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token keyword">void</span>                    <span class="token punctuation">(</span><span class="token operator">*</span>destructor<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword">struct</span> <span class="token class-name">sk_buff</span> <span class="token operator">*</span>skb<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">if</span> <span class="token expression"><span class="token function">defined</span><span class="token punctuation">(</span>CONFIG_NF_CONNTRACK<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token function">defined</span><span class="token punctuation">(</span>CONFIG_NF_CONNTRACK_MODULE<span class="token punctuation">)</span></span></span>
-        <span class="token keyword">struct</span> <span class="token class-name">nf_conntrack</span>     <span class="token operator">*</span>nfct<span class="token punctuation">;</span>
-        <span class="token keyword">struct</span> <span class="token class-name">sk_buff</span>          <span class="token operator">*</span>nfct_reasm<span class="token punctuation">;</span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifdef</span> <span class="token expression">CONFIG_BRIDGE_NETFILTER</span></span>
-        <span class="token keyword">struct</span> <span class="token class-name">nf_bridge_info</span>   <span class="token operator">*</span>nf_bridge<span class="token punctuation">;</span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
-
-        <span class="token keyword">int</span>                     skb_iif<span class="token punctuation">;</span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifdef</span> <span class="token expression">CONFIG_NET_SCHED</span></span>
-        __u16                   tc_index<span class="token punctuation">;</span>       <span class="token comment">/* traffic control index */</span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifdef</span> <span class="token expression">CONFIG_NET_CLS_ACT</span></span>
-        __u16                   tc_verd<span class="token punctuation">;</span>        <span class="token comment">/* traffic control verdict */</span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
-
-        <span class="token function">kmemcheck_bitfield_begin</span><span class="token punctuation">(</span>flags2<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        __u16                   queue_mapping<span class="token operator">:</span><span class="token number">16</span><span class="token punctuation">;</span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifdef</span> <span class="token expression">CONFIG_IPV6_NDISC_NODETYPE</span></span>
-        __u8                    ndisc_nodetype<span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">;</span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
-        <span class="token function">kmemcheck_bitfield_end</span><span class="token punctuation">(</span>flags2<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token comment">/* 0/14 bit hole */</span>
-
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifdef</span> <span class="token expression">CONFIG_NET_DMA</span></span>
-        <span class="token class-name">dma_cookie_t</span>            dma_cookie<span class="token punctuation">;</span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifdef</span> <span class="token expression">CONFIG_NETWORK_SECMARK</span></span>
-        __u32                   secmark<span class="token punctuation">;</span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
-        <span class="token keyword">union</span> <span class="token punctuation">&#123;</span>
-                __u32           mark<span class="token punctuation">;</span>
-                __u32           dropcount<span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-
-        __u16                   vlan_tci<span class="token punctuation">;</span>
-
-        <span class="token class-name">sk_buff_data_t</span>          transport_header<span class="token punctuation">;</span>
-        <span class="token class-name">sk_buff_data_t</span>          network_header<span class="token punctuation">;</span>
-        <span class="token class-name">sk_buff_data_t</span>          mac_header<span class="token punctuation">;</span>
-        <span class="token comment">/* These elements must be at the end, see alloc_skb() for details.  */</span>
-        <span class="token class-name">sk_buff_data_t</span>          tail<span class="token punctuation">;</span>
-        <span class="token class-name">sk_buff_data_t</span>          end<span class="token punctuation">;</span>
-        <span class="token keyword">unsigned</span> <span class="token keyword">char</span>           <span class="token operator">*</span>head<span class="token punctuation">,</span>
-                                <span class="token operator">*</span>data<span class="token punctuation">;</span>
-        <span class="token keyword">unsigned</span> <span class="token keyword">int</span>            truesize<span class="token punctuation">;</span>
-        <span class="token class-name">atomic_t</span>                users<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>有了以上定义的话，我们就可以做类似如下定义来使我们的驱动支持多内核了：</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">struct</span> <span class="token class-name">sk_buff</span> <span class="token operator">*</span>new_skb<span class="token punctuation">;</span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">if</span> <span class="token expression">LINUX_VERSION_CODE <span class="token operator">&lt;=</span> <span class="token function">KERNEL_VERSION</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">18</span><span class="token punctuation">)</span></span></span>
-new_skb<span class="token operator">-></span>mac<span class="token punctuation">.</span>raw <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span>new_eth_p<span class="token punctuation">;</span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">else</span></span>
-new_skb<span class="token operator">-></span>mac_header <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span>new_eth_p<span class="token punctuation">;</span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>参考：<a target="_blank" rel="noopener" href="http://www.linuxquestions.org/questions/linux-kernel-70/struct-sk_buff-differs-in-2-6-18-and-2-6-33-kernel-882507/">http://www.linuxquestions.org/questions/linux-kernel-70/struct-sk_buff-differs-in-2-6-18-and-2-6-33-kernel-882507/</a></p>
-  
-	</div>
-		<footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/linux/index.html">linux</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/linux/index.html">linux</a><a href="/tags/kernel/index.html">kernel</a><a href="/tags/2-6-18/index.html">2.6.18</a><a href="/tags/2-6-33/index.html">2.6.33</a><a href="/tags/Driver/index.html">Driver</a><a href="/tags/INUX-VERSION-CODE/index.html">INUX_VERSION_CODE</a><a href="/tags/KERNEL-VERSION/index.html">KERNEL_VERSION</a><a href="/tags/sk-buff/index.html">sk_buff</a>
-  </div>
-
-</div>
-
-
-
-	<div class="article-share" id="share">
-	
-	  <div data-url="https://www.leelib.com/2013/09/06/sk-buff-2-6-18-diff-2-6-33.html" data-title="结构体sk_buff在Linux内核2.6.18与2.6.33中的区别 | 逃避虽然可耻但有用" data-tsina="" class="share clearfix">
-	  </div>
-	
-	</div>
-
-
-</footer>
-
-   	       
-	</article>
-	
-<nav class="article-nav clearfix">
- 
- <div class="prev" >
- <a href="/2013/09/07/fix-kernel-devel.html" title="解决在安装了kernel-devel后/lib/modules/$(uname -r)/build 链接失效的问题">
-  <strong>上一篇：</strong><br/>
-  <span>
-  解决在安装了kernel-devel后/lib/modules/$(uname -r)/build 链接失效的问题</span>
-</a>
-</div>
-
-
-<div class="next">
-<a href="/2013/07/26/fix-centos-yum.html"  title="解决CentOS安装新版本python后，yum不能使用的问题">
- <strong>下一篇：</strong><br/> 
- <span>解决CentOS安装新版本python后，yum不能使用的问题
-</span>
-</a>
-</div>
-
-</nav>
-
-	
-
-
-
-</div>  
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
-
-  <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目录</strong>
- 
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#struct-sk-buff%E5%9C%A82-6-18%E4%B8%AD%E7%9A%84%E5%AE%9A%E4%B9%89%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">struct sk_buff在2.6.18中的定义：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#struct-sk-buff%E5%9C%A82-6-33%E4%B8%AD%E7%9A%84%E5%AE%9A%E4%B9%89%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">struct sk_buff在2.6.33中的定义：</span></a></li></ol>
- 
-  </div>
-
-<div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
-<aside class="clearfix">
-
-  
-
-
-  
-<div class="categorieslist">
-	<p class="asidetitle">分类</p>
-		<ul>
-		
-		  
-			<li><a href="/categories/deploy/index.html" title="deploy">deploy<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/interesting/index.html" title="interesting">interesting<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/linux/index.html" title="linux">linux<sup>29</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/notices/index.html" title="notices">notices<sup>4</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/programing/index.html" title="programing">programing<sup>23</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/sites/index.html" title="sites">sites<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/summarys/index.html" title="summarys">summarys<sup>10</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/works/index.html" title="works">works<sup>1</sup></a></li>
-		  
-		
-		</ul>
-</div>
-
-
-  
-<div class="tagslist">
-	<p class="asidetitle">标签</p>
-		<ul class="clearfix">
-		
-			
-				<li><a href="/tags/linux/index.html" title="linux">linux<sup>12</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/ubuntu/index.html" title="ubuntu">ubuntu<sup>8</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/centos/index.html" title="centos">centos<sup>5</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/yum/index.html" title="yum">yum<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/zlib/index.html" title="zlib">zlib<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/install/index.html" title="install">install<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/git/index.html" title="git">git<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/make/index.html" title="make">make<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/python/index.html" title="python">python<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/c/index.html" title="c">c<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/windows/index.html" title="windows">windows<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/kernel/index.html" title="kernel">kernel<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/libc/index.html" title="libc">libc<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/SAFESEH/index.html" title="SAFESEH">SAFESEH<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/https/index.html" title="https">https<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/ln/index.html" title="ln">ln<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/conf/index.html" title="conf">conf<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/gcc/index.html" title="gcc">gcc<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/compress/index.html" title="compress">compress<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/sudo/index.html" title="sudo">sudo<sup>2</sup></a></li>
-			
-		
-		</ul>
-</div>
-
-
-  <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
-    <ul>
-        
-    </ul>
-</div>
-
-  <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
-</div>
-
-</aside>
-</div>
-    </div>
-    <footer><div id="footer" >
-	
-	<div class="line">
-		<span></span>
-		<div class="author"></div>
-	</div>
-	
-	
-	<section class="info">
-		<p> Hello, this is leaker&#39;s blog in github. <br/>
-			Leaker: &#34;Living without an aim is like sailing without a compass.&#34;</p>
-	</section>
-	 
-	<div class="social-font" class="clearfix">
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		<a href="mailto:admin@leelib.com" target="_blank" class="icon-email" title="Email Me"></a>
-		
-	</div>
-			
-		
-
-		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2021 
-		
-		<a href="/about/index.html" target="_blank" title="leaker">leaker</a>
-		
-		<a target="_blank" rel="noopener noreferrer" href="http://www.beian.miit.gov.cn/" class="report-link"><img class="report-img" src="/images/report-img.webp" data-spm-anchor-id="a3c00.7621337.7y9jhqsfz.i0.73bb3J6l3J6lkb"><span class="report-link-text">陕ICP备20006522号</span></a>
-		</p>
-</div>
-</footer>
-    <script src="/js/jquery-2.0.3.min.js"></script>
-<script async src="/js/jquery.imagesloaded.min.js"></script>
-<script async src="/js/gallery.js"></script>
-<script async src="/js/jquery.qrcode-0.12.0.min.js"></script>
-
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.navbar').click(function(){
-    $('header nav').toggleClass('shownav');
-  });
-  var myWidth = 0;
-  function getSize(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-  };
-  var m = $('#main'),
-      a = $('#asidepart'),
-      c = $('.closeaside'),
-      o = $('.openaside');
-  c.click(function(){
-    a.addClass('fadeOut').css('display', 'none');
-    o.css('display', 'block').addClass('fadeIn');
-    m.addClass('moveMain');
-  });
-  o.click(function(){
-    o.css('display', 'none').removeClass('beforeFadeIn');
-    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
-    m.removeClass('moveMain');
-  });
-  $(window).scroll(function(){
-    o.css("top",Math.max(80,260-$(this).scrollTop()));
-  });
-  
-  $(window).resize(function(){
-    getSize(); 
-    if (myWidth >= 1024) {
-      $('header nav').removeClass('shownav');
-    }else{
-      m.removeClass('moveMain');
-      a.css('display', 'block').removeClass('fadeOut');
-      o.css('display', 'none');
-      
-      $('#toc.toc-aside').css('display', 'none');
-        
-    }
-  });
-});
-</script>
-
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var ai = $('.article-content>iframe'),
-      ae = $('.article-content>embed'),
-      t  = $('#toc'),
-      ta = $('#toc.toc-aside'),
-      o  = $('.openaside'),
-      c  = $('.closeaside');
-  if(ai.length>0){
-    ai.wrap('<div class="video-container" />');
-  };
-  if(ae.length>0){
-   ae.wrap('<div class="video-container" />');
-  };
-  c.click(function(){
-    ta.css('display', 'block').addClass('fadeIn');
-  });
-  o.click(function(){
-    ta.css('display', 'none');
-  });
-  $(window).scroll(function(){
-    ta.css("top",Math.max(140,320-$(this).scrollTop()));
-  });
-});
-</script>
-
-
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var $this = $('.share'),
-      url = $this.attr('data-url'),
-      encodedUrl = encodeURIComponent(url),
-      title = $this.attr('data-title'),
-      tsina = $this.attr('data-tsina'),
-      description = $this.attr('description');
-  var html = [
-  '<div class="hoverqrcode clearfix"></div>',
-  '<a class="overlay" id="qrcode"></a>',
-  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
-  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
-  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
-  '<span title="Share to"></span>'
-  ].join('');
-  $this.append(html);
-
-  $('.hoverqrcode').hide();
-
-  var myWidth = 0;
-  function updatehoverqrcode(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-    var qrsize = myWidth > 1024 ? 200:100;
-    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
-    var p = $('.article-share-qrcode').position();
-    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
-                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
-                          .qrcode(options);
-  };
-  $(window).resize(function(){
-    $('.hoverqrcode').hide();
-  });
-  $('.article-share-qrcode').click(function(){
-    updatehoverqrcode();
-    $('.hoverqrcode').toggle();
-  });
-  $('.article-share-qrcode').hover(function(){}, function(){
-      $('.hoverqrcode').hide();
-  });
-});   
-</script>
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script async src="/fancybox/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.article-content').each(function(i){
-    $(this).find('img').each(function(){
-      if ($(this).parent().hasClass('fancybox')) return;
-      var alt = this.alt;
-      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
-      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
-    });
-    $(this).find('.fancybox').each(function(){
-      $(this).attr('rel', 'article' + i);
-    });
-  });
-  if($.fancybox){
-    $('.fancybox').fancybox();
-  }
-}); 
-</script>
-
-
-
-<!-- Analytics Begin -->
-
-
-
-
-
-<!-- Analytics End -->
-
-<!-- Totop Begin -->
-
-	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.webp"/></a>
-	</div>
-	<script async src="/js/totop.js"></script>
-
-<!-- Totop End -->
-
-<!-- MathJax Begin -->
-<!-- mathjax config similar to math.stackexchange -->
-
-
-<!-- MathJax End -->
-
-<!-- Tiny_search Begin -->
-
-<!-- Tiny_search End -->
-
-  </body>
-</html>
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><meta name=description content><meta name=HandheldFriendly content="True"><meta name=MobileOptimized content="320"><meta name=keywords content="Driver,INUX_VERSION_CODE,kernel,KERNEL_VERSION,linux,sk_buff,"><meta property="og:type" content="article"><meta property="og:description" content><meta property="og:title" content="结构体sk_buff在Linux内核2.6.18与2.6.33中的区别"><meta property="og:site_name" content="逃避虽然可耻但有用"><meta property="og:url" content="https://www.leelib.com/2013/09/06/sk-buff-2-6-18-diff-2-6-33.html"><meta property="og:locale" content="zh-CN"><meta property="article:published_time" content="2013-09-06T17:28:58+0800"><meta property="article:modified_time" content="2013-09-06T17:28:58+0800"><meta property="article:tag" content="Driver"><meta property="article:tag" content="INUX_VERSION_CODE"><meta property="article:tag" content="kernel"><meta property="article:tag" content="KERNEL_VERSION"><meta property="article:tag" content="linux"><meta property="article:tag" content="sk_buff"><base href=https://www.leelib.com/2013/09/06/sk-buff-2-6-18-diff-2-6-33.html><title>结构体sk_buff在Linux内核2.6.18与2.6.33中的区别 | 逃避虽然可耻但有用</title><link rel=canonical href=https://www.leelib.com/2013/09/06/sk-buff-2-6-18-diff-2-6-33.html><link rel=stylesheet href=https://www.leelib.com/css/fika.min.e981b6773011e9ebef0acb91938bbaee62327378a3c72ad2503f78a42e50d4ea.css><link rel="shortcut icon" href=/favicon.ico type=image/x-icon></head><body><header><div><div id=imglogo><a href=https://www.leelib.com/><img src=/img/logo.webp alt=逃避虽然可耻但有用 title=逃避虽然可耻但有用></a></div><div id=textlogo><h1 class=site-name><a href=https://www.leelib.com/ title=逃避虽然可耻但有用>逃避虽然可耻但有用</a></h1><h2 class=blog-motto>少壮不努力，一生在内地</h2></div><nav class=animated><ul><li><a href=/>主页</a></li><li><a href=/archives/index.html>归档</a></li><li><a href=/about/index.html>关于</a></li><li><a href=/disappear/index.html>消失</a></li></ul></nav></div></header><div id=container><div id=main class=post><article class="post-expand post" itemprop=articleBody><header class="article-info clearfix"><h1 itemprop=name><a href=https://www.leelib.com/2013/09/06/sk-buff-2-6-18-diff-2-6-33.html title=结构体sk_buff在Linux内核2.6.18与2.6.33中的区别 itemprop=url>结构体sk_buff在Linux内核2.6.18与2.6.33中的区别</a></h1><p class=article-time><time datetime="2013-09-06 17:28:58 +0800 +0800" itemprop=datePublished>2013-09-06</time></p></header><div class=article-content><div id=toc class=toc-article><strong class=toc-title>文章目录</strong><ol class=toc><nav id=TableOfContents><ul><li><a href=#struct-sk_buff在2618中的定义>struct sk_buff在2.6.18中的定义：</a></li><li><a href=#struct-sk_buff在2633中的定义>struct sk_buff在2.6.33中的定义：</a></li></ul></nav></ol></div><p>在Linux 2.6.33.6中，源文件在：/usr/src/kernels/2.6.33.6/include/linux/skbuff.h</p><h1 id=struct-sk_buff在2618中的定义>struct sk_buff在2.6.18中的定义：</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#66d9ef>struct</span> sk_buff {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/* These two members must be first. */</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>struct</span> sk_buff          <span style=color:#f92672>*</span>next;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>struct</span> sk_buff          <span style=color:#f92672>*</span>prev;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>struct</span> sock             <span style=color:#f92672>*</span>sk;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>struct</span> skb_timeval      tstamp;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>struct</span> net_device       <span style=color:#f92672>*</span>dev;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>struct</span> net_device       <span style=color:#f92672>*</span>input_dev;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>union</span> {
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>struct</span> tcphdr   <span style=color:#f92672>*</span>th;
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>struct</span> udphdr   <span style=color:#f92672>*</span>uh;
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>struct</span> icmphdr  <span style=color:#f92672>*</span>icmph;
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>struct</span> igmphdr  <span style=color:#f92672>*</span>igmph;
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>struct</span> iphdr    <span style=color:#f92672>*</span>ipiph;
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>struct</span> ipv6hdr  <span style=color:#f92672>*</span>ipv6h;
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>char</span>   <span style=color:#f92672>*</span>raw;
+</span></span><span style=display:flex><span>        } h;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>union</span> {
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>struct</span> iphdr    <span style=color:#f92672>*</span>iph;
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>struct</span> ipv6hdr  <span style=color:#f92672>*</span>ipv6h;
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>struct</span> arphdr   <span style=color:#f92672>*</span>arph;
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>char</span>   <span style=color:#f92672>*</span>raw;
+</span></span><span style=display:flex><span>        } nh;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>union</span> {
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>char</span>   <span style=color:#f92672>*</span>raw;
+</span></span><span style=display:flex><span>        } mac;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>struct</span>  dst_entry       <span style=color:#f92672>*</span>dst;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>struct</span>  sec_path        <span style=color:#f92672>*</span>sp;
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/*
+</span></span></span><span style=display:flex><span><span style=color:#75715e>         * This is the control buffer. It is free to use for every
+</span></span></span><span style=display:flex><span><span style=color:#75715e>         * layer. Please put your private variables there. If you
+</span></span></span><span style=display:flex><span><span style=color:#75715e>         * want to keep them across layers you have to do a skb_clone()
+</span></span></span><span style=display:flex><span><span style=color:#75715e>         * first. This is owned by whoever has the skb queued ATM.
+</span></span></span><span style=display:flex><span><span style=color:#75715e>         */</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>char</span>                    cb[<span style=color:#ae81ff>48</span>];
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>int</span>            len,
+</span></span><span style=display:flex><span>                                data_len,
+</span></span><span style=display:flex><span>                                mac_len,
+</span></span><span style=display:flex><span>                                csum;
+</span></span><span style=display:flex><span>        __u32                   priority;
+</span></span><span style=display:flex><span>        __u8                    local_df:<span style=color:#ae81ff>1</span>,
+</span></span><span style=display:flex><span>                                cloned:<span style=color:#ae81ff>1</span>,
+</span></span><span style=display:flex><span>                                ip_summed:<span style=color:#ae81ff>2</span>,
+</span></span><span style=display:flex><span>                                nohdr:<span style=color:#ae81ff>1</span>,
+</span></span><span style=display:flex><span>                                nfctinfo:<span style=color:#ae81ff>3</span>;
+</span></span><span style=display:flex><span>        __u8                    pkt_type:<span style=color:#ae81ff>3</span>,
+</span></span><span style=display:flex><span>                                fclone:<span style=color:#ae81ff>2</span>,
+</span></span><span style=display:flex><span><span style=color:#75715e>#ifndef CONFIG_XEN
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>                                ipvs_property:<span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span><span style=color:#75715e>#else
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>                                ipvs_property:<span style=color:#ae81ff>1</span>,
+</span></span><span style=display:flex><span>                                proto_data_valid:<span style=color:#ae81ff>1</span>,
+</span></span><span style=display:flex><span>                                proto_csum_blank:<span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span><span style=color:#75715e>#endif
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        __be16                  protocol;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>void</span>                    (<span style=color:#f92672>*</span>destructor)(<span style=color:#66d9ef>struct</span> sk_buff <span style=color:#f92672>*</span>skb);
+</span></span><span style=display:flex><span><span style=color:#75715e>#ifdef CONFIG_NETFILTER
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>struct</span> nf_conntrack     <span style=color:#f92672>*</span>nfct;
+</span></span><span style=display:flex><span><span style=color:#75715e>#if defined(CONFIG_NF_CONNTRACK) || defined(CONFIG_NF_CONNTRACK_MODULE)
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>       <span style=color:#66d9ef>struct</span> sk_buff          <span style=color:#f92672>*</span>nfct_reasm;
+</span></span><span style=display:flex><span><span style=color:#75715e>#endif
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#ifdef CONFIG_BRIDGE_NETFILTER
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>struct</span> nf_bridge_info   <span style=color:#f92672>*</span>nf_bridge;
+</span></span><span style=display:flex><span><span style=color:#75715e>#endif
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        __u32                   nfmark;
+</span></span><span style=display:flex><span><span style=color:#75715e>#endif </span><span style=color:#75715e>/* CONFIG_NETFILTER */</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#ifdef CONFIG_NET_SCHED
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        __u16                   tc_index;       <span style=color:#75715e>/* traffic control index */</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#ifdef CONFIG_NET_CLS_ACT
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        __u16                   tc_verd;        <span style=color:#75715e>/* traffic control verdict */</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#endif
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#endif
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#ifdef CONFIG_NET_DMA
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        dma_cookie_t            dma_cookie;
+</span></span><span style=display:flex><span><span style=color:#75715e>#endif
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#ifdef CONFIG_NETWORK_SECMARK
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        __u32                   secmark;
+</span></span><span style=display:flex><span><span style=color:#75715e>#endif
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/* These elements must be at the end, see alloc_skb() for details.  */</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>int</span>            truesize;
+</span></span><span style=display:flex><span>        atomic_t                users;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>char</span>           <span style=color:#f92672>*</span>head,
+</span></span><span style=display:flex><span>                                <span style=color:#f92672>*</span>data,
+</span></span><span style=display:flex><span>                                <span style=color:#f92672>*</span>tail,
+</span></span><span style=display:flex><span>                                <span style=color:#f92672>*</span>end;
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/* Extra stuff at the end to avoid breaking abi */</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#ifndef __GENKSYMS__
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>int</span>                      peeked;
+</span></span><span style=display:flex><span><span style=color:#75715e>#endif
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>};
+</span></span></code></pre></div><h1 id=struct-sk_buff在2633中的定义>struct sk_buff在2.6.33中的定义：</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#66d9ef>struct</span> sk_buff {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/* These two members must be first. */</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>struct</span> sk_buff          <span style=color:#f92672>*</span>next;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>struct</span> sk_buff          <span style=color:#f92672>*</span>prev;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        ktime_t                 tstamp;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>struct</span> sock             <span style=color:#f92672>*</span>sk;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>struct</span> net_device       <span style=color:#f92672>*</span>dev;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/*
+</span></span></span><span style=display:flex><span><span style=color:#75715e>         * This is the control buffer. It is free to use for every
+</span></span></span><span style=display:flex><span><span style=color:#75715e>         * layer. Please put your private variables there. If you
+</span></span></span><span style=display:flex><span><span style=color:#75715e>         * want to keep them across layers you have to do a skb_clone()
+</span></span></span><span style=display:flex><span><span style=color:#75715e>         * first. This is owned by whoever has the skb queued ATM.
+</span></span></span><span style=display:flex><span><span style=color:#75715e>         */</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>char</span>                    cb[<span style=color:#ae81ff>48</span>] __aligned(<span style=color:#ae81ff>8</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>long</span>           _skb_dst;
+</span></span><span style=display:flex><span><span style=color:#75715e>#ifdef CONFIG_XFRM
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>struct</span>  sec_path        <span style=color:#f92672>*</span>sp;
+</span></span><span style=display:flex><span><span style=color:#75715e>#endif
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>int</span>            len,
+</span></span><span style=display:flex><span>                                data_len;
+</span></span><span style=display:flex><span>        __u16                   mac_len,
+</span></span><span style=display:flex><span>                                hdr_len;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>union</span> {
+</span></span><span style=display:flex><span>                __wsum          csum;
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>struct</span> {
+</span></span><span style=display:flex><span>                        __u16   csum_start;
+</span></span><span style=display:flex><span>                        __u16   csum_offset;
+</span></span><span style=display:flex><span>                };
+</span></span><span style=display:flex><span>        };
+</span></span><span style=display:flex><span>        __u32                   priority;
+</span></span><span style=display:flex><span>        kmemcheck_bitfield_begin(flags1);
+</span></span><span style=display:flex><span>        __u8                    local_df:<span style=color:#ae81ff>1</span>,
+</span></span><span style=display:flex><span>                                cloned:<span style=color:#ae81ff>1</span>,
+</span></span><span style=display:flex><span>                                ip_summed:<span style=color:#ae81ff>2</span>,
+</span></span><span style=display:flex><span>                                nohdr:<span style=color:#ae81ff>1</span>,
+</span></span><span style=display:flex><span>                                nfctinfo:<span style=color:#ae81ff>3</span>;
+</span></span><span style=display:flex><span>        __u8                    pkt_type:<span style=color:#ae81ff>3</span>,
+</span></span><span style=display:flex><span>                                fclone:<span style=color:#ae81ff>2</span>,
+</span></span><span style=display:flex><span>                                ipvs_property:<span style=color:#ae81ff>1</span>,
+</span></span><span style=display:flex><span>                                peeked:<span style=color:#ae81ff>1</span>,
+</span></span><span style=display:flex><span>                                nf_trace:<span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>        __be16                  protocol:<span style=color:#ae81ff>16</span>;
+</span></span><span style=display:flex><span>        kmemcheck_bitfield_end(flags1);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>void</span>                    (<span style=color:#f92672>*</span>destructor)(<span style=color:#66d9ef>struct</span> sk_buff <span style=color:#f92672>*</span>skb);
+</span></span><span style=display:flex><span><span style=color:#75715e>#if defined(CONFIG_NF_CONNTRACK) || defined(CONFIG_NF_CONNTRACK_MODULE)
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>struct</span> nf_conntrack     <span style=color:#f92672>*</span>nfct;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>struct</span> sk_buff          <span style=color:#f92672>*</span>nfct_reasm;
+</span></span><span style=display:flex><span><span style=color:#75715e>#endif
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#ifdef CONFIG_BRIDGE_NETFILTER
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>struct</span> nf_bridge_info   <span style=color:#f92672>*</span>nf_bridge;
+</span></span><span style=display:flex><span><span style=color:#75715e>#endif
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span>                     skb_iif;
+</span></span><span style=display:flex><span><span style=color:#75715e>#ifdef CONFIG_NET_SCHED
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        __u16                   tc_index;       <span style=color:#75715e>/* traffic control index */</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#ifdef CONFIG_NET_CLS_ACT
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        __u16                   tc_verd;        <span style=color:#75715e>/* traffic control verdict */</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#endif
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#endif
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span>        kmemcheck_bitfield_begin(flags2);
+</span></span><span style=display:flex><span>        __u16                   queue_mapping:<span style=color:#ae81ff>16</span>;
+</span></span><span style=display:flex><span><span style=color:#75715e>#ifdef CONFIG_IPV6_NDISC_NODETYPE
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        __u8                    ndisc_nodetype:<span style=color:#ae81ff>2</span>;
+</span></span><span style=display:flex><span><span style=color:#75715e>#endif
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        kmemcheck_bitfield_end(flags2);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/* 0/14 bit hole */</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#ifdef CONFIG_NET_DMA
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        dma_cookie_t            dma_cookie;
+</span></span><span style=display:flex><span><span style=color:#75715e>#endif
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#ifdef CONFIG_NETWORK_SECMARK
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        __u32                   secmark;
+</span></span><span style=display:flex><span><span style=color:#75715e>#endif
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>union</span> {
+</span></span><span style=display:flex><span>                __u32           mark;
+</span></span><span style=display:flex><span>                __u32           dropcount;
+</span></span><span style=display:flex><span>        };
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        __u16                   vlan_tci;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        sk_buff_data_t          transport_header;
+</span></span><span style=display:flex><span>        sk_buff_data_t          network_header;
+</span></span><span style=display:flex><span>        sk_buff_data_t          mac_header;
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/* These elements must be at the end, see alloc_skb() for details.  */</span>
+</span></span><span style=display:flex><span>        sk_buff_data_t          tail;
+</span></span><span style=display:flex><span>        sk_buff_data_t          end;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>char</span>           <span style=color:#f92672>*</span>head,
+</span></span><span style=display:flex><span>                                <span style=color:#f92672>*</span>data;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>int</span>            truesize;
+</span></span><span style=display:flex><span>        atomic_t                users;
+</span></span><span style=display:flex><span>};
+</span></span></code></pre></div><p>有了以上定义的话，我们就可以做类似如下定义来使我们的驱动支持多内核了：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#66d9ef>struct</span> sk_buff <span style=color:#f92672>*</span>new_skb;
+</span></span><span style=display:flex><span><span style=color:#75715e>#if LINUX_VERSION_CODE &lt;= KERNEL_VERSION(2,6,18)
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>new_skb<span style=color:#f92672>-&gt;</span>mac.raw <span style=color:#f92672>=</span> (<span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>char</span> <span style=color:#f92672>*</span>)new_eth_p;
+</span></span><span style=display:flex><span><span style=color:#75715e>#else
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>new_skb<span style=color:#f92672>-&gt;</span>mac_header <span style=color:#f92672>=</span> (<span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>char</span> <span style=color:#f92672>*</span>)new_eth_p;
+</span></span><span style=display:flex><span><span style=color:#75715e>#endif
+</span></span></span></code></pre></div><p>参考：<a href=http://www.linuxquestions.org/questions/linux-kernel-70/struct-sk_buff-differs-in-2-6-18-and-2-6-33-kernel-882507/>http://www.linuxquestions.org/questions/linux-kernel-70/struct-sk_buff-differs-in-2-6-18-and-2-6-33-kernel-882507/</a></p></div><footer class="article-footer clearfix"><div class=article-catetags><div class=article-categories><span></span>
+<a class=article-category-link href=https://www.leelib.com/categories/linux.html>linux</a></div><div class=article-tags><span></span>
+<a href=https://www.leelib.com/tags/driver.html>Driver</a>
+<a href=https://www.leelib.com/tags/inux_version_code.html>INUX_VERSION_CODE</a>
+<a href=https://www.leelib.com/tags/kernel.html>kernel</a>
+<a href=https://www.leelib.com/tags/kernel_version.html>KERNEL_VERSION</a>
+<a href=https://www.leelib.com/tags/linux.html>linux</a>
+<a href=https://www.leelib.com/tags/sk_buff.html>sk_buff</a></div></div></footer></article><nav class="article-nav clearfix"><div class=prev><a href=https://www.leelib.com/2013/09/07/fix-kernel-devel.html title="解决在安装了kernel-devel后/lib/modules/$(uname -r)/build 链接失效的问题"><p><strong>上一篇</strong></p><span>解决在安装了kernel-devel后/lib/modules/$(uname -r)/build 链接失效的问题</span></a></div><div class=next><a href=https://www.leelib.com/2013/07/26/fix-centos-yum.html title=解决CentOS安装新版本python后，yum不能使用的问题><p><strong>下一篇</strong></p><span>解决CentOS安装新版本python后，yum不能使用的问题</span></a></div></nav></div><div id=asidepart><aside class=clearfix><div class=categorieslist><p class=asidetitle>文章分类</p><ul><li><span class=count>1</span>
+<a href=/categories/deploy.html title=deploy>deploy</a></li><li><span class=count>1</span>
+<a href=/categories/interesting.html title=interesting>interesting</a></li><li><span class=count>29</span>
+<a href=/categories/linux.html title=linux>linux</a></li><li><span class=count>5</span>
+<a href=/categories/notices.html title=notices>notices</a></li><li><span class=count>23</span>
+<a href=/categories/programing.html title=programing>programing</a></li><li><span class=count>1</span>
+<a href=/categories/sites.html title=sites>sites</a></li><li><span class=count>10</span>
+<a href=/categories/summarys.html title=summarys>summarys</a></li><li><span class=count>1</span>
+<a href=/categories/works.html title=works>works</a></li></ul></div><div class=tagslist><p class=asidetitle>文章标签</p><ul class=clearfix><li><a href=/tags/c.html title=c>c<sup>3</sup></a></li><li><a href=/tags/centos.html title=centos>centos<sup>5</sup></a></li><li><a href=/tags/compress.html title=compress>compress<sup>2</sup></a></li><li><a href=/tags/conf.html title=conf>conf<sup>2</sup></a></li><li><a href=/tags/gcc.html title=gcc>gcc<sup>2</sup></a></li><li><a href=/tags/git.html title=git>git<sup>3</sup></a></li><li><a href=/tags/https.html title=https>https<sup>2</sup></a></li><li><a href=/tags/install.html title=install>install<sup>4</sup></a></li><li><a href=/tags/kernel.html title=kernel>kernel<sup>3</sup></a></li><li><a href=/tags/libc.html title=libc>libc<sup>2</sup></a></li><li><a href=/tags/linux.html title=linux>linux<sup>12</sup></a></li><li><a href=/tags/ln.html title=ln>ln<sup>2</sup></a></li><li><a href=/tags/make.html title=make>make<sup>3</sup></a></li><li><a href=/tags/python.html title=python>python<sup>3</sup></a></li><li><a href=/tags/safeseh.html title=safeseh>safeseh<sup>2</sup></a></li><li><a href=/tags/sudo.html title=sudo>sudo<sup>2</sup></a></li><li><a href=/tags/ubuntu.html title=ubuntu>ubuntu<sup>8</sup></a></li><li><a href=/tags/windows.html title=windows>windows<sup>3</sup></a></li><li><a href=/tags/yum.html title=yum>yum<sup>4</sup></a></li><li><a href=/tags/zlib.html title=zlib>zlib<sup>4</sup></a></li></ul></div><div class=rsspart><a href=/atom.xml target=_blank title=rss>RSS 订阅</a></div></aside></div></div><footer><div id=footer><div class=line><span></span><div class=author></div></div><section class=info><p>Hello, this is leaker's blog in github.<br>Leaker: "Living without an aim is like sailing without a compass."</p></section><div class=social-font class=clearfix><a href=mailto:admin@leelib.com target=_blank class=icon-email title="Email Me"></a></div><p class=copyright>Powered by <a rel=noopener title=Hugo href=https://gohugo.io target=_blank>Hugo</a> and Theme by <a rel=noopener title=Fika href=https://github.com/leaker/hugo-theme-fika target=_blank>Fika</a> © 2022
+<a href=/about/index.html target=_blank title=leaker>leaker</a>
+<a target=_blank rel="noopener noreferrer" href=http://www.beian.miit.gov.cn/ class=report-link><img rel=nofollow title="备案号： 陕ICP备20006522号" class=report-img src=/images/report-img.webp><span class=report-link-text>陕ICP备20006522号</span></a></p></div></footer></body></html>
