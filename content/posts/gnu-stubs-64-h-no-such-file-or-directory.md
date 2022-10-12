@@ -14,7 +14,7 @@ categories:
 date: 2013-07-10T10:12:49+08:00
 ---
 
-# 这个问题实际上是系统没有安装glibc开发包的问题
+# 这个实际上是系统没有安装 **glibc** 开发包的问题
 
 ## Ubuntu x64
   ```bash
@@ -25,3 +25,4 @@ date: 2013-07-10T10:12:49+08:00
   ```bash
   yum install glibc-devel.x86_64
   ```
+
