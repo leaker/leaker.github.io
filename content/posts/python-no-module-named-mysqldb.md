@@ -8,6 +8,7 @@ title: Python执行出现“No module named MySQLdb”解决方案
 ---
 
 ![mysqldb](/wp-content/uploads/2013/04/mysqldb_error.webp#center)
+
 如果在python程序执行时遇到这个错误提示“**No module named MySQLdb**”
 
 # 这个说明缺少对应的库，解决办法是：

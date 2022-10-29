@@ -11,6 +11,7 @@ date: 2012-03-18T20:34:12+08:00
 ---
 
 ![FavIcon from Pics](/wp-content/uploads/2012/03/favicon.webp#center)
+
 一个可以在线生成网站favicon图标的网站
 
 网站地址：[http://www.chami.com/html-kit/services/favicon/](http://www.chami.com/html-kit/services/favicon/)

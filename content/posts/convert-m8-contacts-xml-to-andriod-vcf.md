@@ -13,6 +13,7 @@ date: 2012-04-12T09:27:17+08:00
 ---
 
 ![android](/wp-content/uploads/2012/04/android.webp#center)
+
 通过我写的一段Python代码可以让M8用户将联系人导入到Andriod系统中。
 
 ## 操作需要以下步骤：
