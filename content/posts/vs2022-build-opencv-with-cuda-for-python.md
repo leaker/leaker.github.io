@@ -9,17 +9,17 @@ tags:
 # 准备工作
 - 安装 Scoop
 - 安装 Visual Studio 2022
-- 安装 Ninja `v1.10.2`
-- 安装 Python `v3.10.4` 和 Numpy
-- 安装 wget `1.21.3`
-- 安装 7zip `21.07`
-- 安装 Cuda SDK `v11.7`
-- 一键下载 OpenCV `4.5.5` 源码并编译
+- 安装 Ninja **v1.10.2**
+- 安装 Python **v3.10.4** 和 Numpy
+- 安装 wget **1.21.3**
+- 安装 7zip **21.07**
+- 安装 Cuda SDK **v11.7**
+- 一键下载 OpenCV **4.5.5** 源码并编译
 - 部署
 - 测试 OpenCV
 
 # 安装 Scoop
-打开 `PowerShell` 后执行：
+打开 **PowerShell** 后执行：
 ```powershell
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 Invoke-WebRequest get.scoop.sh | Invoke-Expression
@@ -27,27 +27,27 @@ Invoke-WebRequest get.scoop.sh | Invoke-Expression
 安装参考： <https://scoop.sh>
 
 # 安装 Visual Studio 2022
-1. 从 <https://visualstudio.microsoft.com> 下载你喜欢的版本，推荐免费的 `Community` 版本
-2. 安装 `使用C++的桌面开发` 工作负荷
+1. 从 <https://visualstudio.microsoft.com> 下载你喜欢的版本，推荐免费的 **Community** 版本
+2. 安装 **使用C++的桌面开发** 工作负荷
    > 使用所选工具(包括 MSVC、CLang、CMake 或 MSBuild)生成适用于 Windows 的现代 C++ 应用
 
-# 安装 Ninja `v1.10.2`
+# 安装 Ninja **v1.10.2**
 ```bat
 scoop install ninja@1.10.2
 ```
 
-# 安装 Python `v3.10.4` 和 Numpy
+# 安装 Python **v3.10.4** 和 Numpy
 ```bat
 scoop install python@3.10.4
 pip install numpy
 ```
 
-# 安装 wget `1.21.3`
+# 安装 wget **1.21.3**
 ```bat
 scoop install wget@1.21.3
 ```
 
-# 安装 7zip `21.07`
+# 安装 7zip **21.07**
 ```bat
 scoop install 7zip@21.07
 ```
@@ -56,8 +56,8 @@ scoop install 7zip@21.07
 # 安装 Cuda SDK
 安装流程： https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html#installing-cuda-development-tools
 
-# 一键下载 opencv `4.5.5` 源码并编译
-`download_and_build_opencv.bat`
+# 一键下载 opencv **4.5.5** 源码并编译
+*download_and_build_opencv.bat*
 ```bat
 @ECHO OFF
 ECHO -- Downloading OpenCV Source Code --
@@ -125,11 +125,11 @@ PAUSE
 点我下载：[download_and_build_opencv.bat](/files/2022/05/download_and_build_opencv.bat)
 
 # 部署
-将编译成功后的目录 `%OPENCV_BUILD_DIR%/install/x64/vc17/bin` 下的：
+将编译成功后的目录 **%OPENCV_BUILD_DIR%/install/x64/vc17/bin** 下的：
 - opencv_img_hash455.dll
 - opencv_videoio_ffmpeg455_64.dll
 - opencv_world455.dll
-拷贝到 Windows 的 `%PATH%` 目录，例如： `%SCOOP_ROOT%/apps/python/current/Scripts`
+拷贝到 Windows 的 **%PATH%** 目录，例如： **%SCOOP_ROOT%/apps/python/current/Scripts**
 
 # 测试 OpenCV
 ```bat

@@ -6,9 +6,11 @@ tags: []
 title: 卸载 hexo-prism-plugin 代码高亮插件
 ---
 最近用 **Github** 比较频繁，无意间点开 **GitHub Pages** 的代码库时发现一个大大的 **Dependabot alerts** 顶在上面
+
 ![](/images/2021/03/github-dependabot-alerts.webp)
 
 点开后发现最大的一个警告就是这个：
+
 ![](/images/2021/03/highlightjs-alerts.webp)
 
 顺着这个 **dependencies** 一路追查发现是 **hexo-prism-plugin** 这个插件使用的
