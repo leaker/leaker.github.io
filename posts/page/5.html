@@ -163,7 +163,7 @@ Debug Dynamic Link (DLL)    /MDd      MSVCRTD    _DEBUG, _MT, and _DLL
 </span></span><span style=display:flex><span><span style=color:#75715e>#endif
 </span></span></span><span style=display:flex><span><span style=color:#75715e>#endif
 </span></span></span><span style=display:flex><span><span style=color:#75715e>#ifdef CONFIG_NET_DMA
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        dma_cookie_t            dma_cookie;
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>dma_cookie_t</span>            dma_cookie;
 </span></span><span style=display:flex><span><span style=color:#75715e>#endif
 </span></span></span><span style=display:flex><span><span style=color:#75715e>#ifdef CONFIG_NETWORK_SECMARK
 </span></span></span><span style=display:flex><span><span style=color:#75715e></span>        __u32                   secmark;
@@ -171,7 +171,7 @@ Debug Dynamic Link (DLL)    /MDd      MSVCRTD    _DEBUG, _MT, and _DLL
 </span></span></span><span style=display:flex><span><span style=color:#75715e></span>
 </span></span><span style=display:flex><span>        <span style=color:#75715e>/* These elements must be at the end, see alloc_skb() for details.  */</span>
 </span></span><span style=display:flex><span>        <span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>int</span>            truesize;
-</span></span><span style=display:flex><span>        atomic_t                users;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>atomic_t</span>                users;
 </span></span><span style=display:flex><span>        <span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>char</span>           <span style=color:#f92672>*</span>head,
 </span></span><span style=display:flex><span>                                <span style=color:#f92672>*</span>data,
 </span></span><span style=display:flex><span>                                <span style=color:#f92672>*</span>tail,
@@ -186,7 +186,7 @@ Debug Dynamic Link (DLL)    /MDd      MSVCRTD    _DEBUG, _MT, and _DLL
 </span></span><span style=display:flex><span>        <span style=color:#66d9ef>struct</span> sk_buff          <span style=color:#f92672>*</span>next;
 </span></span><span style=display:flex><span>        <span style=color:#66d9ef>struct</span> sk_buff          <span style=color:#f92672>*</span>prev;
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>        ktime_t                 tstamp;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>ktime_t</span>                 tstamp;
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>        <span style=color:#66d9ef>struct</span> sock             <span style=color:#f92672>*</span>sk;
 </span></span><span style=display:flex><span>        <span style=color:#66d9ef>struct</span> net_device       <span style=color:#f92672>*</span>dev;
@@ -197,7 +197,7 @@ Debug Dynamic Link (DLL)    /MDd      MSVCRTD    _DEBUG, _MT, and _DLL
 </span></span></span><span style=display:flex><span><span style=color:#75715e>         * want to keep them across layers you have to do a skb_clone()
 </span></span></span><span style=display:flex><span><span style=color:#75715e>         * first. This is owned by whoever has the skb queued ATM.
 </span></span></span><span style=display:flex><span><span style=color:#75715e>         */</span>
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>char</span>                    cb[<span style=color:#ae81ff>48</span>] __aligned(<span style=color:#ae81ff>8</span>);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>char</span>                    cb[<span style=color:#ae81ff>48</span>] <span style=color:#a6e22e>__aligned</span>(<span style=color:#ae81ff>8</span>);
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>        <span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>long</span>           _skb_dst;
 </span></span><span style=display:flex><span><span style=color:#75715e>#ifdef CONFIG_XFRM
@@ -215,7 +215,7 @@ Debug Dynamic Link (DLL)    /MDd      MSVCRTD    _DEBUG, _MT, and _DLL
 </span></span><span style=display:flex><span>                };
 </span></span><span style=display:flex><span>        };
 </span></span><span style=display:flex><span>        __u32                   priority;
-</span></span><span style=display:flex><span>        kmemcheck_bitfield_begin(flags1);
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>kmemcheck_bitfield_begin</span>(flags1);
 </span></span><span style=display:flex><span>        __u8                    local_df:<span style=color:#ae81ff>1</span>,
 </span></span><span style=display:flex><span>                                cloned:<span style=color:#ae81ff>1</span>,
 </span></span><span style=display:flex><span>                                ip_summed:<span style=color:#ae81ff>2</span>,
@@ -227,7 +227,7 @@ Debug Dynamic Link (DLL)    /MDd      MSVCRTD    _DEBUG, _MT, and _DLL
 </span></span><span style=display:flex><span>                                peeked:<span style=color:#ae81ff>1</span>,
 </span></span><span style=display:flex><span>                                nf_trace:<span style=color:#ae81ff>1</span>;
 </span></span><span style=display:flex><span>        __be16                  protocol:<span style=color:#ae81ff>16</span>;
-</span></span><span style=display:flex><span>        kmemcheck_bitfield_end(flags1);
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>kmemcheck_bitfield_end</span>(flags1);
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>        <span style=color:#66d9ef>void</span>                    (<span style=color:#f92672>*</span>destructor)(<span style=color:#66d9ef>struct</span> sk_buff <span style=color:#f92672>*</span>skb);
 </span></span><span style=display:flex><span><span style=color:#75715e>#if defined(CONFIG_NF_CONNTRACK) || defined(CONFIG_NF_CONNTRACK_MODULE)
@@ -246,17 +246,17 @@ Debug Dynamic Link (DLL)    /MDd      MSVCRTD    _DEBUG, _MT, and _DLL
 </span></span><span style=display:flex><span><span style=color:#75715e>#endif
 </span></span></span><span style=display:flex><span><span style=color:#75715e>#endif
 </span></span></span><span style=display:flex><span><span style=color:#75715e></span>
-</span></span><span style=display:flex><span>        kmemcheck_bitfield_begin(flags2);
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>kmemcheck_bitfield_begin</span>(flags2);
 </span></span><span style=display:flex><span>        __u16                   queue_mapping:<span style=color:#ae81ff>16</span>;
 </span></span><span style=display:flex><span><span style=color:#75715e>#ifdef CONFIG_IPV6_NDISC_NODETYPE
 </span></span></span><span style=display:flex><span><span style=color:#75715e></span>        __u8                    ndisc_nodetype:<span style=color:#ae81ff>2</span>;
 </span></span><span style=display:flex><span><span style=color:#75715e>#endif
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        kmemcheck_bitfield_end(flags2);
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#a6e22e>kmemcheck_bitfield_end</span>(flags2);
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>        <span style=color:#75715e>/* 0/14 bit hole */</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e>#ifdef CONFIG_NET_DMA
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        dma_cookie_t            dma_cookie;
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>dma_cookie_t</span>            dma_cookie;
 </span></span><span style=display:flex><span><span style=color:#75715e>#endif
 </span></span></span><span style=display:flex><span><span style=color:#75715e>#ifdef CONFIG_NETWORK_SECMARK
 </span></span></span><span style=display:flex><span><span style=color:#75715e></span>        __u32                   secmark;
@@ -268,16 +268,16 @@ Debug Dynamic Link (DLL)    /MDd      MSVCRTD    _DEBUG, _MT, and _DLL
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>        __u16                   vlan_tci;
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>        sk_buff_data_t          transport_header;
-</span></span><span style=display:flex><span>        sk_buff_data_t          network_header;
-</span></span><span style=display:flex><span>        sk_buff_data_t          mac_header;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>sk_buff_data_t</span>          transport_header;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>sk_buff_data_t</span>          network_header;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>sk_buff_data_t</span>          mac_header;
 </span></span><span style=display:flex><span>        <span style=color:#75715e>/* These elements must be at the end, see alloc_skb() for details.  */</span>
-</span></span><span style=display:flex><span>        sk_buff_data_t          tail;
-</span></span><span style=display:flex><span>        sk_buff_data_t          end;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>sk_buff_data_t</span>          tail;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>sk_buff_data_t</span>          end;
 </span></span><span style=display:flex><span>        <span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>char</span>           <span style=color:#f92672>*</span>head,
 </span></span><span style=display:flex><span>                                <span style=color:#f92672>*</span>data;
 </span></span><span style=display:flex><span>        <span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>int</span>            truesize;
-</span></span><span style=display:flex><span>        atomic_t                users;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>atomic_t</span>                users;
 </span></span><span style=display:flex><span>};
 </span></span></code></pre></div><p>有了以上定义的话，我们就可以做类似如下定义来使我们的驱动支持多内核了：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#66d9ef>struct</span> sk_buff <span style=color:#f92672>*</span>new_skb;
 </span></span><span style=display:flex><span><span style=color:#75715e>#if LINUX_VERSION_CODE &lt;= KERNEL_VERSION(2,6,18)
@@ -323,25 +323,25 @@ Debug Dynamic Link (DLL)    /MDd      MSVCRTD    _DEBUG, _MT, and _DLL
 <a href=/tags/make.html>make</a>
 <a href=/tags/python.html>python</a>
 <a href=/tags/wget.html>wget</a></div></div></footer></article><article class="post-expand post" itemprop=articleBody><header class="article-info clearfix"><h1 itemprop=name><a href=/2013/07/02/python-zlib-trans-c.html title=python的zlib压缩解压缩对应的C语言方式 itemprop=url>python的zlib压缩解压缩对应的C语言方式</a></h1><p class=article-time><time datetime="2013-07-02 15:47:00 +0800 +0800" itemprop=datePublished>2013-07-02</time></p></header><div class=article-content><h1 id=压缩>压缩</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>enData <span style=color:#f92672>=</span> zlib<span style=color:#f92672>.</span>compress(data)[<span style=color:#ae81ff>2</span>:<span style=color:#f92672>-</span><span style=color:#ae81ff>4</span>]
-</span></span></code></pre></div><p>对应：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span>compress2(dstbuf, <span style=color:#f92672>&amp;</span>dstLen, strSrc, srcLen, <span style=color:#ae81ff>6</span>);
+</span></span></code></pre></div><p>对应：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#a6e22e>compress2</span>(dstbuf, <span style=color:#f92672>&amp;</span>dstLen, strSrc, srcLen, <span style=color:#ae81ff>6</span>);
 </span></span></code></pre></div><h1 id=解压>解压</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>deData <span style=color:#f92672>=</span> zlib<span style=color:#f92672>.</span>decompress(enData, <span style=color:#f92672>-</span>zlib<span style=color:#f92672>.</span>MAX_WBITS)
 </span></span></code></pre></div><p>对应：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#66d9ef>bool</span> <span style=color:#a6e22e>gzipInflate</span>( <span style=color:#66d9ef>const</span> std<span style=color:#f92672>::</span>string<span style=color:#f92672>&amp;</span> compressedBytes, std<span style=color:#f92672>::</span>string<span style=color:#f92672>&amp;</span> uncompressedBytes ) {
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> ( compressedBytes.size() <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span> ) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> ( compressedBytes.<span style=color:#a6e22e>size</span>() <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span> ) {
 </span></span><span style=display:flex><span>        uncompressedBytes <span style=color:#f92672>=</span> compressedBytes ;
 </span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> true ;
 </span></span><span style=display:flex><span>    }
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    uncompressedBytes.clear() ;
+</span></span><span style=display:flex><span>    uncompressedBytes.<span style=color:#a6e22e>clear</span>() ;
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>unsigned</span> full_length <span style=color:#f92672>=</span> compressedBytes.size() ;
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>unsigned</span> half_length <span style=color:#f92672>=</span> compressedBytes.size() <span style=color:#f92672>/</span> <span style=color:#ae81ff>2</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>unsigned</span> full_length <span style=color:#f92672>=</span> compressedBytes.<span style=color:#a6e22e>size</span>() ;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>unsigned</span> half_length <span style=color:#f92672>=</span> compressedBytes.<span style=color:#a6e22e>size</span>() <span style=color:#f92672>/</span> <span style=color:#ae81ff>2</span>;
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>unsigned</span> uncompLength <span style=color:#f92672>=</span> full_length ;
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>char</span><span style=color:#f92672>*</span> uncomp <span style=color:#f92672>=</span> (<span style=color:#66d9ef>char</span><span style=color:#f92672>*</span>) calloc( <span style=color:#66d9ef>sizeof</span>(<span style=color:#66d9ef>char</span>), uncompLength );
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>char</span><span style=color:#f92672>*</span> uncomp <span style=color:#f92672>=</span> (<span style=color:#66d9ef>char</span><span style=color:#f92672>*</span>) <span style=color:#a6e22e>calloc</span>( <span style=color:#66d9ef>sizeof</span>(<span style=color:#66d9ef>char</span>), uncompLength );
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>    z_stream strm;
-</span></span><span style=display:flex><span>    strm.next_in <span style=color:#f92672>=</span> (Bytef <span style=color:#f92672>*</span>) compressedBytes.c_str();
-</span></span><span style=display:flex><span>    strm.avail_in <span style=color:#f92672>=</span> compressedBytes.size() ;
+</span></span><span style=display:flex><span>    strm.next_in <span style=color:#f92672>=</span> (Bytef <span style=color:#f92672>*</span>) compressedBytes.<span style=color:#a6e22e>c_str</span>();
+</span></span><span style=display:flex><span>    strm.avail_in <span style=color:#f92672>=</span> compressedBytes.<span style=color:#a6e22e>size</span>() ;
 </span></span><span style=display:flex><span>    strm.total_out <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
 </span></span><span style=display:flex><span>    strm.zalloc <span style=color:#f92672>=</span> Z_NULL;
 </span></span><span style=display:flex><span>    strm.zfree <span style=color:#f92672>=</span> Z_NULL;
@@ -349,9 +349,9 @@ Debug Dynamic Link (DLL)    /MDd      MSVCRTD    _DEBUG, _MT, and _DLL
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>bool</span> done <span style=color:#f92672>=</span> false ;
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>    <span style=color:#75715e>//if (inflateInit2(&amp;strm, (16+MAX_WBITS)) != Z_OK)
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>if</span> (inflateInit2(<span style=color:#f92672>&amp;</span>strm, <span style=color:#f92672>-</span>MAX_WBITS) <span style=color:#f92672>!=</span> Z_OK)
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>inflateInit2</span>(<span style=color:#f92672>&amp;</span>strm, <span style=color:#f92672>-</span>MAX_WBITS) <span style=color:#f92672>!=</span> Z_OK)
 </span></span><span style=display:flex><span>    {
-</span></span><span style=display:flex><span>        free( uncomp );
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>free</span>( uncomp );
 </span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> false;
 </span></span><span style=display:flex><span>    }
 </span></span><span style=display:flex><span>
@@ -359,10 +359,10 @@ Debug Dynamic Link (DLL)    /MDd      MSVCRTD    _DEBUG, _MT, and _DLL
 </span></span><span style=display:flex><span>        <span style=color:#75715e>// If our output buffer is too small
 </span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>if</span> (strm.total_out <span style=color:#f92672>&gt;=</span> uncompLength ) {
 </span></span><span style=display:flex><span>            <span style=color:#75715e>// Increase size of output buffer
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>            <span style=color:#66d9ef>char</span><span style=color:#f92672>*</span> uncomp2 <span style=color:#f92672>=</span> (<span style=color:#66d9ef>char</span><span style=color:#f92672>*</span>) calloc( <span style=color:#66d9ef>sizeof</span>(<span style=color:#66d9ef>char</span>), uncompLength <span style=color:#f92672>+</span> half_length );
-</span></span><span style=display:flex><span>            memcpy( uncomp2, uncomp, uncompLength );
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>            <span style=color:#66d9ef>char</span><span style=color:#f92672>*</span> uncomp2 <span style=color:#f92672>=</span> (<span style=color:#66d9ef>char</span><span style=color:#f92672>*</span>) <span style=color:#a6e22e>calloc</span>( <span style=color:#66d9ef>sizeof</span>(<span style=color:#66d9ef>char</span>), uncompLength <span style=color:#f92672>+</span> half_length );
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>memcpy</span>( uncomp2, uncomp, uncompLength );
 </span></span><span style=display:flex><span>            uncompLength <span style=color:#f92672>+=</span> half_length ;
-</span></span><span style=display:flex><span>            free( uncomp );
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>free</span>( uncomp );
 </span></span><span style=display:flex><span>            uncomp <span style=color:#f92672>=</span> uncomp2 ;
 </span></span><span style=display:flex><span>        }
 </span></span><span style=display:flex><span>
@@ -370,22 +370,22 @@ Debug Dynamic Link (DLL)    /MDd      MSVCRTD    _DEBUG, _MT, and _DLL
 </span></span><span style=display:flex><span>        strm.avail_out <span style=color:#f92672>=</span> uncompLength <span style=color:#f92672>-</span> strm.total_out;
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>        <span style=color:#75715e>// Inflate another chunk.
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>int</span> err <span style=color:#f92672>=</span> inflate (<span style=color:#f92672>&amp;</span>strm, Z_SYNC_FLUSH);
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>int</span> err <span style=color:#f92672>=</span> <span style=color:#a6e22e>inflate</span> (<span style=color:#f92672>&amp;</span>strm, Z_SYNC_FLUSH);
 </span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (err <span style=color:#f92672>==</span> Z_STREAM_END) done <span style=color:#f92672>=</span> true;
 </span></span><span style=display:flex><span>        <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (err <span style=color:#f92672>!=</span> Z_OK)  {
 </span></span><span style=display:flex><span>            <span style=color:#66d9ef>break</span>;
 </span></span><span style=display:flex><span>        }
 </span></span><span style=display:flex><span>    }
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (inflateEnd (<span style=color:#f92672>&amp;</span>strm) <span style=color:#f92672>!=</span> Z_OK) {
-</span></span><span style=display:flex><span>        free( uncomp );
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>inflateEnd</span> (<span style=color:#f92672>&amp;</span>strm) <span style=color:#f92672>!=</span> Z_OK) {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>free</span>( uncomp );
 </span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> false;
 </span></span><span style=display:flex><span>    }
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> ( size_t i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>; i<span style=color:#f92672>&lt;</span>strm.total_out; <span style=color:#f92672>++</span>i ) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> ( <span style=color:#66d9ef>size_t</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>; i<span style=color:#f92672>&lt;</span>strm.total_out; <span style=color:#f92672>++</span>i ) {
 </span></span><span style=display:flex><span>        uncompressedBytes <span style=color:#f92672>+=</span> uncomp[ i ];
 </span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>    free( uncomp );
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>free</span>( uncomp );
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> true ;
 </span></span><span style=display:flex><span>}
 </span></span></code></pre></div></div><footer class="article-footer clearfix"><div class=article-catetags><div class=article-categories><span></span>
