@@ -48,4 +48,4 @@ jobs:
         run: |
           wget -nv http://gosspublic.alicdn.com/ossutil/1.7.1/ossutil64
           chmod 755 ossutil64
-          ./ossutil64 rm oss://kaij/ -r -f -e ${{ secrets.OSS_ENDPOINT }} -i ${{ secrets.OSS_ACCESSKEYID }} -k ${{ secrets.OSS_ACCESSKEYSECRET }}
+          ./ossutil64 rm oss://kaij/ -r -f --exclude "webmud/*" -e ${{ secrets.OSS_ENDPOINT }} -i ${{ secrets.OSS_ACCESSKEYID }} -k ${{ secrets.OSS_ACCESSKEYSECRET }}
