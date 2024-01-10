@@ -1,0 +1,7 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\*\shell\Run Without Privilege Elevation]
+@="Run Without Privilege Elevation"
+
+[HKEY_CLASSES_ROOT\*\shell\Run Without Privilege Elevation\command]
+@="cmd /min /C \"set __COMPAT_LAYER=RUNASINVOKER && start \"\" \"%1\"\""
