@@ -14,15 +14,15 @@ permalinks:
 
 outputFormats:
   RSS:
-    mediatype: application/rss
+    mediaType: application/rss+xml
     baseName: atom
 
-author:
-  name: leaker
-
-
 params:
-  sub_title: 少壮不努力，一生在内地
+  subtitle: 少壮不努力，一生在内地
+  contact:
+    email: admin@leelib.com
+  author:
+    name: leaker
   logo: /img/logo.webp
   # cn_icp_id:  # China Website Internet Content Provider ID. If site not deploy in china, delete this line
 
@@ -58,7 +58,7 @@ markup:
     anchorLineNos: false
     codeFences: true
     guessSyntax: false
-    hl_Lines: ""
+    # hl_Lines: 1
     lineAnchors: ""
     lineNoStart: 1
     lineNos: false
