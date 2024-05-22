@@ -24,7 +24,7 @@ author:
 params:
   sub_title: 少壮不努力，一生在内地
   logo: /img/logo.webp
-  cn_icp_id: 陕ICP备20006522号 # China Website Internet Content Provider ID. If site not deploy in china, keep empty
+  cn_icp_id:  # China Website Internet Content Provider ID. If site not deploy in china, keep empty
 
 menu:
   main:
