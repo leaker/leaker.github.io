@@ -8,7 +8,7 @@ tags:
   - mud
 ---
 
-![仗剑江湖WebMUD客户端](/images/webmud-client.png#center)
+![仗剑江湖WebMUD客户端](/images/webmud-client.webp#center)
 
 最近在学习AI与一些前端方面的知识，各种前端方向依然属于我不擅长的领域，也是在为后面一些可能的情况存储知识储备。
 
@@ -46,10 +46,11 @@ tags:
 
 ## 下载地址
 
-本站: [仗剑江湖WebMUD客户端](/files/仗剑江湖WebMUD客户端.zip)
+### OneDrive:
+[仗剑江湖WebMUD客户端](https://1drv.ms/u/c/9722c6b533f2d014/ERcNk052sOVHt3KOF5FJrQUB_hGji1LZ9j68b35_6MazcQ?e=YlgOFD)
 
-OneDrive: [仗剑江湖WebMUD客户端](https://1drv.ms/u/c/9722c6b533f2d014/ERcNk052sOVHt3KOF5FJrQUB_hGji1LZ9j68b35_6MazcQ?e=YlgOFD)
-
+### 本站资源：
+[仗剑江湖WebMUD客户端](https://files.leelib.com/仗剑江湖WebMUD客户端.zip)
 
 ## 后记
 
@@ -57,4 +58,13 @@ OneDrive: [仗剑江湖WebMUD客户端](https://1drv.ms/u/c/9722c6b533f2d014/ERc
 
 如果发现问题，请联系邮箱回馈： admin@leelib.com
 
-程序会在我修正完问题后自动发现更新并提示，只需要点击一下按钮刷新过后，不出意外的话当前使用的就是新版本了。
+程序会在我修正完问题后自动发现更新并提示，只需要点击一下按钮刷新过后，不出意外的话使用的就是新版本了。
+
+## 更新历史
+
+### 1.0.1
+* 由于一些原因不再使用阿里云CDN，所以更新了一些功能用于适配新的CDN。
+* 更新 [Electron](https://www.electronjs.org/) 内核到当前最新 v30.0.8。由于目前新的 Electron 版本压缩包超过100MB，不再适合存储在 GitHub 里，所以额外建了资源站来存储当作备选下载线路
+
+### 1.0.0
+* 完成基本功能
