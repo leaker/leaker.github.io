@@ -1,1 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Windows10 on 逃避虽然可耻但有用</title><link>https://www.leelib.com/tags/windows10.html</link><description>Recent content in Windows10 on 逃避虽然可耻但有用</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Wed, 16 Sep 2015 04:08:21 +0800</lastBuildDate><atom:link href="https://www.leelib.com/tags/windows10/atom.xml" rel="self" type="application/rss+xml"/><item><title>Win10里添加目录右键菜单 VS2013 Command Prompt Here</title><link>https://www.leelib.com/2015/09/16/vs2013-command-prompt-here.html</link><pubDate>Wed, 16 Sep 2015 04:08:21 +0800</pubDate><guid>https://www.leelib.com/2015/09/16/vs2013-command-prompt-here.html</guid><description>需求 我有时需要在命令行里对某个VS项目目录进行编译或部署等操作，总是需要以下步骤： 打开VS的Command Prompt 进入该项目目录 进行编译操作 个人觉</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Windows10 on 逃避虽然可耻但有用</title><link>https://www.leelib.com/tags/windows10.html</link><description>Recent content in Windows10 on 逃避虽然可耻但有用</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Wed, 16 Sep 2015 04:08:21 +0800</lastBuildDate><atom:link href="https://www.leelib.com/tags/windows10/atom.xml" rel="self" type="application/rss+xml"/><item><title>Win10里添加目录右键菜单 VS2013 Command Prompt Here</title><link>https://www.leelib.com/2015/09/16/vs2013-command-prompt-here.html</link><pubDate>Wed, 16 Sep 2015 04:08:21 +0800</pubDate><guid>https://www.leelib.com/2015/09/16/vs2013-command-prompt-here.html</guid><description>&lt;h1 id="需求">需求&lt;/h1>
+&lt;p>我有时需要在命令行里对某个VS项目目录进行编译或部署等操作，总是需要以下步骤：&lt;/p>
+&lt;ol>
+&lt;li>打开VS的Command Prompt&lt;/li>
+&lt;li>进入该项目目录&lt;/li>
+&lt;li>进行编译操作&lt;/li>
+&lt;/ol>
+&lt;p>个人觉得这样太浪费时间，于是萌生了添加类似 &lt;strong>Command Here&lt;/strong> 右键菜单的想法。
+办法很简单，在注册表添加相关项就可以了&lt;/p></description></item></channel></rss>

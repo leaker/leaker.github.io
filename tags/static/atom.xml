@@ -1,1 +1,16 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Static on 逃避虽然可耻但有用</title><link>https://www.leelib.com/tags/static.html</link><description>Recent content in Static on 逃避虽然可耻但有用</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Fri, 04 Oct 2013 06:37:29 +0800</lastBuildDate><atom:link href="https://www.leelib.com/tags/static/atom.xml" rel="self" type="application/rss+xml"/><item><title>自己使用过程中使用zlib链接时出的错误总结</title><link>https://www.leelib.com/2013/10/04/use-zlib.html</link><pubDate>Fri, 04 Oct 2013 06:37:29 +0800</pubDate><guid>https://www.leelib.com/2013/10/04/use-zlib.html</guid><description>错误1 error LNK2019: unresolved external symbol _deflateEnd@4 原因1: 未使用zlib的链接库 解决： #pragma comment(lib, &amp;#34;zlibstat.lib&amp;#34;) // for static lib #pragma comment(lib, &amp;#34;zdll.lib&amp;#34;) // for dll lib 原因2：在使用静态库时即使包含了zlibstat.lib没</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Static on 逃避虽然可耻但有用</title><link>https://www.leelib.com/tags/static.html</link><description>Recent content in Static on 逃避虽然可耻但有用</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Fri, 04 Oct 2013 06:37:29 +0800</lastBuildDate><atom:link href="https://www.leelib.com/tags/static/atom.xml" rel="self" type="application/rss+xml"/><item><title>自己使用过程中使用zlib链接时出的错误总结</title><link>https://www.leelib.com/2013/10/04/use-zlib.html</link><pubDate>Fri, 04 Oct 2013 06:37:29 +0800</pubDate><guid>https://www.leelib.com/2013/10/04/use-zlib.html</guid><description>&lt;h1 id="错误1">错误1&lt;/h1>
+&lt;p>&lt;strong>error LNK2019: unresolved external symbol _deflateEnd@4&lt;/strong>&lt;/p>
+&lt;h2 id="原因1-未使用zlib的链接库">原因1: 未使用zlib的链接库&lt;/h2>
+&lt;ul>
+&lt;li>解决：&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#pragma comment(lib, &amp;#34;zlibstat.lib&amp;#34;) &lt;/span>&lt;span style="color:#75715e">// for static lib
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#75715e">#pragma comment(lib, &amp;#34;zdll.lib&amp;#34;) &lt;/span>&lt;span style="color:#75715e">// for dll lib
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="原因2在使用静态库时即使包含了zlibstatlib没有定义宏zlib_winapi">原因2：在使用静态库时即使包含了zlibstat.lib没有定义宏“ZLIB_WINAPI”&lt;/h2>
+&lt;ul>
+&lt;li>解决：
+在项目属性中 C/C++ -&amp;gt; Preprocessor -&amp;gt; Preprocessor Definitions 添加“ZLIB_WINAPI”
+注意：这个必须在项目中添加，使用#define来添加是无效的。&lt;/li>
+&lt;/ul>
+&lt;h1 id="错误2">错误2&lt;/h1>
+&lt;p>&lt;strong>error LNK2026: module unsafe for SAFESEH image&lt;/strong>&lt;/p></description></item></channel></rss>

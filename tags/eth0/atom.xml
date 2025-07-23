@@ -1,1 +1,38 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Eth0 on 逃避虽然可耻但有用</title><link>https://www.leelib.com/tags/eth0.html</link><description>Recent content in Eth0 on 逃避虽然可耻但有用</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Sun, 12 May 2013 05:54:24 +0800</lastBuildDate><atom:link href="https://www.leelib.com/tags/eth0/atom.xml" rel="self" type="application/rss+xml"/><item><title>CentOS系统IP设置</title><link>https://www.leelib.com/2013/05/12/centos-set-ip.html</link><pubDate>Sun, 12 May 2013 05:54:24 +0800</pubDate><guid>https://www.leelib.com/2013/05/12/centos-set-ip.html</guid><description>以最小化安装的CentOS系统默认是不自动设置IP信息的。 我们想要正常访问网络，第一步就必须先把IP设置好。 设置IP为自动获取： [root@centos ~]# dhclient eth0 设置</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Eth0 on 逃避虽然可耻但有用</title><link>https://www.leelib.com/tags/eth0.html</link><description>Recent content in Eth0 on 逃避虽然可耻但有用</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Sun, 12 May 2013 05:54:24 +0800</lastBuildDate><atom:link href="https://www.leelib.com/tags/eth0/atom.xml" rel="self" type="application/rss+xml"/><item><title>CentOS系统IP设置</title><link>https://www.leelib.com/2013/05/12/centos-set-ip.html</link><pubDate>Sun, 12 May 2013 05:54:24 +0800</pubDate><guid>https://www.leelib.com/2013/05/12/centos-set-ip.html</guid><description>&lt;blockquote>
+&lt;p>以最小化安装的CentOS系统默认是不自动设置IP信息的。
+我们想要正常访问网络，第一步就必须先把IP设置好。&lt;/p>&lt;/blockquote>
+&lt;h1 id="设置ip为自动获取">设置IP为自动获取：&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>root@centos ~&lt;span style="color:#f92672">]&lt;/span>&lt;span style="color:#75715e"># dhclient eth0&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="设置ip为手动填写">设置IP为手动填写：&lt;/h1>
+&lt;ol>
+&lt;li>设置网关&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>root@centos ~&lt;span style="color:#f92672">]&lt;/span>&lt;span style="color:#75715e"># echo &amp;#39;GATEWAY=&amp;#34;192.168.1.1&amp;#34;&amp;#39; &amp;gt;&amp;gt; /etc/sysconfig/network&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
+&lt;li>设置网卡信息&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>root@centos ~&lt;span style="color:#f92672">]&lt;/span>&lt;span style="color:#75715e"># echo &amp;#39;DEVICE=&amp;#34;eth0&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>HWADDR&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;00:0C:29:28:F9:88&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>NM_CONTROLLED&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;yes&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ONBOOT&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;yes&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>BOOTPROTO&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;none&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>BROADCAST&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;192.168.1.255&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>IPADDR&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;192.168.1.120&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>NETMASK&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;255.255.255.0&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>NETWORK&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;192.168.1.0&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>IPV6INIT&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;yes&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>IPV6_AUTOCONF&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;yes&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>TYPE&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;Ethernet&amp;#34;&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">&amp;#39;&lt;/span> &amp;gt; /etc/sysconfig/network-scripts/ifcfg-eth0
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="3">
+&lt;li>设置DNS&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>root@centos ~&lt;span style="color:#f92672">]&lt;/span>&lt;span style="color:#75715e"># echo &amp;#39;nameserver 8.8.8.8&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>nameserver 8.8.4.4&lt;span style="color:#960050;background-color:#1e0010">&amp;#39;&lt;/span>&amp;gt; /etc/resolv.conf
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="4">
+&lt;li>重启网络&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>root@centos ~&lt;span style="color:#f92672">]&lt;/span>&lt;span style="color:#75715e"># service network restart&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Shutting down loopback interface: &lt;span style="color:#f92672">[&lt;/span> OK &lt;span style="color:#f92672">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Bringing up loopback interface: &lt;span style="color:#f92672">[&lt;/span> OK &lt;span style="color:#f92672">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Bringing up interface eth0: &lt;span style="color:#f92672">[&lt;/span> OK &lt;span style="color:#f92672">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>

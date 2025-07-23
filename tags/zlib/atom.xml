@@ -1,1 +1,93 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Zlib on 逃避虽然可耻但有用</title><link>https://www.leelib.com/tags/zlib.html</link><description>Recent content in Zlib on 逃避虽然可耻但有用</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Fri, 04 Oct 2013 06:37:29 +0800</lastBuildDate><atom:link href="https://www.leelib.com/tags/zlib/atom.xml" rel="self" type="application/rss+xml"/><item><title>自己使用过程中使用zlib链接时出的错误总结</title><link>https://www.leelib.com/2013/10/04/use-zlib.html</link><pubDate>Fri, 04 Oct 2013 06:37:29 +0800</pubDate><guid>https://www.leelib.com/2013/10/04/use-zlib.html</guid><description>错误1 error LNK2019: unresolved external symbol _deflateEnd@4 原因1: 未使用zlib的链接库 解决： #pragma comment(lib, &amp;#34;zlibstat.lib&amp;#34;) // for static lib #pragma comment(lib, &amp;#34;zdll.lib&amp;#34;) // for dll lib 原因2：在使用静态库时即使包含了zlibstat.lib没</description></item><item><title>python的zlib压缩解压缩对应的C语言方式</title><link>https://www.leelib.com/2013/07/02/python-zlib-trans-c.html</link><pubDate>Tue, 02 Jul 2013 15:47:00 +0800</pubDate><guid>https://www.leelib.com/2013/07/02/python-zlib-trans-c.html</guid><description>压缩 enData = zlib.compress(data)[2:-4] 对应： compress2(dstbuf, &amp;amp;dstLen, strSrc, srcLen, 6); 解压 deData = zlib.decompress(enData, -zlib.MAX_WBITS) 对应： bool gzipInflate( const std::string&amp;amp; compressedBytes, std::string&amp;amp; uncompressedBytes ) { if ( compressedBytes.size() == 0 ) { uncompressedBytes = compressedBytes ; return true ; } uncompressedBytes.clear() ; unsigned full_length = compressedBytes.size() ; unsigned half_length = compressedBytes.size() / 2; unsigned uncompLength = full_length ; char* uncomp = (char*) calloc( sizeof(char),</description></item><item><title>Windows下编译使用zlib库的程序时出现“无法解析的外部符号 _compress”解决方案</title><link>https://www.leelib.com/2013/07/01/windows-use-zlib-link-error.html</link><pubDate>Mon, 01 Jul 2013 05:29:47 +0800</pubDate><guid>https://www.leelib.com/2013/07/01/windows-use-zlib-link-error.html</guid><description>错误描述 error LNK2019: unresolved external symbol _compress referenced 解决方案 在 #include &amp;lt;zlib.h&amp;gt; 之前加上 #define ZLIB_WINAPI #define ZLIB_WINAPI #include &amp;lt;zlib.h&amp;gt;</description></item><item><title>一句话经验zlib</title><link>https://www.leelib.com/2013/06/29/use-zlib-exp.html</link><pubDate>Sat, 29 Jun 2013 04:27:00 +0800</pubDate><guid>https://www.leelib.com/2013/06/29/use-zlib-exp.html</guid><description>Linux使用gcc编译使用zlib库的代码时，使用 -lz 来链接(link) zlib 库。 否则就会出现类似 undefined reference to `deflateInit_&amp;rsquo; 的错误</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Zlib on 逃避虽然可耻但有用</title><link>https://www.leelib.com/tags/zlib.html</link><description>Recent content in Zlib on 逃避虽然可耻但有用</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Fri, 04 Oct 2013 06:37:29 +0800</lastBuildDate><atom:link href="https://www.leelib.com/tags/zlib/atom.xml" rel="self" type="application/rss+xml"/><item><title>自己使用过程中使用zlib链接时出的错误总结</title><link>https://www.leelib.com/2013/10/04/use-zlib.html</link><pubDate>Fri, 04 Oct 2013 06:37:29 +0800</pubDate><guid>https://www.leelib.com/2013/10/04/use-zlib.html</guid><description>&lt;h1 id="错误1">错误1&lt;/h1>
+&lt;p>&lt;strong>error LNK2019: unresolved external symbol _deflateEnd@4&lt;/strong>&lt;/p>
+&lt;h2 id="原因1-未使用zlib的链接库">原因1: 未使用zlib的链接库&lt;/h2>
+&lt;ul>
+&lt;li>解决：&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#pragma comment(lib, &amp;#34;zlibstat.lib&amp;#34;) &lt;/span>&lt;span style="color:#75715e">// for static lib
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#75715e">#pragma comment(lib, &amp;#34;zdll.lib&amp;#34;) &lt;/span>&lt;span style="color:#75715e">// for dll lib
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="原因2在使用静态库时即使包含了zlibstatlib没有定义宏zlib_winapi">原因2：在使用静态库时即使包含了zlibstat.lib没有定义宏“ZLIB_WINAPI”&lt;/h2>
+&lt;ul>
+&lt;li>解决：
+在项目属性中 C/C++ -&amp;gt; Preprocessor -&amp;gt; Preprocessor Definitions 添加“ZLIB_WINAPI”
+注意：这个必须在项目中添加，使用#define来添加是无效的。&lt;/li>
+&lt;/ul>
+&lt;h1 id="错误2">错误2&lt;/h1>
+&lt;p>&lt;strong>error LNK2026: module unsafe for SAFESEH image&lt;/strong>&lt;/p></description></item><item><title>python的zlib压缩解压缩对应的C语言方式</title><link>https://www.leelib.com/2013/07/02/python-zlib-trans-c.html</link><pubDate>Tue, 02 Jul 2013 15:47:00 +0800</pubDate><guid>https://www.leelib.com/2013/07/02/python-zlib-trans-c.html</guid><description>&lt;h1 id="压缩">压缩&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>enData &lt;span style="color:#f92672">=&lt;/span> zlib&lt;span style="color:#f92672">.&lt;/span>compress(data)[&lt;span style="color:#ae81ff">2&lt;/span>:&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">4&lt;/span>]
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>对应：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">compress2&lt;/span>(dstbuf, &lt;span style="color:#f92672">&amp;amp;&lt;/span>dstLen, strSrc, srcLen, &lt;span style="color:#ae81ff">6&lt;/span>);
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="解压">解压&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>deData &lt;span style="color:#f92672">=&lt;/span> zlib&lt;span style="color:#f92672">.&lt;/span>decompress(enData, &lt;span style="color:#f92672">-&lt;/span>zlib&lt;span style="color:#f92672">.&lt;/span>MAX_WBITS)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>对应：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">bool&lt;/span> &lt;span style="color:#a6e22e">gzipInflate&lt;/span>( &lt;span style="color:#66d9ef">const&lt;/span> std&lt;span style="color:#f92672">::&lt;/span>string&lt;span style="color:#f92672">&amp;amp;&lt;/span> compressedBytes, std&lt;span style="color:#f92672">::&lt;/span>string&lt;span style="color:#f92672">&amp;amp;&lt;/span> uncompressedBytes ) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> ( compressedBytes.&lt;span style="color:#a6e22e">size&lt;/span>() &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> ) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> uncompressedBytes &lt;span style="color:#f92672">=&lt;/span> compressedBytes ;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> true ;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> uncompressedBytes.&lt;span style="color:#a6e22e">clear&lt;/span>() ;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">unsigned&lt;/span> full_length &lt;span style="color:#f92672">=&lt;/span> compressedBytes.&lt;span style="color:#a6e22e">size&lt;/span>() ;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">unsigned&lt;/span> half_length &lt;span style="color:#f92672">=&lt;/span> compressedBytes.&lt;span style="color:#a6e22e">size&lt;/span>() &lt;span style="color:#f92672">/&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">unsigned&lt;/span> uncompLength &lt;span style="color:#f92672">=&lt;/span> full_length ;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">char&lt;/span>&lt;span style="color:#f92672">*&lt;/span> uncomp &lt;span style="color:#f92672">=&lt;/span> (&lt;span style="color:#66d9ef">char&lt;/span>&lt;span style="color:#f92672">*&lt;/span>) &lt;span style="color:#a6e22e">calloc&lt;/span>( &lt;span style="color:#66d9ef">sizeof&lt;/span>(&lt;span style="color:#66d9ef">char&lt;/span>), uncompLength );
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> z_stream strm;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> strm.next_in &lt;span style="color:#f92672">=&lt;/span> (Bytef &lt;span style="color:#f92672">*&lt;/span>) compressedBytes.&lt;span style="color:#a6e22e">c_str&lt;/span>();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> strm.avail_in &lt;span style="color:#f92672">=&lt;/span> compressedBytes.&lt;span style="color:#a6e22e">size&lt;/span>() ;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> strm.total_out &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> strm.zalloc &lt;span style="color:#f92672">=&lt;/span> Z_NULL;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> strm.zfree &lt;span style="color:#f92672">=&lt;/span> Z_NULL;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">bool&lt;/span> done &lt;span style="color:#f92672">=&lt;/span> false ;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">//if (inflateInit2(&amp;amp;strm, (16+MAX_WBITS)) != Z_OK)
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">if&lt;/span> (&lt;span style="color:#a6e22e">inflateInit2&lt;/span>(&lt;span style="color:#f92672">&amp;amp;&lt;/span>strm, &lt;span style="color:#f92672">-&lt;/span>MAX_WBITS) &lt;span style="color:#f92672">!=&lt;/span> Z_OK)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">free&lt;/span>( uncomp );
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> false;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span> (&lt;span style="color:#f92672">!&lt;/span>done) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// If our output buffer is too small
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">if&lt;/span> (strm.total_out &lt;span style="color:#f92672">&amp;gt;=&lt;/span> uncompLength ) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// Increase size of output buffer
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">char&lt;/span>&lt;span style="color:#f92672">*&lt;/span> uncomp2 &lt;span style="color:#f92672">=&lt;/span> (&lt;span style="color:#66d9ef">char&lt;/span>&lt;span style="color:#f92672">*&lt;/span>) &lt;span style="color:#a6e22e">calloc&lt;/span>( &lt;span style="color:#66d9ef">sizeof&lt;/span>(&lt;span style="color:#66d9ef">char&lt;/span>), uncompLength &lt;span style="color:#f92672">+&lt;/span> half_length );
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">memcpy&lt;/span>( uncomp2, uncomp, uncompLength );
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> uncompLength &lt;span style="color:#f92672">+=&lt;/span> half_length ;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">free&lt;/span>( uncomp );
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> uncomp &lt;span style="color:#f92672">=&lt;/span> uncomp2 ;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> strm.next_out &lt;span style="color:#f92672">=&lt;/span> (Bytef &lt;span style="color:#f92672">*&lt;/span>) (uncomp &lt;span style="color:#f92672">+&lt;/span> strm.total_out);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> strm.avail_out &lt;span style="color:#f92672">=&lt;/span> uncompLength &lt;span style="color:#f92672">-&lt;/span> strm.total_out;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// Inflate another chunk.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> err &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">inflate&lt;/span> (&lt;span style="color:#f92672">&amp;amp;&lt;/span>strm, Z_SYNC_FLUSH);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (err &lt;span style="color:#f92672">==&lt;/span> Z_STREAM_END) done &lt;span style="color:#f92672">=&lt;/span> true;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">else&lt;/span> &lt;span style="color:#66d9ef">if&lt;/span> (err &lt;span style="color:#f92672">!=&lt;/span> Z_OK) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">break&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (&lt;span style="color:#a6e22e">inflateEnd&lt;/span> (&lt;span style="color:#f92672">&amp;amp;&lt;/span>strm) &lt;span style="color:#f92672">!=&lt;/span> Z_OK) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">free&lt;/span>( uncomp );
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> false;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> ( &lt;span style="color:#66d9ef">size_t&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>; i&lt;span style="color:#f92672">&amp;lt;&lt;/span>strm.total_out; &lt;span style="color:#f92672">++&lt;/span>i ) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> uncompressedBytes &lt;span style="color:#f92672">+=&lt;/span> uncomp[ i ];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">free&lt;/span>( uncomp );
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> true ;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Windows下编译使用zlib库的程序时出现“无法解析的外部符号 _compress”解决方案</title><link>https://www.leelib.com/2013/07/01/windows-use-zlib-link-error.html</link><pubDate>Mon, 01 Jul 2013 05:29:47 +0800</pubDate><guid>https://www.leelib.com/2013/07/01/windows-use-zlib-link-error.html</guid><description>&lt;h1 id="错误描述">错误描述&lt;/h1>
+&lt;p>&lt;strong>error LNK2019: unresolved external symbol _compress referenced&lt;/strong>&lt;/p>
+&lt;h1 id="解决方案">解决方案&lt;/h1>
+&lt;p>在 &lt;strong>#include &amp;lt;zlib.h&amp;gt;&lt;/strong> 之前加上 &lt;strong>#define ZLIB_WINAPI&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#define ZLIB_WINAPI
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#include&lt;/span> &lt;span style="color:#75715e">&amp;lt;zlib.h&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>一句话经验zlib</title><link>https://www.leelib.com/2013/06/29/use-zlib-exp.html</link><pubDate>Sat, 29 Jun 2013 04:27:00 +0800</pubDate><guid>https://www.leelib.com/2013/06/29/use-zlib-exp.html</guid><description>&lt;p>Linux使用gcc编译使用zlib库的代码时，使用 &lt;strong>-lz&lt;/strong> 来链接(link) &lt;strong>zlib&lt;/strong> 库。&lt;/p>
+&lt;p>否则就会出现类似 &lt;strong>undefined reference to `deflateInit_&amp;rsquo;&lt;/strong> 的错误&lt;/p></description></item></channel></rss>

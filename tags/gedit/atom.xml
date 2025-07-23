@@ -1,1 +1,10 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Gedit on 逃避虽然可耻但有用</title><link>https://www.leelib.com/tags/gedit.html</link><description>Recent content in Gedit on 逃避虽然可耻但有用</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Tue, 20 Mar 2012 19:08:43 +0800</lastBuildDate><atom:link href="https://www.leelib.com/tags/gedit/atom.xml" rel="self" type="application/rss+xml"/><item><title>如何使gedit能够编辑和保存到所属root用户的目录中</title><link>https://www.leelib.com/2012/03/20/gedit-saveto-root-dir.html</link><pubDate>Tue, 20 Mar 2012 19:08:43 +0800</pubDate><guid>https://www.leelib.com/2012/03/20/gedit-saveto-root-dir.html</guid><description>解决方案 为了能让gedit能够直接编辑不属于当前用户的文件，我们需要做如下操作： 为gedit创建一个启动器。这个有很多方法，如果不清楚的同学</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Gedit on 逃避虽然可耻但有用</title><link>https://www.leelib.com/tags/gedit.html</link><description>Recent content in Gedit on 逃避虽然可耻但有用</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Tue, 20 Mar 2012 19:08:43 +0800</lastBuildDate><atom:link href="https://www.leelib.com/tags/gedit/atom.xml" rel="self" type="application/rss+xml"/><item><title>如何使gedit能够编辑和保存到所属root用户的目录中</title><link>https://www.leelib.com/2012/03/20/gedit-saveto-root-dir.html</link><pubDate>Tue, 20 Mar 2012 19:08:43 +0800</pubDate><guid>https://www.leelib.com/2012/03/20/gedit-saveto-root-dir.html</guid><description>&lt;p>&lt;img src="https://www.leelib.com/wp-content/uploads/2012/03/gedit.webp#center" alt="gedit">&lt;/p>
+&lt;h1 id="解决方案">解决方案&lt;/h1>
+&lt;p>为了能让gedit能够直接编辑不属于当前用户的文件，我们需要做如下操作：&lt;/p>
+&lt;ol>
+&lt;li>为gedit创建一个启动器。这个有很多方法，如果不清楚的同学可以跟我一起操作。
+具体方法为：找到 &lt;strong>应用程序-附件-文本编辑器&lt;/strong> 点右键选择 &lt;strong>将此启动器添加到面板&lt;/strong>&lt;/li>
+&lt;li>右键点击刚才我们创建的启动器。选择 &lt;strong>属性&lt;/strong> 将原命令 &lt;strong>gedit %U&lt;/strong> 修改为 &lt;strong>gksudo gedit %U&lt;/strong>&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>&lt;strong>gksudo&lt;/strong> 其实就是对应桌面环境下的 &lt;strong>sudo&lt;/strong> 命令.&lt;/p></description></item></channel></rss>

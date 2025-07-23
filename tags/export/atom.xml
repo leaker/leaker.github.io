@@ -1,1 +1,15 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Export on 逃避虽然可耻但有用</title><link>https://www.leelib.com/tags/export.html</link><description>Recent content in Export on 逃避虽然可耻但有用</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Sat, 01 Nov 2014 08:42:17 +0800</lastBuildDate><atom:link href="https://www.leelib.com/tags/export/atom.xml" rel="self" type="application/rss+xml"/><item><title>CentOS安装GO编译环境</title><link>https://www.leelib.com/2014/11/01/centos-install-go.html</link><pubDate>Sat, 01 Nov 2014 08:42:17 +0800</pubDate><guid>https://www.leelib.com/2014/11/01/centos-install-go.html</guid><description>我们这里使用源码编译安装，直接按顺序执行下列命令就可以成功(我都是假设已经有root权限的情况下，所以执行之前请确认自己已有root权限)：</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Export on 逃避虽然可耻但有用</title><link>https://www.leelib.com/tags/export.html</link><description>Recent content in Export on 逃避虽然可耻但有用</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Sat, 01 Nov 2014 08:42:17 +0800</lastBuildDate><atom:link href="https://www.leelib.com/tags/export/atom.xml" rel="self" type="application/rss+xml"/><item><title>CentOS安装GO编译环境</title><link>https://www.leelib.com/2014/11/01/centos-install-go.html</link><pubDate>Sat, 01 Nov 2014 08:42:17 +0800</pubDate><guid>https://www.leelib.com/2014/11/01/centos-install-go.html</guid><description>&lt;p>我们这里使用源码编译安装，直接按顺序执行下列命令就可以成功(我都是假设已经有root权限的情况下，所以执行之前请确认自己已有root权限)：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>yum install -y mercurial gcc-c++ gcc
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mkdir /usr/local
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd /usr/local
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>hg clone -r release https://go.googlecode.com/hg/ go
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd /usr/local/go/src
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>chmox +x all.bash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>./all.bash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mkdir /root/go
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>export GOROOT&lt;span style="color:#f92672">=&lt;/span>/usr/local/go
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>export GOPATH&lt;span style="color:#f92672">=&lt;/span>/root/go
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>export GOBIN&lt;span style="color:#f92672">=&lt;/span>/usr/local/go/bin
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>export GOOS&lt;span style="color:#f92672">=&lt;/span>linux
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>export PATH&lt;span style="color:#f92672">=&lt;/span>.:$PATH:/usr/local/go/bin
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>现在应该已经可以执行go命令测试了：&lt;/p></description></item></channel></rss>

@@ -1,1 +1,105 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Install on 逃避虽然可耻但有用</title><link>https://www.leelib.com/tags/install.html</link><description>Recent content in Install on 逃避虽然可耻但有用</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Sun, 29 Jun 2014 06:56:31 +0800</lastBuildDate><atom:link href="https://www.leelib.com/tags/install/atom.xml" rel="self" type="application/rss+xml"/><item><title>解决yum安装 openssl-devel时产生的Multilib version problems found错误</title><link>https://www.leelib.com/2014/06/29/fix-yum-openssl-devel-multilib-version-problems-found.html</link><pubDate>Sun, 29 Jun 2014 06:56:31 +0800</pubDate><guid>https://www.leelib.com/2014/06/29/fix-yum-openssl-devel-multilib-version-problems-found.html</guid><description>今天给一台CentOS系统安装openssl-devel时，出现了如下信息： [root@centos]# yum install -y openssl-devel Loaded plugins: fastestmirror, security Repository updates is listed more than once in the configuration Repository centosplus is listed more than once in the configuration Repository contrib is</description></item><item><title>升级Linux内核3.8.10记录</title><link>https://www.leelib.com/2014/04/08/upgrade-linux-kernel-to-3-8-10.html</link><pubDate>Tue, 08 Apr 2014 00:10:19 +0800</pubDate><guid>https://www.leelib.com/2014/04/08/upgrade-linux-kernel-to-3-8-10.html</guid><description>yum install rpmdevtools yum-utils ncurses-devel make rpm-build rpm-devel wget https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.8.10.tar.gz tar xvf linux-3.8.10.tar.gz cd linux-3.8.10 make mrproper # 第一次可忽略 make menuconfig # 记得保存 make make modules_install make install new-kernel-pkg --mkinitrd --depmod --install 3.8.10</description></item><item><title>如何安装新版本python，以及解决安装了新版python后，默认python依然调用旧版本的问题</title><link>https://www.leelib.com/2013/07/10/fix-python-deff-version.html</link><pubDate>Wed, 10 Jul 2013 06:27:35 +0800</pubDate><guid>https://www.leelib.com/2013/07/10/fix-python-deff-version.html</guid><description>安装新版本python wget http://python.org/ftp/python/2.7.3/Python-2.7.3.tar.bz2 tar xjf Python-2.7.3.tar.bz2 cd Python-2.7.3 ./configure make make atlinstall 这时 python2.7.3 版本已经安装成功了。 但调用 python &amp;ndash;version 依然会显示并使用旧版本 解决办法就是重新建立一个链接并覆盖掉旧</description></item><item><title>Linux下编译驱动发现没有内核源码的解决办法</title><link>https://www.leelib.com/2013/06/02/install-kernel-devel.html</link><pubDate>Sun, 02 Jun 2013 12:25:27 +0800</pubDate><guid>https://www.leelib.com/2013/06/02/install-kernel-devel.html</guid><description>CentOS系统 yum install -y kernel-devel Ubuntu系统 apt-get install linux-source 以上～！ 参考：《或许你不需要整个内核的源代码》 - http://wiki.centos.org/zh/HowTos/I_need_the_Kernel_Source</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Install on 逃避虽然可耻但有用</title><link>https://www.leelib.com/tags/install.html</link><description>Recent content in Install on 逃避虽然可耻但有用</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Sun, 29 Jun 2014 06:56:31 +0800</lastBuildDate><atom:link href="https://www.leelib.com/tags/install/atom.xml" rel="self" type="application/rss+xml"/><item><title>解决yum安装 openssl-devel时产生的Multilib version problems found错误</title><link>https://www.leelib.com/2014/06/29/fix-yum-openssl-devel-multilib-version-problems-found.html</link><pubDate>Sun, 29 Jun 2014 06:56:31 +0800</pubDate><guid>https://www.leelib.com/2014/06/29/fix-yum-openssl-devel-multilib-version-problems-found.html</guid><description>&lt;p>今天给一台CentOS系统安装openssl-devel时，出现了如下信息：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>root@centos&lt;span style="color:#f92672">]&lt;/span>&lt;span style="color:#75715e"># yum install -y openssl-devel&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Loaded plugins: fastestmirror, security
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Repository updates is listed more than once in the configuration
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Repository centosplus is listed more than once in the configuration
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Repository contrib is listed more than once in the configuration
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Repository extras is listed more than once in the configuration
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Loading mirror speeds from cached hostfile
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * base: mirrors.tuna.tsinghua.edu.cn
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * extras: mirrors.tuna.tsinghua.edu.cn
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * updates: mirrors.tuna.tsinghua.edu.cn
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Setting up Install Process
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Resolving Dependencies
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Running transaction check
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>---&amp;gt; Package openssl-devel.x86_64 0:1.0.1e-16.el6_5.14 will be installed
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Processing Dependency: krb5-devel &lt;span style="color:#66d9ef">for&lt;/span> package: openssl-devel-1.0.1e-16.el6_5.14.x86_64
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Running transaction check
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>---&amp;gt; Package krb5-devel.x86_64 0:1.10.3-15.el6_5.1 will be installed
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Processing Dependency: libselinux-devel &lt;span style="color:#66d9ef">for&lt;/span> package: krb5-devel-1.10.3-15.el6_5.1.x86_64
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Processing Dependency: libcom_err-devel &lt;span style="color:#66d9ef">for&lt;/span> package: krb5-devel-1.10.3-15.el6_5.1.x86_64
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Processing Dependency: keyutils-libs-devel &lt;span style="color:#66d9ef">for&lt;/span> package: krb5-devel-1.10.3-15.el6_5.1.x86_64
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Running transaction check
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>---&amp;gt; Package keyutils-libs-devel.x86_64 0:1.4-4.el6 will be installed
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>---&amp;gt; Package libcom_err-devel.x86_64 0:1.41.12-18.el6 will be installed
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>---&amp;gt; Package libselinux-devel.x86_64 0:2.0.94-5.3.el6_4.1 will be installed
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Processing Dependency: libselinux &lt;span style="color:#f92672">=&lt;/span> 2.0.94-5.3.el6_4.1 &lt;span style="color:#66d9ef">for&lt;/span> package: libselinux-devel-2.0.94-5.3.el6_4.1.x86_64
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Processing Dependency: libsepol-devel &amp;gt;&lt;span style="color:#f92672">=&lt;/span> 2.0.32-1 &lt;span style="color:#66d9ef">for&lt;/span> package: libselinux-devel-2.0.94-5.3.el6_4.1.x86_64
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Processing Dependency: pkgconfig&lt;span style="color:#f92672">(&lt;/span>libsepol&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#66d9ef">for&lt;/span> package: libselinux-devel-2.0.94-5.3.el6_4.1.x86_64
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Running transaction check
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>---&amp;gt; Package libselinux.i686 0:2.0.94-5.3.el6_4.1 will be installed
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Processing Dependency: libdl.so.2&lt;span style="color:#f92672">(&lt;/span>GLIBC_2.1&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#66d9ef">for&lt;/span> package: libselinux-2.0.94-5.3.el6_4.1.i686
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Processing Dependency: libdl.so.2&lt;span style="color:#f92672">(&lt;/span>GLIBC_2.0&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#66d9ef">for&lt;/span> package: libselinux-2.0.94-5.3.el6_4.1.i686
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Processing Dependency: libdl.so.2 &lt;span style="color:#66d9ef">for&lt;/span> package: libselinux-2.0.94-5.3.el6_4.1.i686
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Processing Dependency: libc.so.6&lt;span style="color:#f92672">(&lt;/span>GLIBC_2.8&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#66d9ef">for&lt;/span> package: libselinux-2.0.94-5.3.el6_4.1.i686
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Processing Dependency: ld-linux.so.2&lt;span style="color:#f92672">(&lt;/span>GLIBC_2.3&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#66d9ef">for&lt;/span> package: libselinux-2.0.94-5.3.el6_4.1.i686
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Processing Dependency: ld-linux.so.2 &lt;span style="color:#66d9ef">for&lt;/span> package: libselinux-2.0.94-5.3.el6_4.1.i686
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>---&amp;gt; Package libsepol-devel.x86_64 0:2.0.41-4.el6 will be installed
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Running transaction check
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>---&amp;gt; Package glibc.i686 0:2.12-1.132.el6_5.2 will be installed
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Processing Dependency: libfreebl3.so&lt;span style="color:#f92672">(&lt;/span>NSSRAWHASH_3.12.3&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#66d9ef">for&lt;/span> package: glibc-2.12-1.132.el6_5.2.i686
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Processing Dependency: libfreebl3.so &lt;span style="color:#66d9ef">for&lt;/span> package: glibc-2.12-1.132.el6_5.2.i686
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Running transaction check
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>---&amp;gt; Package nss-softokn-freebl.i686 0:3.14.3-10.el6_5 will be installed
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Finished Dependency Resolution
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Error: Multilib version problems found. This often means that the root
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cause is something &lt;span style="color:#66d9ef">else&lt;/span> and multilib version checking is just
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> pointing out that there is a problem. Eg.:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 1&lt;span style="color:#ae81ff">\.&lt;/span> You have an upgrade &lt;span style="color:#66d9ef">for&lt;/span> libselinux which is missing some
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> dependency that another package requires. Yum is trying to
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> solve this by installing an older version of libselinux of the
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> different architecture. If you exclude the bad architecture
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> yum will tell you what the root cause is &lt;span style="color:#f92672">(&lt;/span>which package
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> requires what&lt;span style="color:#f92672">)&lt;/span>. You can try redoing the upgrade with
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --exclude libselinux.otherarch ... this should give you an error
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> message showing the root cause of the problem.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 2&lt;span style="color:#ae81ff">\.&lt;/span> You have multiple architectures of libselinux installed, but
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> yum can only see an upgrade &lt;span style="color:#66d9ef">for&lt;/span> one of those arcitectures.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> If you don&lt;span style="color:#960050;background-color:#1e0010">&amp;#39;&lt;/span>t want/need both architectures anymore &lt;span style="color:#66d9ef">then&lt;/span> you
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> can remove the one with the missing update and everything
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> will work.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 3&lt;span style="color:#ae81ff">\.&lt;/span> You have duplicate versions of libselinux installed already.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> You can use &lt;span style="color:#e6db74">&amp;#34;yum check&amp;#34;&lt;/span> to get yum show these errors.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ...you can also use --setopt&lt;span style="color:#f92672">=&lt;/span>protected_multilib&lt;span style="color:#f92672">=&lt;/span>false to remove
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> this checking, however this is almost never the correct thing to
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">do&lt;/span> as something &lt;span style="color:#66d9ef">else&lt;/span> is very likely to go wrong &lt;span style="color:#f92672">(&lt;/span>often causing
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> much more problems&lt;span style="color:#f92672">)&lt;/span>.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Protected multilib versions: libselinux-2.0.94-5.3.el6_4.1.i686 !&lt;span style="color:#f92672">=&lt;/span> libselinux-2.0.94-5.3.0.1.el6.centos.plus.x86_64
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> You could try using --skip-broken to work around the problem
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> You could try running: rpm -Va --nofiles --nodigest
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>最后在一个日文的网站上找到了解决办法：&lt;/strong>&lt;/p></description></item><item><title>升级Linux内核3.8.10记录</title><link>https://www.leelib.com/2014/04/08/upgrade-linux-kernel-to-3-8-10.html</link><pubDate>Tue, 08 Apr 2014 00:10:19 +0800</pubDate><guid>https://www.leelib.com/2014/04/08/upgrade-linux-kernel-to-3-8-10.html</guid><description>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>yum install rpmdevtools yum-utils ncurses-devel make rpm-build rpm-devel
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>wget https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.8.10.tar.gz
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tar xvf linux-3.8.10.tar.gz
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd linux-3.8.10
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>make mrproper &lt;span style="color:#75715e"># 第一次可忽略&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>make menuconfig &lt;span style="color:#75715e"># 记得保存&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>make
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>make modules_install
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>make install
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>new-kernel-pkg --mkinitrd --depmod --install 3.8.10
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>如何安装新版本python，以及解决安装了新版python后，默认python依然调用旧版本的问题</title><link>https://www.leelib.com/2013/07/10/fix-python-deff-version.html</link><pubDate>Wed, 10 Jul 2013 06:27:35 +0800</pubDate><guid>https://www.leelib.com/2013/07/10/fix-python-deff-version.html</guid><description>&lt;h1 id="安装新版本python">安装新版本python&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>wget http://python.org/ftp/python/2.7.3/Python-2.7.3.tar.bz2
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tar xjf Python-2.7.3.tar.bz2
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd Python-2.7.3
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>./configure
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>make
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>make atlinstall
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>这时 python2.7.3 版本已经安装成功了。
+但调用 &lt;strong>python &amp;ndash;version&lt;/strong> 依然会显示并使用旧版本&lt;/p>
+&lt;h1 id="解决办法就是重新建立一个链接并覆盖掉旧的">解决办法就是重新建立一个链接并覆盖掉旧的&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>ln -s /usr/local/bin/python2.7 /usr/bin/python -f
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>再调用 &lt;strong>python &amp;ndash;version&lt;/strong> 显示结果&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>root@centos&lt;span style="color:#f92672">]&lt;/span>&lt;span style="color:#75715e"># python --version&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Python 2.7.3
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>至此，问题解决 :)&lt;/p></description></item><item><title>Linux下编译驱动发现没有内核源码的解决办法</title><link>https://www.leelib.com/2013/06/02/install-kernel-devel.html</link><pubDate>Sun, 02 Jun 2013 12:25:27 +0800</pubDate><guid>https://www.leelib.com/2013/06/02/install-kernel-devel.html</guid><description>&lt;h2 id="centos系统">CentOS系统&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>yum install -y kernel-devel
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="ubuntu系统">Ubuntu系统&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>apt-get install linux-source
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>以上～！&lt;/p>
+&lt;blockquote>
+&lt;p>参考：《或许你不需要整个内核的源代码》 - &lt;a href="http://wiki.centos.org/zh/HowTos/I_need_the_Kernel_Source">http://wiki.centos.org/zh/HowTos/I_need_the_Kernel_Source&lt;/a>&lt;/p>&lt;/blockquote></description></item></channel></rss>

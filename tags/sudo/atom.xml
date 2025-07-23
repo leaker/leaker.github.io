@@ -1,1 +1,18 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Sudo on 逃避虽然可耻但有用</title><link>https://www.leelib.com/tags/sudo.html</link><description>Recent content in Sudo on 逃避虽然可耻但有用</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Tue, 20 Mar 2012 19:08:43 +0800</lastBuildDate><atom:link href="https://www.leelib.com/tags/sudo/atom.xml" rel="self" type="application/rss+xml"/><item><title>如何使gedit能够编辑和保存到所属root用户的目录中</title><link>https://www.leelib.com/2012/03/20/gedit-saveto-root-dir.html</link><pubDate>Tue, 20 Mar 2012 19:08:43 +0800</pubDate><guid>https://www.leelib.com/2012/03/20/gedit-saveto-root-dir.html</guid><description>解决方案 为了能让gedit能够直接编辑不属于当前用户的文件，我们需要做如下操作： 为gedit创建一个启动器。这个有很多方法，如果不清楚的同学</description></item><item><title>网易的Ubuntu更新源</title><link>https://www.leelib.com/2012/03/19/163-ubuntu-apt-sources.html</link><pubDate>Mon, 19 Mar 2012 13:13:20 +0800</pubDate><guid>https://www.leelib.com/2012/03/19/163-ubuntu-apt-sources.html</guid><description>步骤 sudo gedit /etc/apt/sources.list 编辑你的源列表，将原来的内容全部删除并复制下面列表到文件中，然后保存列表。 sudo apt-get update 等第2步完成之后你就可以打开更新管理器更新了 顺便一</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Sudo on 逃避虽然可耻但有用</title><link>https://www.leelib.com/tags/sudo.html</link><description>Recent content in Sudo on 逃避虽然可耻但有用</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Tue, 20 Mar 2012 19:08:43 +0800</lastBuildDate><atom:link href="https://www.leelib.com/tags/sudo/atom.xml" rel="self" type="application/rss+xml"/><item><title>如何使gedit能够编辑和保存到所属root用户的目录中</title><link>https://www.leelib.com/2012/03/20/gedit-saveto-root-dir.html</link><pubDate>Tue, 20 Mar 2012 19:08:43 +0800</pubDate><guid>https://www.leelib.com/2012/03/20/gedit-saveto-root-dir.html</guid><description>&lt;p>&lt;img src="https://www.leelib.com/wp-content/uploads/2012/03/gedit.webp#center" alt="gedit">&lt;/p>
+&lt;h1 id="解决方案">解决方案&lt;/h1>
+&lt;p>为了能让gedit能够直接编辑不属于当前用户的文件，我们需要做如下操作：&lt;/p>
+&lt;ol>
+&lt;li>为gedit创建一个启动器。这个有很多方法，如果不清楚的同学可以跟我一起操作。
+具体方法为：找到 &lt;strong>应用程序-附件-文本编辑器&lt;/strong> 点右键选择 &lt;strong>将此启动器添加到面板&lt;/strong>&lt;/li>
+&lt;li>右键点击刚才我们创建的启动器。选择 &lt;strong>属性&lt;/strong> 将原命令 &lt;strong>gedit %U&lt;/strong> 修改为 &lt;strong>gksudo gedit %U&lt;/strong>&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>&lt;strong>gksudo&lt;/strong> 其实就是对应桌面环境下的 &lt;strong>sudo&lt;/strong> 命令.&lt;/p></description></item><item><title>网易的Ubuntu更新源</title><link>https://www.leelib.com/2012/03/19/163-ubuntu-apt-sources.html</link><pubDate>Mon, 19 Mar 2012 13:13:20 +0800</pubDate><guid>https://www.leelib.com/2012/03/19/163-ubuntu-apt-sources.html</guid><description>&lt;p>&lt;img src="https://www.leelib.com/wp-content/uploads/2012/03/ubuntu_splash.webp#center" alt="splash">&lt;/p>
+&lt;h1 id="步骤">步骤&lt;/h1>
+&lt;ol>
+&lt;li>sudo gedit /etc/apt/sources.list
+编辑你的源列表，将原来的内容全部删除并复制下面列表到文件中，然后保存列表。&lt;/li>
+&lt;li>sudo apt-get update&lt;/li>
+&lt;/ol>
+&lt;p>等第2步完成之后你就可以打开更新管理器更新了
+顺便一提 网易的更新速度真的很快，我这里下载600K/s&lt;/p></description></item></channel></rss>

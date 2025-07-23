@@ -1,1 +1,559 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Programing on 逃避虽然可耻但有用</title><link>https://www.leelib.com/categories/programing.html</link><description>Recent content in Programing on 逃避虽然可耻但有用</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Wed, 10 Jan 2024 22:26:31 +0800</lastBuildDate><atom:link href="https://www.leelib.com/categories/programing/atom.xml" rel="self" type="application/rss+xml"/><item><title>Windows 系统内禁止某些应用以管理员程序运行(RunAsInvoker)</title><link>https://www.leelib.com/2024/01/10/windows-runasinvoker.html</link><pubDate>Wed, 10 Jan 2024 22:26:31 +0800</pubDate><guid>https://www.leelib.com/2024/01/10/windows-runasinvoker.html</guid><description>在 Windows 调试一些程序的时候，有可能会遇到程序本身编译为始终以管理员身份运行的。而这些程序在拿到管理员身份的时候会启动一些保护以检测自己是否被调试</description></item><item><title>zip 和 tar 包内乱码文件名修正工具</title><link>https://www.leelib.com/2023/03/29/zip-tar-name-fixer.html</link><pubDate>Wed, 29 Mar 2023 03:15:09 +0700</pubDate><guid>https://www.leelib.com/2023/03/29/zip-tar-name-fixer.html</guid><description>收到别人发来的压缩包，结果解压出来文件名是乱码。 这种情况在别人和自己使用不同的操作系统平台以及编码时经常发生，为了解决这一问题。自己编写了使</description></item><item><title>文本编码与换行符转换器</title><link>https://www.leelib.com/2023/03/29/encoding-line-ending-converter.html</link><pubDate>Wed, 29 Mar 2023 03:03:40 +0700</pubDate><guid>https://www.leelib.com/2023/03/29/encoding-line-ending-converter.html</guid><description>当遇到某人发来的文本內容内不是标准 utf-8 编码时，可以使用本程序来进行转换。 转换时遇到文本行尾使用了Windows专用的 CRLF 换行符时，也会将文本行尾</description></item><item><title>基于 Tailwind CSS 的 Box 布局</title><link>https://www.leelib.com/2022/10/12/tailwind-box-layout.html</link><pubDate>Wed, 12 Oct 2022 20:45:05 +0800</pubDate><guid>https://www.leelib.com/2022/10/12/tailwind-box-layout.html</guid><description>Header Content Footer 布局 &amp;lt;!doctype html&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;UTF-8&amp;#34; /&amp;gt; &amp;lt;meta name=&amp;#34;viewport&amp;#34; content=&amp;#34;width=device-width, initial-scale=1.0&amp;#34; /&amp;gt; &amp;lt;title&amp;gt;Tailwind CSS Box Layout&amp;lt;/title&amp;gt; &amp;lt;script src=&amp;#34;https://cdn.tailwindcss.com&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;style type=&amp;#34;text/tailwindcss&amp;#34;&amp;gt; html, body { font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace; color: #c9d1d9; background-color: #0d1117; } &amp;lt;/style&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;div id=&amp;#34;box&amp;#34; class=&amp;#34;flex flex-col h-screen justify-between&amp;#34;&amp;gt; &amp;lt;header class=&amp;#34;border-b p-5&amp;#34;&amp;gt;Header&amp;lt;/header&amp;gt; &amp;lt;main class=&amp;#34;flex flex-1 flex-col justify-center items-center mb-auto h-auto bg-gray-900&amp;#34;&amp;gt;Content&amp;lt;/main&amp;gt; &amp;lt;footer class=&amp;#34;flex justify-center items-center border-t</description></item><item><title>使用 Visual Studio 2022 为 python 编译 OpenCV 加 CUDA 支持</title><link>https://www.leelib.com/2022/05/14/vs2022-build-opencv-with-cuda-for-python.html</link><pubDate>Sat, 14 May 2022 09:59:11 +0800</pubDate><guid>https://www.leelib.com/2022/05/14/vs2022-build-opencv-with-cuda-for-python.html</guid><description>准备工作 安装 Scoop 安装 Visual Studio 2022 安装 Ninja v1.11.1 安装 Python v3.10 和 Numpy 安装 wget 和 7zip 安装 Cuda SDK v11.7 一键下载 OpenCV 4.6.0 源码并编译 部署 测试 OpenCV 安装 Scoop 打开 PowerShell 后执行： Set-ExecutionPolicy RemoteSigned -Scope CurrentUser Invoke-WebRequest get.scoop.sh | Invoke-Expression 安装参考</description></item><item><title>记一些常用的CSS布局方式</title><link>https://www.leelib.com/2021/09/17/css-layout.html</link><pubDate>Fri, 17 Sep 2021 23:22:14 +0800</pubDate><guid>https://www.leelib.com/2021/09/17/css-layout.html</guid><description>内容部分占满页面的剩余高度 &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;UTF-8&amp;#34;&amp;gt; &amp;lt;meta http-equiv=&amp;#34;X-UA-Compatible&amp;#34; content=&amp;#34;IE=edge&amp;#34;&amp;gt; &amp;lt;meta name=&amp;#34;viewport&amp;#34; content=&amp;#34;width=device-width, initial-scale=1.0&amp;#34;&amp;gt; &amp;lt;title&amp;gt;Dock.Full&amp;lt;/title&amp;gt; &amp;lt;style type=&amp;#34;text/css&amp;#34;&amp;gt; html, body, #full { color: #EFEFEF; background-color: #423F3E; margin: 0; padding: 0; height: 100%; } #full { background-color: #171010; display: flex; flex-direction: column; } #someid { background-color: #362222; flex-grow: 1; } &amp;lt;/style&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;div id=&amp;#34;full&amp;#34;&amp;gt; &amp;lt;div id=&amp;#34;header&amp;#34;&amp;gt;Dock.Top&amp;lt;/div&amp;gt; &amp;lt;div id=&amp;#34;someid&amp;#34;&amp;gt;Dock.Full&amp;lt;/div&amp;gt;</description></item><item><title>Eclipse-ADT在Windows下添加library的BUG</title><link>https://www.leelib.com/2016/04/20/adt-add-library-bug.html</link><pubDate>Wed, 20 Apr 2016 18:35:35 +0800</pubDate><guid>https://www.leelib.com/2016/04/20/adt-add-library-bug.html</guid><description>问题出现 今天在Windows里使用 Cocos-Quick 创建的项目在使用ADT往Android里面部署的时候遇到了下面的问题 出现上图的情况是这样的操作步骤： 添加</description></item><item><title>类 enable_shared_from_this 的经验总结</title><link>https://www.leelib.com/2015/12/13/enable-shared-from-this.html</link><pubDate>Sun, 13 Dec 2015 23:32:07 +0800</pubDate><guid>https://www.leelib.com/2015/12/13/enable-shared-from-this.html</guid><description>不能再构造函数内使用 shared_from_this() 函数 class class_a : public std::enable_shared_from_this&amp;lt;class_a&amp;gt; { public: class_a(void) { auto self(shared_from_this());// 这里会报 bad_weak_ptr 错误 } }; 子类无法重复继承 class class_a : public std::enable_shared_from_this&amp;lt;class_a&amp;gt; { }; class class_b : public class_a, public std::enable_shared_from_this&amp;lt;class_a&amp;gt; { }; 这段代码将无法通过编译。 如</description></item><item><title>VS2013静态编译openssl批处理</title><link>https://www.leelib.com/2015/09/14/vs2013-build-openssl-static.html</link><pubDate>Mon, 14 Sep 2015 12:26:46 +0800</pubDate><guid>https://www.leelib.com/2015/09/14/vs2013-build-openssl-static.html</guid><description>打开 Visual Studio 2013 Command Prompt wget http://www.nasm.us/pub/nasm/releasebuilds/2.11.08/win32/nasm-2.11.08-win32.zip unzip nasm-2.11.08-win32.zip -d C:/nasm set PATH=%PATH%;C:/nasm/ wget https://www.openssl.org/source/openssl-1.0.2d.tar.gz tar xzf openssl-1.0.2d.tar.gz cd openssl-1.0.2d perl configure VC-WIN32 --prefix=C:/openssl ms\do_nasm nmake -f ms\nt.mak nmake -f ms\nt.mak install echo &amp;#34;build successed.&amp;#34; 这样编译不会产生 error A2070:invalid instruction operands 这个错误</description></item><item><title>VS里std::max和max宏混淆问题的解决方案</title><link>https://www.leelib.com/2015/02/09/fix-std-max-error.html</link><pubDate>Mon, 09 Feb 2015 11:27:16 +0800</pubDate><guid>https://www.leelib.com/2015/02/09/fix-std-max-error.html</guid><description>有时,把旧项目转换成新版本项目时,旧版本项目里使用的 max 和 min 宏无法在新版本中正常编译. 原因是: 新版本内有了新的函数 std::max 和 std::min 函数来实现这一功能 这时</description></item><item><title>Windows下的DLL卸载本身模块的方法</title><link>https://www.leelib.com/2015/01/16/windows-dll-freelibrary-self.html</link><pubDate>Fri, 16 Jan 2015 01:35:37 +0800</pubDate><guid>https://www.leelib.com/2015/01/16/windows-dll-freelibrary-self.html</guid><description>在 Windows 里 DLL 卸载自身模块是无法通过字节调用 FreeLibrary 自己来实现的。 原因分析 在当前线程中调用 FreeLibrary 后，当前模块就会立即被释放掉，而当前线程还没有运行结束。所以</description></item><item><title>python代码简单加密解密工具</title><link>https://www.leelib.com/2014/11/21/python-simple-crypt-code.html</link><pubDate>Fri, 21 Nov 2014 19:13:45 +0800</pubDate><guid>https://www.leelib.com/2014/11/21/python-simple-crypt-code.html</guid><description>#!/usr/env python &amp;#34;&amp;#34;&amp;#34; :license: MIT Copyright (C) 2012 HustMoon Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &amp;#34;Software&amp;#34;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so,</description></item><item><title>VS2013上直接使用ATL的注意事项</title><link>https://www.leelib.com/2014/11/21/vs2013-use-atl.html</link><pubDate>Fri, 21 Nov 2014 12:15:21 +0800</pubDate><guid>https://www.leelib.com/2014/11/21/vs2013-use-atl.html</guid><description>不再需要导入atl.lib库了，直接包含以下头文件就可以了 #include &amp;lt;atlbase.h&amp;gt; #include &amp;lt;atlcom.h&amp;gt; #include &amp;lt;atlctl.h&amp;gt; 要使用 AtlAxAttachControl 等函数的话，则必须初始化ATL模块 CComModule _Module; _pAtlModule = &amp;amp;_Module;</description></item><item><title>在使用boost库时发生 error C4996: 'std::_Copy_impl' 的解决方案</title><link>https://www.leelib.com/2013/11/23/boost-c4996-std-copy-impl.html</link><pubDate>Sat, 23 Nov 2013 13:21:44 +0800</pubDate><guid>https://www.leelib.com/2013/11/23/boost-c4996-std-copy-impl.html</guid><description>原本的程序是控制台的。 但最近需要移植到windows下使用。 所以以MFC来做UI，代码照搬。 一面的一处代码使用了如下语句： boost::split(v, data, boost::is_any_of(_T(&amp;#34;n&amp;#34;))); 结果编译时出</description></item><item><title>让Socket通过HTTP代理通讯</title><link>https://www.leelib.com/2013/10/29/make-socket-proxy.html</link><pubDate>Tue, 29 Oct 2013 16:06:54 +0800</pubDate><guid>https://www.leelib.com/2013/10/29/make-socket-proxy.html</guid><description>如果socket想使用HTTP代理，需要进行下面步骤： connect到代理服务器 send(Format(&amp;ldquo;CONNECT %s:%s HTTP/1.1rnUser-Agent: MyApp/0.1rnrn&amp;rdquo;, &amp;lt;真正目标IP&amp;gt;, &amp;lt;真正目标端口&amp;</description></item><item><title>自己使用过程中使用zlib链接时出的错误总结</title><link>https://www.leelib.com/2013/10/04/use-zlib.html</link><pubDate>Fri, 04 Oct 2013 06:37:29 +0800</pubDate><guid>https://www.leelib.com/2013/10/04/use-zlib.html</guid><description>错误1 error LNK2019: unresolved external symbol _deflateEnd@4 原因1: 未使用zlib的链接库 解决： #pragma comment(lib, &amp;#34;zlibstat.lib&amp;#34;) // for static lib #pragma comment(lib, &amp;#34;zdll.lib&amp;#34;) // for dll lib 原因2：在使用静态库时即使包含了zlibstat.lib没</description></item><item><title>error LNK2026: module unsafe for SAFESEH image 解决方案</title><link>https://www.leelib.com/2013/10/03/error-lnk2026-module-unsafe-for-safeseh-image.html</link><pubDate>Thu, 03 Oct 2013 15:21:16 +0800</pubDate><guid>https://www.leelib.com/2013/10/03/error-lnk2026-module-unsafe-for-safeseh-image.html</guid><description>解决方案 下面两种随便选一种 方法1 去掉项目设置中: Linker -&amp;gt; Advanced -&amp;gt; [Image Has Safe Exception Handlers] = &amp;ldquo;No&amp;rdquo; 方法2 直接在代码中: #pragma comment(linker, &amp;#34;/SAFESEH:NO&amp;#34;)</description></item><item><title>如何用正确的 C 运行时 (CRT) 库链接</title><link>https://www.leelib.com/2013/10/03/how-to-use-crt.html</link><pubDate>Thu, 03 Oct 2013 04:13:52 +0800</pubDate><guid>https://www.leelib.com/2013/10/03/how-to-use-crt.html</guid><description>概要 有六种类型的可重用的库： 静态单线程库 （调试/发行版） 静态多线程的库 （调试/发行版） 动态链接库 (DLL)(Debug/Release) 注意每个库都有一个调试版本和发布版本。 Reusable Library</description></item><item><title>python的zlib压缩解压缩对应的C语言方式</title><link>https://www.leelib.com/2013/07/02/python-zlib-trans-c.html</link><pubDate>Tue, 02 Jul 2013 15:47:00 +0800</pubDate><guid>https://www.leelib.com/2013/07/02/python-zlib-trans-c.html</guid><description>压缩 enData = zlib.compress(data)[2:-4] 对应： compress2(dstbuf, &amp;amp;dstLen, strSrc, srcLen, 6); 解压 deData = zlib.decompress(enData, -zlib.MAX_WBITS) 对应： bool gzipInflate( const std::string&amp;amp; compressedBytes, std::string&amp;amp; uncompressedBytes ) { if ( compressedBytes.size() == 0 ) { uncompressedBytes = compressedBytes ; return true ; } uncompressedBytes.clear() ; unsigned full_length = compressedBytes.size() ; unsigned half_length = compressedBytes.size() / 2; unsigned uncompLength = full_length ; char* uncomp = (char*) calloc( sizeof(char),</description></item><item><title>Windows下编译使用zlib库的程序时出现“无法解析的外部符号 _compress”解决方案</title><link>https://www.leelib.com/2013/07/01/windows-use-zlib-link-error.html</link><pubDate>Mon, 01 Jul 2013 05:29:47 +0800</pubDate><guid>https://www.leelib.com/2013/07/01/windows-use-zlib-link-error.html</guid><description>错误描述 error LNK2019: unresolved external symbol _compress referenced 解决方案 在 #include &amp;lt;zlib.h&amp;gt; 之前加上 #define ZLIB_WINAPI #define ZLIB_WINAPI #include &amp;lt;zlib.h&amp;gt;</description></item><item><title>一句话经验zlib</title><link>https://www.leelib.com/2013/06/29/use-zlib-exp.html</link><pubDate>Sat, 29 Jun 2013 04:27:00 +0800</pubDate><guid>https://www.leelib.com/2013/06/29/use-zlib-exp.html</guid><description>Linux使用gcc编译使用zlib库的代码时，使用 -lz 来链接(link) zlib 库。 否则就会出现类似 undefined reference to `deflateInit_&amp;rsquo; 的错误</description></item><item><title>gcc迁移到g++出现 inet_addr was not declared in this scope 解决方案</title><link>https://www.leelib.com/2013/06/07/gcc-to-gpp-inet-addr-was-not-declared-in-this-scope.html</link><pubDate>Fri, 07 Jun 2013 14:06:31 +0800</pubDate><guid>https://www.leelib.com/2013/06/07/gcc-to-gpp-inet-addr-was-not-declared-in-this-scope.html</guid><description>错误原因 我手上一个项目本身采用gcc编译。后来因为代码功能需要移植到g++中时，出现了 &amp;ldquo;inet_addr&amp;rdquo; was not declared in this scope 这个错误。 解决方案 // 添加该头文件 #include &amp;lt;arpa/inet.h&amp;gt; 如果</description></item><item><title>解决VS2012编译的程序在WinXP上运行异常</title><link>https://www.leelib.com/2013/05/29/vs2012-build-app-run-in-winxp-failed.html</link><pubDate>Wed, 29 May 2013 02:50:35 +0800</pubDate><guid>https://www.leelib.com/2013/05/29/vs2012-build-app-run-in-winxp-failed.html</guid><description>在写代码的过程中,我发现使用VS2012编译出来的程序默认支持的系统版本略高 刚发现在 Win7+VS2012 编译出来的程序默认PE信息(Optional Header): Major SubSystem Version =</description></item><item><title>boost的编译与安装</title><link>https://www.leelib.com/2013/05/27/compile-boost.html</link><pubDate>Mon, 27 May 2013 09:31:57 +0800</pubDate><guid>https://www.leelib.com/2013/05/27/compile-boost.html</guid><description>Windows下编译安装 生成bjam bootstrap.bat 编译 bjam --toolset=msvc-11.0 --build-type=complete 安装 bjam --prefix=D:\third_party\boost install Ubuntu仅安装开发包 sudo apt-get install -y libboost-dev libboost-system-dev</description></item><item><title>生成不重复的随机数</title><link>https://www.leelib.com/2013/03/15/no-repeat-random-num.html</link><pubDate>Fri, 15 Mar 2013 13:47:47 +0800</pubDate><guid>https://www.leelib.com/2013/03/15/no-repeat-random-num.html</guid><description>下面代码就可以生成1-100区间的随机数： #include &amp;lt;vector&amp;gt; #include &amp;lt;algorithms&amp;gt; std::vector&amp;lt;int&amp;gt; random_numbers; for (unsigned int i = 0; i &amp;lt; 100; ++i) random_numbers.push_back(i + 1); std::random_shuffle(random_numbers.begin(), random_numbers.end());</description></item><item><title>使CMake生成工程采用相对路径</title><link>https://www.leelib.com/2012/05/16/cmake-use-relative-path.html</link><pubDate>Wed, 16 May 2012 03:18:15 +0800</pubDate><guid>https://www.leelib.com/2012/05/16/cmake-use-relative-path.html</guid><description>解决方案 在生成项目之前勾选上 CMAKE_USE_RELATIVE_PATHS 这个选项，效果如上图所示。</description></item><item><title>汇编中ROL(循环左移)对应的C语言实现</title><link>https://www.leelib.com/2012/04/24/asm-rol-to-c.html</link><pubDate>Tue, 24 Apr 2012 10:48:29 +0800</pubDate><guid>https://www.leelib.com/2012/04/24/asm-rol-to-c.html</guid><description>在汇编语言中，我们可以直接使用ROL ROR等指令进行循环左移和循环右移的操作。 但C语言中却没有对应的操作，没办法只能自己实现了。 下面是我最近</description></item><item><title>将M8导出的联系人XML转化成Andriod可以导入的vcf文件</title><link>https://www.leelib.com/2012/04/12/convert-m8-contacts-xml-to-andriod-vcf.html</link><pubDate>Thu, 12 Apr 2012 09:27:17 +0800</pubDate><guid>https://www.leelib.com/2012/04/12/convert-m8-contacts-xml-to-andriod-vcf.html</guid><description>通过我写的一段Python代码可以让M8用户将联系人导入到Andriod系统中。 操作需要以下步骤： 先用M8PC工具将M8的联系人导出成XML</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Programing on 逃避虽然可耻但有用</title><link>https://www.leelib.com/categories/programing.html</link><description>Recent content in Programing on 逃避虽然可耻但有用</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Wed, 23 Jul 2025 12:07:57 +0800</lastBuildDate><atom:link href="https://www.leelib.com/categories/programing/atom.xml" rel="self" type="application/rss+xml"/><item><title>实现响应式表格布局：当内容超宽时显示横向滚动条</title><link>https://www.leelib.com/2025/07/23/responsive-table-with-scroll.html</link><pubDate>Wed, 23 Jul 2025 12:07:57 +0800</pubDate><guid>https://www.leelib.com/2025/07/23/responsive-table-with-scroll.html</guid><description>&lt;h1 id="核心目标">核心目标&lt;/h1>
+&lt;p>实现一个表格布局，当表格内容宽度超过容器宽度时，在&lt;strong>表格容器内&lt;/strong>显示横向滚动条，而不是让内容撑开页面导致整个页面出现滚动条。&lt;/p>
+&lt;h1 id="关键技术要点">关键技术要点&lt;/h1>
+&lt;h2 id="1-flex-布局的-min-width-0-设置">1. Flex 布局的 min-width: 0 设置&lt;/h2>
+&lt;p>这是实现的&lt;strong>最关键&lt;/strong>部分。当使用 Flexbox 布局时，flex 子元素默认的 &lt;code>min-width&lt;/code> 是 &lt;code>auto&lt;/code>，这会阻止元素收缩到比其内容更小的宽度。&lt;/p></description></item><item><title>Windows 系统内禁止某些应用以管理员程序运行(RunAsInvoker)</title><link>https://www.leelib.com/2024/01/10/windows-runasinvoker.html</link><pubDate>Wed, 10 Jan 2024 22:26:31 +0800</pubDate><guid>https://www.leelib.com/2024/01/10/windows-runasinvoker.html</guid><description>&lt;p>在 Windows 调试一些程序的时候，有可能会遇到程序本身编译为始终以管理员身份运行的。而这些程序在拿到管理员身份的时候会启动一些保护以检测自己是否被调试注入等等。&lt;/p></description></item><item><title>zip 和 tar 包内乱码文件名修正工具</title><link>https://www.leelib.com/2023/03/29/zip-tar-name-fixer.html</link><pubDate>Wed, 29 Mar 2023 03:15:09 +0700</pubDate><guid>https://www.leelib.com/2023/03/29/zip-tar-name-fixer.html</guid><description>&lt;p>收到别人发来的压缩包，结果解压出来文件名是乱码。
+这种情况在别人和自己使用不同的操作系统平台以及编码时经常发生，为了解决这一问题。自己编写了使用指定编码解压文件的程序。&lt;/p></description></item><item><title>文本编码与换行符转换器</title><link>https://www.leelib.com/2023/03/29/encoding-line-ending-converter.html</link><pubDate>Wed, 29 Mar 2023 03:03:40 +0700</pubDate><guid>https://www.leelib.com/2023/03/29/encoding-line-ending-converter.html</guid><description>&lt;p>当遇到某人发来的文本內容内不是标准 utf-8 编码时，可以使用本程序来进行转换。&lt;/p>
+&lt;p>转换时遇到文本行尾使用了Windows专用的 &lt;strong>CRLF&lt;/strong> 换行符时，也会将文本行尾统一更换为 &lt;strong>LF&lt;/strong>。这样的好处是可以缩小文本文件的空间占用，并且可以保证该文件可以在基于Unix和Linux的操作系统以相同的格式显示。&lt;/p></description></item><item><title>基于 Tailwind CSS 的 Box 布局</title><link>https://www.leelib.com/2022/10/12/tailwind-box-layout.html</link><pubDate>Wed, 12 Oct 2022 20:45:05 +0800</pubDate><guid>https://www.leelib.com/2022/10/12/tailwind-box-layout.html</guid><description>&lt;h1 id="header-content-footer-布局">Header Content Footer 布局&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-html" data-lang="html">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&amp;lt;!doctype html&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#f92672">html&lt;/span> &lt;span style="color:#a6e22e">lang&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;en&amp;#34;&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#f92672">head&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#f92672">meta&lt;/span> &lt;span style="color:#a6e22e">charset&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;UTF-8&amp;#34;&lt;/span> /&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#f92672">meta&lt;/span> &lt;span style="color:#a6e22e">name&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;viewport&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">content&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;width=device-width, initial-scale=1.0&amp;#34;&lt;/span> /&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#f92672">title&lt;/span>&amp;gt;Tailwind CSS Box Layout&amp;lt;/&lt;span style="color:#f92672">title&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#f92672">script&lt;/span> &lt;span style="color:#a6e22e">src&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;https://cdn.tailwindcss.com&amp;#34;&lt;/span>&amp;gt;&amp;lt;/&lt;span style="color:#f92672">script&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#f92672">style&lt;/span> &lt;span style="color:#a6e22e">type&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;text/tailwindcss&amp;#34;&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">html&lt;/span>&lt;span style="color:#f92672">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">body&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">font-family&lt;/span>: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, &lt;span style="color:#66d9ef">monospace&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">color&lt;/span>: &lt;span style="color:#ae81ff">#c9d1d9&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">background-color&lt;/span>: &lt;span style="color:#ae81ff">#0d1117&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;/&lt;span style="color:#f92672">style&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;/&lt;span style="color:#f92672">head&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#f92672">body&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#f92672">div&lt;/span> &lt;span style="color:#a6e22e">id&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;box&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">class&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;flex flex-col h-screen justify-between&amp;#34;&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#f92672">header&lt;/span> &lt;span style="color:#a6e22e">class&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;border-b p-5&amp;#34;&lt;/span>&amp;gt;Header&amp;lt;/&lt;span style="color:#f92672">header&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#f92672">main&lt;/span> &lt;span style="color:#a6e22e">class&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;flex flex-1 flex-col justify-center items-center mb-auto h-auto bg-gray-900&amp;#34;&lt;/span>&amp;gt;Content&amp;lt;/&lt;span style="color:#f92672">main&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#f92672">footer&lt;/span> &lt;span style="color:#a6e22e">class&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;flex justify-center items-center border-t border-gray-800 p-6&amp;#34;&lt;/span>&amp;gt;Footer&amp;lt;/&lt;span style="color:#f92672">footer&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;/&lt;span style="color:#f92672">div&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;/&lt;span style="color:#f92672">body&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;/&lt;span style="color:#f92672">html&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="https://codepen.io/leaker/pen/WNJLaQd">线上预览&lt;/a>&lt;/p></description></item><item><title>使用 Visual Studio 2022 为 python 编译 OpenCV 加 CUDA 支持</title><link>https://www.leelib.com/2022/05/14/vs2022-build-opencv-with-cuda-for-python.html</link><pubDate>Sat, 14 May 2022 09:59:11 +0800</pubDate><guid>https://www.leelib.com/2022/05/14/vs2022-build-opencv-with-cuda-for-python.html</guid><description>&lt;h1 id="准备工作">准备工作&lt;/h1>
+&lt;ul>
+&lt;li>安装 Scoop&lt;/li>
+&lt;li>安装 Visual Studio 2022&lt;/li>
+&lt;li>安装 Ninja &lt;strong>v1.11.1&lt;/strong>&lt;/li>
+&lt;li>安装 Python &lt;strong>v3.10&lt;/strong> 和 Numpy&lt;/li>
+&lt;li>安装 wget 和 7zip&lt;/li>
+&lt;li>安装 Cuda SDK &lt;strong>v11.7&lt;/strong>&lt;/li>
+&lt;li>一键下载 OpenCV &lt;strong>4.6.0&lt;/strong> 源码并编译&lt;/li>
+&lt;li>部署&lt;/li>
+&lt;li>测试 OpenCV&lt;/li>
+&lt;/ul>
+&lt;h1 id="安装-scoop">安装 Scoop&lt;/h1>
+&lt;p>打开 &lt;strong>PowerShell&lt;/strong> 后执行：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-powershell" data-lang="powershell">&lt;span style="display:flex;">&lt;span>Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Invoke-WebRequest get.scoop.sh | Invoke-Expression
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>安装参考： &lt;a href="https://scoop.sh">https://scoop.sh&lt;/a>&lt;/p>
+&lt;h1 id="安装-visual-studio-2022">安装 Visual Studio 2022&lt;/h1>
+&lt;ol>
+&lt;li>从 &lt;a href="https://visualstudio.microsoft.com">https://visualstudio.microsoft.com&lt;/a> 下载你喜欢的版本，推荐免费的 &lt;strong>Community&lt;/strong> 版本&lt;/li>
+&lt;li>安装 &lt;strong>使用C++的桌面开发&lt;/strong> 工作负荷
+&lt;blockquote>
+&lt;p>使用所选工具(包括 MSVC、CLang、CMake 或 MSBuild)生成适用于 Windows 的现代 C++ 应用&lt;/p></description></item><item><title>记一些常用的CSS布局方式</title><link>https://www.leelib.com/2021/09/17/css-layout.html</link><pubDate>Fri, 17 Sep 2021 23:22:14 +0800</pubDate><guid>https://www.leelib.com/2021/09/17/css-layout.html</guid><description>&lt;h1 id="内容部分占满页面的剩余高度">内容部分占满页面的剩余高度&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-html" data-lang="html">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&amp;lt;!DOCTYPE html&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#f92672">html&lt;/span> &lt;span style="color:#a6e22e">lang&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;en&amp;#34;&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#f92672">head&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#f92672">meta&lt;/span> &lt;span style="color:#a6e22e">charset&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;UTF-8&amp;#34;&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#f92672">meta&lt;/span> &lt;span style="color:#a6e22e">http-equiv&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;X-UA-Compatible&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">content&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;IE=edge&amp;#34;&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#f92672">meta&lt;/span> &lt;span style="color:#a6e22e">name&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;viewport&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">content&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;width=device-width, initial-scale=1.0&amp;#34;&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#f92672">title&lt;/span>&amp;gt;Dock.Full&amp;lt;/&lt;span style="color:#f92672">title&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#f92672">style&lt;/span> &lt;span style="color:#a6e22e">type&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;text/css&amp;#34;&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">html&lt;/span>&lt;span style="color:#f92672">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">body&lt;/span>&lt;span style="color:#f92672">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> #full {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">color&lt;/span>: &lt;span style="color:#ae81ff">#EFEFEF&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">background-color&lt;/span>: &lt;span style="color:#ae81ff">#423F3E&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">margin&lt;/span>: &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">padding&lt;/span>: &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">height&lt;/span>: &lt;span style="color:#ae81ff">100&lt;/span>&lt;span style="color:#66d9ef">%&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> #full {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">background-color&lt;/span>: &lt;span style="color:#ae81ff">#171010&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">display&lt;/span>: &lt;span style="color:#66d9ef">flex&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">flex-direction&lt;/span>: &lt;span style="color:#66d9ef">column&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> #someid {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">background-color&lt;/span>: &lt;span style="color:#ae81ff">#362222&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">flex-grow&lt;/span>: &lt;span style="color:#ae81ff">1&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;/&lt;span style="color:#f92672">style&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;/&lt;span style="color:#f92672">head&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#f92672">body&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#f92672">div&lt;/span> &lt;span style="color:#a6e22e">id&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;full&amp;#34;&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#f92672">div&lt;/span> &lt;span style="color:#a6e22e">id&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;header&amp;#34;&lt;/span>&amp;gt;Dock.Top&amp;lt;/&lt;span style="color:#f92672">div&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#f92672">div&lt;/span> &lt;span style="color:#a6e22e">id&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;someid&amp;#34;&lt;/span>&amp;gt;Dock.Full&amp;lt;/&lt;span style="color:#f92672">div&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;/&lt;span style="color:#f92672">div&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;/&lt;span style="color:#f92672">body&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;/&lt;span style="color:#f92672">html&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="https://codepen.io/leaker/pen/VwWQPwV">线上预览&lt;/a>&lt;/p>
+&lt;h1 id="登录框居中显示">登录框居中显示&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-html" data-lang="html">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&amp;lt;!DOCTYPE html&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#f92672">html&lt;/span> &lt;span style="color:#a6e22e">lang&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;en&amp;#34;&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#f92672">head&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#f92672">meta&lt;/span> &lt;span style="color:#a6e22e">charset&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;UTF-8&amp;#34;&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#f92672">meta&lt;/span> &lt;span style="color:#a6e22e">http-equiv&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;X-UA-Compatible&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">content&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;IE=edge&amp;#34;&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#f92672">meta&lt;/span> &lt;span style="color:#a6e22e">name&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;viewport&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">content&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;width=device-width, initial-scale=1.0&amp;#34;&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#f92672">title&lt;/span>&amp;gt;Document&amp;lt;/&lt;span style="color:#f92672">title&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#f92672">style&lt;/span> &lt;span style="color:#a6e22e">type&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;text/css&amp;#34;&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">html&lt;/span>&lt;span style="color:#f92672">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">body&lt;/span>&lt;span style="color:#f92672">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> #parent {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">color&lt;/span>: &lt;span style="color:#ae81ff">#EFEFEF&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">background-color&lt;/span>: &lt;span style="color:#ae81ff">#423F3E&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">margin&lt;/span>: &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">padding&lt;/span>: &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">height&lt;/span>: &lt;span style="color:#ae81ff">100&lt;/span>&lt;span style="color:#66d9ef">%&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> #parent {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">background-color&lt;/span>: &lt;span style="color:#ae81ff">#171010&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">/* 使用Flex布局 */&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">display&lt;/span>: &lt;span style="color:#66d9ef">flex&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">/* 主轴位于中间 */&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">justify-content&lt;/span>: &lt;span style="color:#66d9ef">center&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">/* 交叉轴位于中间 */&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">align-items&lt;/span>: &lt;span style="color:#66d9ef">center&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> #someid {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">background-color&lt;/span>: &lt;span style="color:#ae81ff">#362222&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">width&lt;/span>: &lt;span style="color:#ae81ff">200&lt;/span>&lt;span style="color:#66d9ef">px&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">height&lt;/span>: &lt;span style="color:#ae81ff">200&lt;/span>&lt;span style="color:#66d9ef">px&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;/&lt;span style="color:#f92672">style&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;/&lt;span style="color:#f92672">head&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#f92672">body&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#f92672">div&lt;/span> &lt;span style="color:#a6e22e">id&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;parent&amp;#34;&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#f92672">div&lt;/span> &lt;span style="color:#a6e22e">id&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;someid&amp;#34;&lt;/span>&amp;gt;Dialog Content&amp;lt;/&lt;span style="color:#f92672">div&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;/&lt;span style="color:#f92672">div&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;/&lt;span style="color:#f92672">body&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;/&lt;span style="color:#f92672">html&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="https://codepen.io/leaker/pen/gORvGWd">线上预览&lt;/a>&lt;/p></description></item><item><title>Eclipse-ADT在Windows下添加library的BUG</title><link>https://www.leelib.com/2016/04/20/adt-add-library-bug.html</link><pubDate>Wed, 20 Apr 2016 18:35:35 +0800</pubDate><guid>https://www.leelib.com/2016/04/20/adt-add-library-bug.html</guid><description>&lt;h1 id="问题出现">问题出现&lt;/h1>
+&lt;p>今天在Windows里使用 Cocos-Quick 创建的项目在使用ADT往Android里面部署的时候遇到了下面的问题&lt;/p>
+&lt;p>&lt;img src="https://www.leelib.com/images/20160420/adt_add_library_bug.webp" alt="">&lt;/p>
+&lt;p>出现上图的情况是这样的操作步骤：&lt;/p>
+&lt;ol>
+&lt;li>添加 D:\Tools\Quick-Cocos2dx-Community\cocos\platform\android\java 到 Library 引用里&lt;/li>
+&lt;li>点击 OK&lt;/li>
+&lt;li>重新打开这个配置界面&lt;/li>
+&lt;/ol>
+&lt;h1 id="问题解决">问题解决&lt;/h1>
+&lt;p>测试了许久后，无意间发现有次选错了路径后Library正常了&lt;/p></description></item><item><title>类 enable_shared_from_this 的经验总结</title><link>https://www.leelib.com/2015/12/13/enable-shared-from-this.html</link><pubDate>Sun, 13 Dec 2015 23:32:07 +0800</pubDate><guid>https://www.leelib.com/2015/12/13/enable-shared-from-this.html</guid><description>&lt;h1 id="不能再构造函数内使用-shared_from_this-函数">不能再构造函数内使用 shared_from_this() 函数&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">class_a&lt;/span> &lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#66d9ef">public&lt;/span> std&lt;span style="color:#f92672">::&lt;/span>enable_shared_from_this&lt;span style="color:#f92672">&amp;lt;&lt;/span>class_a&lt;span style="color:#f92672">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> class_a(&lt;span style="color:#66d9ef">void&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">auto&lt;/span> &lt;span style="color:#a6e22e">self&lt;/span>(shared_from_this());&lt;span style="color:#75715e">// 这里会报 bad_weak_ptr 错误
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="子类无法重复继承">子类无法重复继承&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">class_a&lt;/span> &lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#66d9ef">public&lt;/span> std&lt;span style="color:#f92672">::&lt;/span>enable_shared_from_this&lt;span style="color:#f92672">&amp;lt;&lt;/span>class_a&lt;span style="color:#f92672">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">class_b&lt;/span> &lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#66d9ef">public&lt;/span> class_a, &lt;span style="color:#66d9ef">public&lt;/span> std&lt;span style="color:#f92672">::&lt;/span>enable_shared_from_this&lt;span style="color:#f92672">&amp;lt;&lt;/span>class_a&lt;span style="color:#f92672">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>这段代码将无法通过编译。
+如果想返回子类的 shared_from_this 指针，则可以进行如下操作&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">class_a&lt;/span> &lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#66d9ef">public&lt;/span> std&lt;span style="color:#f92672">::&lt;/span>enable_shared_from_this&lt;span style="color:#f92672">&amp;lt;&lt;/span>class_a&lt;span style="color:#f92672">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">virtual&lt;/span> &lt;span style="color:#f92672">~&lt;/span>class_a()&lt;span style="color:#75715e">// 为了确保 dynamic_pointer_cast 可以工作，需要父类拥有虚函数。
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> {}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">class_b&lt;/span> &lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#66d9ef">public&lt;/span> class_a
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> std&lt;span style="color:#f92672">::&lt;/span>shared_ptr&lt;span style="color:#f92672">&amp;lt;&lt;/span>class_b&lt;span style="color:#f92672">&amp;gt;&lt;/span> shared_from_this(&lt;span style="color:#66d9ef">void&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> std&lt;span style="color:#f92672">::&lt;/span>dynamic_pointer_cast&lt;span style="color:#f92672">&amp;lt;&lt;/span>class_b&lt;span style="color:#f92672">&amp;gt;&lt;/span>(class_a&lt;span style="color:#f92672">::&lt;/span>shared_from_this());
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>通常来说如果定义一个类时，如果这个类可能被继承使用时，将这个类的析构函数定义为虚函数来确保析构的调用顺序&lt;/strong>&lt;/p></description></item><item><title>VS2013静态编译openssl批处理</title><link>https://www.leelib.com/2015/09/14/vs2013-build-openssl-static.html</link><pubDate>Mon, 14 Sep 2015 12:26:46 +0800</pubDate><guid>https://www.leelib.com/2015/09/14/vs2013-build-openssl-static.html</guid><description>&lt;h1 id="打开-visual-studio-2013-command-prompt">打开 Visual Studio 2013 Command Prompt&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>wget http://www.nasm.us/pub/nasm/releasebuilds/2.11.08/win32/nasm-2.11.08-win32.zip
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>unzip nasm-2.11.08-win32.zip -d C:/nasm
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>set PATH&lt;span style="color:#f92672">=&lt;/span>%PATH%;C:/nasm/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>wget https://www.openssl.org/source/openssl-1.0.2d.tar.gz
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tar xzf openssl-1.0.2d.tar.gz
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd openssl-1.0.2d
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>perl configure VC-WIN32 --prefix&lt;span style="color:#f92672">=&lt;/span>C:/openssl
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ms&lt;span style="color:#ae81ff">\d&lt;/span>o_nasm
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>nmake -f ms&lt;span style="color:#ae81ff">\n&lt;/span>t.mak
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>nmake -f ms&lt;span style="color:#ae81ff">\n&lt;/span>t.mak install
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>echo &lt;span style="color:#e6db74">&amp;#34;build successed.&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>这样编译不会产生 &lt;strong>error A2070:invalid instruction operands&lt;/strong> 这个错误&lt;/p></description></item><item><title>VS里std::max和max宏混淆问题的解决方案</title><link>https://www.leelib.com/2015/02/09/fix-std-max-error.html</link><pubDate>Mon, 09 Feb 2015 11:27:16 +0800</pubDate><guid>https://www.leelib.com/2015/02/09/fix-std-max-error.html</guid><description>&lt;p>有时,把旧项目转换成新版本项目时,旧版本项目里使用的 &lt;strong>max&lt;/strong> 和 &lt;strong>min&lt;/strong> 宏无法在新版本中正常编译.&lt;/p>
+&lt;p>原因是: 新版本内有了新的函数 &lt;strong>std::max&lt;/strong> 和 &lt;strong>std::min&lt;/strong> 函数来实现这一功能&lt;/p>
+&lt;h4 id="这时可以尝试使用如下方案解决">这时可以尝试使用如下方案解决:&lt;/h4>
+&lt;ol>
+&lt;li>包含algorithm文件&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#include&lt;/span> &lt;span style="color:#75715e">&amp;lt;algorithm&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
+&lt;li>明确使用 &lt;strong>std::max(a,b)&lt;/strong> 而非 &lt;strong>max(a,b)&lt;/strong>&lt;/li>
+&lt;li>定义宏 NOMINMAX&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#define NOMINMAX
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Windows下的DLL卸载本身模块的方法</title><link>https://www.leelib.com/2015/01/16/windows-dll-freelibrary-self.html</link><pubDate>Fri, 16 Jan 2015 01:35:37 +0800</pubDate><guid>https://www.leelib.com/2015/01/16/windows-dll-freelibrary-self.html</guid><description>&lt;p>在 Windows 里 DLL 卸载自身模块是无法通过字节调用 FreeLibrary 自己来实现的。&lt;/p>
+&lt;h2 id="原因分析">原因分析&lt;/h2>
+&lt;blockquote>
+&lt;p>在当前线程中调用 FreeLibrary 后，当前模块就会立即被释放掉，而当前线程还没有运行结束。所以程序就运行到了一块不可访问的内存里，产生异常从而导致程序崩溃。&lt;/p></description></item><item><title>python代码简单加密解密工具</title><link>https://www.leelib.com/2014/11/21/python-simple-crypt-code.html</link><pubDate>Fri, 21 Nov 2014 19:13:45 +0800</pubDate><guid>https://www.leelib.com/2014/11/21/python-simple-crypt-code.html</guid><description>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#!/usr/env python&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">&amp;#34;&amp;#34;&amp;#34;
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">:license: MIT
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">Copyright (C) 2012 HustMoon
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">Permission is hereby granted, free of charge, to any person obtaining a copy of
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">this software and associated documentation files (the &amp;#34;Software&amp;#34;), to deal in
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">the Software without restriction, including without limitation the rights to
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">of the Software, and to permit persons to whom the Software is furnished to do
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">so, subject to the following conditions:
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">The above copyright notice and this permission notice shall be included in all
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">copies or substantial portions of the Software.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">THE SOFTWARE IS PROVIDED &amp;#34;AS IS&amp;#34;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">SOFTWARE.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">&amp;#34;&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> __future__ &lt;span style="color:#f92672">import&lt;/span> with_statement
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> zlib&lt;span style="color:#f92672">,&lt;/span> sys
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">b128encode&lt;/span>(buf, escape&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#66d9ef">False&lt;/span>):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> &lt;span style="color:#f92672">not&lt;/span> buf: &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#e6db74">&amp;#39;&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> buf &lt;span style="color:#f92672">=&lt;/span> bytearray(buf)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res &lt;span style="color:#f92672">=&lt;/span> bytearray((len(buf) &lt;span style="color:#f92672">*&lt;/span> &lt;span style="color:#ae81ff">8&lt;/span> &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">6&lt;/span>) &lt;span style="color:#f92672">/&lt;/span> &lt;span style="color:#ae81ff">7&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> p, s, i &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> n &lt;span style="color:#f92672">in&lt;/span> buf:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res[i] &lt;span style="color:#f92672">=&lt;/span> ((p &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> (&lt;span style="color:#ae81ff">8&lt;/span> &lt;span style="color:#f92672">-&lt;/span> s) &lt;span style="color:#f92672">|&lt;/span> (n &lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> s)) &lt;span style="color:#f92672">&amp;amp;&lt;/span>amp; &lt;span style="color:#ae81ff">0x7F&lt;/span>) &lt;span style="color:#f92672">|&lt;/span> &lt;span style="color:#ae81ff">0x80&lt;/span>; i &lt;span style="color:#f92672">+=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> s &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">7&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res[i] &lt;span style="color:#f92672">=&lt;/span> n &lt;span style="color:#f92672">|&lt;/span> &lt;span style="color:#ae81ff">0x80&lt;/span>; i &lt;span style="color:#f92672">+=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> p, s &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">else&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> p, s &lt;span style="color:#f92672">=&lt;/span> n, (s &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>) &lt;span style="color:#f92672">%&lt;/span> &lt;span style="color:#ae81ff">8&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> s &lt;span style="color:#f92672">!=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> s &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span> &lt;span style="color:#f92672">and&lt;/span> p &lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#ae81ff">0x80&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> i &lt;span style="color:#f92672">-=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">else&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> p &lt;span style="color:#f92672">=&lt;/span> (p &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> (&lt;span style="color:#ae81ff">8&lt;/span> &lt;span style="color:#f92672">-&lt;/span> s)) &lt;span style="color:#f92672">&amp;amp;&lt;/span>amp; &lt;span style="color:#ae81ff">0x7F&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> p &lt;span style="color:#f92672">=&lt;/span> chr(p)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> escape:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> p &lt;span style="color:#f92672">=&lt;/span> p&lt;span style="color:#f92672">.&lt;/span>encode(&lt;span style="color:#e6db74">&amp;#39;string-escape&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res[i:] &lt;span style="color:#f92672">=&lt;/span> p
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> str(res)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">dcode&lt;/span>():
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> code &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">r&lt;/span>&lt;span style="color:#e6db74">&amp;#39;&amp;#39;&amp;#39;def code(__=code):
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> (_______)=(globals)();del((_______)[&amp;#39;code&amp;#39;])
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> if(((_______).get(&amp;#39;__doc__&amp;#39;))is((None))):
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> (__)=(map)((ord),(__)[(339):]);(______)=[0]*(((((len)((__))+(1))*(7))/(8)));((___),(____),(_____))=((0),(0),(0))
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> for((__))in((__)):
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> if((__)&amp;lt;(128)):break
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> if((____)==(0)):((___),(____))=((__),(1))
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> else:
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> (______)[(_____)]=((((___)&amp;lt;&amp;lt;(____))|(((__)&amp;amp;amp;(127))&amp;gt;&amp;gt;((7)-(____))))&amp;amp;amp;(255));(_____)+=(1);((___),(____))=((__),(((____)+(1))%(8)))
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> if((__)&amp;lt;(128)):
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> if((____)!=(0)):
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> (__)=((((___)&amp;lt;&amp;lt;(____))|((__)&amp;gt;&amp;gt;((7)-(____))))&amp;amp;amp;(255))
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> (______)[(_____):]=[((__))]
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> elif((____)!=(0)):del((______)[(_____):])
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> exec((&amp;#39;&amp;#39;.join((map)((chr),(______))).decode(&amp;#39;zlib&amp;#39;)))in((_______))
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> if(((_______).get(&amp;#39;__doc__&amp;#39;))is((None))):(_______)[&amp;#39;__doc__&amp;#39;]=&amp;#39;&amp;#39;
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">code()
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">&amp;#39;&amp;#39;&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#e6db74">&amp;#39;&amp;#39;&lt;/span>&lt;span style="color:#f92672">.&lt;/span>join([c&lt;span style="color:#f92672">.&lt;/span>encode(&lt;span style="color:#e6db74">&amp;#39;string-escape&amp;#39;&lt;/span>) &lt;span style="color:#66d9ef">if&lt;/span> ord(c) &lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#ae81ff">128&lt;/span> &lt;span style="color:#66d9ef">else&lt;/span> c
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> c &lt;span style="color:#f92672">in&lt;/span> zlib&lt;span style="color:#f92672">.&lt;/span>compress(code, &lt;span style="color:#ae81ff">9&lt;/span>)])
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>dcode &lt;span style="color:#f92672">=&lt;/span> dcode()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">encode&lt;/span>(infile, outfile):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">with&lt;/span> open(infile, &lt;span style="color:#e6db74">&amp;#39;rU&amp;#39;&lt;/span>) &lt;span style="color:#66d9ef">as&lt;/span> fp:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> code &lt;span style="color:#f92672">=&lt;/span> fp&lt;span style="color:#f92672">.&lt;/span>read()&lt;span style="color:#f92672">.&lt;/span>rstrip(&lt;span style="color:#e6db74">&amp;#39;n&amp;#39;&lt;/span>) &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#e6db74">&amp;#39;n&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> code &lt;span style="color:#f92672">=&lt;/span> b128encode(zlib&lt;span style="color:#f92672">.&lt;/span>compress(code, &lt;span style="color:#ae81ff">9&lt;/span>), &lt;span style="color:#66d9ef">True&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> code &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">r&lt;/span>&lt;span style="color:#e6db74">&amp;#39;&amp;#39;&amp;#39;# -*- coding: latin-1 -*-
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">code = &amp;#39;&lt;/span>&lt;span style="color:#e6db74">%s&lt;/span>&lt;span style="color:#e6db74">&amp;#39;
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">exec(code.decode(&amp;#39;zlib&amp;#39;))
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">&amp;#39;&amp;#39;&amp;#39;&lt;/span> &lt;span style="color:#f92672">%&lt;/span> (dcode &lt;span style="color:#f92672">+&lt;/span> code)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">with&lt;/span> open(outfile, &lt;span style="color:#e6db74">&amp;#39;wb&amp;#39;&lt;/span>) &lt;span style="color:#66d9ef">as&lt;/span> fp:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> fp&lt;span style="color:#f92672">.&lt;/span>write(code)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">decode&lt;/span>(infile, outfile):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">with&lt;/span> open(infile, &lt;span style="color:#e6db74">&amp;#39;rU&amp;#39;&lt;/span>) &lt;span style="color:#66d9ef">as&lt;/span> fp:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> code &lt;span style="color:#f92672">=&lt;/span> fp&lt;span style="color:#f92672">.&lt;/span>read()&lt;span style="color:#f92672">.&lt;/span>rstrip(&lt;span style="color:#e6db74">&amp;#39;n&amp;#39;&lt;/span>) &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#e6db74">&amp;#39;n&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> code &lt;span style="color:#f92672">=&lt;/span> code&lt;span style="color:#f92672">.&lt;/span>replace(&lt;span style="color:#e6db74">&amp;#34;exec(code.decode(&amp;#39;zlib&amp;#39;))&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;exec(code.decode(&amp;#39;zlib&amp;#39;)&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;.replace(&amp;#39;exec&amp;#39;,&amp;#39;fp.write&amp;#39;).replace(&amp;#39;in((_______))&amp;#39;,&amp;#39;&amp;#39;))&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">with&lt;/span> open(outfile, &lt;span style="color:#e6db74">&amp;#39;wb&amp;#39;&lt;/span>) &lt;span style="color:#66d9ef">as&lt;/span> fp:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> eval(compile(code, &lt;span style="color:#e6db74">&amp;#39;s&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;exec&amp;#39;&lt;/span>), {&lt;span style="color:#e6db74">&amp;#39;fp&amp;#39;&lt;/span>:fp})
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>():
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">try&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> sys&lt;span style="color:#f92672">.&lt;/span>argv[&lt;span style="color:#ae81ff">1&lt;/span>] &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#e6db74">&amp;#39;-d&amp;#39;&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> func &lt;span style="color:#f92672">=&lt;/span> decode
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> infile, outfile &lt;span style="color:#f92672">=&lt;/span> sys&lt;span style="color:#f92672">.&lt;/span>argv[&lt;span style="color:#ae81ff">2&lt;/span>:&lt;span style="color:#ae81ff">4&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">else&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> func &lt;span style="color:#f92672">=&lt;/span> encode
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> infile, outfile &lt;span style="color:#f92672">=&lt;/span> sys&lt;span style="color:#f92672">.&lt;/span>argv[&lt;span style="color:#ae81ff">1&lt;/span>:&lt;span style="color:#ae81ff">3&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">except&lt;/span> &lt;span style="color:#a6e22e">ValueError&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> print &lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span>sys&lt;span style="color:#f92672">.&lt;/span>stderr, &lt;span style="color:#e6db74">&amp;#39;Usage: zipcode.py [-d] infile.py outfile.py&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">raise&lt;/span> &lt;span style="color:#a6e22e">SystemExit&lt;/span>(&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> func(infile, outfile)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">if&lt;/span> __name__ &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#e6db74">&amp;#39;__main__&amp;#39;&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> main()
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>VS2013上直接使用ATL的注意事项</title><link>https://www.leelib.com/2014/11/21/vs2013-use-atl.html</link><pubDate>Fri, 21 Nov 2014 12:15:21 +0800</pubDate><guid>https://www.leelib.com/2014/11/21/vs2013-use-atl.html</guid><description>&lt;h3 id="不再需要导入atllib库了直接包含以下头文件就可以了">不再需要导入atl.lib库了，直接包含以下头文件就可以了&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#include&lt;/span> &lt;span style="color:#75715e">&amp;lt;atlbase.h&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#include&lt;/span> &lt;span style="color:#75715e">&amp;lt;atlcom.h&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#include&lt;/span> &lt;span style="color:#75715e">&amp;lt;atlctl.h&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="要使用-atlaxattachcontrol-等函数的话则必须初始化atl模块">要使用 AtlAxAttachControl 等函数的话，则必须初始化ATL模块&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>CComModule _Module;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>_pAtlModule &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#f92672">&amp;amp;&lt;/span>_Module;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>在使用boost库时发生 error C4996: 'std::_Copy_impl' 的解决方案</title><link>https://www.leelib.com/2013/11/23/boost-c4996-std-copy-impl.html</link><pubDate>Sat, 23 Nov 2013 13:21:44 +0800</pubDate><guid>https://www.leelib.com/2013/11/23/boost-c4996-std-copy-impl.html</guid><description>&lt;p>原本的程序是控制台的。
+但最近需要移植到windows下使用。
+所以以MFC来做UI，代码照搬。
+一面的一处代码使用了如下语句：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>boost&lt;span style="color:#f92672">::&lt;/span>split(v, data, boost&lt;span style="color:#f92672">::&lt;/span>is_any_of(_T(&lt;span style="color:#e6db74">&amp;#34;n&amp;#34;&lt;/span>)));
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>结果编译时出现了如下错误：&lt;/p></description></item><item><title>让Socket通过HTTP代理通讯</title><link>https://www.leelib.com/2013/10/29/make-socket-proxy.html</link><pubDate>Tue, 29 Oct 2013 16:06:54 +0800</pubDate><guid>https://www.leelib.com/2013/10/29/make-socket-proxy.html</guid><description>&lt;h2 id="如果socket想使用http代理需要进行下面步骤">如果socket想使用HTTP代理，需要进行下面步骤：&lt;/h2>
+&lt;ol>
+&lt;li>connect到代理服务器&lt;/li>
+&lt;li>send(Format(&amp;ldquo;CONNECT %s:%s HTTP/1.1rnUser-Agent: MyApp/0.1rnrn&amp;rdquo;, &amp;lt;真正目标IP&amp;gt;, &amp;lt;真正目标端口&amp;gt;)&lt;/li>
+&lt;li>recv 数据，并且根据数据内容判断CONNECT协议是否成功（是否有返回&amp;quot;HTTP/1.1 200&amp;quot;）&lt;/li>
+&lt;li>如果第3步成功了，那么这个socket就已经是通过HTTP代理来连接的了，剩下的该怎么发包收包都照旧了&lt;/li>
+&lt;/ol></description></item><item><title>自己使用过程中使用zlib链接时出的错误总结</title><link>https://www.leelib.com/2013/10/04/use-zlib.html</link><pubDate>Fri, 04 Oct 2013 06:37:29 +0800</pubDate><guid>https://www.leelib.com/2013/10/04/use-zlib.html</guid><description>&lt;h1 id="错误1">错误1&lt;/h1>
+&lt;p>&lt;strong>error LNK2019: unresolved external symbol _deflateEnd@4&lt;/strong>&lt;/p>
+&lt;h2 id="原因1-未使用zlib的链接库">原因1: 未使用zlib的链接库&lt;/h2>
+&lt;ul>
+&lt;li>解决：&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#pragma comment(lib, &amp;#34;zlibstat.lib&amp;#34;) &lt;/span>&lt;span style="color:#75715e">// for static lib
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#75715e">#pragma comment(lib, &amp;#34;zdll.lib&amp;#34;) &lt;/span>&lt;span style="color:#75715e">// for dll lib
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="原因2在使用静态库时即使包含了zlibstatlib没有定义宏zlib_winapi">原因2：在使用静态库时即使包含了zlibstat.lib没有定义宏“ZLIB_WINAPI”&lt;/h2>
+&lt;ul>
+&lt;li>解决：
+在项目属性中 C/C++ -&amp;gt; Preprocessor -&amp;gt; Preprocessor Definitions 添加“ZLIB_WINAPI”
+注意：这个必须在项目中添加，使用#define来添加是无效的。&lt;/li>
+&lt;/ul>
+&lt;h1 id="错误2">错误2&lt;/h1>
+&lt;p>&lt;strong>error LNK2026: module unsafe for SAFESEH image&lt;/strong>&lt;/p></description></item><item><title>error LNK2026: module unsafe for SAFESEH image 解决方案</title><link>https://www.leelib.com/2013/10/03/error-lnk2026-module-unsafe-for-safeseh-image.html</link><pubDate>Thu, 03 Oct 2013 15:21:16 +0800</pubDate><guid>https://www.leelib.com/2013/10/03/error-lnk2026-module-unsafe-for-safeseh-image.html</guid><description>&lt;h1 id="解决方案">解决方案&lt;/h1>
+&lt;p>下面两种随便选一种&lt;/p>
+&lt;h2 id="方法1">方法1&lt;/h2>
+&lt;p>去掉项目设置中: &lt;strong>Linker -&amp;gt; Advanced -&amp;gt; [Image Has Safe Exception Handlers] = &amp;ldquo;No&amp;rdquo;&lt;/strong>&lt;/p>
+&lt;h2 id="方法2">方法2&lt;/h2>
+&lt;p>直接在代码中:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#pragma comment(linker, &amp;#34;/SAFESEH:NO&amp;#34;)
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>如何用正确的 C 运行时 (CRT) 库链接</title><link>https://www.leelib.com/2013/10/03/how-to-use-crt.html</link><pubDate>Thu, 03 Oct 2013 04:13:52 +0800</pubDate><guid>https://www.leelib.com/2013/10/03/how-to-use-crt.html</guid><description>&lt;h1 id="概要">概要&lt;/h1>
+&lt;p>有六种类型的可重用的库：&lt;/p>
+&lt;blockquote>
+&lt;p>静态单线程库 （调试/发行版）
+静态多线程的库 （调试/发行版）
+动态链接库 (DLL)(Debug/Release)
+注意每个库都有一个调试版本和发布版本。&lt;/p>&lt;/blockquote>
+&lt;pre>&lt;code>Reusable Library Switch Library Macro(s) Defined
+--------------------------- --------- ---------- ----------------------
+Single Threaded /ML LIBC (none)
+Static MultiThread /MT LIBCMT _MT
+Dynamic Link (DLL) /MD MSVCRT _MT and _DLL
+Debug Single Threaded /MLd LIBCD _DEBUG
+Debug Static MultiThread /MTd LIBCMTD _DEBUG and _MT
+Debug Dynamic Link (DLL) /MDd MSVCRTD _DEBUG, _MT, and _DLL
+&lt;/code>&lt;/pre>
+&lt;h2 id="下面的代码可以使用可重用库的头文件中以确保一致使用正确的编译器开关">下面的代码可以使用可重用库的头文件中以确保一致使用正确的编译器开关：&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// MyReusableStaticSingleThreadReleaseLibrary.h
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#75715e">#if defined(_MT) || defined(_DEBUG)
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">#error The /ML compiler switch is required.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#endif
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// MyReusableStaticMultithreadReleaseLibrary.h
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#75715e">#if !defined(_MT) || defined(_DLL) || defined(_DEBUG)
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">#error The /MT compiler switch is required.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#endif
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// MyReusableDynamicLinkReleaseLibrary.h
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#75715e">#if !defined(_MT) || !defined(_DLL) || defined(_DEBUG)
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">#error The /MD compiler switch is required.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#endif
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// MyReusableStaticSingleThreadDebugLibrary.h
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#75715e">#if defined(_MT) || !defined(_DEBUG)
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">#error The /MLd compiler switch is required.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#endif
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// MyReusableStaticMultithreadDebugLibrary.h
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#75715e">#if !defined(_MT) || defined(_DLL) || !defined(_DEBUG)
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">#error The /MTd compiler switch is required.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#endif
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// MyReusableDynamicLinkDebugLibrary.h
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#75715e">#if !defined(_MT) || !defined(_DLL) || !defined(_DEBUG)
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">#error The /MDd compiler switch is required.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#endif
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>原文：&lt;a href="http://support.microsoft.com/kb/140584/zh-cn">http://support.microsoft.com/kb/140584/zh-cn&lt;/a>&lt;/p></description></item><item><title>python的zlib压缩解压缩对应的C语言方式</title><link>https://www.leelib.com/2013/07/02/python-zlib-trans-c.html</link><pubDate>Tue, 02 Jul 2013 15:47:00 +0800</pubDate><guid>https://www.leelib.com/2013/07/02/python-zlib-trans-c.html</guid><description>&lt;h1 id="压缩">压缩&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>enData &lt;span style="color:#f92672">=&lt;/span> zlib&lt;span style="color:#f92672">.&lt;/span>compress(data)[&lt;span style="color:#ae81ff">2&lt;/span>:&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">4&lt;/span>]
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>对应：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">compress2&lt;/span>(dstbuf, &lt;span style="color:#f92672">&amp;amp;&lt;/span>dstLen, strSrc, srcLen, &lt;span style="color:#ae81ff">6&lt;/span>);
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="解压">解压&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>deData &lt;span style="color:#f92672">=&lt;/span> zlib&lt;span style="color:#f92672">.&lt;/span>decompress(enData, &lt;span style="color:#f92672">-&lt;/span>zlib&lt;span style="color:#f92672">.&lt;/span>MAX_WBITS)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>对应：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">bool&lt;/span> &lt;span style="color:#a6e22e">gzipInflate&lt;/span>( &lt;span style="color:#66d9ef">const&lt;/span> std&lt;span style="color:#f92672">::&lt;/span>string&lt;span style="color:#f92672">&amp;amp;&lt;/span> compressedBytes, std&lt;span style="color:#f92672">::&lt;/span>string&lt;span style="color:#f92672">&amp;amp;&lt;/span> uncompressedBytes ) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> ( compressedBytes.&lt;span style="color:#a6e22e">size&lt;/span>() &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> ) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> uncompressedBytes &lt;span style="color:#f92672">=&lt;/span> compressedBytes ;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> true ;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> uncompressedBytes.&lt;span style="color:#a6e22e">clear&lt;/span>() ;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">unsigned&lt;/span> full_length &lt;span style="color:#f92672">=&lt;/span> compressedBytes.&lt;span style="color:#a6e22e">size&lt;/span>() ;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">unsigned&lt;/span> half_length &lt;span style="color:#f92672">=&lt;/span> compressedBytes.&lt;span style="color:#a6e22e">size&lt;/span>() &lt;span style="color:#f92672">/&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">unsigned&lt;/span> uncompLength &lt;span style="color:#f92672">=&lt;/span> full_length ;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">char&lt;/span>&lt;span style="color:#f92672">*&lt;/span> uncomp &lt;span style="color:#f92672">=&lt;/span> (&lt;span style="color:#66d9ef">char&lt;/span>&lt;span style="color:#f92672">*&lt;/span>) &lt;span style="color:#a6e22e">calloc&lt;/span>( &lt;span style="color:#66d9ef">sizeof&lt;/span>(&lt;span style="color:#66d9ef">char&lt;/span>), uncompLength );
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> z_stream strm;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> strm.next_in &lt;span style="color:#f92672">=&lt;/span> (Bytef &lt;span style="color:#f92672">*&lt;/span>) compressedBytes.&lt;span style="color:#a6e22e">c_str&lt;/span>();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> strm.avail_in &lt;span style="color:#f92672">=&lt;/span> compressedBytes.&lt;span style="color:#a6e22e">size&lt;/span>() ;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> strm.total_out &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> strm.zalloc &lt;span style="color:#f92672">=&lt;/span> Z_NULL;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> strm.zfree &lt;span style="color:#f92672">=&lt;/span> Z_NULL;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">bool&lt;/span> done &lt;span style="color:#f92672">=&lt;/span> false ;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">//if (inflateInit2(&amp;amp;strm, (16+MAX_WBITS)) != Z_OK)
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">if&lt;/span> (&lt;span style="color:#a6e22e">inflateInit2&lt;/span>(&lt;span style="color:#f92672">&amp;amp;&lt;/span>strm, &lt;span style="color:#f92672">-&lt;/span>MAX_WBITS) &lt;span style="color:#f92672">!=&lt;/span> Z_OK)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">free&lt;/span>( uncomp );
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> false;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span> (&lt;span style="color:#f92672">!&lt;/span>done) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// If our output buffer is too small
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">if&lt;/span> (strm.total_out &lt;span style="color:#f92672">&amp;gt;=&lt;/span> uncompLength ) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// Increase size of output buffer
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">char&lt;/span>&lt;span style="color:#f92672">*&lt;/span> uncomp2 &lt;span style="color:#f92672">=&lt;/span> (&lt;span style="color:#66d9ef">char&lt;/span>&lt;span style="color:#f92672">*&lt;/span>) &lt;span style="color:#a6e22e">calloc&lt;/span>( &lt;span style="color:#66d9ef">sizeof&lt;/span>(&lt;span style="color:#66d9ef">char&lt;/span>), uncompLength &lt;span style="color:#f92672">+&lt;/span> half_length );
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">memcpy&lt;/span>( uncomp2, uncomp, uncompLength );
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> uncompLength &lt;span style="color:#f92672">+=&lt;/span> half_length ;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">free&lt;/span>( uncomp );
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> uncomp &lt;span style="color:#f92672">=&lt;/span> uncomp2 ;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> strm.next_out &lt;span style="color:#f92672">=&lt;/span> (Bytef &lt;span style="color:#f92672">*&lt;/span>) (uncomp &lt;span style="color:#f92672">+&lt;/span> strm.total_out);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> strm.avail_out &lt;span style="color:#f92672">=&lt;/span> uncompLength &lt;span style="color:#f92672">-&lt;/span> strm.total_out;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// Inflate another chunk.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> err &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">inflate&lt;/span> (&lt;span style="color:#f92672">&amp;amp;&lt;/span>strm, Z_SYNC_FLUSH);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (err &lt;span style="color:#f92672">==&lt;/span> Z_STREAM_END) done &lt;span style="color:#f92672">=&lt;/span> true;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">else&lt;/span> &lt;span style="color:#66d9ef">if&lt;/span> (err &lt;span style="color:#f92672">!=&lt;/span> Z_OK) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">break&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (&lt;span style="color:#a6e22e">inflateEnd&lt;/span> (&lt;span style="color:#f92672">&amp;amp;&lt;/span>strm) &lt;span style="color:#f92672">!=&lt;/span> Z_OK) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">free&lt;/span>( uncomp );
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> false;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> ( &lt;span style="color:#66d9ef">size_t&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>; i&lt;span style="color:#f92672">&amp;lt;&lt;/span>strm.total_out; &lt;span style="color:#f92672">++&lt;/span>i ) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> uncompressedBytes &lt;span style="color:#f92672">+=&lt;/span> uncomp[ i ];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">free&lt;/span>( uncomp );
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> true ;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Windows下编译使用zlib库的程序时出现“无法解析的外部符号 _compress”解决方案</title><link>https://www.leelib.com/2013/07/01/windows-use-zlib-link-error.html</link><pubDate>Mon, 01 Jul 2013 05:29:47 +0800</pubDate><guid>https://www.leelib.com/2013/07/01/windows-use-zlib-link-error.html</guid><description>&lt;h1 id="错误描述">错误描述&lt;/h1>
+&lt;p>&lt;strong>error LNK2019: unresolved external symbol _compress referenced&lt;/strong>&lt;/p>
+&lt;h1 id="解决方案">解决方案&lt;/h1>
+&lt;p>在 &lt;strong>#include &amp;lt;zlib.h&amp;gt;&lt;/strong> 之前加上 &lt;strong>#define ZLIB_WINAPI&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#define ZLIB_WINAPI
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#include&lt;/span> &lt;span style="color:#75715e">&amp;lt;zlib.h&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>一句话经验zlib</title><link>https://www.leelib.com/2013/06/29/use-zlib-exp.html</link><pubDate>Sat, 29 Jun 2013 04:27:00 +0800</pubDate><guid>https://www.leelib.com/2013/06/29/use-zlib-exp.html</guid><description>&lt;p>Linux使用gcc编译使用zlib库的代码时，使用 &lt;strong>-lz&lt;/strong> 来链接(link) &lt;strong>zlib&lt;/strong> 库。&lt;/p>
+&lt;p>否则就会出现类似 &lt;strong>undefined reference to `deflateInit_&amp;rsquo;&lt;/strong> 的错误&lt;/p></description></item><item><title>gcc迁移到g++出现 inet_addr was not declared in this scope 解决方案</title><link>https://www.leelib.com/2013/06/07/gcc-to-gpp-inet-addr-was-not-declared-in-this-scope.html</link><pubDate>Fri, 07 Jun 2013 14:06:31 +0800</pubDate><guid>https://www.leelib.com/2013/06/07/gcc-to-gpp-inet-addr-was-not-declared-in-this-scope.html</guid><description>&lt;h1 id="错误原因">错误原因&lt;/h1>
+&lt;p>我手上一个项目本身采用gcc编译。后来因为代码功能需要移植到g++中时，出现了 &lt;strong>&amp;ldquo;inet_addr&amp;rdquo; was not declared in this scope&lt;/strong> 这个错误。&lt;/p>
+&lt;h1 id="解决方案">解决方案&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// 添加该头文件
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#75715e">#include&lt;/span> &lt;span style="color:#75715e">&amp;lt;arpa/inet.h&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="如果出现下面错误">如果出现下面错误：&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>error: string: No such file or directory
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>error: vector: No such file or directory
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>说明在将g++项目用gcc编译&lt;/li>
+&lt;/ul></description></item><item><title>解决VS2012编译的程序在WinXP上运行异常</title><link>https://www.leelib.com/2013/05/29/vs2012-build-app-run-in-winxp-failed.html</link><pubDate>Wed, 29 May 2013 02:50:35 +0800</pubDate><guid>https://www.leelib.com/2013/05/29/vs2012-build-app-run-in-winxp-failed.html</guid><description>&lt;p>在写代码的过程中,我发现使用VS2012编译出来的程序默认支持的系统版本略高&lt;/p>
+&lt;p>刚发现在 Win7+VS2012 编译出来的程序默认PE信息(Optional Header):&lt;/p>
+&lt;ul>
+&lt;li>Major SubSystem Version = 6&lt;/li>
+&lt;li>Minor SubSystem Version = 0&lt;/li>
+&lt;/ul>
+&lt;p>导致的结果就是：在WinXP中运行便会提示 &lt;strong>不是有效的Win32应用程序&lt;/strong>&lt;/p></description></item><item><title>boost的编译与安装</title><link>https://www.leelib.com/2013/05/27/compile-boost.html</link><pubDate>Mon, 27 May 2013 09:31:57 +0800</pubDate><guid>https://www.leelib.com/2013/05/27/compile-boost.html</guid><description>&lt;h1 id="windows下编译安装">Windows下编译安装&lt;/h1>
+&lt;h2 id="生成bjam">生成bjam&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bat" data-lang="bat">&lt;span style="display:flex;">&lt;span>bootstrap.bat
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="编译">编译&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bat" data-lang="bat">&lt;span style="display:flex;">&lt;span>bjam --toolset=msvc-11.0 --build-type=complete
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="安装">安装&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bat" data-lang="bat">&lt;span style="display:flex;">&lt;span>bjam --prefix=D:\third_party\boost install
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="ubuntu仅安装开发包">Ubuntu仅安装开发包&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo apt-get install -y libboost-dev libboost-system-dev
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>生成不重复的随机数</title><link>https://www.leelib.com/2013/03/15/no-repeat-random-num.html</link><pubDate>Fri, 15 Mar 2013 13:47:47 +0800</pubDate><guid>https://www.leelib.com/2013/03/15/no-repeat-random-num.html</guid><description>&lt;h1 id="下面代码就可以生成1-100区间的随机数">下面代码就可以生成1-100区间的随机数：&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#include&lt;/span> &lt;span style="color:#75715e">&amp;lt;vector&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#include&lt;/span> &lt;span style="color:#75715e">&amp;lt;algorithms&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>std&lt;span style="color:#f92672">::&lt;/span>vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span> random_numbers;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">unsigned&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; i &lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#ae81ff">100&lt;/span>; &lt;span style="color:#f92672">++&lt;/span>i)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> random_numbers.push_back(i &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>std&lt;span style="color:#f92672">::&lt;/span>random_shuffle(random_numbers.begin(), random_numbers.end());
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>使CMake生成工程采用相对路径</title><link>https://www.leelib.com/2012/05/16/cmake-use-relative-path.html</link><pubDate>Wed, 16 May 2012 03:18:15 +0800</pubDate><guid>https://www.leelib.com/2012/05/16/cmake-use-relative-path.html</guid><description>&lt;p>&lt;img src="https://www.leelib.com/wp-content/uploads/2012/05/cmake_ogre.webp#center" alt="cmake">&lt;/p>
+&lt;h1 id="解决方案">解决方案&lt;/h1>
+&lt;p>在生成项目之前勾选上 &lt;strong>CMAKE_USE_RELATIVE_PATHS&lt;/strong> 这个选项，效果如上图所示。&lt;/p></description></item><item><title>汇编中ROL(循环左移)对应的C语言实现</title><link>https://www.leelib.com/2012/04/24/asm-rol-to-c.html</link><pubDate>Tue, 24 Apr 2012 10:48:29 +0800</pubDate><guid>https://www.leelib.com/2012/04/24/asm-rol-to-c.html</guid><description>&lt;p>在汇编语言中，我们可以直接使用ROL ROR等指令进行循环左移和循环右移的操作。
+但C语言中却没有对应的操作，没办法只能自己实现了。&lt;/p>
+&lt;h2 id="下面是我最近项目中用到的一个针对word类型的循环左移rol实现代码">下面是我最近项目中用到的一个针对WORD类型的循环左移(ROL)实现代码：&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">uint16_t&lt;/span> &lt;span style="color:#a6e22e">ROL&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> val, &lt;span style="color:#66d9ef">int&lt;/span> n)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> (val &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> n) &lt;span style="color:#f92672">|&lt;/span> (val &lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> (&lt;span style="color:#ae81ff">16&lt;/span> &lt;span style="color:#f92672">-&lt;/span> n));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>针对BYTE类型的循环左移：&lt;/p></description></item><item><title>将M8导出的联系人XML转化成Andriod可以导入的vcf文件</title><link>https://www.leelib.com/2012/04/12/convert-m8-contacts-xml-to-andriod-vcf.html</link><pubDate>Thu, 12 Apr 2012 09:27:17 +0800</pubDate><guid>https://www.leelib.com/2012/04/12/convert-m8-contacts-xml-to-andriod-vcf.html</guid><description>&lt;p>&lt;img src="https://www.leelib.com/wp-content/uploads/2012/04/android.webp#center" alt="android">&lt;/p>
+&lt;p>通过我写的一段Python代码可以让M8用户将联系人导入到Andriod系统中。&lt;/p>
+&lt;h2 id="操作需要以下步骤">操作需要以下步骤：&lt;/h2>
+&lt;ol>
+&lt;li>先用M8PC工具将M8的联系人导出成XML格式。&lt;/li>
+&lt;li>将导出的文件重命名为mycontact.xml，并与m8toAndriod.py放到同一目录下&lt;/li>
+&lt;li>运行 python m8toAndriod.py 程序会生成一个名为 mycontact.vcf 的文件&lt;/li>
+&lt;li>将 mycontact.vcf 传到Andriod手机中导入&lt;/li>
+&lt;/ol>
+&lt;h2 id="以下为-m8toandriodpy-的代码">以下为 m8toAndriod.py 的代码：&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#!/usr/bin/env python&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># coding: utf-8&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 功能：将M8导出的联系人XML转化成Andriod可以导入的vcf文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 版本：python 2.6 以上&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 作者：leaker&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 网站：http://www.leelib.com&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> xml.etree &lt;span style="color:#f92672">import&lt;/span> ElementTree &lt;span style="color:#66d9ef">as&lt;/span> ET
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 输出到的mycontact.vcf&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>out &lt;span style="color:#f92672">=&lt;/span> file(&lt;span style="color:#e6db74">&amp;#34;mycontact.vcf&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;wb&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>root &lt;span style="color:#f92672">=&lt;/span> ET&lt;span style="color:#f92672">.&lt;/span>parse(file(&lt;span style="color:#e6db74">&amp;#34;mycontact.xml&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;r&amp;#34;&lt;/span>))&lt;span style="color:#f92672">.&lt;/span>getroot()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>print root
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">for&lt;/span> e &lt;span style="color:#f92672">in&lt;/span> root&lt;span style="color:#f92672">.&lt;/span>findall(&lt;span style="color:#e6db74">&amp;#39;Person&amp;#39;&lt;/span>):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> out&lt;span style="color:#f92672">.&lt;/span>write(&lt;span style="color:#e6db74">&amp;#39;BEGIN:VCARDrnVERSION:3.0rn&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> out&lt;span style="color:#f92672">.&lt;/span>write(&lt;span style="color:#e6db74">&amp;#39;N:&lt;/span>&lt;span style="color:#e6db74">%s&lt;/span>&lt;span style="color:#e6db74">;&lt;/span>&lt;span style="color:#e6db74">%s&lt;/span>&lt;span style="color:#e6db74">;;;rn&amp;#39;&lt;/span> &lt;span style="color:#f92672">%&lt;/span> (e&lt;span style="color:#f92672">.&lt;/span>findtext(&lt;span style="color:#e6db74">&amp;#39;LastName&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;&amp;#39;&lt;/span>)&lt;span style="color:#f92672">.&lt;/span>encode(&lt;span style="color:#e6db74">&amp;#39;utf8&amp;#39;&lt;/span>), e&lt;span style="color:#f92672">.&lt;/span>findtext(&lt;span style="color:#e6db74">&amp;#39;FirstName&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;&amp;#39;&lt;/span>)&lt;span style="color:#f92672">.&lt;/span>encode(&lt;span style="color:#e6db74">&amp;#39;utf8&amp;#39;&lt;/span>)))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> out&lt;span style="color:#f92672">.&lt;/span>write(&lt;span style="color:#e6db74">&amp;#39;FN:&lt;/span>&lt;span style="color:#e6db74">%s&lt;/span>&lt;span style="color:#e6db74">rn&amp;#39;&lt;/span> &lt;span style="color:#f92672">%&lt;/span> (e&lt;span style="color:#f92672">.&lt;/span>findtext(&lt;span style="color:#e6db74">&amp;#39;FileAs&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;&amp;#39;&lt;/span>)&lt;span style="color:#f92672">.&lt;/span>encode(&lt;span style="color:#e6db74">&amp;#39;utf8&amp;#39;&lt;/span>)))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e"># print &amp;#39;FN:%srn&amp;#39;% (e.findtext(&amp;#39;FileAs&amp;#39;, &amp;#39;&amp;#39;).encode(&amp;#39;gb2312&amp;#39;))&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> ee &lt;span style="color:#f92672">in&lt;/span> root&lt;span style="color:#f92672">.&lt;/span>findall(&lt;span style="color:#e6db74">&amp;#39;Phone&amp;#39;&lt;/span>):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> ee&lt;span style="color:#f92672">.&lt;/span>findtext(&lt;span style="color:#e6db74">&amp;#39;PersonID&amp;#39;&lt;/span>,&lt;span style="color:#e6db74">&amp;#39;&amp;#39;&lt;/span>) &lt;span style="color:#f92672">==&lt;/span> e&lt;span style="color:#f92672">.&lt;/span>findtext(&lt;span style="color:#e6db74">&amp;#39;ID&amp;#39;&lt;/span>,&lt;span style="color:#e6db74">&amp;#39;&amp;#39;&lt;/span>):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> primary &lt;span style="color:#f92672">=&lt;/span> ee&lt;span style="color:#f92672">.&lt;/span>get(&lt;span style="color:#e6db74">&amp;#39;IsPrimary&amp;#39;&lt;/span>) &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#e6db74">&amp;#39;true&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> out&lt;span style="color:#f92672">.&lt;/span>write(&lt;span style="color:#e6db74">&amp;#39;TEL;TYPE=CELL&lt;/span>&lt;span style="color:#e6db74">%s&lt;/span>&lt;span style="color:#e6db74">:&lt;/span>&lt;span style="color:#e6db74">%s&lt;/span>&lt;span style="color:#e6db74">rn&amp;#39;&lt;/span> &lt;span style="color:#f92672">%&lt;/span> ((&lt;span style="color:#e6db74">&amp;#39;;TYPE=PREF&amp;#39;&lt;/span> &lt;span style="color:#66d9ef">if&lt;/span> primary &lt;span style="color:#66d9ef">else&lt;/span> &lt;span style="color:#e6db74">&amp;#39;&amp;#39;&lt;/span>), ee&lt;span style="color:#f92672">.&lt;/span>findtext(&lt;span style="color:#e6db74">&amp;#39;Info&amp;#39;&lt;/span>,&lt;span style="color:#e6db74">&amp;#39;&amp;#39;&lt;/span>)))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> out&lt;span style="color:#f92672">.&lt;/span>write(&lt;span style="color:#e6db74">&amp;#39;END:VCARDrn&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>out&lt;span style="color:#f92672">.&lt;/span>close()
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>点击这里下载：&lt;a href="https://www.leelib.com/wp-content/uploads/2012/04/m8toAndriod.7z">m8toAndriod.7z&lt;/a>&lt;/p></description></item></channel></rss>

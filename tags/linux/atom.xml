@@ -1,1 +1,411 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linux on 逃避虽然可耻但有用</title><link>https://www.leelib.com/tags/linux.html</link><description>Recent content in Linux on 逃避虽然可耻但有用</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Thu, 30 Apr 2020 20:32:27 +0800</lastBuildDate><atom:link href="https://www.leelib.com/tags/linux/atom.xml" rel="self" type="application/rss+xml"/><item><title>解决WSL中使用NTFS分区的权限问题</title><link>https://www.leelib.com/2020/04/30/wsl-ntfs.html</link><pubDate>Thu, 30 Apr 2020 20:32:27 +0800</pubDate><guid>https://www.leelib.com/2020/04/30/wsl-ntfs.html</guid><description>当使用WSL的过程中访问WSL系统以外目录时候出现一些奇奇怪怪问题 通常就是WSL对于NTFS分区的目录权限问题。 使用 mount -l 查看，可能长这样 [root@wsl] mount</description></item><item><title>使用 firewall 配置端口转发</title><link>https://www.leelib.com/2018/03/30/firewall-port-forward.html</link><pubDate>Fri, 30 Mar 2018 16:36:49 +0800</pubDate><guid>https://www.leelib.com/2018/03/30/firewall-port-forward.html</guid><description>开启NAT转发 firewall-cmd --permanent --zone=public --add-masquerade 本机到本机 firewall-cmd --permanent --zone=public --add-forward-port=port=80:proto=tcp:toport=8080 firewall-cmd --permanent --zone=public --add-service=http 本机到其他机器 firewall-cmd --permanent --zone=public --add-forward-port=port=80:proto=tcp:toport=8080:toaddr=192.168.0.2 firewall-cmd --permanent --zone=public --add-port=80/tcp 重新加载应用 firewall-cmd --reload 只允许指定IP连入指定端口 firewall-cmd --permanent --add-rich-rule=&amp;#39;rule family=&amp;#34;ipv4&amp;#34; source address=&amp;#34;192.168.0.2&amp;#34; port protocol=&amp;#34;tcp&amp;#34; port=&amp;#34;80&amp;#34; accept&amp;#39;</description></item><item><title>使用 iptables 配置端口转发</title><link>https://www.leelib.com/2018/03/29/iptables-port-forward.html</link><pubDate>Thu, 29 Mar 2018 16:50:14 +0800</pubDate><guid>https://www.leelib.com/2018/03/29/iptables-port-forward.html</guid><description>配置 sysctl -w net.ipv4.ip_forward=1 # 启用IP转发功能 sysctl -p # 立即生效 echo &amp;#34;net.ipv4.ip_forward=1&amp;#34; &amp;gt;&amp;gt; /usr/lib/sysctl.d/50-default.conf iptables -t nat -A POSTROUTING -j MASQUERADE 添加端口转发脚本 portforward.sh #!/bin/bash # $1=listen port # $2=connect address and port example:111.111.111.111:2222 iptables -t nat -A PREROUTING -p tcp -i eno1 --dport $1 -j DNAT --to $2 想要添加</description></item><item><title>Linux里面查看登录日志，并统计次数和排序，查看尝试破解密码的IP</title><link>https://www.leelib.com/2015/01/06/linux-auth-log.html</link><pubDate>Tue, 06 Jan 2015 13:42:53 +0800</pubDate><guid>https://www.leelib.com/2015/01/06/linux-auth-log.html</guid><description>仅需一条命令 grep &amp;#34;Failed password for root&amp;#34; /var/log/secure | awk &amp;#39;{print $11}&amp;#39; | sort | uniq -c | sort -nr | more 结果类似下面这样： 4377 103.41.124.18 4368 103.41.124.65 3900 62.210.178.226 2214 103.41.124.33 409 62.210.142.105 404 115.231.222.45 152 122.225.97.91 95 122.225.109.205 81 109.195.69.233 42 74.52.105.154 21 87.106.184.62 21 87.106.1.211 21 82.165.154.23 21 69.64.64.62 21 67.226.156.239 21 61.40.192.52 21 60.213.190.98 21</description></item><item><title>Linux里Git出现fatal: Unable to find remote helper for 'https'的解决方案</title><link>https://www.leelib.com/2014/12/30/linux-git-remote-helper-for-https.html</link><pubDate>Tue, 30 Dec 2014 23:42:43 +0800</pubDate><guid>https://www.leelib.com/2014/12/30/linux-git-remote-helper-for-https.html</guid><description>在Linux内源码编译安装的Git如果出现了 “Unable to find remote helper for &amp;lsquo;https&amp;rsquo;” 错误，则说明编译的时候没有发现系</description></item><item><title>解决yum安装 openssl-devel时产生的Multilib version problems found错误</title><link>https://www.leelib.com/2014/06/29/fix-yum-openssl-devel-multilib-version-problems-found.html</link><pubDate>Sun, 29 Jun 2014 06:56:31 +0800</pubDate><guid>https://www.leelib.com/2014/06/29/fix-yum-openssl-devel-multilib-version-problems-found.html</guid><description>今天给一台CentOS系统安装openssl-devel时，出现了如下信息： [root@centos]# yum install -y openssl-devel Loaded plugins: fastestmirror, security Repository updates is listed more than once in the configuration Repository centosplus is listed more than once in the configuration Repository contrib is</description></item><item><title>[摘抄笔记]sublime2在Ubuntu下命令安装以及官网压缩包安装</title><link>https://www.leelib.com/2013/09/22/ubuntu-install-sublime2-with-src.html</link><pubDate>Sun, 22 Sep 2013 07:57:24 +0800</pubDate><guid>https://www.leelib.com/2013/09/22/ubuntu-install-sublime2-with-src.html</guid><description>通过终端（terminal）命令安装 sudo add-apt-repository ppa:webupd8team/sublime-text-2 sudo apt-get update sudo apt-get install sublime-text 通过解压官网安装包安装 将下载的tar.bz2文件解压 tar xf Sublime Text 2.0.1 x64.tar.bz2 将解压后的文件夹移动</description></item><item><title>结构体sk_buff在Linux内核2.6.18与2.6.33中的区别</title><link>https://www.leelib.com/2013/09/06/sk-buff-2-6-18-diff-2-6-33.html</link><pubDate>Fri, 06 Sep 2013 17:28:58 +0800</pubDate><guid>https://www.leelib.com/2013/09/06/sk-buff-2-6-18-diff-2-6-33.html</guid><description>在Linux 2.6.33.6中，源文件在：/usr/src/kernels/2.6.33.6/include/linux/skbuff.h struct</description></item><item><title>一句话经验zlib</title><link>https://www.leelib.com/2013/06/29/use-zlib-exp.html</link><pubDate>Sat, 29 Jun 2013 04:27:00 +0800</pubDate><guid>https://www.leelib.com/2013/06/29/use-zlib-exp.html</guid><description>Linux使用gcc编译使用zlib库的代码时，使用 -lz 来链接(link) zlib 库。 否则就会出现类似 undefined reference to `deflateInit_&amp;rsquo; 的错误</description></item><item><title>Linux调用tcpdump时“tcpdump: USB link-layer type filtering not implemented”解决方案</title><link>https://www.leelib.com/2013/06/08/tcpdump-error.html</link><pubDate>Sat, 08 Jun 2013 03:00:30 +0800</pubDate><guid>https://www.leelib.com/2013/06/08/tcpdump-error.html</guid><description>当调用tcpdump时，出现错误：tcpdump: USB link-layer type filtering not implemented 原因 说明系统可能有多块网卡共存。 需要指定工作网卡才能开始截包，使用参数举例 [root@centos]# tcpdump</description></item><item><title>Linux下编译驱动发现没有内核源码的解决办法</title><link>https://www.leelib.com/2013/06/02/install-kernel-devel.html</link><pubDate>Sun, 02 Jun 2013 12:25:27 +0800</pubDate><guid>https://www.leelib.com/2013/06/02/install-kernel-devel.html</guid><description>CentOS系统 yum install -y kernel-devel Ubuntu系统 apt-get install linux-source 以上～！ 参考：《或许你不需要整个内核的源代码》 - http://wiki.centos.org/zh/HowTos/I_need_the_Kernel_Source</description></item><item><title>Linux下编译驱动代码时smp_lock.h文件找不到的解决方案</title><link>https://www.leelib.com/2013/06/01/compile-can-not-found-smp-lock-h.html</link><pubDate>Sat, 01 Jun 2013 13:07:20 +0800</pubDate><guid>https://www.leelib.com/2013/06/01/compile-can-not-found-smp-lock-h.html</guid><description>项目中有个驱动代码之前在老版本linux系统中编写的 在移植到 linux-kernel-3.2.0 后，编译时出现一处错误 fatal error: linux/smp_lock.h: No such file or directory 解决办法 将： #include &amp;lt;linux/smp_lock.h&amp;gt; 替换成： #include &amp;lt;linux/hardirq.h&amp;gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linux on 逃避虽然可耻但有用</title><link>https://www.leelib.com/tags/linux.html</link><description>Recent content in Linux on 逃避虽然可耻但有用</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Thu, 30 Apr 2020 20:32:27 +0800</lastBuildDate><atom:link href="https://www.leelib.com/tags/linux/atom.xml" rel="self" type="application/rss+xml"/><item><title>解决WSL中使用NTFS分区的权限问题</title><link>https://www.leelib.com/2020/04/30/wsl-ntfs.html</link><pubDate>Thu, 30 Apr 2020 20:32:27 +0800</pubDate><guid>https://www.leelib.com/2020/04/30/wsl-ntfs.html</guid><description>&lt;p>当使用WSL的过程中访问WSL系统以外目录时候出现一些奇奇怪怪问题
+通常就是WSL对于NTFS分区的目录权限问题。&lt;/p>
+&lt;p>使用 &lt;strong>mount -l&lt;/strong> 查看，可能长这样&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>root@wsl&lt;span style="color:#f92672">]&lt;/span> mount -l
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>rootfs on / type lxfs &lt;span style="color:#f92672">(&lt;/span>rw,noatime&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>none on /dev type tmpfs &lt;span style="color:#f92672">(&lt;/span>rw,noatime,mode&lt;span style="color:#f92672">=&lt;/span>755&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sysfs on /sys type sysfs &lt;span style="color:#f92672">(&lt;/span>rw,nosuid,nodev,noexec,noatime&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>proc on /proc type proc &lt;span style="color:#f92672">(&lt;/span>rw,nosuid,nodev,noexec,noatime&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>devpts on /dev/pts type devpts &lt;span style="color:#f92672">(&lt;/span>rw,nosuid,noexec,noatime,gid&lt;span style="color:#f92672">=&lt;/span>5,mode&lt;span style="color:#f92672">=&lt;/span>620&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>none on /run type tmpfs &lt;span style="color:#f92672">(&lt;/span>rw,nosuid,noexec,noatime,mode&lt;span style="color:#f92672">=&lt;/span>755&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>none on /run/lock type tmpfs &lt;span style="color:#f92672">(&lt;/span>rw,nosuid,nodev,noexec,noatime&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>none on /run/shm type tmpfs &lt;span style="color:#f92672">(&lt;/span>rw,nosuid,nodev,noatime&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>none on /run/user type tmpfs &lt;span style="color:#f92672">(&lt;/span>rw,nosuid,nodev,noexec,noatime,mode&lt;span style="color:#f92672">=&lt;/span>755&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>binfmt_misc on /proc/sys/fs/binfmt_misc type binfmt_misc &lt;span style="color:#f92672">(&lt;/span>rw,relatime&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cgroup on /sys/fs/cgroup type tmpfs &lt;span style="color:#f92672">(&lt;/span>rw,relatime,mode&lt;span style="color:#f92672">=&lt;/span>755&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cgroup on /sys/fs/cgroup/devices type cgroup &lt;span style="color:#f92672">(&lt;/span>rw,relatime,devices&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>C:&lt;span style="color:#ae81ff">\ &lt;/span>on /mnt/c type drvfs &lt;span style="color:#f92672">(&lt;/span>rw,noatime,uid&lt;span style="color:#f92672">=&lt;/span>0,gid&lt;span style="color:#f92672">=&lt;/span>0,case&lt;span style="color:#f92672">=&lt;/span>off&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>D:&lt;span style="color:#ae81ff">\ &lt;/span>on /mnt/d type drvfs &lt;span style="color:#f92672">(&lt;/span>rw,noatime,uid&lt;span style="color:#f92672">=&lt;/span>0,gid&lt;span style="color:#f92672">=&lt;/span>0,case&lt;span style="color:#f92672">=&lt;/span>off&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>可以看到 &lt;strong>C:\&lt;/strong> 和 &lt;strong>D:\&lt;/strong> 加载状况是这样的。这种情况下代表所有目录均以&lt;strong>root&lt;/strong>权限进行访问。在使用&lt;strong>ssh&lt;/strong>或&lt;strong>git&lt;/strong>等工具的时候有可能会因为一些权限问题导致意外情况发生。&lt;/p></description></item><item><title>使用 firewall 配置端口转发</title><link>https://www.leelib.com/2018/03/30/firewall-port-forward.html</link><pubDate>Fri, 30 Mar 2018 16:36:49 +0800</pubDate><guid>https://www.leelib.com/2018/03/30/firewall-port-forward.html</guid><description>&lt;h1 id="开启nat转发">开启NAT转发&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>firewall-cmd --permanent --zone&lt;span style="color:#f92672">=&lt;/span>public --add-masquerade
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="本机到本机">本机到本机&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>firewall-cmd --permanent --zone&lt;span style="color:#f92672">=&lt;/span>public --add-forward-port&lt;span style="color:#f92672">=&lt;/span>port&lt;span style="color:#f92672">=&lt;/span>80:proto&lt;span style="color:#f92672">=&lt;/span>tcp:toport&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">8080&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>firewall-cmd --permanent --zone&lt;span style="color:#f92672">=&lt;/span>public --add-service&lt;span style="color:#f92672">=&lt;/span>http
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="本机到其他机器">本机到其他机器&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>firewall-cmd --permanent --zone&lt;span style="color:#f92672">=&lt;/span>public --add-forward-port&lt;span style="color:#f92672">=&lt;/span>port&lt;span style="color:#f92672">=&lt;/span>80:proto&lt;span style="color:#f92672">=&lt;/span>tcp:toport&lt;span style="color:#f92672">=&lt;/span>8080:toaddr&lt;span style="color:#f92672">=&lt;/span>192.168.0.2
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>firewall-cmd --permanent --zone&lt;span style="color:#f92672">=&lt;/span>public --add-port&lt;span style="color:#f92672">=&lt;/span>80/tcp
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="重新加载应用">重新加载应用&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>firewall-cmd --reload
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="只允许指定ip连入指定端口">只允许指定IP连入指定端口&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>firewall-cmd --permanent --add-rich-rule&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;rule family=&amp;#34;ipv4&amp;#34; source address=&amp;#34;192.168.0.2&amp;#34; port protocol=&amp;#34;tcp&amp;#34; port=&amp;#34;80&amp;#34; accept&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="只允许指定ip段连入指定端口范围">只允许指定IP段连入指定端口范围&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>firewall-cmd --permanent --add-rich-rule&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;rule family=&amp;#34;ipv4&amp;#34; source address=&amp;#34;192.168.0.0/24&amp;#34; port protocol=&amp;#34;tcp&amp;#34; port=&amp;#34;80-8080&amp;#34; accept&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="linux-常用网络优化">Linux 常用网络优化&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 发送 KeepAlive 消息的间隔 1200=2分钟&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sysctl -w net.ipv4.tcp_keepalive_time&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1200&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># IP端口重用&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sysctl -w net.ipv4.tcp_tw_reuse&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>使用 iptables 配置端口转发</title><link>https://www.leelib.com/2018/03/29/iptables-port-forward.html</link><pubDate>Thu, 29 Mar 2018 16:50:14 +0800</pubDate><guid>https://www.leelib.com/2018/03/29/iptables-port-forward.html</guid><description>&lt;h2 id="配置">配置&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sysctl -w net.ipv4.ip_forward&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#75715e"># 启用IP转发功能&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sysctl -p &lt;span style="color:#75715e"># 立即生效&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>echo &lt;span style="color:#e6db74">&amp;#34;net.ipv4.ip_forward=1&amp;#34;&lt;/span> &amp;gt;&amp;gt; /usr/lib/sysctl.d/50-default.conf
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>iptables -t nat -A POSTROUTING -j MASQUERADE
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="添加端口转发脚本-portforwardsh">添加端口转发脚本 portforward.sh&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#!/bin/bash
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#75715e"># $1=listen port&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># $2=connect address and port example:111.111.111.111:2222&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>iptables -t nat -A PREROUTING -p tcp -i eno1 --dport $1 -j DNAT --to $2
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>想要添加端口的时候只要这么用就好&lt;/p></description></item><item><title>Linux里面查看登录日志，并统计次数和排序，查看尝试破解密码的IP</title><link>https://www.leelib.com/2015/01/06/linux-auth-log.html</link><pubDate>Tue, 06 Jan 2015 13:42:53 +0800</pubDate><guid>https://www.leelib.com/2015/01/06/linux-auth-log.html</guid><description>&lt;p>仅需一条命令&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>grep &lt;span style="color:#e6db74">&amp;#34;Failed password for root&amp;#34;&lt;/span> /var/log/secure | awk &lt;span style="color:#e6db74">&amp;#39;{print $11}&amp;#39;&lt;/span> | sort | uniq -c | sort -nr | more
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>结果类似下面这样：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span> 4377 103.41.124.18
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 4368 103.41.124.65
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 3900 62.210.178.226
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 2214 103.41.124.33
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 409 62.210.142.105
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 404 115.231.222.45
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 152 122.225.97.91
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 95 122.225.109.205
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 81 109.195.69.233
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 42 74.52.105.154
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 21 87.106.184.62
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 21 87.106.1.211
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 21 82.165.154.23
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 21 69.64.64.62
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 21 67.226.156.239
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 21 61.40.192.52
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 21 60.213.190.98
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 21 27.251.179.130
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 21 222.77.190.33
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 21 211.172.219.251
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 21 210.249.105.10
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 15 220.194.46.36
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 12 203.184.128.106
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 1 60.190.71.52
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 1 193.104.41.58
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>这样我们就可以很清楚的了解有谁在尝试破解我们的密码了，之后做个相关安全策略就可以简单防治了&lt;/p></description></item><item><title>Linux里Git出现fatal: Unable to find remote helper for 'https'的解决方案</title><link>https://www.leelib.com/2014/12/30/linux-git-remote-helper-for-https.html</link><pubDate>Tue, 30 Dec 2014 23:42:43 +0800</pubDate><guid>https://www.leelib.com/2014/12/30/linux-git-remote-helper-for-https.html</guid><description>&lt;p>在Linux内源码编译安装的Git如果出现了 “&lt;strong>Unable to find remote helper for &amp;lsquo;https&amp;rsquo;&lt;/strong>” 错误，则说明&lt;strong>编译的时候没有发现系统有openssl开发包&lt;/strong>。&lt;/p></description></item><item><title>解决yum安装 openssl-devel时产生的Multilib version problems found错误</title><link>https://www.leelib.com/2014/06/29/fix-yum-openssl-devel-multilib-version-problems-found.html</link><pubDate>Sun, 29 Jun 2014 06:56:31 +0800</pubDate><guid>https://www.leelib.com/2014/06/29/fix-yum-openssl-devel-multilib-version-problems-found.html</guid><description>&lt;p>今天给一台CentOS系统安装openssl-devel时，出现了如下信息：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>root@centos&lt;span style="color:#f92672">]&lt;/span>&lt;span style="color:#75715e"># yum install -y openssl-devel&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Loaded plugins: fastestmirror, security
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Repository updates is listed more than once in the configuration
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Repository centosplus is listed more than once in the configuration
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Repository contrib is listed more than once in the configuration
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Repository extras is listed more than once in the configuration
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Loading mirror speeds from cached hostfile
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * base: mirrors.tuna.tsinghua.edu.cn
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * extras: mirrors.tuna.tsinghua.edu.cn
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * updates: mirrors.tuna.tsinghua.edu.cn
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Setting up Install Process
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Resolving Dependencies
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Running transaction check
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>---&amp;gt; Package openssl-devel.x86_64 0:1.0.1e-16.el6_5.14 will be installed
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Processing Dependency: krb5-devel &lt;span style="color:#66d9ef">for&lt;/span> package: openssl-devel-1.0.1e-16.el6_5.14.x86_64
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Running transaction check
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>---&amp;gt; Package krb5-devel.x86_64 0:1.10.3-15.el6_5.1 will be installed
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Processing Dependency: libselinux-devel &lt;span style="color:#66d9ef">for&lt;/span> package: krb5-devel-1.10.3-15.el6_5.1.x86_64
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Processing Dependency: libcom_err-devel &lt;span style="color:#66d9ef">for&lt;/span> package: krb5-devel-1.10.3-15.el6_5.1.x86_64
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Processing Dependency: keyutils-libs-devel &lt;span style="color:#66d9ef">for&lt;/span> package: krb5-devel-1.10.3-15.el6_5.1.x86_64
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Running transaction check
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>---&amp;gt; Package keyutils-libs-devel.x86_64 0:1.4-4.el6 will be installed
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>---&amp;gt; Package libcom_err-devel.x86_64 0:1.41.12-18.el6 will be installed
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>---&amp;gt; Package libselinux-devel.x86_64 0:2.0.94-5.3.el6_4.1 will be installed
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Processing Dependency: libselinux &lt;span style="color:#f92672">=&lt;/span> 2.0.94-5.3.el6_4.1 &lt;span style="color:#66d9ef">for&lt;/span> package: libselinux-devel-2.0.94-5.3.el6_4.1.x86_64
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Processing Dependency: libsepol-devel &amp;gt;&lt;span style="color:#f92672">=&lt;/span> 2.0.32-1 &lt;span style="color:#66d9ef">for&lt;/span> package: libselinux-devel-2.0.94-5.3.el6_4.1.x86_64
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Processing Dependency: pkgconfig&lt;span style="color:#f92672">(&lt;/span>libsepol&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#66d9ef">for&lt;/span> package: libselinux-devel-2.0.94-5.3.el6_4.1.x86_64
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Running transaction check
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>---&amp;gt; Package libselinux.i686 0:2.0.94-5.3.el6_4.1 will be installed
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Processing Dependency: libdl.so.2&lt;span style="color:#f92672">(&lt;/span>GLIBC_2.1&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#66d9ef">for&lt;/span> package: libselinux-2.0.94-5.3.el6_4.1.i686
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Processing Dependency: libdl.so.2&lt;span style="color:#f92672">(&lt;/span>GLIBC_2.0&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#66d9ef">for&lt;/span> package: libselinux-2.0.94-5.3.el6_4.1.i686
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Processing Dependency: libdl.so.2 &lt;span style="color:#66d9ef">for&lt;/span> package: libselinux-2.0.94-5.3.el6_4.1.i686
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Processing Dependency: libc.so.6&lt;span style="color:#f92672">(&lt;/span>GLIBC_2.8&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#66d9ef">for&lt;/span> package: libselinux-2.0.94-5.3.el6_4.1.i686
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Processing Dependency: ld-linux.so.2&lt;span style="color:#f92672">(&lt;/span>GLIBC_2.3&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#66d9ef">for&lt;/span> package: libselinux-2.0.94-5.3.el6_4.1.i686
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Processing Dependency: ld-linux.so.2 &lt;span style="color:#66d9ef">for&lt;/span> package: libselinux-2.0.94-5.3.el6_4.1.i686
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>---&amp;gt; Package libsepol-devel.x86_64 0:2.0.41-4.el6 will be installed
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Running transaction check
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>---&amp;gt; Package glibc.i686 0:2.12-1.132.el6_5.2 will be installed
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Processing Dependency: libfreebl3.so&lt;span style="color:#f92672">(&lt;/span>NSSRAWHASH_3.12.3&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#66d9ef">for&lt;/span> package: glibc-2.12-1.132.el6_5.2.i686
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Processing Dependency: libfreebl3.so &lt;span style="color:#66d9ef">for&lt;/span> package: glibc-2.12-1.132.el6_5.2.i686
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Running transaction check
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>---&amp;gt; Package nss-softokn-freebl.i686 0:3.14.3-10.el6_5 will be installed
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Finished Dependency Resolution
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Error: Multilib version problems found. This often means that the root
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cause is something &lt;span style="color:#66d9ef">else&lt;/span> and multilib version checking is just
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> pointing out that there is a problem. Eg.:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 1&lt;span style="color:#ae81ff">\.&lt;/span> You have an upgrade &lt;span style="color:#66d9ef">for&lt;/span> libselinux which is missing some
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> dependency that another package requires. Yum is trying to
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> solve this by installing an older version of libselinux of the
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> different architecture. If you exclude the bad architecture
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> yum will tell you what the root cause is &lt;span style="color:#f92672">(&lt;/span>which package
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> requires what&lt;span style="color:#f92672">)&lt;/span>. You can try redoing the upgrade with
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --exclude libselinux.otherarch ... this should give you an error
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> message showing the root cause of the problem.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 2&lt;span style="color:#ae81ff">\.&lt;/span> You have multiple architectures of libselinux installed, but
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> yum can only see an upgrade &lt;span style="color:#66d9ef">for&lt;/span> one of those arcitectures.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> If you don&lt;span style="color:#960050;background-color:#1e0010">&amp;#39;&lt;/span>t want/need both architectures anymore &lt;span style="color:#66d9ef">then&lt;/span> you
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> can remove the one with the missing update and everything
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> will work.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 3&lt;span style="color:#ae81ff">\.&lt;/span> You have duplicate versions of libselinux installed already.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> You can use &lt;span style="color:#e6db74">&amp;#34;yum check&amp;#34;&lt;/span> to get yum show these errors.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ...you can also use --setopt&lt;span style="color:#f92672">=&lt;/span>protected_multilib&lt;span style="color:#f92672">=&lt;/span>false to remove
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> this checking, however this is almost never the correct thing to
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">do&lt;/span> as something &lt;span style="color:#66d9ef">else&lt;/span> is very likely to go wrong &lt;span style="color:#f92672">(&lt;/span>often causing
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> much more problems&lt;span style="color:#f92672">)&lt;/span>.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Protected multilib versions: libselinux-2.0.94-5.3.el6_4.1.i686 !&lt;span style="color:#f92672">=&lt;/span> libselinux-2.0.94-5.3.0.1.el6.centos.plus.x86_64
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> You could try using --skip-broken to work around the problem
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> You could try running: rpm -Va --nofiles --nodigest
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>最后在一个日文的网站上找到了解决办法：&lt;/strong>&lt;/p></description></item><item><title>[摘抄笔记]sublime2在Ubuntu下命令安装以及官网压缩包安装</title><link>https://www.leelib.com/2013/09/22/ubuntu-install-sublime2-with-src.html</link><pubDate>Sun, 22 Sep 2013 07:57:24 +0800</pubDate><guid>https://www.leelib.com/2013/09/22/ubuntu-install-sublime2-with-src.html</guid><description>&lt;h1 id="通过终端terminal命令安装">通过终端（terminal）命令安装&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo add-apt-repository ppa:webupd8team/sublime-text-2
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt-get update
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt-get install sublime-text
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="通过解压官网安装包安装">通过解压官网安装包安装&lt;/h1>
+&lt;ol>
+&lt;li>将下载的tar.bz2文件解压&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>tar xf Sublime Text 2.0.1 x64.tar.bz2
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
+&lt;li>将解压后的文件夹移动到应用程序文件夹&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo mv Sublime Text &lt;span style="color:#ae81ff">2&lt;/span> /opt/
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="3">
+&lt;li>设置terminal快速启动命令&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo ln -s /opt/Sublime Text 2/sublime_text /usr/bin/sublime
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="4">
+&lt;li>在桌面创建快捷方式&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo sublime /usr/share/applications/sublime.desktop
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="5">
+&lt;li>将下面的代码保存进去&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-ini" data-lang="ini">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">[Desktop Entry]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">Version&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">1.0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">Name&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">Sublime Text 2&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Only KDE 4 seems to use GenericName, so we reuse the KDE strings.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># From Ubuntu&amp;#39;s language-pack-kde-XX-base packages, version 9.04-20090413.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">GenericName&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">Text Editor&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">Exec&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">sublime&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">Terminal&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">false&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">Icon&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">/opt/Sublime Text 2/Icon/48x48/sublime_text.webp&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">Type&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">Application&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">Categories&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">TextEditor;IDE;Development&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">X-Ayatana-Desktop-Shortcuts&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">NewWindow&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">[NewWindow Shortcut Group]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">Name&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">New Window&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">Exec&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">sublime -n&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">TargetEnvironment&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">Unity&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>貌似安装sublime3的时候会自动创建快速启动命令，所以如果安装的是3就不用再手动设置了&lt;/p></description></item><item><title>结构体sk_buff在Linux内核2.6.18与2.6.33中的区别</title><link>https://www.leelib.com/2013/09/06/sk-buff-2-6-18-diff-2-6-33.html</link><pubDate>Fri, 06 Sep 2013 17:28:58 +0800</pubDate><guid>https://www.leelib.com/2013/09/06/sk-buff-2-6-18-diff-2-6-33.html</guid><description>&lt;p>在Linux 2.6.33.6中，源文件在：/usr/src/kernels/2.6.33.6/include/linux/skbuff.h&lt;/p>
+&lt;h1 id="struct-sk_buff在2618中的定义">struct sk_buff在2.6.18中的定义：&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">struct&lt;/span> sk_buff {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">/* These two members must be first. */&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">struct&lt;/span> sk_buff &lt;span style="color:#f92672">*&lt;/span>next;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">struct&lt;/span> sk_buff &lt;span style="color:#f92672">*&lt;/span>prev;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">struct&lt;/span> sock &lt;span style="color:#f92672">*&lt;/span>sk;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">struct&lt;/span> skb_timeval tstamp;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">struct&lt;/span> net_device &lt;span style="color:#f92672">*&lt;/span>dev;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">struct&lt;/span> net_device &lt;span style="color:#f92672">*&lt;/span>input_dev;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">union&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">struct&lt;/span> tcphdr &lt;span style="color:#f92672">*&lt;/span>th;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">struct&lt;/span> udphdr &lt;span style="color:#f92672">*&lt;/span>uh;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">struct&lt;/span> icmphdr &lt;span style="color:#f92672">*&lt;/span>icmph;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">struct&lt;/span> igmphdr &lt;span style="color:#f92672">*&lt;/span>igmph;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">struct&lt;/span> iphdr &lt;span style="color:#f92672">*&lt;/span>ipiph;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">struct&lt;/span> ipv6hdr &lt;span style="color:#f92672">*&lt;/span>ipv6h;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">unsigned&lt;/span> &lt;span style="color:#66d9ef">char&lt;/span> &lt;span style="color:#f92672">*&lt;/span>raw;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> } h;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">union&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">struct&lt;/span> iphdr &lt;span style="color:#f92672">*&lt;/span>iph;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">struct&lt;/span> ipv6hdr &lt;span style="color:#f92672">*&lt;/span>ipv6h;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">struct&lt;/span> arphdr &lt;span style="color:#f92672">*&lt;/span>arph;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">unsigned&lt;/span> &lt;span style="color:#66d9ef">char&lt;/span> &lt;span style="color:#f92672">*&lt;/span>raw;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> } nh;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">union&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">unsigned&lt;/span> &lt;span style="color:#66d9ef">char&lt;/span> &lt;span style="color:#f92672">*&lt;/span>raw;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> } mac;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">struct&lt;/span> dst_entry &lt;span style="color:#f92672">*&lt;/span>dst;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">struct&lt;/span> sec_path &lt;span style="color:#f92672">*&lt;/span>sp;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">/*
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"> * This is the control buffer. It is free to use for every
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"> * layer. Please put your private variables there. If you
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"> * want to keep them across layers you have to do a skb_clone()
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"> * first. This is owned by whoever has the skb queued ATM.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"> */&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">char&lt;/span> cb[&lt;span style="color:#ae81ff">48&lt;/span>];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">unsigned&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> len,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> data_len,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> mac_len,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> csum;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> __u32 priority;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> __u8 local_df:&lt;span style="color:#ae81ff">1&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cloned:&lt;span style="color:#ae81ff">1&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ip_summed:&lt;span style="color:#ae81ff">2&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> nohdr:&lt;span style="color:#ae81ff">1&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> nfctinfo:&lt;span style="color:#ae81ff">3&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> __u8 pkt_type:&lt;span style="color:#ae81ff">3&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> fclone:&lt;span style="color:#ae81ff">2&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#ifndef CONFIG_XEN
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> ipvs_property:&lt;span style="color:#ae81ff">1&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#else
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> ipvs_property:&lt;span style="color:#ae81ff">1&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> proto_data_valid:&lt;span style="color:#ae81ff">1&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> proto_csum_blank:&lt;span style="color:#ae81ff">1&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#endif
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> __be16 protocol;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">void&lt;/span> (&lt;span style="color:#f92672">*&lt;/span>destructor)(&lt;span style="color:#66d9ef">struct&lt;/span> sk_buff &lt;span style="color:#f92672">*&lt;/span>skb);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#ifdef CONFIG_NETFILTER
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">struct&lt;/span> nf_conntrack &lt;span style="color:#f92672">*&lt;/span>nfct;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#if defined(CONFIG_NF_CONNTRACK) || defined(CONFIG_NF_CONNTRACK_MODULE)
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">struct&lt;/span> sk_buff &lt;span style="color:#f92672">*&lt;/span>nfct_reasm;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#endif
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#ifdef CONFIG_BRIDGE_NETFILTER
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">struct&lt;/span> nf_bridge_info &lt;span style="color:#f92672">*&lt;/span>nf_bridge;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#endif
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> __u32 nfmark;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#endif &lt;/span>&lt;span style="color:#75715e">/* CONFIG_NETFILTER */&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#ifdef CONFIG_NET_SCHED
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> __u16 tc_index; &lt;span style="color:#75715e">/* traffic control index */&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#ifdef CONFIG_NET_CLS_ACT
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> __u16 tc_verd; &lt;span style="color:#75715e">/* traffic control verdict */&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#endif
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#endif
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#ifdef CONFIG_NET_DMA
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">dma_cookie_t&lt;/span> dma_cookie;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#endif
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#ifdef CONFIG_NETWORK_SECMARK
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> __u32 secmark;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#endif
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">/* These elements must be at the end, see alloc_skb() for details. */&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">unsigned&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> truesize;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">atomic_t&lt;/span> users;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">unsigned&lt;/span> &lt;span style="color:#66d9ef">char&lt;/span> &lt;span style="color:#f92672">*&lt;/span>head,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">*&lt;/span>data,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">*&lt;/span>tail,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">*&lt;/span>end;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">/* Extra stuff at the end to avoid breaking abi */&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#ifndef __GENKSYMS__
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> peeked;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#endif
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>};
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="struct-sk_buff在2633中的定义">struct sk_buff在2.6.33中的定义：&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">struct&lt;/span> sk_buff {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">/* These two members must be first. */&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">struct&lt;/span> sk_buff &lt;span style="color:#f92672">*&lt;/span>next;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">struct&lt;/span> sk_buff &lt;span style="color:#f92672">*&lt;/span>prev;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">ktime_t&lt;/span> tstamp;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">struct&lt;/span> sock &lt;span style="color:#f92672">*&lt;/span>sk;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">struct&lt;/span> net_device &lt;span style="color:#f92672">*&lt;/span>dev;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">/*
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"> * This is the control buffer. It is free to use for every
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"> * layer. Please put your private variables there. If you
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"> * want to keep them across layers you have to do a skb_clone()
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"> * first. This is owned by whoever has the skb queued ATM.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"> */&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">char&lt;/span> cb[&lt;span style="color:#ae81ff">48&lt;/span>] &lt;span style="color:#a6e22e">__aligned&lt;/span>(&lt;span style="color:#ae81ff">8&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">unsigned&lt;/span> &lt;span style="color:#66d9ef">long&lt;/span> _skb_dst;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#ifdef CONFIG_XFRM
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">struct&lt;/span> sec_path &lt;span style="color:#f92672">*&lt;/span>sp;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#endif
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">unsigned&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> len,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> data_len;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> __u16 mac_len,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> hdr_len;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">union&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> __wsum csum;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">struct&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> __u16 csum_start;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> __u16 csum_offset;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> };
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> };
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> __u32 priority;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">kmemcheck_bitfield_begin&lt;/span>(flags1);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> __u8 local_df:&lt;span style="color:#ae81ff">1&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cloned:&lt;span style="color:#ae81ff">1&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ip_summed:&lt;span style="color:#ae81ff">2&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> nohdr:&lt;span style="color:#ae81ff">1&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> nfctinfo:&lt;span style="color:#ae81ff">3&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> __u8 pkt_type:&lt;span style="color:#ae81ff">3&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> fclone:&lt;span style="color:#ae81ff">2&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ipvs_property:&lt;span style="color:#ae81ff">1&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> peeked:&lt;span style="color:#ae81ff">1&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> nf_trace:&lt;span style="color:#ae81ff">1&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> __be16 protocol:&lt;span style="color:#ae81ff">16&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">kmemcheck_bitfield_end&lt;/span>(flags1);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">void&lt;/span> (&lt;span style="color:#f92672">*&lt;/span>destructor)(&lt;span style="color:#66d9ef">struct&lt;/span> sk_buff &lt;span style="color:#f92672">*&lt;/span>skb);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#if defined(CONFIG_NF_CONNTRACK) || defined(CONFIG_NF_CONNTRACK_MODULE)
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">struct&lt;/span> nf_conntrack &lt;span style="color:#f92672">*&lt;/span>nfct;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">struct&lt;/span> sk_buff &lt;span style="color:#f92672">*&lt;/span>nfct_reasm;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#endif
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#ifdef CONFIG_BRIDGE_NETFILTER
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">struct&lt;/span> nf_bridge_info &lt;span style="color:#f92672">*&lt;/span>nf_bridge;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#endif
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> skb_iif;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#ifdef CONFIG_NET_SCHED
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> __u16 tc_index; &lt;span style="color:#75715e">/* traffic control index */&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#ifdef CONFIG_NET_CLS_ACT
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> __u16 tc_verd; &lt;span style="color:#75715e">/* traffic control verdict */&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#endif
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#endif
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">kmemcheck_bitfield_begin&lt;/span>(flags2);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> __u16 queue_mapping:&lt;span style="color:#ae81ff">16&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#ifdef CONFIG_IPV6_NDISC_NODETYPE
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> __u8 ndisc_nodetype:&lt;span style="color:#ae81ff">2&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#endif
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#a6e22e">kmemcheck_bitfield_end&lt;/span>(flags2);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">/* 0/14 bit hole */&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#ifdef CONFIG_NET_DMA
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">dma_cookie_t&lt;/span> dma_cookie;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#endif
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#ifdef CONFIG_NETWORK_SECMARK
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> __u32 secmark;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#endif
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">union&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> __u32 mark;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> __u32 dropcount;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> };
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> __u16 vlan_tci;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">sk_buff_data_t&lt;/span> transport_header;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">sk_buff_data_t&lt;/span> network_header;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">sk_buff_data_t&lt;/span> mac_header;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">/* These elements must be at the end, see alloc_skb() for details. */&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">sk_buff_data_t&lt;/span> tail;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">sk_buff_data_t&lt;/span> end;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">unsigned&lt;/span> &lt;span style="color:#66d9ef">char&lt;/span> &lt;span style="color:#f92672">*&lt;/span>head,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">*&lt;/span>data;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">unsigned&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> truesize;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">atomic_t&lt;/span> users;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>有了以上定义的话，我们就可以做类似如下定义来使我们的驱动支持多内核了：&lt;/p></description></item><item><title>一句话经验zlib</title><link>https://www.leelib.com/2013/06/29/use-zlib-exp.html</link><pubDate>Sat, 29 Jun 2013 04:27:00 +0800</pubDate><guid>https://www.leelib.com/2013/06/29/use-zlib-exp.html</guid><description>&lt;p>Linux使用gcc编译使用zlib库的代码时，使用 &lt;strong>-lz&lt;/strong> 来链接(link) &lt;strong>zlib&lt;/strong> 库。&lt;/p>
+&lt;p>否则就会出现类似 &lt;strong>undefined reference to `deflateInit_&amp;rsquo;&lt;/strong> 的错误&lt;/p></description></item><item><title>Linux调用tcpdump时“tcpdump: USB link-layer type filtering not implemented”解决方案</title><link>https://www.leelib.com/2013/06/08/tcpdump-error.html</link><pubDate>Sat, 08 Jun 2013 03:00:30 +0800</pubDate><guid>https://www.leelib.com/2013/06/08/tcpdump-error.html</guid><description>&lt;p>当调用tcpdump时，出现错误：&lt;strong>tcpdump: USB link-layer type filtering not implemented&lt;/strong>&lt;/p>
+&lt;h1 id="原因">原因&lt;/h1>
+&lt;p>说明系统可能有多块网卡共存。&lt;/p>
+&lt;h1 id="需要指定工作网卡才能开始截包使用参数举例">需要指定工作网卡才能开始截包，使用参数举例&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>root@centos&lt;span style="color:#f92672">]&lt;/span>&lt;span style="color:#75715e"># tcpdump -i eth0 udp port 53&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;em>在实际使用中例子中“eth0”“udp”“53”等参数，要根据实际需要来进行修改。&lt;/em>
+&lt;em>虽然一般单网卡默认名称应该是eth0，但也有其他情况。实际中要使用ifconfig查看自己需要使用的网卡。&lt;/em>&lt;/p></description></item><item><title>Linux下编译驱动发现没有内核源码的解决办法</title><link>https://www.leelib.com/2013/06/02/install-kernel-devel.html</link><pubDate>Sun, 02 Jun 2013 12:25:27 +0800</pubDate><guid>https://www.leelib.com/2013/06/02/install-kernel-devel.html</guid><description>&lt;h2 id="centos系统">CentOS系统&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>yum install -y kernel-devel
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="ubuntu系统">Ubuntu系统&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>apt-get install linux-source
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>以上～！&lt;/p>
+&lt;blockquote>
+&lt;p>参考：《或许你不需要整个内核的源代码》 - &lt;a href="http://wiki.centos.org/zh/HowTos/I_need_the_Kernel_Source">http://wiki.centos.org/zh/HowTos/I_need_the_Kernel_Source&lt;/a>&lt;/p>&lt;/blockquote></description></item><item><title>Linux下编译驱动代码时smp_lock.h文件找不到的解决方案</title><link>https://www.leelib.com/2013/06/01/compile-can-not-found-smp-lock-h.html</link><pubDate>Sat, 01 Jun 2013 13:07:20 +0800</pubDate><guid>https://www.leelib.com/2013/06/01/compile-can-not-found-smp-lock-h.html</guid><description>&lt;p>&lt;img src="https://www.leelib.com/wp-content/uploads/2013/06/linux_kernel.webp#center" alt="kernel">&lt;/p>
+&lt;p>项目中有个驱动代码之前在老版本linux系统中编写的
+在移植到 &lt;strong>linux-kernel-3.2.0&lt;/strong> 后，编译时出现一处错误 &lt;strong>fatal error: linux/smp_lock.h: No such file or directory&lt;/strong>&lt;/p>
+&lt;h1 id="解决办法">解决办法&lt;/h1>
+&lt;p>将：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#include&lt;/span> &lt;span style="color:#75715e">&amp;lt;linux/smp_lock.h&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>替换成：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#include&lt;/span> &lt;span style="color:#75715e">&amp;lt;linux/hardirq.h&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>

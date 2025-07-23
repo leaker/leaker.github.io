@@ -1,1 +1,143 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Centos on 逃避虽然可耻但有用</title><link>https://www.leelib.com/tags/centos.html</link><description>Recent content in Centos on 逃避虽然可耻但有用</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Sat, 01 Nov 2014 08:42:17 +0800</lastBuildDate><atom:link href="https://www.leelib.com/tags/centos/atom.xml" rel="self" type="application/rss+xml"/><item><title>CentOS安装GO编译环境</title><link>https://www.leelib.com/2014/11/01/centos-install-go.html</link><pubDate>Sat, 01 Nov 2014 08:42:17 +0800</pubDate><guid>https://www.leelib.com/2014/11/01/centos-install-go.html</guid><description>我们这里使用源码编译安装，直接按顺序执行下列命令就可以成功(我都是假设已经有root权限的情况下，所以执行之前请确认自己已有root权限)：</description></item><item><title>解决yum安装 openssl-devel时产生的Multilib version problems found错误</title><link>https://www.leelib.com/2014/06/29/fix-yum-openssl-devel-multilib-version-problems-found.html</link><pubDate>Sun, 29 Jun 2014 06:56:31 +0800</pubDate><guid>https://www.leelib.com/2014/06/29/fix-yum-openssl-devel-multilib-version-problems-found.html</guid><description>今天给一台CentOS系统安装openssl-devel时，出现了如下信息： [root@centos]# yum install -y openssl-devel Loaded plugins: fastestmirror, security Repository updates is listed more than once in the configuration Repository centosplus is listed more than once in the configuration Repository contrib is</description></item><item><title>解决编译时出现“gnu/stubs-64.h: No such file or directory”的问题</title><link>https://www.leelib.com/2013/07/10/gnu-stubs-64-h-no-such-file-or-directory.html</link><pubDate>Wed, 10 Jul 2013 10:12:49 +0800</pubDate><guid>https://www.leelib.com/2013/07/10/gnu-stubs-64-h-no-such-file-or-directory.html</guid><description>这个实际上是系统没有安装 glibc 开发包的问题 Ubuntu x64 apt-get install libc6-dev-amd64 CentOS x64 yum install glibc-devel.x86_64</description></item><item><title>CentOS系统IP设置</title><link>https://www.leelib.com/2013/05/12/centos-set-ip.html</link><pubDate>Sun, 12 May 2013 05:54:24 +0800</pubDate><guid>https://www.leelib.com/2013/05/12/centos-set-ip.html</guid><description>以最小化安装的CentOS系统默认是不自动设置IP信息的。 我们想要正常访问网络，第一步就必须先把IP设置好。 设置IP为自动获取： [root@centos ~]# dhclient eth0 设置</description></item><item><title>让RedHat系统使用CentOS的yum</title><link>https://www.leelib.com/2012/04/25/redhat-use-centos-yum.html</link><pubDate>Wed, 25 Apr 2012 10:04:10 +0800</pubDate><guid>https://www.leelib.com/2012/04/25/redhat-use-centos-yum.html</guid><description>错误原因 在使用未注册的 RedHat Linux 企业版时。使用yum命令会出现如下提示： [root@localhost ~]# yum install httpd Loaded plugins: rhnplugin, security This system is not registered with RHN. RHN support will be disabled. Setting up Install Process No package httpd available. Nothing to do 解决方案 而</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Centos on 逃避虽然可耻但有用</title><link>https://www.leelib.com/tags/centos.html</link><description>Recent content in Centos on 逃避虽然可耻但有用</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Sat, 01 Nov 2014 08:42:17 +0800</lastBuildDate><atom:link href="https://www.leelib.com/tags/centos/atom.xml" rel="self" type="application/rss+xml"/><item><title>CentOS安装GO编译环境</title><link>https://www.leelib.com/2014/11/01/centos-install-go.html</link><pubDate>Sat, 01 Nov 2014 08:42:17 +0800</pubDate><guid>https://www.leelib.com/2014/11/01/centos-install-go.html</guid><description>&lt;p>我们这里使用源码编译安装，直接按顺序执行下列命令就可以成功(我都是假设已经有root权限的情况下，所以执行之前请确认自己已有root权限)：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>yum install -y mercurial gcc-c++ gcc
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mkdir /usr/local
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd /usr/local
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>hg clone -r release https://go.googlecode.com/hg/ go
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd /usr/local/go/src
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>chmox +x all.bash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>./all.bash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mkdir /root/go
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>export GOROOT&lt;span style="color:#f92672">=&lt;/span>/usr/local/go
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>export GOPATH&lt;span style="color:#f92672">=&lt;/span>/root/go
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>export GOBIN&lt;span style="color:#f92672">=&lt;/span>/usr/local/go/bin
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>export GOOS&lt;span style="color:#f92672">=&lt;/span>linux
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>export PATH&lt;span style="color:#f92672">=&lt;/span>.:$PATH:/usr/local/go/bin
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>现在应该已经可以执行go命令测试了：&lt;/p></description></item><item><title>解决yum安装 openssl-devel时产生的Multilib version problems found错误</title><link>https://www.leelib.com/2014/06/29/fix-yum-openssl-devel-multilib-version-problems-found.html</link><pubDate>Sun, 29 Jun 2014 06:56:31 +0800</pubDate><guid>https://www.leelib.com/2014/06/29/fix-yum-openssl-devel-multilib-version-problems-found.html</guid><description>&lt;p>今天给一台CentOS系统安装openssl-devel时，出现了如下信息：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>root@centos&lt;span style="color:#f92672">]&lt;/span>&lt;span style="color:#75715e"># yum install -y openssl-devel&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Loaded plugins: fastestmirror, security
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Repository updates is listed more than once in the configuration
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Repository centosplus is listed more than once in the configuration
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Repository contrib is listed more than once in the configuration
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Repository extras is listed more than once in the configuration
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Loading mirror speeds from cached hostfile
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * base: mirrors.tuna.tsinghua.edu.cn
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * extras: mirrors.tuna.tsinghua.edu.cn
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> * updates: mirrors.tuna.tsinghua.edu.cn
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Setting up Install Process
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Resolving Dependencies
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Running transaction check
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>---&amp;gt; Package openssl-devel.x86_64 0:1.0.1e-16.el6_5.14 will be installed
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Processing Dependency: krb5-devel &lt;span style="color:#66d9ef">for&lt;/span> package: openssl-devel-1.0.1e-16.el6_5.14.x86_64
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Running transaction check
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>---&amp;gt; Package krb5-devel.x86_64 0:1.10.3-15.el6_5.1 will be installed
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Processing Dependency: libselinux-devel &lt;span style="color:#66d9ef">for&lt;/span> package: krb5-devel-1.10.3-15.el6_5.1.x86_64
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Processing Dependency: libcom_err-devel &lt;span style="color:#66d9ef">for&lt;/span> package: krb5-devel-1.10.3-15.el6_5.1.x86_64
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Processing Dependency: keyutils-libs-devel &lt;span style="color:#66d9ef">for&lt;/span> package: krb5-devel-1.10.3-15.el6_5.1.x86_64
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Running transaction check
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>---&amp;gt; Package keyutils-libs-devel.x86_64 0:1.4-4.el6 will be installed
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>---&amp;gt; Package libcom_err-devel.x86_64 0:1.41.12-18.el6 will be installed
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>---&amp;gt; Package libselinux-devel.x86_64 0:2.0.94-5.3.el6_4.1 will be installed
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Processing Dependency: libselinux &lt;span style="color:#f92672">=&lt;/span> 2.0.94-5.3.el6_4.1 &lt;span style="color:#66d9ef">for&lt;/span> package: libselinux-devel-2.0.94-5.3.el6_4.1.x86_64
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Processing Dependency: libsepol-devel &amp;gt;&lt;span style="color:#f92672">=&lt;/span> 2.0.32-1 &lt;span style="color:#66d9ef">for&lt;/span> package: libselinux-devel-2.0.94-5.3.el6_4.1.x86_64
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Processing Dependency: pkgconfig&lt;span style="color:#f92672">(&lt;/span>libsepol&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#66d9ef">for&lt;/span> package: libselinux-devel-2.0.94-5.3.el6_4.1.x86_64
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Running transaction check
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>---&amp;gt; Package libselinux.i686 0:2.0.94-5.3.el6_4.1 will be installed
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Processing Dependency: libdl.so.2&lt;span style="color:#f92672">(&lt;/span>GLIBC_2.1&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#66d9ef">for&lt;/span> package: libselinux-2.0.94-5.3.el6_4.1.i686
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Processing Dependency: libdl.so.2&lt;span style="color:#f92672">(&lt;/span>GLIBC_2.0&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#66d9ef">for&lt;/span> package: libselinux-2.0.94-5.3.el6_4.1.i686
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Processing Dependency: libdl.so.2 &lt;span style="color:#66d9ef">for&lt;/span> package: libselinux-2.0.94-5.3.el6_4.1.i686
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Processing Dependency: libc.so.6&lt;span style="color:#f92672">(&lt;/span>GLIBC_2.8&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#66d9ef">for&lt;/span> package: libselinux-2.0.94-5.3.el6_4.1.i686
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Processing Dependency: ld-linux.so.2&lt;span style="color:#f92672">(&lt;/span>GLIBC_2.3&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#66d9ef">for&lt;/span> package: libselinux-2.0.94-5.3.el6_4.1.i686
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Processing Dependency: ld-linux.so.2 &lt;span style="color:#66d9ef">for&lt;/span> package: libselinux-2.0.94-5.3.el6_4.1.i686
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>---&amp;gt; Package libsepol-devel.x86_64 0:2.0.41-4.el6 will be installed
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Running transaction check
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>---&amp;gt; Package glibc.i686 0:2.12-1.132.el6_5.2 will be installed
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Processing Dependency: libfreebl3.so&lt;span style="color:#f92672">(&lt;/span>NSSRAWHASH_3.12.3&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#66d9ef">for&lt;/span> package: glibc-2.12-1.132.el6_5.2.i686
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Processing Dependency: libfreebl3.so &lt;span style="color:#66d9ef">for&lt;/span> package: glibc-2.12-1.132.el6_5.2.i686
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Running transaction check
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>---&amp;gt; Package nss-softokn-freebl.i686 0:3.14.3-10.el6_5 will be installed
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--&amp;gt; Finished Dependency Resolution
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Error: Multilib version problems found. This often means that the root
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cause is something &lt;span style="color:#66d9ef">else&lt;/span> and multilib version checking is just
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> pointing out that there is a problem. Eg.:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 1&lt;span style="color:#ae81ff">\.&lt;/span> You have an upgrade &lt;span style="color:#66d9ef">for&lt;/span> libselinux which is missing some
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> dependency that another package requires. Yum is trying to
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> solve this by installing an older version of libselinux of the
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> different architecture. If you exclude the bad architecture
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> yum will tell you what the root cause is &lt;span style="color:#f92672">(&lt;/span>which package
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> requires what&lt;span style="color:#f92672">)&lt;/span>. You can try redoing the upgrade with
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --exclude libselinux.otherarch ... this should give you an error
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> message showing the root cause of the problem.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 2&lt;span style="color:#ae81ff">\.&lt;/span> You have multiple architectures of libselinux installed, but
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> yum can only see an upgrade &lt;span style="color:#66d9ef">for&lt;/span> one of those arcitectures.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> If you don&lt;span style="color:#960050;background-color:#1e0010">&amp;#39;&lt;/span>t want/need both architectures anymore &lt;span style="color:#66d9ef">then&lt;/span> you
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> can remove the one with the missing update and everything
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> will work.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 3&lt;span style="color:#ae81ff">\.&lt;/span> You have duplicate versions of libselinux installed already.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> You can use &lt;span style="color:#e6db74">&amp;#34;yum check&amp;#34;&lt;/span> to get yum show these errors.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ...you can also use --setopt&lt;span style="color:#f92672">=&lt;/span>protected_multilib&lt;span style="color:#f92672">=&lt;/span>false to remove
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> this checking, however this is almost never the correct thing to
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">do&lt;/span> as something &lt;span style="color:#66d9ef">else&lt;/span> is very likely to go wrong &lt;span style="color:#f92672">(&lt;/span>often causing
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> much more problems&lt;span style="color:#f92672">)&lt;/span>.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Protected multilib versions: libselinux-2.0.94-5.3.el6_4.1.i686 !&lt;span style="color:#f92672">=&lt;/span> libselinux-2.0.94-5.3.0.1.el6.centos.plus.x86_64
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> You could try using --skip-broken to work around the problem
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> You could try running: rpm -Va --nofiles --nodigest
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>最后在一个日文的网站上找到了解决办法：&lt;/strong>&lt;/p></description></item><item><title>解决编译时出现“gnu/stubs-64.h: No such file or directory”的问题</title><link>https://www.leelib.com/2013/07/10/gnu-stubs-64-h-no-such-file-or-directory.html</link><pubDate>Wed, 10 Jul 2013 10:12:49 +0800</pubDate><guid>https://www.leelib.com/2013/07/10/gnu-stubs-64-h-no-such-file-or-directory.html</guid><description>&lt;h1 id="这个实际上是系统没有安装-glibc-开发包的问题">这个实际上是系统没有安装 &lt;strong>glibc&lt;/strong> 开发包的问题&lt;/h1>
+&lt;h2 id="ubuntu-x64">Ubuntu x64&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>apt-get install libc6-dev-amd64
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="centos-x64">CentOS x64&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>yum install glibc-devel.x86_64
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>CentOS系统IP设置</title><link>https://www.leelib.com/2013/05/12/centos-set-ip.html</link><pubDate>Sun, 12 May 2013 05:54:24 +0800</pubDate><guid>https://www.leelib.com/2013/05/12/centos-set-ip.html</guid><description>&lt;blockquote>
+&lt;p>以最小化安装的CentOS系统默认是不自动设置IP信息的。
+我们想要正常访问网络，第一步就必须先把IP设置好。&lt;/p>&lt;/blockquote>
+&lt;h1 id="设置ip为自动获取">设置IP为自动获取：&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>root@centos ~&lt;span style="color:#f92672">]&lt;/span>&lt;span style="color:#75715e"># dhclient eth0&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="设置ip为手动填写">设置IP为手动填写：&lt;/h1>
+&lt;ol>
+&lt;li>设置网关&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>root@centos ~&lt;span style="color:#f92672">]&lt;/span>&lt;span style="color:#75715e"># echo &amp;#39;GATEWAY=&amp;#34;192.168.1.1&amp;#34;&amp;#39; &amp;gt;&amp;gt; /etc/sysconfig/network&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
+&lt;li>设置网卡信息&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>root@centos ~&lt;span style="color:#f92672">]&lt;/span>&lt;span style="color:#75715e"># echo &amp;#39;DEVICE=&amp;#34;eth0&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>HWADDR&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;00:0C:29:28:F9:88&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>NM_CONTROLLED&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;yes&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ONBOOT&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;yes&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>BOOTPROTO&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;none&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>BROADCAST&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;192.168.1.255&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>IPADDR&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;192.168.1.120&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>NETMASK&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;255.255.255.0&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>NETWORK&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;192.168.1.0&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>IPV6INIT&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;yes&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>IPV6_AUTOCONF&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;yes&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>TYPE&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;Ethernet&amp;#34;&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">&amp;#39;&lt;/span> &amp;gt; /etc/sysconfig/network-scripts/ifcfg-eth0
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="3">
+&lt;li>设置DNS&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>root@centos ~&lt;span style="color:#f92672">]&lt;/span>&lt;span style="color:#75715e"># echo &amp;#39;nameserver 8.8.8.8&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>nameserver 8.8.4.4&lt;span style="color:#960050;background-color:#1e0010">&amp;#39;&lt;/span>&amp;gt; /etc/resolv.conf
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="4">
+&lt;li>重启网络&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>root@centos ~&lt;span style="color:#f92672">]&lt;/span>&lt;span style="color:#75715e"># service network restart&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Shutting down loopback interface: &lt;span style="color:#f92672">[&lt;/span> OK &lt;span style="color:#f92672">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Bringing up loopback interface: &lt;span style="color:#f92672">[&lt;/span> OK &lt;span style="color:#f92672">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Bringing up interface eth0: &lt;span style="color:#f92672">[&lt;/span> OK &lt;span style="color:#f92672">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>让RedHat系统使用CentOS的yum</title><link>https://www.leelib.com/2012/04/25/redhat-use-centos-yum.html</link><pubDate>Wed, 25 Apr 2012 10:04:10 +0800</pubDate><guid>https://www.leelib.com/2012/04/25/redhat-use-centos-yum.html</guid><description>&lt;p>&lt;img src="https://www.leelib.com/wp-content/uploads/2012/04/redhat.webp#center" alt="redhat">&lt;/p>
+&lt;h1 id="错误原因">错误原因&lt;/h1>
+&lt;p>在使用未注册的 RedHat Linux 企业版时。使用yum命令会出现如下提示：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>root@localhost ~&lt;span style="color:#f92672">]&lt;/span>&lt;span style="color:#75715e"># yum install httpd&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Loaded plugins: rhnplugin, security
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>This system is not registered with RHN.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>RHN support will be disabled.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Setting up Install Process
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>No package httpd available.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Nothing to &lt;span style="color:#66d9ef">do&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="解决方案">解决方案&lt;/h1>
+&lt;p>而这种情况可以使用CentOS的yum来代替掉系统本身的yum
+脚本如下：&lt;/p></description></item></channel></rss>
