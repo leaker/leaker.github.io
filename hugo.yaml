@@ -3,12 +3,15 @@ languageCode: zh-CN
 title: 逃避虽然可耻但有用
 theme: fika
 metaDataFormat: yaml
-paginatePath: page
+# paginatePath: page # ERROR deprecated: site config key paginatePath was deprecated in Hugo v0.128.0 and subsequently removed. Use pagination.path instead.
 uglyURLs: true
 hasCJKLanguage: true
 
+pagination:
+  path: page
+
 permalinks:
-  posts: /:year/:month/:day/:filename
+  posts: /:year/:month/:day/:contentbasename # WARN  deprecated: the ":filename" permalink token was deprecated in Hugo 0.144.0 and will be removed in a future release. Use ":contentbasename" instead.
   /: /index.html
 
 
