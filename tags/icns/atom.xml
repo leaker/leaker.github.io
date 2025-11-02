@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Icns on 逃避虽然可耻但有用</title><link>https://www.leelib.com/tags/icns.html</link><description>Recent content in Icns on 逃避虽然可耻但有用</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Sat, 01 Nov 2025 22:46:10 +0800</lastBuildDate><atom:link href="https://www.leelib.com/tags/icns/atom.xml" rel="self" type="application/rss+xml"/><item><title>MacOS 图标生成</title><link>https://www.leelib.com/2025/11/01/macos-icon-generator.html</link><pubDate>Sat, 01 Nov 2025 22:46:10 +0800</pubDate><guid>https://www.leelib.com/2025/11/01/macos-icon-generator.html</guid><description>&lt;p&gt;将 PNG 图片转换为优化的 MacOS .icns 图标文件的 Shell 脚本，使用 sips + pngquant 两级压缩，自动调整尺寸至 512x512，支持透明背景。&lt;/p&gt;
+&lt;h1 id="功能"&gt;功能&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;自动调整图片尺寸为 512x512&lt;/li&gt;
+&lt;li&gt;sips + pngquant 两级压缩优化&lt;/li&gt;
+&lt;li&gt;完整的依赖检查和错误处理&lt;/li&gt;
+&lt;li&gt;显示压缩前后文件大小对比&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="依赖安装"&gt;依赖安装&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 仅需安装 pngquant&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew install pngquant
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;注：sips 和 iconutil 均为 MacOS 系统自带工具，无需额外安装&lt;/p&gt;</description></item></channel></rss>
