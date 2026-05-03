@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Conf on 逃避虽然可耻但有用</title><link>https://www.leelib.com/tags/conf.html</link><description>Recent content in Conf on 逃避虽然可耻但有用</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Thu, 30 Apr 2020 20:32:27 +0800</lastBuildDate><atom:link href="https://www.leelib.com/tags/conf/atom.xml" rel="self" type="application/rss+xml"/><item><title>解决WSL中使用NTFS分区的权限问题</title><link>https://www.leelib.com/2020/04/30/wsl-ntfs.html</link><pubDate>Thu, 30 Apr 2020 20:32:27 +0800</pubDate><guid>https://www.leelib.com/2020/04/30/wsl-ntfs.html</guid><description>&lt;p&gt;当使用WSL的过程中访问WSL系统以外目录时候出现一些奇奇怪怪问题
 通常就是WSL对于NTFS分区的目录权限问题。&lt;/p&gt;
 &lt;p&gt;使用 &lt;strong&gt;mount -l&lt;/strong&gt; 查看，可能长这样&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;[&lt;/span&gt;root@wsl&lt;span style="color:#f92672"&gt;]&lt;/span&gt; mount -l
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;[&lt;/span&gt;root@wsl&lt;span style="color:#f92672"&gt;]&lt;/span&gt; mount -l
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;rootfs on / type lxfs &lt;span style="color:#f92672"&gt;(&lt;/span&gt;rw,noatime&lt;span style="color:#f92672"&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;none on /dev type tmpfs &lt;span style="color:#f92672"&gt;(&lt;/span&gt;rw,noatime,mode&lt;span style="color:#f92672"&gt;=&lt;/span&gt;755&lt;span style="color:#f92672"&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sysfs on /sys type sysfs &lt;span style="color:#f92672"&gt;(&lt;/span&gt;rw,nosuid,nodev,noexec,noatime&lt;span style="color:#f92672"&gt;)&lt;/span&gt;
@@ -24,5 +24,5 @@
 &lt;li&gt;修改SELinux安全设置
 如：&lt;/li&gt;
 &lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;semanage port -a -t http_port_t -p tcp &amp;lt;listen port&amp;gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;semanage port -a -t http_port_t -p tcp &amp;lt;listen port&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item></channel></rss>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Browser on 逃避虽然可耻但有用</title><link>https://www.leelib.com/tags/browser.html</link><description>Recent content in Browser on 逃避虽然可耻但有用</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Mon, 04 May 2026 00:45:30 +0800</lastBuildDate><atom:link href="https://www.leelib.com/tags/browser/atom.xml" rel="self" type="application/rss+xml"/><item><title>记一次 RedNote 卡片导出的性能调优——从 4 秒卡顿到 1 秒流畅</title><link>https://www.leelib.com/2026/05/04/rednote-export-font-prewarm.html</link><pubDate>Mon, 04 May 2026 00:45:30 +0800</pubDate><guid>https://www.leelib.com/2026/05/04/rednote-export-font-prewarm.html</guid><description>&lt;h1 id="起因"&gt;起因&lt;/h1&gt;
+&lt;p&gt;最近写了一个小工具：把一段 Markdown 渲染成 6 张小红书风格的 PNG 卡片，然后打包成 ZIP 让用户下载。写完跑了一下，撞见一个反常的现象：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;单张卡片导出大约 200ms，体感很流畅&lt;/li&gt;
+&lt;li&gt;但点 &lt;strong&gt;Download All as ZIP&lt;/strong&gt; 一次导出 6 张，整个过程要 4 ~ 7 秒&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;数学不对。6 × 200ms 应该是 1.2 秒左右，怎么也不应该是 4 秒以上。&lt;/p&gt;</description></item></channel></rss>

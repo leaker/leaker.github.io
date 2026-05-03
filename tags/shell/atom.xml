@@ -7,12 +7,12 @@
 &lt;li&gt;显示压缩前后文件大小对比&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id="依赖安装"&gt;依赖安装&lt;/h1&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 仅需安装 pngquant&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 仅需安装 pngquant&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew install pngquant
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;注：sips 和 iconutil 均为 MacOS 系统自带工具，无需额外安装&lt;/p&gt;</description></item><item><title>让RedHat系统使用CentOS的yum</title><link>https://www.leelib.com/2012/04/25/redhat-use-centos-yum.html</link><pubDate>Wed, 25 Apr 2012 10:04:10 +0800</pubDate><guid>https://www.leelib.com/2012/04/25/redhat-use-centos-yum.html</guid><description>&lt;p&gt;&lt;img src="https://www.leelib.com/wp-content/uploads/2012/04/redhat.webp#center" alt="redhat"&gt;&lt;/p&gt;
 &lt;h1 id="错误原因"&gt;错误原因&lt;/h1&gt;
 &lt;p&gt;在使用未注册的 RedHat Linux 企业版时。使用yum命令会出现如下提示：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;[&lt;/span&gt;root@localhost ~&lt;span style="color:#f92672"&gt;]&lt;/span&gt;&lt;span style="color:#75715e"&gt;# yum install httpd&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;[&lt;/span&gt;root@localhost ~&lt;span style="color:#f92672"&gt;]&lt;/span&gt;&lt;span style="color:#75715e"&gt;# yum install httpd&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Loaded plugins: rhnplugin, security
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;This system is not registered with RHN.
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;RHN support will be disabled.

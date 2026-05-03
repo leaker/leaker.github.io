@@ -4,5 +4,5 @@
 &lt;p&gt;去掉项目设置中: &lt;strong&gt;Linker -&amp;gt; Advanced -&amp;gt; [Image Has Safe Exception Handlers] = &amp;ldquo;No&amp;rdquo;&lt;/strong&gt;&lt;/p&gt;
 &lt;h2 id="方法2"&gt;方法2&lt;/h2&gt;
 &lt;p&gt;直接在代码中:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-cpp" data-lang="cpp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;#pragma comment(linker, &amp;#34;/SAFESEH:NO&amp;#34;)
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-cpp" data-lang="cpp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;#pragma comment(linker, &amp;#34;/SAFESEH:NO&amp;#34;)
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item></channel></rss>

@@ -2,5 +2,5 @@
 但最近需要移植到windows下使用。
 所以以MFC来做UI，代码照搬。
 一面的一处代码使用了如下语句：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-cpp" data-lang="cpp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;boost&lt;span style="color:#f92672"&gt;::&lt;/span&gt;split(v, data, boost&lt;span style="color:#f92672"&gt;::&lt;/span&gt;is_any_of(_T(&lt;span style="color:#e6db74"&gt;&amp;#34;n&amp;#34;&lt;/span&gt;)));
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-cpp" data-lang="cpp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;boost&lt;span style="color:#f92672"&gt;::&lt;/span&gt;split(v, data, boost&lt;span style="color:#f92672"&gt;::&lt;/span&gt;is_any_of(_T(&lt;span style="color:#e6db74"&gt;&amp;#34;n&amp;#34;&lt;/span&gt;)));
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;结果编译时出现了如下错误：&lt;/p&gt;</description></item></channel></rss>
