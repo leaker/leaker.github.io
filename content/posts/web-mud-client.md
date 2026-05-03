@@ -24,7 +24,7 @@ date: 2012-03-22T23:48:35+08:00
 *   高级脚本内部变量:Self
 *   高级脚本内部函数:GetActor,Log,Cmd,Sleep,
 IsFaintStatus
-*   高级脚本内实现<hit> <kill> <get> <check>
+*   高级脚本内实现 `<hit>` `<kill>` `<get>` `<check>`
 等基本命令
 *   高级脚本内实现RunLine,RunScript等功能
 *   高级脚本内实现OnAddActor,OnDelActor,

@@ -1,5 +1,5 @@
 baseURL: https://www.leelib.com/
-languageCode: zh-CN
+locale: zh-CN
 title: 逃避虽然可耻但有用
 theme: fika
 metaDataFormat: yaml
