@@ -1,5 +1,6 @@
 # OS
 .DS_Store
+._*
 Thumbs.db
 
 # non-sourced files
@@ -11,6 +12,7 @@ public/
 
 # Claude
 .claude/
+CLAUDE.md
 
 # IDEs
 .vscode/
