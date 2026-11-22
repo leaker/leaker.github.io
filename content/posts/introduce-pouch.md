@@ -65,7 +65,7 @@ ignore_urls = [
 auto_check = true
 ```
 
-macOS 下这个文件在 `~/Library/Application Support/Pouch/hook.conf.toml`，Windows 下在 `%APPDATA%\Pouch\`。改完按 `Cmd+R`（Windows 重启进程）就生效。
+macOS 下这个文件在 `~/Library/Application Support/Pouch/hook.conf.toml`，Windows 下在 `%APPDATA%\Pouch\`。改完按 {{< kbd "Cmd+R" >}}（Windows 重启进程）就生效。
 
 `ignore_urls` 提供四种匹配方式，按精度递增挑就行：host 后缀、host 通配、整 URL 通配、整 URL 正则。
 
