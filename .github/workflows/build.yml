@@ -34,16 +34,6 @@ jobs:
         uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: 'latest'
-          extended: true
-
-      # Hugo no longer bundles LibSass; the theme's toCSS needs Dart Sass in PATH
-      - name: Setup Dart Sass
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          v=$(gh api repos/sass/dart-sass/releases/latest -q .tag_name)
-          curl -sSfL "https://github.com/sass/dart-sass/releases/download/${v}/dart-sass-${v}-linux-x64.tar.gz" | tar xz -C "$RUNNER_TEMP"
-          echo "$RUNNER_TEMP/dart-sass" >> "$GITHUB_PATH"
 
       - name: Build
         run: hugo --gc --minify
